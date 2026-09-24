@@ -10,18 +10,236 @@
             <h1>Deportes</h1>
             <nav>
                 <a href="../actividades.html">Actividades</a>
-                
+
                 <span>·</span>
-                
+
                 <a href="cultura.html">Cultura</a>
                 <a href="talleres.html">Talleres</a>
             </nav>
         </header>
         <main>
-            
+            <br>
+            <hr>
+
+            <section>
+                <h2>Actividades deportivas de la jornada</h2>
+                <p>Durante el evento podr&aacute;s participar en Colpbol, P&aacute;del y Voleibol. Para facilitar la organizaci&oacute;n de equipos, rellena el siguiente formulario y te emparejaremos con otros participantes.</p>
+                <ol>
+                    <li>Elige el deporte en el que quieres participar.</li>
+                    <li>Indica tu nivel de experiencia.</li>
+                    <li>Selecciona el color de camiseta con el que sueles jugar.</li>
+                    <li>Te asignaremos a un equipo con participantes de colores afines.</li>
+                </ol>
+                <p>
+                    <mark>Plazo de apuntarse a un equipo:</mark>
+                    <time datetime="2026-05-08">20 de octubre de 2026</time>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Buscar equipo</h2>
+
+                <form action="deportes.html" method="post"> <!-- Simulación -->
+
+                    <fieldset>
+                        <legend>Datos del participante</legend>
+
+                        <p>
+                            <label for="nombre">Nombre completo *</label>
+                            <br>
+                            <input type="text" id="nombre" name="nombre"
+                                   placeholder="Nombre y apellidos"
+                                   autofocus required
+                                   autocomplete="name">
+                        </p>
+
+                        <p>
+                            <label for="email">Correo electr&oacute;nico *</label>
+                            <br>
+                            <input type="email" id="email" name="email"
+                                   placeholder="usuario@alumno.upo.es"
+                                   required
+                                   autocomplete="email">
+                        </p>
+
+                        <p>
+                            <label for="telefono">Tel&eacute;fono de contacto</label>
+                            <br>
+                            <input type="tel" id="telefono" name="telefono"
+                                   pattern="[0-9]{9}"
+                                   placeholder="600123456"
+                                   title="Introduce un n&uacute;mero de 9 d&iacute;gitos"
+                                   autocomplete="tel">
+                        </p>
+
+                        <p>
+                            <label for="disponibilidad">Fecha en la que puedes jugar (jueves y viernes) *</label>
+                            <br>
+                            <input type="date" id="disponibilidad" name="disponibilidad"
+                                   min="2026-10-29" max="2026-11-13" required>
+                        </p>
+
+                        <p>
+                            <label for="altura">Altura</label>
+                            <br>
+                            <input type="number" id="altura" name="altura"
+                                   min="1.0" max="2.5" step="0.01"
+                                   placeholder="1.67">
+                        </p>
+
+                        <p>
+                            <label for="nivel">Nivel de experiencia (0 a 10)</label>
+                            <br>
+                            <input type="range" id="nivel" name="nivel"
+                                   min="0" max="10" step="1" value="5">
+                            <output for="nivel">de principiante a experto</output>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Preferencia deportiva</legend>
+
+                        <p>
+                            Me interesan
+                            <br>
+                            <input type="checkbox" id="dep1" name="otrosDeportes" value="colpbol">
+                            <label for="dep1">Colpbol</label>
+                            <br>
+
+                            <input type="checkbox" id="dep2" name="otrosDeportes" value="padel">
+                            <label for="dep2">P&aacute;del</label>
+                            <br>
+
+                            <input type="checkbox" id="dep3" name="otrosDeportes" value="voleibol">
+                            <label for="dep3">Voleibol</label>
+                        </p>
+
+                        <p>
+                            <label for="posicion">Posici&oacute;n habitual</label>
+                            <br>
+                            <select id="posicion" name="posicion" required>
+                                <optgroup label="Colpbol / Voleibol">
+                                    <option value="delantero">Delantero</option>
+                                    <option value="defensa">Defensa</option>
+                                    <option value="central">Central</option>
+                                </optgroup>
+                                <optgroup label="P&aacute;del">
+                                    <option value="drive">Jugador de drive</option>
+                                    <option value="reves">Jugador de rev&eacute;s</option>
+                                </optgroup>
+                            </select>
+                        </p>
+
+                        <p>
+                            Turno preferido
+                            <br>
+                            <input type="radio" id="manana" name="turno" value="manana">
+                            <label for="manana">Ma&ntilde;ana</label>
+                            <br>
+
+                            <input type="radio" id="tarde" name="turno" value="tarde">
+                            <label for="tarde">Tarde</label>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Emparejamiento por equipos</legend>
+
+                        <p>
+                            <label for="colorCamiseta">Color de camiseta con el que sueles jugar</label>
+                            <br>
+                            <input type="color" id="colorCamiseta" name="colorCamiseta" value="#fff000">
+                            <br>
+                            <small>Usaremos este color para agruparte con otros participantes que visten igual y formar el equipo.</small>
+                        </p>
+
+                        <p>
+                            <label for="buscarCompanero">Buscar a un compa&ntilde;ero de equipo por nombre</label>
+                            <br>
+                            <input type="search" id="buscarCompanero" name="buscarCompanero"
+                                   placeholder="Nombre de un compa&ntilde;ero">
+                        </p>
+
+                        <p>
+                            <label for="comentarios">Comentarios adicionales</label>
+                            <br>
+                            <textarea id="comentarios" name="comentarios"
+                                      rows="4" cols="40"
+                                      placeholder="Preferencias, limitaciones, etc."></textarea>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Estado de los equipos</legend>
+                        <p>
+                            Plazas ocupadas en el equipo de camiseta roja
+                            <meter min="0" max="12" value="9" low="4" high="11" optimum="6">
+                                9 de 12
+                            </meter>
+                            (9 / 12)
+                        </p>
+                        <p>
+                            Progreso de formaci&oacute;n de equipos
+                            <progress value="14" max="100">14%</progress>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Accesibilidad</legend>
+                        <details>
+                            <summary>Tienes alguna discapacidad o necesitas alguna adaptaci&oacute;n?</summary>
+
+                            <p>Marca lo que necesites para que podamos adaptar la actividad</p>
+
+                            <p>
+                                <input type="checkbox" id="accesMovilidad" name="adaptaciones" value="movilidad">
+                                <label for="accesMovilidad">Movilidad reducida (acceso sin escalones, pista adaptada)</label>
+                                <br>
+
+                                <input type="checkbox" id="accesVisual" name="adaptaciones" value="visual">
+                                <label for="accesVisual">Discapacidad visual</label><br>
+
+                                <input type="checkbox" id="accesAuditiva" name="adaptaciones" value="auditiva">
+                                <label for="accesAuditiva">Discapacidad auditiva (int&eacute;rprete de signos)</label>
+                                <br>
+
+                                <input type="checkbox" id="accesOtra" name="adaptaciones" value="otra">
+                                <label for="accesOtra">Otra</label>
+                            </p>
+
+                            <p>
+                                <label for="detalleAdapt">Cu&eacute;ntanos m&aacute;s</label>
+                                <br>
+                                <textarea id="detalleAdapt" name="detalleAdapt"
+                                          rows="3" cols="40"
+                                          placeholder="Describe lo que sea necesario"></textarea>
+                            </p>
+
+                            <p>
+                                <label for="contactoAcces">Tel&eacute;fono de contacto para la accesibilidad</label>
+                                <br>
+                                <input type="tel" id="contactoAcces" name="contactoAcces"
+                                       value="912345678" readonly>
+                            </p>
+                        </details>
+                    </fieldset>
+
+                    <p>
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto las <a href="#terminos"> normas de juego limpio</a>.</label> 
+                        <!-- Simulación. Iría a otra página con las normas-->
+                    </p>
+
+                    <p>
+                        <input type="submit" name="envio" value="Unirme a un equipo">
+                        <input type="reset" name="envio" value="Reestablecer">   
+                    </p>
+
+                </form>
+            </section>
         </main>
         <footer>
-            
+
         </footer>
     </body>
 </html>

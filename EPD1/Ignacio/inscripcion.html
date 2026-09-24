@@ -21,10 +21,192 @@
             </nav>
         </header>
         <main>
-            
+
+            <br>
+            <hr>
+
+            <section>
+                <h3>C&oacute;mo inscribirte</h3>
+                <ol>
+                    <li>Rellena el formulario con tus datos personales.</li>
+                    <li>Selecciona las actividades a las que quieres asistir.</li>
+                    <li>Confirma tu inscripci&oacute;n.</li>
+                    <li>Espera 15 minutos, te llegará un correo de confirmaci&oacute;n.</li>
+                </ol>
+                <p>
+                    <mark>Plazo l&iacute;mite de inscripci&oacute;n:</mark>
+                    <time datetime="2026-10-10">10 de octubre de 2026</time>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Formulario de inscripci&oacute;n</h2>
+
+                <form action="inscripcion.html" method="post"> <!-- Simulación -->
+
+                    <fieldset>
+                        <legend>Datos personales</legend>
+
+                        <p>
+                            <label for="nombre">Nombre completo *</label>
+                            <br>
+                            <input type="text" id="nombre" name="nombre"
+                                   placeholder="Nombre y apellidos"
+                                   autofocus required
+                                   autocomplete="name">
+                        </p>
+
+                        <p>
+                            <label for="email">Correo electr&oacute;nico *</label>
+                            <br>
+                            <input type="email" id="email" name="email"
+                                   placeholder="usuarioUPO@alumno.upo.es"
+                                   required
+                                   autocomplete="email">
+                        </p>
+
+                        <p>
+                            <label for="telefono">Tel&eacute;fono</label>
+                            <br>
+                            <input type="tel" id="telefono" name="telefono"
+                                   pattern="[0-9]{9}"
+                                   placeholder="612345678"
+                                   autocomplete="tel">
+                        </p>
+
+                        <p>
+                            <label for="web">P&aacute;gina web</label>
+                            <br>
+                            <input type="url" id="web" name="web"
+                                   placeholder="https://miweb.es">
+                        </p>
+
+                        <p>
+                            <label for="nacimiento">Fecha de nacimiento *</label><br>
+                            <input type="date" id="nacimiento" name="nacimiento"
+                                   min="1900-01-01" max="2012-12-31" required>
+                        </p>
+
+                        <p>
+                            <label for="clave">Contrase&ntilde;a de acceso al evento *</label>
+                            <br>
+                            <input type="password" id="clave" name="clave"
+                                   minlength="8" required
+                                   autocomplete="off">
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Datos acad&eacute;micos</legend>
+
+                        <p>
+                            <label for="universidad">Universidad</label>
+                            <br>
+                            <input type="text" id="universidad" name="universidad"
+                                   list="listaUniversidades"
+                                   placeholder="Escribe tu universidad">
+                            <datalist id="listaUniversidades">
+                                <option value="Universidad Pablo de Olavide">
+                                <option value="Universidad de Sevilla">
+                                <option value="Universidad de C&aacute;diz">
+                                <option value="Universidad de Granada">
+                                <option value="Universidad de Huelva">
+                                <option value="Universidad de Ja&eacute;n">
+                                <option value="Universidad de M&aacute;laga">
+                                <option value="Universidad de C&oacute;rdoba">
+                                <option value="Universidad de Almer&iacute;a">
+                                <option value="Mascachuches University">
+                            </datalist>
+                        </p>
+
+                        <p>
+                            <label for="curso">Curso actual:</label>
+                            <br>
+                            <select id="curso" name="curso" required>
+                                <optgroup label="Grado">
+                                    <option value="1">Primero</option>
+                                    <option value="2">Segundo</option>
+                                    <option value="3">Tercero</option>
+                                    <option value="4">Cuarto</option>
+                                </optgroup>
+                                <optgroup label="Posgrado">
+                                    <option value="master">M&aacute;ster</option>
+                                    <option value="doctorado">Doctorado</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Plazas</legend>
+                        <p>
+                            Plazas ocupadas:
+                            <meter id="plazas" min="0" max="200" value="150" low="50" high="180" optimum="0">
+                                150 de 200
+                            </meter>
+                            (150 / 200)
+                        </p>
+                        <p>
+                            Progreso del proceso de inscripci&oacute;n:
+                            <progress value="25" max="100">25%</progress>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Accesibilidad</legend>
+                        <details>
+                            <summary>Tienes alguna discapacidad o necesitas alguna adaptaci&oacute;n?</summary>
+
+                            <p>Marca lo que necesites para que podamos adaptar la actividad</p>
+
+                            <p>
+                                <input type="checkbox" id="accesMovilidad" name="adaptaciones" value="movilidad">
+                                <label for="accesMovilidad">Movilidad reducida (acceso sin escalones, pista adaptada)</label>
+                                <br>
+
+                                <input type="checkbox" id="accesVisual" name="adaptaciones" value="visual">
+                                <label for="accesVisual">Discapacidad visual</label><br>
+
+                                <input type="checkbox" id="accesAuditiva" name="adaptaciones" value="auditiva">
+                                <label for="accesAuditiva">Discapacidad auditiva (int&eacute;rprete de signos)</label>
+                                <br>
+
+                                <input type="checkbox" id="accesOtra" name="adaptaciones" value="otra">
+                                <label for="accesOtra">Otra</label>
+                            </p>
+
+                            <p>
+                                <label for="detalleAdapt">Cu&eacute;ntanos m&aacute;s</label>
+                                <br>
+                                <textarea id="detalleAdapt" name="detalleAdapt"
+                                          rows="3" cols="40"
+                                          placeholder="Describe lo que sea necesario"></textarea>
+                            </p>
+
+                            <p>
+                                <label for="contactoAcces">Tel&eacute;fono de contacto para la accesibilidad</label>
+                                <br>
+                                <input type="tel" id="contactoAcces" name="contactoAcces"
+                                       value="912345678" readonly>
+                            </p>
+                        </details>
+                    </fieldset>
+
+                    <p>
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto los <a href="#terminos">t&eacute;rminos y condiciones del evento</a>.</label>
+                    </p>
+
+                    <p>
+                        <input type="submit" name="envio" value="Enviar">
+                        <input type="reset" name="envio" value="Reestablecer">               
+                    </p>
+
+                </form>
+            </section>
         </main>
         <footer>
-            
+
         </footer>
     </body>
 </html>
