@@ -6,6 +6,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <center>
+                <h1>Inscr&iacute;bete</h1>
+            </center>
+        </header>
+        <a href="index.html">P&aacute;gina principal</a>
+        <a href="login.html">Login</a>
+        <a href="programa.html">Programa</a>
+        <a href="actividades.html">Actividades</a>
+        <a href="ponentes.html">Ponentes</a>
+        <a href="asociaciones.html">Asociaciones</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="noticias.html">Noticias</a>
+        <main>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input required type="text" id="nombre" name="nombre" minlength="3" maxlength="25" placeholder="Nombre">
+                <br>
+                <label for="email">Correo:</label>
+                <input required type="text" id="email" name="email" placeholder="Correo">
+                <br>
+                <label for="cultura">Cultura:</label>
+                <br>
+                <select required name="cultura" id="cultura" size="3" multiple>
+                    <option value="igualdad">Igualdad</option>
+                    <option value="historia">Historia</option>
+                    <option value="deportistas">Deportistas</option>
+                </select>
+                <p>Mantén pulsado Ctrl (windows) o Command (Mac) para seleccionar múltiples opciones</p>
+                <label for="deportes">Deportes:</label>
+                <br>
+                <select required name="deportes" id="deportes" size="4" multiple>
+                    <option value="basket">Baloncesto (18:00)</option>
+                    <option value="futebol">F&uacute;tbol (18:45)</option>
+                    <option value="petanca">Petanca (19:30)</option>
+                    <option value="volley">Voleibol (20:15)</option>
+                </select>
+                <p>Mantén pulsado Ctrl (windows) o Command (Mac) para seleccionar múltiples opciones</p>
+                <label for="talleres">Talleres:</label>
+                <br>
+                <select name="talleres" id="talleres" multiple size="3">
+                    <option value="manualidades">Manualidades (16:00)</option>
+                    <option value="escultura">Escultura (17:00)</option>
+                    <option value="pintar">Pintar (18:00)</option>
+                </select>
+                <p>Mantén pulsado Ctrl (windows) o Command (Mac) para seleccionar múltiples opciones</p>
+                <input type="submit" value="Enviar" id="submit">
+            </form>
+        </main>
+        <footer>Por motivos legales, nada de lo declarado en esta página web existe</footer>
     </body>
 </html>
