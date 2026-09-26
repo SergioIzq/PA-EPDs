@@ -7,7 +7,10 @@
     </head>
     <body>
         <header>
-            <h1>Iniciar sesi&oacute;n</h1>
+            <hgroup>
+                <h1>Iniciar sesi&oacute;n</h1>
+                <h2>Accede con tu cuenta para gestionar tu inscripci&oacute;n</h2>
+            </hgroup>
             <nav>
                 <a href="index.html">Inicio</a>
                 <a href="programa.html">Programa</a>
@@ -24,73 +27,78 @@
             <br>
             <hr>
 
-            <h2>Acceda para obtener una mejor experiencia</h2>
+            <section>
+                <h2>Acceda para obtener una mejor experiencia</h2>
 
-            <form action="login.html" method="post">
+                <form action="login.html" method="post">
 
-                <fieldset>
-                    <legend>Introduzca sus datos</legend>
+                    <fieldset>
+                        <legend>Introduzca sus datos</legend>
 
-                    <p>
-                        <label for="usuario">Usuario</label>
-                        <br>
-                        <input type="text" id="usuario" name="usuario" required>
-                    </p>
+                        <p>
+                            <label for="usuario">Usuario</label>
+                            <br>
+                            <input type="text" id="usuario" name="usuario" required>
+                        </p>
 
-                    <p>
-                        <label for="password">Contrase&ntilde;a</label>
-                        <br>
-                        <input type="password" id="password" name="password" required >
-                    </p>
-                    <p>Si no est&aacute; registrado, pinche <a href="#">aqu&iacute;</a>.</p>
-                </fieldset>
+                        <p>
+                            <label for="password">Contrase&ntilde;a</label>
+                            <br>
+                            <input type="password" id="password" name="password" required >
+                        </p>
 
-                <br>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Verificaci&oacute;n</legend>
+                    <br>
 
-                    <p>
-                        <strong>Soy un humano</strong>
-                    </p>
+                    <fieldset>
+                        <legend>Verificaci&oacute;n</legend>
 
-                    <p>
-                        Introduzca las letras que aparecen en la imagen:
-                    </p>
+                        <p>
+                            <strong>Soy un humano</strong>
+                        </p>
 
-                    <picture> <!-- Imágenes libres de derechos -->
-                        <!-- Similar a un switch. El img final es el default -->
-                        <source media="(min-width: 550px)" srcset="imagenes/codigoHumanoGrande.png">
+                        <p>
+                            Introduzca las letras que aparecen en la imagen:
+                        </p>
 
-                        <source media="(min-width: 350px)" srcset="imagenes/codigoHumano.png">
+                        <picture> <!-- Imágenes libres de derechos -->
+                            <!-- Similar a un switch. El img final es el default -->
+                            <source media="(min-width: 550px)" srcset="imagenes/codigoHumanoGrande.png">
 
-                         <img src="imagenes/codigoHumanoChico.png" alt="CAPTCHA">
-                    </picture>
+                            <source media="(min-width: 350px)" srcset="imagenes/codigoHumano.png">
 
-                    <p>
-                        <label for="captcha">Escriba lo que ve en la imagen</label>
-                        <br>
-                        <input type="text" id="captcha" name="captcha" maxlength="5" required>
-                    </p>
+                            <img src="imagenes/codigoHumanoChico.png" alt="CAPTCHA">
+                        </picture>
 
-                    <p>
-                        <strong>Escuchar CAPTCHA:</strong>
-                    </p>
+                        <p>
+                            <label for="captcha">Escriba lo que ve en la imagen</label>
+                            <br>
+                            <input type="text" id="captcha" name="captcha" maxlength="5" required>
+                        </p>
 
-                    <audio controls>
-                        <source src="https://cdn.pixabay.com/audio/2026/03/10/audio_95d547d0a4.mp3" type="audio/mpeg"> <!-- Audio libre de derechos -->
-                        Su navegador no soporta este audio.
-                    </audio>
+                        <p>
+                            <strong>Escuchar CAPTCHA:</strong>
+                        </p>
 
-                </fieldset>
+                        <audio controls>
+                            <source src="https://cdn.pixabay.com/audio/2026/03/10/audio_95d547d0a4.mp3" type="audio/mpeg"> <!-- Audio libre de derechos -->
+                            Su navegador no soporta este audio.
+                        </audio>
 
-                <br>
-                <input type="submit" name="inicioSesion" value="Iniciar sesi&oacute;n"> 
-            </form>
+                    </fieldset>
 
+                    <br>
+                    <input type="submit" name="inicioSesion" value="Iniciar sesi&oacute;n"> 
+                </form>
+            </section>
+            <aside>
+                <p>Si no est&aacute; registrado/a, pinche <a href="#">aqu&iacute;</a>.</p> <!-- Página de registro ficticia -->
+            </aside>
         </main>
         <footer>
-
+            <hr>
+            <p>&copy; 2026 Universidad Pablo de Olavide - Evento de ponencias y empleo</p>
         </footer>
     </body>
 </html>
