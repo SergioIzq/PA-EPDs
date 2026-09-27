@@ -23,6 +23,46 @@
         <main>
             <br>
             <hr>
+
+            <h2>Formas de contactarnos</h2>
+
+            <h3>Correo electr&oacute;nico</h3>
+            <p><a href="https://www.upo.es">empleoyponencias@soporte<wbr>.upo.es</a></p>
+
+            <h3>Tel&eacute;fono</h3>
+            <p><b>909876543</b> (horario de atenci&oacute;n: de <data value="09:00">09:00</data> a <data value="14:00">14:00</data>)</p>
+
+            <h3>Direcci&oacute;n postal</h3>
+            <p><i>Universidad Pablo de Olavide</i>, Ctra. de Utrera, km 1, 41013 Sevilla</p>
+
+            <h2>Env&iacute;anos un mensaje</h2>
+            <form action="#" method="post">
+                <p>
+                    <label for="nombreContacto">Nombre</label><br>
+                    <input type="text" id="nombreContacto" name="nombreContacto" required autofocus>
+                </p>
+                <p>
+                    <label for="emailContacto">Correo electr&oacute;nico</label><br>
+                    <input type="email" id="emailContacto" name="emailContacto" required>
+                </p>
+                <p>
+                    <label for="asuntoContacto">Asunto</label><br>
+                    <select id="asuntoContacto" name="asuntoContacto">
+                        <option value="orientacion">Orientaci&oacute;n</option>
+                        <option value="inscripcion">Inscripci&oacute;n</option>
+                        <option value="movilidad">Movilidad</option>
+                        <option value="asociaciones">Asociaciones</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="mensajeContacto">Mensaje</label><br>
+                    <textarea id="mensajeContacto" name="mensajeContacto" rows="6" cols="50" required></textarea>
+                </p>
+                <p>
+                    <input type="submit" name="envio" value="Enviar">
+                    <input type="reset" name="envio" value="Reestablecer"> 
+                </p>
+            </form>
         </main>
         <footer>
             <hr>
