@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Acceso</title>
+    </head>
+    <body>
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Zona privada de participantes</p>
+        </header>
+
+        <!-- NAV -->
+        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+            <p>
+                <a href="index.html">Inicio</a> |
+                <a href="programa.html">Programa</a> |
+                <a href="actividades.html">Actividades</a> |
+                <a href="ponentes.html">Ponentes</a> |
+                <a href="asociaciones.html">Asociaciones</a> |
+                <a href="multimedia.html">Multimedia</a> |
+                <a href="noticias.html">Noticias</a> |
+                <a href="inscripcion.html">Inscripci&oacute;n</a> |
+                <a href="contacto.html">Contacto</a> |
+                <a href="login.html" aria-current="page"><strong>Acceso</strong></a>
+            </p>
+        </nav>
+        <!-- /NAV -->
+
+        <main>
+            <section>
+                <h2>Iniciar sesi&oacute;n</h2>
+                <p>Accede para descargar tu credencial, consultar tus talleres y ver tus citas con empresas.</p>
+                <form action="login.html" method="post">
+                    <fieldset>
+                        <legend>Credenciales</legend>
+                        <p>
+                            <label for="usuario">Correo electr&oacute;nico</label>
+                            <input type="email" id="usuario" name="usuario" required autofocus autocomplete="email" placeholder="usuario@dominio.es">
+                        </p>
+                        <p>
+                            <label for="clave">Contrase&ntilde;a</label>
+                            <input type="password" id="clave" name="clave" required minlength="8" autocomplete="current-password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   title="Al menos 8 caracteres, con may&uacute;sculas, min&uacute;sculas y n&uacute;meros">
+                        </p>
+                        <p>
+                            <input type="checkbox" id="recordar" name="recordar">
+                            <label for="recordar">Recordarme en este equipo</label>
+                        </p>
+                        <p>
+                            <button type="submit">Entrar</button>
+                        </p>
+                    </fieldset>
+                </form>
+                <p>&iquest;A&uacute;n no tienes cuenta? Se crea autom&aacute;ticamente al completar la <a href="inscripcion.html">inscripci&oacute;n</a>.</p>
+            </section>
+
+            <details>
+                <summary>&iquest;Has olvidado tu contrase&ntilde;a?</summary>
+                <form action="login.html" method="post">
+                    <p>
+                        <label for="recuperar">Introduce tu correo y te enviaremos un enlace</label>
+                        <input type="email" id="recuperar" name="recuperar" required>
+                        <button type="submit">Enviar enlace</button>
+                    </p>
+                </form>
+            </details>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+        </footer>
+    </body>
+</html>

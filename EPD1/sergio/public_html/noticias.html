@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Noticias</title>
+    </head>
+    <body>
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Noticias y art&iacute;culos</p>
+        </header>
+
+        <!-- NAV -->
+        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+            <p>
+                <a href="index.html">Inicio</a> |
+                <a href="programa.html">Programa</a> |
+                <a href="actividades.html">Actividades</a> |
+                <a href="ponentes.html">Ponentes</a> |
+                <a href="asociaciones.html">Asociaciones</a> |
+                <a href="multimedia.html">Multimedia</a> |
+                <a href="noticias.html" aria-current="page"><strong>Noticias</strong></a> |
+                <a href="inscripcion.html">Inscripci&oacute;n</a> |
+                <a href="contacto.html">Contacto</a> |
+                <a href="login.html">Acceso</a>
+            </p>
+            <p>
+                Noticias:
+                <a href="noticias/noticia1.html">El Consorcio W3C</a> |
+                <a href="noticias/noticia2.html">Tim Berners-Lee</a>
+            </p>
+        </nav>
+        <!-- /NAV -->
+
+        <main>
+            <form action="noticias.html" method="get">
+                <label for="buscar">Buscar noticias</label>
+                <input type="search" id="buscar" name="q" placeholder="W3C, HTML5, empleo...">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <section>
+                <h2>&Uacute;ltimas noticias</h2>
+                <p>
+                    Como antesala de las ponencias sobre desarrollo web, recopilamos art&iacute;culos sobre los
+                    or&iacute;genes y los est&aacute;ndares de la Web.
+                </p>
+
+                <article>
+                    <header>
+                        <h3><a href="noticias/noticia1.html">El Consorcio World Wide Web (W3C)</a></h3>
+                        <p>Publicado el <time datetime="2026-09-20">20 de septiembre de 2026</time></p>
+                    </header>
+                    <figure>
+                        <a href="img/w3c.png"><img src="img/min/w3c.png" width="320" height="153" alt="Logotipo del W3C"></a>
+                        <figcaption>Logotipo del W3C (dominio p&uacute;blico).</figcaption>
+                    </figure>
+                    <p>Conoce el organismo que publica las recomendaciones de <mark>HTML5</mark>, CSS o SVG, c&oacute;mo se
+                        organiza y cu&aacute;les son los niveles de madurez por los que pasa cada est&aacute;ndar.</p>
+                    <p><a href="noticias/noticia1.html">Leer m&aacute;s</a></p>
+                </article>
+
+                <article>
+                    <header>
+                        <h3><a href="noticias/noticia2.html">Tim Berners-Lee, el padre de la Web</a></h3>
+                        <p>Publicado el <time datetime="2026-09-24">24 de septiembre de 2026</time></p>
+                    </header>
+                    <figure>
+                        <a href="img/tbl.jpg"><img src="img/min/tbl.jpg" width="256" height="320" alt="Retrato de Tim Berners-Lee"></a>
+                        <figcaption>Tim Berners-Lee. Foto: Paul Clarke (CC BY-SA 4.0).</figcaption>
+                    </figure>
+                    <p>Repasamos la biograf&iacute;a del cient&iacute;fico que cre&oacute; <mark>HTML, HTTP y las URL</mark>
+                        en el CERN y que fund&oacute; el W3C.</p>
+                    <p><a href="noticias/noticia2.html">Leer m&aacute;s</a></p>
+                </article>
+            </section>
+
+            <aside>
+                <h2>Fuente</h2>
+                <p>Los art&iacute;culos proceden de Wikipedia en espa&ntilde;ol y se reproducen bajo licencia
+                    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>.</p>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+        </footer>
+    </body>
+</html>
