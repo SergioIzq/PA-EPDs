@@ -25,9 +25,39 @@
         <main>
             <div>
                 <p>Teléfono: +34 678 901 234</p>
-                <p>E-mail: feriaficticiaupo@yahoo.es</p>
-                <p>Burofax: carlostopa</p>
+                <p>E-mail: <mark>feriaficticiaupo@yahoo.es</mark></p>
+                <p>Burofax: carlostopagarciaperezmartinezfern&aacute;<wbr>ndezdelacruzysegundoapellido</p>
             </div>
+
+            <section>
+                <h2>Formulario rápido</h2>
+                <form>
+                    <label for="asunto">Asunto:</label><br>
+                    <input type="text" id="asunto" name="asunto" list="asuntos" placeholder="Elige o escribe un asunto"><br>
+                    <datalist id="asuntos">
+                        <option value="Dudas sobre inscripción">
+                        <option value="Problemas con el login">
+                        <option value="Quiero ser patrocinador">
+                        <option value="Simplemente quiero saludar">
+                    </datalist>
+
+                    <label for="mensaje">Mensaje:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Cuéntanos qué necesitas"></textarea><br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>
+
+            <section>
+                <h2>Preguntas frecuentes</h2>
+                <details>
+                    <summary>¿Cuánto tardáis en responder?</summary>
+                    <p>Menos que la universidad, eso seguro.</p>
+                </details>
+                <details>
+                    <summary>¿Puedo mandar el burofax de verdad?</summary>
+                    <p>Preferimos el correo electrónico, honestamente.</p>
+                </details>
+            </section>
         </main>
         <footer>Por motivos legales, nada de lo declarado en esta página web existe</footer>
     </body>
