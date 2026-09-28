@@ -1,0 +1,16 @@
+ARCHIVOS QUE DEBES AÑADIR (con estos nombres exactos, en minúsculas)
+====================================================================
+
+IMAGENES  ->  carpeta Imagenes/   (formato .jpg)
+  Cada foto con miniatura necesita DOS archivos: el original y otro reducido (~300-400 px de ancho) con "-mini".
+  auditorio.jpg               + auditorio-mini.jpg              Auditorio lleno (portada y multimedia)
+  taller-react.jpg            + taller-react-mini.jpg           Estudiantes en un taller
+  taller-kubernetes.jpg       + taller-kubernetes-mini.jpg      Pantalla con terminal
+  pista-deportiva.jpg         + pista-deportiva-mini.jpg        Pista polideportiva
+  concierto.jpg               + concierto-mini.jpg              Orquesta y coro universitarios
+  sala-proyeccion.jpg         + sala-proyeccion-mini.jpg        Sala de proyección
+  marta-lorenzo.jpg           + marta-lorenzo-mini.jpg          Retrato de la ponente 1 (cuadrado)
+  ivan-castano.jpg            + ivan-castano-mini.jpg           Retrato del ponente 2 (cuadrado)
+  campus.jpg                                                    Foto del campus (contacto), sin miniatura
+  noticia-junior.jpg                                            Imagen de la noticia 1, sin miniatura
+  noticia-ciberseguridad.jpg                                    Imagen de la noticia 2, sin miniatura

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actividades · Talleres — Jornadas TalentoTIC 2027</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand-row">
+    <hgroup>
+      <h1>Jornadas TalentoTIC 2027</h1>
+      <p>Ponencias, talleres y empleo · Escuela de Ingeniería Informática</p>
+    </hgroup>
+  </div>
+</header>
+
+<nav class="sub-nav" aria-label="Navegación de la subsección Actividades">
+  <div class="inner">
+    <a href="../actividades.html">↑ Actividades</a>
+    <span class="sep">|</span>
+    <a href="talleres.html" aria-current="page">Talleres</a>
+    <a href="deportes.html">Deporte</a>
+    <a href="cultura.html">Cultura</a>
+  </div>
+</nav>
+
+<main>
+  <article>
+    <section>
+      <h2>Talleres prácticos</h2>
+      <p>Sesiones de 90 a 120 minutos con ordenador propio. Plazas limitadas a 25 personas por sesión;
+      revisa el aforo antes de apuntarte desde el formulario de esta página.</p>
+
+      <ul>
+        <li>Taller doble: React desde cero
+          <ol>
+            <li>Componentes y props</li>
+            <li>Estado y hooks básicos</li>
+          </ol>
+        </li>
+        <li>Introducción a Kubernetes
+          <ol>
+            <li>Pods, servicios y despliegues</li>
+            <li>Práctica guiada con un clúster de pruebas</li>
+          </ol>
+        </li>
+      </ul>
+
+      <div class="miniaturas">
+        <figure>
+          <a href="../Imagenes/taller-react.jpg" target="_blank" rel="noopener">
+            <img src="../Imagenes/taller-react-mini.jpg" alt="Estudiantes trabajando en portátiles durante un taller anterior">
+          </a>
+          <figcaption>Taller de React, edición 2026.</figcaption>
+        </figure>
+        <figure>
+          <a href="../Imagenes/taller-kubernetes.jpg" target="_blank" rel="noopener">
+            <img src="../Imagenes/taller-kubernetes-mini.jpg" alt="Pantalla con terminal mostrando comandos de Kubernetes">
+          </a>
+          <figcaption>Práctica guiada de Kubernetes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Apúntate a un taller</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Reserva de plaza</legend>
+
+          <label for="nombre-t">Nombre completo</label>
+          <input type="text" id="nombre-t" name="nombre" required>
+
+          <label for="taller">Taller</label>
+          <select id="taller" name="taller" required>
+            <option value="">Selecciona una opción</option>
+            <option value="react">React desde cero</option>
+            <option value="k8s">Introducción a Kubernetes</option>
+          </select>
+
+          <label for="nivel">Nivel previo (0 – ninguno, 10 – avanzado)</label>
+          <input type="range" id="nivel" name="nivel" min="0" max="10" value="3"
+                 oninput="salida_nivel.value = nivel.valueAsNumber">
+          <output id="salida_nivel" for="nivel" name="salida_nivel">3</output>
+
+          <label for="portatil">¿Traerás portátil propio?</label>
+          <input type="checkbox" id="portatil" name="portatil" value="si" checked>
+
+          <input type="submit" value="Reservar plaza">
+        </fieldset>
+      </form>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>© 2027 Jornadas TalentoTIC — Escuela de Ingeniería Informática.</p>
+  </div>
+</footer>
+</body>
+</html>

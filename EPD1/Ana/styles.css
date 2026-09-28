@@ -1,0 +1,211 @@
+/* ============================================
+   Jornadas TalentoTIC — hoja de estilos común
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:        #14243a;
+  --ink-soft:   #33465f;
+  --paper:      #f2f5f6;
+  --paper-2:    #ffffff;
+  --line:       #d7dee2;
+  --teal:       #3f7d6e;
+  --teal-dark:  #2b5850;
+  --amber:      #e2a73e;
+  --amber-dark: #b8822a;
+  --radius: 6px;
+  --maxw: 960px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+
+h1,h2,h3,h4,hgroup p{
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 .4em 0;
+}
+h1{ font-size: 2.4rem; font-weight: 700; }
+h2{ font-size: 1.7rem; font-weight: 600; margin-top: 1.6em; }
+h3{ font-size: 1.25rem; font-weight: 600; }
+
+p{ max-width: 72ch; }
+a{ color: var(--teal-dark); }
+a:hover{ color: var(--amber-dark); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: 3px solid var(--amber); outline-offset: 2px;
+}
+
+img{ max-width: 100%; display:block; }
+
+/* --- Cabecera y navegación principal --- */
+header.site-header{
+  background: var(--ink);
+  color: #fff;
+  padding: 0 1.2rem;
+}
+.brand-row{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 1rem 0 .6rem 0;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.brand-row hgroup h1{ color:#fff; font-size:1.5rem; margin:0; }
+.brand-row hgroup p{ color:#c9d3da; margin:0; font-family:'Inter',sans-serif; font-size:.85rem; }
+
+nav.main-nav{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+nav.main-nav ul{
+  list-style:none; margin:0; padding:.5rem 0;
+  display:flex; flex-wrap:wrap; gap: .3rem 1.1rem;
+}
+nav.main-nav a{
+  color:#dfe6ea; text-decoration:none; font-size:.92rem; font-weight:500;
+  padding:.25rem 0; border-bottom: 2px solid transparent;
+}
+nav.main-nav a:hover, nav.main-nav a[aria-current="page"]{
+  color:#fff; border-bottom-color: var(--amber);
+}
+
+/* --- Navegación de subsección (páginas hijas) --- */
+nav.sub-nav{
+  background: var(--teal);
+  color:#fff;
+}
+nav.sub-nav .inner{
+  max-width: var(--maxw); margin:0 auto; padding:.6rem 1.2rem;
+  display:flex; flex-wrap:wrap; align-items:center; gap: .3rem 1rem;
+}
+nav.sub-nav a{ color:#eafff9; font-size:.9rem; text-decoration:none; }
+nav.sub-nav a[aria-current="page"]{ font-weight:700; text-decoration:underline; }
+nav.sub-nav .sep{ opacity:.6; }
+
+main{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem 1.2rem 3rem 1.2rem;
+}
+
+section{ margin-bottom: 2.2rem; }
+article{ margin-bottom: 2rem; }
+
+aside{
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  font-size: .95rem;
+}
+
+figure{
+  margin: 1rem 0;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .6rem;
+}
+figure img{ border-radius: 4px; }
+figcaption{
+  font-size: .85rem; color: var(--ink-soft); padding-top:.4rem;
+}
+
+details{
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .7rem 1rem;
+  margin: .8rem 0;
+}
+summary{ cursor:pointer; font-weight:600; }
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--paper-2);
+  font-size: .95rem;
+}
+caption{
+  caption-side: top; text-align:left; font-weight:600;
+  padding-bottom:.5rem; font-family:'Fraunces',serif;
+}
+th,td{ border:1px solid var(--line); padding:.5rem .6rem; text-align:left; vertical-align: top; }
+thead th{ background: var(--ink); color:#fff; }
+tbody tr:nth-child(even){ background: #eef2f3; }
+
+ul, ol{ padding-left: 1.4rem; }
+ul ul, ol ol, ul ol, ol ul{ margin-top:.3rem; }
+
+form{
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  max-width: 640px;
+}
+fieldset{ border:1px solid var(--line); border-radius: var(--radius); margin-bottom:1rem; }
+legend{ font-family:'Fraunces',serif; font-weight:600; padding:0 .4rem; }
+label{ display:block; margin-top:.7rem; font-size:.92rem; font-weight:500; }
+input, select, textarea{
+  width:100%; padding:.45rem .55rem; margin-top:.25rem;
+  border:1px solid var(--line); border-radius:4px; font-family:inherit; font-size:.95rem;
+}
+input[type=checkbox], input[type=radio]{ width:auto; margin-right:.4rem; }
+input[type=range]{ padding:0; }
+input[type=color]{ padding:.15rem; height:2.4rem; }
+button, input[type=submit]{
+  margin-top:1rem;
+  background: var(--teal); color:#fff; border:none;
+  padding:.6rem 1.3rem; border-radius:4px; font-weight:600; cursor:pointer;
+}
+button:hover, input[type=submit]:hover{ background: var(--teal-dark); }
+output{ display:inline; width:auto; font-weight:700; }
+meter, progress{ width: 100%; margin-top:.3rem; }
+
+.miniaturas{ display:flex; flex-wrap:wrap; gap:1rem; }
+.miniaturas figure{ width: 220px; }
+
+.tarjetas{ display:flex; flex-wrap:wrap; gap:1.2rem; }
+.tarjeta{
+  background: var(--paper-2); border:1px solid var(--line); border-radius: var(--radius);
+  padding:1rem; flex:1 1 260px;
+}
+
+video, audio{ width:100%; margin:.6rem 0; }
+
+footer.site-footer{
+  background: var(--ink); color:#c9d3da; margin-top:3rem;
+}
+footer.site-footer .inner{
+  max-width: var(--maxw); margin:0 auto; padding:1.6rem 1.2rem; font-size:.85rem;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+}
+footer.site-footer a{ color:#eafff9; }
+
+mark{ background: var(--amber); color:var(--ink); padding:0 .2rem; }
+
+@media (max-width: 600px){
+  h1{ font-size:1.9rem; }
+  .tarjetas{ flex-direction:column; }
+}
+
+embed{ display:block; max-width:100%; border:1px solid var(--line); }
+math{ font-size:1.15rem; }
+.brand-row svg{ flex:none; }
