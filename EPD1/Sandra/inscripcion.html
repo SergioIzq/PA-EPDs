@@ -1,11 +1,141 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Inscripci&oacute;n</title>
+        <title>Inscripción</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <h1>Formulario de Inscripción</h1>
+            <p>Registro oficial para actividades, talleres y eventos de la universidad.</p>
+        </header>
+
+        <table>
+            <tr>
+                <td>
+                    <nav>
+                        <p><strong>Navegación:</strong></p>
+                        <ul>
+                            <li><a href="index.html">Volver a Inicio</a></li>
+                        </ul>
+                    </nav>
+                </td>
+                <!-- Celdas vacías para crear distancia de separación  -->
+                <td></td>
+                <td></td>              
+                <td>
+                    <figure>
+                        <a href="Imagenes/logo.png" target="_blank">
+                            <img src="Imagenes/logo.png" alt="Inscripción UPO" width="180" />
+                        </a>
+                        <figcaption>Universidad UPO</figcaption>
+                    </figure>
+                </td>
+            </tr>
+        </table>
+
+        <main>
+            <article>
+                <section>
+                    <h2>Formulario Completo de Solicitud</h2>
+                    <p>Complete todos los campos requeridos.</p>
+
+                    <form action="#" method="post">
+                        <p>
+                            <label for="nombre">Nombre completo:</label><br>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                        </p>
+                        <p>
+                            <label for="clave">Contraseña temporal:</label><br>
+                            <input type="password" id="clave" name="clave" required>
+                        </p>
+
+                        <p>
+                            <label for="email">Correo electrónico:</label><br>
+                            <input type="email" id="email" name="email" placeholder="usuario@alu.upo.es" required>
+                        </p>
+                        <p>
+                            <label for="telefono">Teléfono de contacto:</label><br>
+                            <input type="tel" id="telefono" name="telefono" placeholder="600000000">
+                        </p>
+                        <p>
+                            <label for="web">Link hacia su usario de GitHub:</label><br>
+                            <input type="url" id="web" name="web" placeholder="https://...">
+                        </p>
+
+                        <p>
+                            <label for="fecha_nac">Fecha de nacimiento:</label><br>
+                            <input type="date" id="fecha_nac" name="fecha_nac">
+                        </p>
+                        <p>
+                            <label for="hora_cita">Hora preferida de asistencia:</label><br>
+                            <input type="time" id="hora_cita" name="hora_cita">
+                        </p>
+                        <p>
+                            <label for="mes_curso">Mes de inicio preferido:</label><br>
+                            <input type="month" id="mes_curso" name="mes_curso">
+                        </p>
+
+                        <p>
+                            <label for="edad">Edad:</label><br>
+                            <input type="number" id="edad" name="edad" min="16" max="99" value="23">
+                        </p>
+                        <p>
+                            <label for="nivel">Nivel de satisfacción):</label><br>
+                            <input type="range" id="nivel" name="nivel" min="1" max="10">
+                        </p>
+
+                        <p>
+                            <label for="color_preferido">Color identificativo favorito:</label><br>
+                            <input type="color" id="color_preferido" name="color_preferido" value="#0055a5">
+                        </p>
+                        <p>
+                            <label for="cv">Adjuntar foto de DNI parte trasera y delantera</label><br>
+                            <input type="file" id="cv" name="cv">
+                        </p>
+
+                        <p>
+                            <strong>Modalidad de asistencia:</strong><br>
+                            <input type="radio" id="modalidad_presencial" name="modalidad" value="presencial" checked>
+                            <label for="modalidad_presencial">Presencial</label><br>
+                            <input type="radio" id="modalidad_online" name="modalidad" value="online">
+                            <label for="modalidad_online">Online</label>
+                        </p>
+
+                        <p>
+                            <strong>Áreas de interés:</strong><br>
+                            <input type="checkbox" id="interes_tec" name="intereses[]" value="tecnologia">
+                            <label for="interes_tec">Tecnología y Programación</label><br>
+                            <input type="checkbox" id="interes_dep" name="intereses[]" value="deportes">
+                            <label for="interes_dep">Deportes</label><br>
+                            <input type="checkbox" id="interes_cul" name="intereses[]" value="cultura">
+                            <label for="interes_cul">Cultura</label>
+                        </p>
+
+                        <p>
+                            <label for="campus">Campus universitario de referencia:</label><br>
+                            <select id="campus" name="campus">
+                                <option value="sevilla">Campus Principal - Sevilla (UPO)</option>
+                                <option value="carmona">Sede Olavide en Carmona</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="comentarios">Comentarios adicionales:</label><br>
+                            <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
+                        </p>
+
+                        <p>
+                            <input type="submit" value="Enviar Formulario">
+                            <input type="reset" value="Borrar Datos">
+                        </p>
+                    </form>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Pablo de Olavide - Portal de Ponencias y Empleo. </p>
+        </footer>
     </body>
 </html>

@@ -6,8 +6,100 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
-        <a href="ponentes/ponente1.html">Ponente 1</a>
-        <a href="ponentes/ponente2.html">Ponente 2</a>
+        <header>
+            <h1>Ponentes Magistrales del Evento</h1>
+            <p>Conoce a los expertos invitados en las jornadas de Ingeniería en Sistemas de Información y Empleo.</p>
+        </header>
+
+        <table>
+            <tr>
+                <td>
+                    <nav>
+                        <p><strong>Navegación General:</strong></p>
+                        <ul>
+                            <li><a href="index.html">Volver a Inicio</a></li>
+                        </ul>
+                        <p><strong>Ponentes:</strong></p>
+                        <ul>
+                            <li><a href="ponentes/ponente1.html">Ponente 1: Dr. Alejandro Gómez</a></li>
+                            <li><a href="ponentes/ponente2.html">Ponente 2: Dra. Isa Luque</a></li>
+                        </ul>
+                    </nav>
+                </td>
+                <!-- Celdas vacías para crear distancia de separación  -->               
+                <td></td>
+                <td></td>              
+                <td>
+                    <figure>
+                        <a href="Imagenes/logo.png" target="_blank">
+                            <img src="Imagenes/logo.png" alt="Ponentes del evento UPO" width="180" />
+                        </a>
+                        <figcaption>Universidad UPO</figcaption>
+                    </figure>
+                </td>
+            </tr>
+        </table>
+
+        <main>
+            <article>
+                <section>
+                    <h2>Resumen de Sesiones, Horarios y Ponentes</h2>
+                    <p>Las conferencias de las jornadas se distribuyen a lo largo de la semana para conectar al estudiantado con las demandas reales del mercado laboral tecnológico.</p>
+
+                    <!-- Tabla compleja con cabeceras, rowspan y colspan exigida en la práctica -->
+                    <table border="1">
+                        <caption>Tabla Oficial de Sesiones (Martes y Jueves)</caption>
+                        <tr>
+                            <th>Día</th>
+                            <th>Horario</th>
+                            <th>Ponente / Responsable</th>
+                            <th>Temática Principal</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Martes</td>
+                            <td>10:00 - 11:30</td>
+                            <td><a href="ponentes/ponente1.html">Dr. Alejandro Gómez</a></td>
+                            <td>Arquitectura de Software y Sistemas Distribuidos</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 13:30</td>
+                            <td><a href="ponentes/ponente2.html">Dra. Isa Luque </a></td>
+                            <td>Ciberseguridad Ofensiva e Inserción Laboral</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Jueves</td>
+                            <td>10:00 - 11:30</td>
+                            <td>Dra. Isa Luque</td>
+                            <td>Bases de Datos No Relacionales con MongoDB</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 13:30</td>
+                            <td>Mesa Redonda</td>
+                            <td>Empleo Tecnológico y Salidas Profesionales en Ingeniería</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Clausura y entrega de diplomas con empresas colaboradoras del sector TIC a las 14:00.</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Listado de Expertos (Acceso Directo)</h3>
+                    <ul>
+                        <li>
+                            <strong>Sesión de Mañana</strong>
+                            <ul>
+                                <li>Acceso a la información detallada del <a href="ponentes/ponente1.html">Dr. Alejandro Gómez</a>.</li>
+                                <li>Acceso a la información detallada de la <a href="ponentes/ponente2.html">Dra. Isa Luque</a>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Pablo de Olavide - Portal de Ponencias y Empleo. </p>
+        </footer>
     </body>
 </html>
