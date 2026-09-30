@@ -1,0 +1,92 @@
+LÉEME — Etiquetas HTML5 utilizadas en el sitio "Jornadas TalentoTIC 2027"
+==========================================================================
+
+Este documento indica dónde se ha empleado cada etiqueta nueva de HTML5
+(según https://www.w3.org/wiki/HTML/New_HTML5_Elements) y con qué objetivo,
+excluyendo las que requieren JavaScript (canvas no se ha usado).
+
+ESTRUCTURA SEMÁNTICA
+---------------------
+<header>      Cabecera con el título y el eslogan del sitio, en todas las páginas.
+              También como cabecera de artículo dentro de noticia1.html y noticia2.html.
+<footer>      Pie de página con el copyright, en todas las páginas; y como pie de
+              artículo (fuente/autoría) en noticia1.html y noticia2.html.
+<nav>         Menú principal (main-nav) en las páginas de primer nivel, y menú
+              restringido (sub-nav) en las páginas hijas (talleres, deportes, cultura,
+              ponente1, ponente2, noticia1, noticia2), mostrando solo enlaces al
+              padre y a las páginas hermanas, tal y como pide el enunciado.
+<article>     Contenido independiente: la página completa de cada noticia
+              (noticia1.html, noticia2.html), la ficha de cada ponente
+              (ponente1.html, ponente2.html) y el bloque principal del resto de páginas.
+<section>     Bloques temáticos dentro de cada página (por ejemplo, en index.html:
+              "Bienvenida", "¿Por qué asistir?", "La edición en cifras").
+<aside>       Información secundaria destacada: aviso en index.html, notas rápidas
+              ("En una frase") en noticia1.html y noticia2.html.
+<hgroup>      Agrupa el título principal y el eslogan en la cabecera de cada página.
+
+CONTENIDO Y OTROS
+------------------
+<figure> / <figcaption>   En todas las imágenes, para asociar
+              una leyenda descriptiva (usado en index.html, talleres.html,
+              deportes.html, cultura.html, ponentes.html, multimedia.html,
+              contacto.html, noticia1.html, noticia2.html).
+<details> / <summary>     Contenido plegable: aforo en index.html, certificado
+              en programa.html, concierto en cultura.html, trayectoria y temas en
+              ponente1.html y ponente2.html.
+<mark>        Resalta "Jornadas TalentoTIC" en la introducción de index.html.
+<time>        Fechas y horas con valor máquina (datetime): fechas del evento en
+              index.html, fechas de publicación en noticias.html, noticia1.html
+              y noticia2.html.
+<meter>       Indicador de aforo ocupado en index.html.
+<progress>    Barra de estado del certificado de asistencia en multimedia.html.
+<output>      Muestra el valor numérico de los controles <input type="range">
+              en inscripcion.html y talleres.html.
+<datalist>    Lista de sugerencias para el campo "Titulación" del formulario de
+              inscripcion.html.
+<embed>       PDF incrustado en programa.html (fuente externa).
+<ruby>/<rt>/<rp>  Anotación de la sigla TIC en index.html (rp para navegadores sin soporte).
+<math>        Fórmula MathML del porcentaje de asistencia en programa.html.
+<svg>         Logotipo vectorial en la cabecera de index.html.
+<wbr>         Saltos de línea opcionales en el correo largo de contacto.html.
+<cite>        Título de la ponencia en ponente1.html y ponente2.html.
+<address>     Datos de contacto de la organización en contacto.html.
+
+FORMULARIOS HTML5 (tipos de input nuevos)
+------------------------------------------
+Usados sobre todo en inscripcion.html (formulario más completo) y, en menor
+medida, en login.html, talleres.html y contacto.html:
+  email, url, tel, date, month, week, number, range, color, search,
+  además de checkbox, radio, select múltiple y textarea, con atributos
+  HTML5 de validación nativa: required, pattern, min, max, minlength, autofocus.
+
+RUTAS
+-----
+Todos los enlaces y recursos del sitio usan rutas relativas (por ejemplo,
+href="programa.html" o, desde subcarpetas, src="../Imagenes/auditorio.jpg").
+Las rutas absolutas (URL completas) se usan en los enlaces a fuentes externas
+(noticias, upo.es) y en la tipografía de Google Fonts.
+
+ACCESIBILIDAD
+-------------
+Uso de atributos alt descriptivos en todas las imágenes, aria-label en los
+elementos <nav>, aria-current="page" para señalar la página activa, scope="col"
+y scope="row" en las celdas de cabecera de las tablas, y etiquetas <label>
+asociadas a todos los campos de formulario mediante for/id.
+
+VALIDACIÓN
+----------
+Todas las páginas declaran <!DOCTYPE html>, charset="utf-8" y lang="es", y se
+han revisado frente al validador de WHATWG (https://whatwg.org/validator/)
+para confirmar que no contienen errores de HTML5.
+
+NOTICIAS
+--------
+noticia1.html y noticia2.html resumen, con palabras propias, noticias reales de
+2026 (MuyComputerPRO, Merca2, APTIE, Kulturo, KeepCoding); las URL de origen
+están enlazadas en cada artículo.
+
+ETIQUETAS NO USADAS
+-------------------
+<canvas>, <audio>, <video>, <source> y <track> no se usan en esta entrega
+(canvas requiere JavaScript; audio y vídeo no se incluyen según se acordó).
+<command> y <keygen> están obsoletas y no las admite el validador de HTML5.

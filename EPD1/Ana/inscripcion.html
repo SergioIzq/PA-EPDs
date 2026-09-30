@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jornadas TalentoTIC 2027 · Inscripción</title>
+</head>
+<body>
+<header>
+  <div>
+    <hgroup>
+      <h1>Jornadas TalentoTIC 2027</h1>
+      <p>Ponencias, talleres y empleo · Escuela de Ingeniería Informática</p>
+    </hgroup>
+  </div>
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="programa.html">Programa</a></li>
+      <li><a href="actividades.html">Actividades</a></li>
+      <li><a href="ponentes.html">Ponentes</a></li>
+      <li><a href="asociaciones.html">Asociaciones</a></li>
+      <li><a href="multimedia.html">Multimedia</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="inscripcion.html" aria-current="page">Inscripción</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Acceder</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <article>
+    <section>
+      <h2>Formulario de inscripción</h2>
+      <p>La inscripción es gratuita y da acceso a las tres jornadas completas. Los talleres y las entrevistas
+      de empleo requieren además reservar plaza desde sus páginas correspondientes.</p>
+
+      <form action="#" method="post" autocomplete="on">
+
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <label for="nombre">Nombre y apellidos</label>
+          <input type="text" id="nombre" name="nombre" required autofocus>
+
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="nombre@alumnos.upo.es" required>
+
+          <label for="tel">Teléfono</label>
+          <input type="tel" id="tel" name="tel" pattern="[0-9]{9}" placeholder="600000000">
+
+          <label for="web">Página web o portafolio (opcional)</label>
+          <input type="url" id="web" name="web" placeholder="https://tuportfolio.dev">
+
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input type="date" id="nacimiento" name="nacimiento" required>
+
+          <label for="color">Color de tu credencial identificativa</label>
+          <input type="color" id="color" name="color" value="#3f7d6e">
+        </fieldset>
+
+        <fieldset>
+          <legend>Datos académicos</legend>
+
+          <label for="titulacion">Titulación</label>
+          <input type="search" id="titulacion" name="titulacion" list="lista-titulaciones" placeholder="Escribe para buscar…">
+          <datalist id="lista-titulaciones">
+            <option value="Grado en Ingeniería Informática">
+            <option value="Grado en Ingeniería del Software">
+            <option value="Grado en Matemáticas">
+            <option value="Doble Grado en Informática y ADE">
+          </datalist>
+
+          <label for="curso">Curso en el que estás matriculado/a</label>
+          <input type="number" id="curso" name="curso" min="1" max="6" value="3">
+
+          <label for="mes-inicio">Mes de inicio de tus estudios</label>
+          <input type="month" id="mes-inicio" name="mes-inicio">
+
+          <label for="semana">Semana prevista de finalización del TFG (si aplica)</label>
+          <input type="week" id="semana" name="semana">
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferencias para las jornadas</legend>
+
+          <label for="itinerario">Itinerario de interés principal</label>
+          <select id="itinerario" name="itinerario">
+            <option value="web">Desarrollo web y móvil</option>
+            <option value="datos">Datos e inteligencia artificial</option>
+            <option value="seguridad">Ciberseguridad</option>
+            <option value="cloud">Cloud y DevOps</option>
+          </select>
+
+          <label for="dias">Jornadas a las que asistirás</label>
+          <select id="dias" name="dias" multiple size="3">
+            <option value="jueves">Jueves 10</option>
+            <option value="viernes">Viernes 11</option>
+            <option value="sabado">Sábado 12</option>
+          </select>
+
+          <label for="interes_empleo">Nivel de interés en el área de empleo (0–10)</label>
+          <input type="range" id="interes_empleo" name="interes_empleo" min="0" max="10" value="7"
+                 oninput="salida_interes.value = interes_empleo.valueAsNumber">
+          <output id="salida_interes" for="interes_empleo">7</output>
+
+          <p>
+            <label>
+              <input type="radio" name="dieta" value="ninguna" checked> Sin restricción alimentaria
+            </label>
+            <label>
+              <input type="radio" name="dieta" value="vegetariana"> Menú vegetariano en la comida de networking
+            </label>
+          </p>
+
+          <label for="comentarios">Comentarios adicionales</label>
+          <textarea id="comentarios" name="comentarios" rows="4" placeholder="Alergias, necesidades de accesibilidad, etc."></textarea>
+
+          <label>
+            <input type="checkbox" name="privacidad" value="aceptado" required>
+            He leído y acepto la política de privacidad de las jornadas
+          </label>
+        </fieldset>
+
+        <input type="submit" value="Enviar inscripción">
+      </form>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div>
+    <p>© 2027 Jornadas TalentoTIC — Escuela de Ingeniería Informática.</p>
+    <p><a href="contacto.html">Contacto</a></p>
+  </div>
+</footer>
+</body>
+</html>
