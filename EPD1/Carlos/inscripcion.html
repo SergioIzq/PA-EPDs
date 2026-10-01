@@ -1,11 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>Inscripci&oacute;n</title>
+        <title>Inscripción - Ponencias y Empleo UPO</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <h1>Inscripción</h1>
+            <p>Rellena el formulario para reservar tu plaza en el evento de ponencias y empleo de la UPO.</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="ponentes.html">Ponentes</a></li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="inscripcion.html">Inscripción</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section>
+                <h2>Formulario de inscripción</h2>
+                <p>Los campos marcados con * son obligatorios.</p>
+
+                <form action="." method="post" oninput="interes_valor.value = interes.valueAsNumber">
+
+
+
+                    <p>
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </p>
+                    <p>
+                        <label for="apellidos">Apellidos *</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos" required>
+                    </p>
+                    <p>
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="usuario@alu.upo.es" required>
+                    </p>
+                    <p>
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="9 dígitos">
+                    </p>
+                    <p>
+                        <label for="nacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="nacimiento" name="nacimiento">
+                    </p>
+
+
+
+                        
+                    <p>
+                        <label for="titulacion">Titulación</label>
+                        <input type="text" id="titulacion" name="titulacion" list="titulaciones" placeholder="Escribe aquí">
+                        <datalist id="titulaciones">
+                            <option value="Grado en Ingeniería Informática de Sistemas">
+                            <option value="Grado en Derecho">
+                            <option value="Grado en Trabajo social">
+                            <option value="Grado en Criminología">
+                            <option value="Grado en Futbol">
+                        </datalist>
+                    </p>
+                    <p>
+                        <label for="curso">Curso</label>
+                        <select id="curso" name="curso">
+                            <option value="1">Primero</option>
+                            <option value="2">Segundo</option>
+                            <option value="3">Tercero</option>
+                            <option value="4">Cuarto</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </p>
+
+
+
+
+                        <p>Modalidad *</p>
+                        <p>
+                            <input type="radio" id="presencial" name="modalidad" value="presencial" required>
+                            <label for="presencial">Presencial</label>
+                            <input type="radio" id="online" name="modalidad" value="online">
+                            <label for="online">Online</label>
+                        </p>
+                        <p>Actividades en las que te gustaría participar</p>
+                        <p>
+                            <input type="checkbox" id="talleres" name="actividades" value="talleres">
+                            <label for="talleres">Talleres</label>
+                            <input type="checkbox" id="deportes" name="actividades" value="deportes">
+                            <label for="deportes">Deportes</label>
+                            <input type="checkbox" id="cultura" name="actividades" value="cultura">
+                            <label for="cultura">Cultura</label>
+                        </p>
+                        <p>
+                            <label for="acompanantes">Número de acompañantes (de 0 a 3)</label>
+                            <input type="number" id="acompanantes" name="acompanantes" min="0" max="3" value="0">
+                        </p>
+                        <p>
+                            <label for="interes">Interés en el evento (de 0 a 10)</label>
+                            <input type="range" id="interes" name="interes" min="0" max="10" value="5">
+                            <output name="interes_valor" for="interes">5</output>
+                        </p>
+
+
+
+
+                    <p>
+                        <label for="comentarios">¿Quieres comentarnos algo?</label><br>
+                        <textarea id="comentarios" name="comentarios" rows="4" cols="40" maxlength="300" placeholder="Máximo 300 caracteres"></textarea>
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Enviar inscripción">
+                    </p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Ponencias y Empleo UPO</p>
+        </footer>
     </body>
 </html>
