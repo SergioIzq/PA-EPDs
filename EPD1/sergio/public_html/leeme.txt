@@ -22,7 +22,8 @@ ESTRUCTURA
 
 NAVEGACIÓN
 ----------
-Cada página tiene un menú (<nav>) con los enlaces en fila, separados por "|",
+Cada página tiene un menú (<nav>) con los enlaces dentro de una lista
+(<nav><ul><li>), que es la estructura semántica recomendada para un menú, y
 que cumple las reglas del enunciado:
   - Las páginas principales enlazan con todas las demás páginas principales
     (mismo nivel) y, si tienen páginas hijas, con ellas en una segunda línea
@@ -121,11 +122,36 @@ Elementos interactivos
                 contacto.html (preguntas frecuentes) y login.html (recuperar
                 contraseña): contenido desplegable sin JavaScript.
   <menu>        multimedia.html: lista de accesos rápidos a las secciones de la página.
+  <dialog>      index.html: aviso destacado sobre el aforo del aula magna. Se usa
+                con el atributo "open", de modo que el cuadro se muestra sin
+                necesidad de JavaScript.
+
+Contenido vectorial y matemático
+  <svg>         index.html: logotipo del evento dibujado en línea (círculo, trazo
+                y texto), con <title> para que sea accesible.
+  <math>        programa.html: fórmula MathML del porcentaje de asistencia
+                necesario para obtener el certificado.
+
+Marcado de cambios y de texto técnico
+  <del> e <ins> programa.html (la ponencia de ciberseguridad pasa de las 16:00 a
+                las 16:30) y actividades/talleres.html (cambio de hora del taller
+                de HTML5). Llevan los atributos datetime y cite.
+  <sub> y <sup> programa.html: CO2 y "2.ª edición".
+  <q> y <blockquote>
+                programa.html: cita de la dirección de la EPS, con el atributo cite.
+  <dl>, <dt> y <dd>
+                programa.html: glosario de modalidades (ponencia, taller, mesa
+                redonda, ECTS) como lista de definición.
+  <kbd>, <samp> y <var>
+                actividades/talleres.html: atajo de teclado (Ctrl+U), salida literal
+                del validador y nombre de una variable del ejemplo.
 
 
 ETIQUETAS NO UTILIZADAS
 -----------------------
   <canvas>, <template> y <slot> necesitan JavaScript para funcionar.
+  Salvo estas, se emplean todas las etiquetas nuevas de HTML5 de la lista de
+  https://www.w3.org/wiki/HTML/New_HTML5_Elements.
   <keygen>, <command> y <menuitem> se han eliminado de la especificación
   actual y harían que la página no validase.
 

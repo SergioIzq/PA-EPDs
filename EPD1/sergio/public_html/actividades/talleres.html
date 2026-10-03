@@ -13,12 +13,12 @@
 
         <!-- NAV -->
         <nav aria-label="Men&uacute; de navegaci&oacute;n">
-            <p>
-                <a href="../actividades.html">&larr; Actividades</a> |
-                <a href="talleres.html" aria-current="page"><strong>Talleres</strong></a> |
-                <a href="deportes.html">Deportes</a> |
-                <a href="cultura.html">Cultura</a>
-            </p>
+            <ul>
+                <li><a href="../actividades.html">&larr; Actividades</a></li>
+                <li><a href="talleres.html" aria-current="page"><strong>Talleres</strong></a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+            </ul>
         </nav>
         <!-- /NAV -->
 
@@ -62,7 +62,8 @@
                         </tr>
                         <tr>
                             <th scope="row">HTML5 y CSS3 desde cero</th>
-                            <td><time datetime="2026-11-18T16:00">18 nov, 16:00</time></td>
+                            <td><del datetime="2026-10-01">18 nov, 10:00</del>
+                                <ins datetime="2026-10-01"><time datetime="2026-11-18T16:00">18 nov, 16:00</time></ins></td>
                             <td>B&aacute;sico</td>
                             <td>Un editor de texto y un navegador</td>
                         </tr>
@@ -87,6 +88,13 @@
                     </li>
                     <li>Formularios con validaci&oacute;n nativa</li>
                     <li>Audio y v&iacute;deo sin <i lang="en">plugins</i></li>
+                    <li>Validaci&oacute;n del documento
+                        <ul>
+                            <li>Atajo para ver el c&oacute;digo fuente: <kbd><kbd>Ctrl</kbd>+<kbd>U</kbd></kbd></li>
+                            <li>Salida esperada del validador: <samp>Document checking completed. No errors or warnings to show.</samp></li>
+                            <li>En los ejemplos, <var>ruta</var> representa la carpeta del proyecto</li>
+                        </ul>
+                    </li>
                 </ol>
             </section>
         </main>

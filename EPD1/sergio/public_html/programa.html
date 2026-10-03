@@ -13,18 +13,18 @@
 
         <!-- NAV -->
         <nav aria-label="Men&uacute; de navegaci&oacute;n">
-            <p>
-                <a href="index.html">Inicio</a> |
-                <a href="programa.html" aria-current="page"><strong>Programa</strong></a> |
-                <a href="actividades.html">Actividades</a> |
-                <a href="ponentes.html">Ponentes</a> |
-                <a href="asociaciones.html">Asociaciones</a> |
-                <a href="multimedia.html">Multimedia</a> |
-                <a href="noticias.html">Noticias</a> |
-                <a href="inscripcion.html">Inscripci&oacute;n</a> |
-                <a href="contacto.html">Contacto</a> |
-                <a href="login.html">Acceso</a>
-            </p>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="programa.html" aria-current="page"><strong>Programa</strong></a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="ponentes.html">Ponentes</a></li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Acceso</a></li>
+            </ul>
         </nav>
         <!-- /NAV -->
 
@@ -82,7 +82,9 @@
                         <tr>
                             <th scope="row"><time datetime="16:00">16:00</time></th>
                             <td>Torneo de f&uacute;tbol sala</td>
-                            <td><mark>Ponencia</mark>: &laquo;Ciberseguridad en la nube&raquo;, Dra. Yuki Tanaka</td>
+                            <td><mark>Ponencia</mark>: &laquo;Ciberseguridad en la nube&raquo;, Dra. Yuki Tanaka
+                                (cambia de <del datetime="2026-10-01">16:00</del> a
+                                <ins datetime="2026-10-01" cite="noticias.html">16:30</ins>)</td>
                             <td>Concierto de clausura</td>
                         </tr>
                     </tbody>
@@ -124,6 +126,50 @@
                         </tr>
                     </tbody>
                 </table>
+            </section>
+
+            <section id="certificado">
+                <h2>Certificado de asistencia</h2>
+                <p>
+                    Se expide certificado a quien acumule al menos <strong>8&nbsp;horas</strong> registradas.
+                    El porcentaje de asistencia se calcula as&iacute;:
+                </p>
+                <math display="block">
+                    <mrow>
+                        <mi>A</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <msub><mi>h</mi><mi>asistidas</mi></msub>
+                            <msub><mi>h</mi><mi>totales</mi></msub>
+                        </mfrac>
+                        <mo>&#x22C5;</mo>
+                        <mn>100</mn>
+                    </mrow>
+                </math>
+                <p>
+                    Donde <var>A</var> es el porcentaje de asistencia. La huella de CO<sub>2</sub> del evento
+                    y los datos de la 2.<sup>a</sup> edici&oacute;n se publican en
+                    <a href="noticias.html">noticias</a>.
+                </p>
+
+                <h3>Glosario de modalidades</h3>
+                <dl>
+                    <dt>Ponencia</dt>
+                    <dd>Charla de 50&nbsp;minutos impartida por un ponente invitado, con turno de preguntas.</dd>
+                    <dt>Taller</dt>
+                    <dd>Sesi&oacute;n pr&aacute;ctica de 2&nbsp;horas con plazas limitadas y material incluido.</dd>
+                    <dt>Mesa redonda</dt>
+                    <dd>Debate moderado entre varios participantes sobre un tema com&uacute;n.</dd>
+                    <dt><abbr title="European Credit Transfer and Accumulation System">ECTS</abbr></dt>
+                    <dd>Cr&eacute;ditos reconocibles en el expediente: <data value="0.5">0,5</data> por el evento completo.</dd>
+                </dl>
+
+                <blockquote cite="https://www.upo.es/">
+                    <p>
+                        La direcci&oacute;n de la EPS resume el objetivo de las jornadas en una frase:
+                        <q>acercar el aula a la empresa sin que el estudiante tenga que salir del campus</q>.
+                    </p>
+                </blockquote>
             </section>
 
             <section id="lugares">

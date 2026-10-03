@@ -8,6 +8,12 @@
     </head>
     <body>
         <header>
+            <svg width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="titulo-logo">
+                <title id="titulo-logo">Logotipo de UniForo 2026</title>
+                <circle cx="32" cy="32" r="29" fill="#1d3557" stroke="#e9c46a" stroke-width="4"/>
+                <path d="M18 24h28M32 24v20" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <text x="32" y="56" font-size="9" text-anchor="middle" fill="#e9c46a">UNIFORO</text>
+            </svg>
             <hgroup>
                 <h1>UniForo 2026</h1>
             </hgroup>
@@ -16,22 +22,31 @@
 
         <!-- NAV -->
         <nav aria-label="Men&uacute; de navegaci&oacute;n">
-            <p>
-                <a href="index.html" aria-current="page"><strong>Inicio</strong></a> |
-                <a href="programa.html">Programa</a> |
-                <a href="actividades.html">Actividades</a> |
-                <a href="ponentes.html">Ponentes</a> |
-                <a href="asociaciones.html">Asociaciones</a> |
-                <a href="multimedia.html">Multimedia</a> |
-                <a href="noticias.html">Noticias</a> |
-                <a href="inscripcion.html">Inscripci&oacute;n</a> |
-                <a href="contacto.html">Contacto</a> |
-                <a href="login.html">Acceso</a>
-            </p>
+            <ul>
+                <li><a href="index.html" aria-current="page"><strong>Inicio</strong></a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="ponentes.html">Ponentes</a></li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Acceso</a></li>
+            </ul>
         </nav>
         <!-- /NAV -->
 
         <main>
+            <dialog open aria-labelledby="titulo-aviso">
+                <h2 id="titulo-aviso">Aviso importante</h2>
+                <p>
+                    El aforo del aula magna es limitado. Las ponencias marcadas con reserva previa en el
+                    <a href="programa.html">programa</a> exigen confirmar la plaza al rellenar el
+                    <a href="inscripcion.html">formulario de inscripci&oacute;n</a>.
+                </p>
+            </dialog>
+
             <div>
                 <section id="bienvenida">
                     <h2>Bienvenida</h2>
