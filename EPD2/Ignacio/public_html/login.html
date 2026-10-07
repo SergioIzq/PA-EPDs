@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Acceso</title>
+        <style>
+            /* ===== Variables y reinicio ===== */
+            :root {
+                --azul: #1d3557;
+                --claro: #457b9d;
+                --oro: #e9c46a;
+                --rojo: #c1121f;
+                --verde: #2a9d8f;
+                --fondo: #f3ecd8;
+                --grisclaro: #b8c4d2;
+                --grisoscuro: #5b6470;
+            }
+            
+            * {
+                box-sizing: border-box;
+            }
+
+            /* ===== Estilos Base ===== */
+            body {
+                background-color: var(--fondo);
+                font-family: Arial, sans-serif;
+                color: var(--grisoscuro);
+                margin: 0;
+                padding: 20px 0;
+                line-height: 1.6;
+            }
+
+            a {
+                color: var(--claro);
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            /* ===== Estructura Principal (Diseño Fijo 1 Columna) ===== */
+            #contenedor {
+                width: 960px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border: 2px solid var(--grisclaro);
+            }
+
+            /* Clase de utilidad para limpiar floats */
+            .limpiar {
+                clear: both;
+            }
+
+            /* ===== Cabecera ===== */
+            header {
+                background-color: var(--azul);
+                color: #ffffff;
+                padding: 30px 20px;
+                border-bottom: 5px solid var(--oro);
+                text-align: center;
+            }
+
+            header h1 {
+                color: var(--oro);
+                margin: 0 0 10px 0;
+                font-size: 36px;
+            }
+
+            header p {
+                margin: 0;
+                font-size: 18px;
+            }
+
+            /* ===== Menú de Navegación ===== */
+            nav {
+                background-color: var(--claro);
+                border-bottom: 3px solid var(--azul);
+            }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav li {
+                float: left;
+                width: 96px; /* 10 enlaces x 96px = 960px */
+                text-align: center;
+                border-right: 1px solid var(--azul);
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 0;
+                color: #ffffff;
+                font-size: 14px;
+            }
+
+            /* ===== Contenido Principal ===== */
+            main {
+                padding: 40px;
+            }
+
+            .seccion-login {
+                margin-bottom: 40px;
+            }
+
+            .seccion-login h2 {
+                color: var(--azul);
+                border-bottom: 2px solid var(--verde);
+                padding-bottom: 10px;
+                margin-top: 0;
+            }
+
+            /* ===== Formularios ===== */
+            .formulario {
+                background-color: #f8fafd;
+                padding: 20px;
+                border: 1px solid var(--grisclaro);
+                margin-bottom: 20px;
+            }
+
+            fieldset {
+                border: 2px solid var(--claro);
+                padding: 20px;
+                margin: 0;
+            }
+
+            legend {
+                color: var(--azul);
+                font-weight: bold;
+                font-size: 18px;
+                padding: 0 10px;
+            }
+
+            .campo {
+                margin-bottom: 15px;
+            }
+
+            .etiqueta {
+                display: block;
+                font-weight: bold;
+                color: var(--azul);
+                margin-bottom: 5px;
+            }
+
+            .entrada-texto {
+                width: 400px; /* Ancho fijo en píxeles */
+                padding: 10px;
+                border: 1px solid var(--grisclaro);
+                font-size: 16px;
+            }
+
+            .etiqueta-en-linea {
+                color: var(--grisoscuro);
+                font-weight: normal;
+            }
+
+            .boton {
+                background-color: var(--verde);
+                color: #ffffff;
+                border: none;
+                padding: 12px 25px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .boton-secundario {
+                background-color: var(--claro);
+                color: #ffffff;
+                border: none;
+                padding: 10px 15px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            /* ===== Detalles (Recuperar contraseña) ===== */
+            .desplegable {
+                background-color: var(--fondo);
+                border: 1px solid var(--grisclaro);
+                padding: 15px;
+            }
+
+            .desplegable summary {
+                font-weight: bold;
+                color: var(--azul);
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .formulario-recuperar {
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px dashed var(--grisclaro);
+            }
+
+            .formulario-recuperar .entrada-texto {
+                width: 300px;
+            }
+
+            /* ===== Pie de página ===== */
+            footer {
+                background-color: var(--azul);
+                color: var(--fondo);
+                text-align: center;
+                padding: 20px;
+                border-top: 5px solid var(--oro);
+            }
+
+            footer p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+            <header>
+                <h1>UniForo 2026</h1>
+                <p>Zona privada de participantes</p>
+            </header>
+
+            <!-- NAV -->
+            <nav aria-label="Men&uacute; de navegaci&oacute;n">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="programa.html">Programa</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="ponentes.html">Ponentes</a></li>
+                    <li><a href="asociaciones.html">Asociaciones</a></li>
+                    <li><a href="multimedia.html">Multimedia</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="login.html" aria-current="page"><strong>Acceso</strong></a></li>
+                </ul>
+                <div class="limpiar"></div>
+            </nav>
+            <!-- /NAV -->
+
+            <main>
+                <section class="seccion-login">
+                    <h2>Iniciar sesi&oacute;n</h2>
+                    <p>Accede para descargar tu credencial, consultar tus talleres y ver tus citas con empresas.</p>
+                    
+                    <form class="formulario" action="login.html" method="post">
+                        <fieldset>
+                            <legend>Credenciales</legend>
+                            <p class="campo">
+                                <label class="etiqueta" for="usuario">Correo electr&oacute;nico</label>
+                                <input class="entrada-texto" type="email" id="usuario" name="usuario" required autofocus autocomplete="email" placeholder="usuario@dominio.es">
+                            </p>
+                            <p class="campo">
+                                <label class="etiqueta" for="clave">Contrase&ntilde;a</label>
+                                <input class="entrada-texto" type="password" id="clave" name="clave" required minlength="8" autocomplete="current-password"
+                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                       title="Al menos 8 caracteres, con may&uacute;sculas, min&uacute;sculas y n&uacute;meros">
+                            </p>
+                            <p class="campo">
+                                <input type="checkbox" id="recordar" name="recordar">
+                                <label class="etiqueta-en-linea" for="recordar">Recordarme en este equipo</label>
+                            </p>
+                            <p class="campo">
+                                <button class="boton" type="submit">Entrar</button>
+                            </p>
+                        </fieldset>
+                    </form>
+                    <p>&iquest;A&uacute;n no tienes cuenta? Se crea autom&aacute;ticamente al completar la <a href="inscripcion.html">inscripci&oacute;n</a>.</p>
+                </section>
+
+                <details class="desplegable">
+                    <summary>&iquest;Has olvidado tu contrase&ntilde;a?</summary>
+                    <form class="formulario-recuperar" action="login.html" method="post">
+                        <p>
+                            <label class="etiqueta" for="recuperar">Introduce tu correo y te enviaremos un enlace</label>
+                            <input class="entrada-texto" type="email" id="recuperar" name="recuperar" required>
+                            <button class="boton-secundario" type="submit">Enviar enlace</button>
+                        </p>
+                    </form>
+                </details>
+            </main>
+
+            <footer>
+                <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+            </footer>
+        </div>
+    </body>
+</html>
