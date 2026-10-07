@@ -5,7 +5,8 @@
 }
 
 /* Columna izquierda */
-body > nav {
+body > nav { /* Para seleccionar solo los elementos nav que sean hijos directos de body 
+             (en noticia1 y noticia2 tenemos navs que no son hijos directos) */
     float: left;
     width: 25%;
     padding: 10px;
@@ -19,7 +20,7 @@ main {
 }
 
 /* Footer por debajo de las dos columnas */
-body > footer {
+body > footer { /* Hay footers que no son hijos directos de body */
     clear: both;
 }
 
