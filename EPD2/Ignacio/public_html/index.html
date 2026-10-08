@@ -46,7 +46,7 @@
             #contenedor {
                 width: 960px;
                 margin: 0 auto;
-                background-color: #ffffff;
+                background-color: #f7f7f7;
                 border: 2px solid var(--grisclaro);
             }
 
@@ -58,7 +58,7 @@
             /* ===== Cabecera ===== */
             header {
                 background-color: var(--azul);
-                color: #ffffff;
+                color: #f7f7f7;
                 padding: 20px;
                 border-bottom: 5px solid var(--oro);
             }
@@ -98,15 +98,21 @@
 
             nav li {
                 float: left;
-                width: 96px; /* 10 enlaces x 96px = 960px (ancho exacto del contenedor) */
+                width: 95.6px; /*Como el estilo de esta página debe ser fijo y con float 
+                             (podría hacerse una solución más elegante con flex), hacemos
+                               el cálculo de px: (960px de contenedor - 2*2 px de borde por lado)/10 elementos de la nav = 95.6 px */
                 text-align: center;
                 border-right: 1px solid var(--azul);
+            }
+            
+            nav li:last-child {
+                border-right: none;
             }
 
             nav a {
                 display: block;
                 padding: 12px 0;
-                color: #ffffff;
+                color: #f7f7f7;
                 font-size: 14px;
             }
 
