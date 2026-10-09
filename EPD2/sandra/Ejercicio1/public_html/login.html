@@ -4,6 +4,168 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UniForo 2026 &ndash; Acceso</title>
+        <style>
+ /* ===== Estilo incrustado: diseño FIJO de 960px (sin archivo CSS propio) ===== */
+            *, *::before, *::after { box-sizing: border-box; }
+
+            /* ---------- Fondo desenfocado (igual que en estilos.css) ---------- */
+            html { background: #1d3557; }
+            body {
+                margin: 0;
+                font-family: Georgia, serif;
+                line-height: 1.6;
+                color: #222;
+            }
+            body::before {
+                content: "";
+                position: fixed;
+                top: -20px; left: -20px; right: -20px; bottom: -20px;
+                z-index: -1;
+                background: url("img/min/biblioteca.jpg") center / cover no-repeat;
+                filter: blur(8px);
+            }
+
+            /* ---------- Cabecera ---------- */
+            body > header {
+                padding: 1.5rem calc((100% - 960px) / 2 + 2rem);   /* banda completa, contenido en 960px centrados */
+                background: rgba(29, 53, 87, .95);
+                color: #fff;
+                border-bottom: 6px solid;
+                border-image: linear-gradient(to right, #e9c46a, #1d3557) 1;
+            }
+            body > header::after { content: ""; display: block; clear: both; }
+            body > header h1 {
+                margin: 0;
+                font-size: 2.6rem;
+                line-height: 1.1;
+                color: #e9c46a;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+            }
+            body > header p { margin: .4rem 0 0; font-size: 1.05rem; }
+
+            /* ---------- Menú superior (float) ---------- */
+            body > nav { background: #1d3557; border-top: 1px solid #3d5a80; }   /* la banda ocupa todo el ancho */
+            body > nav ul { width: 960px; margin: 0 auto; padding: 0; list-style: none; }   /* los enlaces, 960px centrados */
+            body > nav ul::after { content: ""; display: block; clear: both; }
+            body > nav li { float: left; }
+            body > nav li:last-child { float: right; }      /* "Acceso" a la derecha */
+            body > nav a {
+                display: block;
+                padding: .8rem .75rem;
+                font-size: .95rem;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 4px solid transparent;
+                transition: background .3s, color .3s;
+            }
+            body > nav a:hover,
+            body > nav a:focus { background: #e9c46a; color: #1d3557; outline: none; }
+            body > nav a:active { background: #b5651d; color: #fff; }
+            body > nav a[aria-current="page"] { background: #16294a; border-bottom-color: #e9c46a; }
+            body > nav li:last-child a { background: #3d5a80; }
+
+            /* ---------- Enlaces del contenido ---------- */
+            main a            { color: #2f6479; font-weight: bold; }
+            main a:link       { text-decoration: underline; }
+            main a:visited    { color: #6a4c93; }
+            main a:hover      { color: #b5651d; text-decoration: none; }
+            main a:focus      { outline: 2px solid #e9c46a; }
+            main a:active     { color: #c1121f; }
+
+            /* ---------- Pie ---------- */
+            body > footer {
+                clear: both;
+                padding: 1.5rem calc((100% - 960px) / 2 + 2rem);   /* banda completa, contenido en 960px centrados */
+                background: rgba(29, 53, 87, .95);
+                color: #fff;
+                font-size: .9rem;
+            }
+            body > footer a { color: #e9c46a; }
+            body > footer a:hover { color: #fff; }
+            body > footer address { font-style: normal; }
+
+            @media (prefers-reduced-motion: reduce) {
+                * { transition: none !important; }
+            }
+
+            /* ================= SOLO LOGIN ================= */
+
+            /* Pie siempre abajo del todo (técnica clásica, sin flex): altura fija + position absolute */
+            html { height: 100%; }
+            body { position: relative; min-height: 100%; padding-bottom: 80px; }
+            body > footer {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 80px;
+            }
+
+            body > main {
+                width: 440px;                      /* tarjeta de ancho fijo, centrada */
+                margin: 2.5rem auto;
+                padding: 1.5rem 2rem 2rem;
+                background: rgba(244, 241, 234, .95);
+                border-top: 6px solid #e9c46a;
+                border-radius: 8px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+            }
+            main h2 { margin-top: 0; color: #1d3557; }
+
+            main fieldset {
+                margin: 1rem 0;
+                padding: .5rem 1rem 1rem;
+                border: 2px solid #cfd8e3;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, .7);
+            }
+            main fieldset:focus-within { border-color: #1d3557; background: #fff; }
+            main legend { padding: 0 .5rem; font-weight: bold; color: #1d3557; }
+            main label  { font-weight: bold; }
+            main input + label { font-weight: normal; }
+            main input:checked + label { color: #1d3557; font-weight: bold; }
+
+            main input[type="email"], main input[type="password"] {
+                display: block;
+                width: 100%;
+                padding: .5rem .7rem;
+                border: 2px solid #b9c6d6;
+                border-radius: 4px;
+                font: inherit;
+                background: #fff;
+            }
+            main input:focus { outline: none; border-color: #1d3557; box-shadow: 0 0 6px rgba(29, 53, 87, .5); }
+            main input:required { border-left: 5px solid #e9c46a; }
+            main input:required:valid { border-color: #2a9d8f; }
+            main input:focus:invalid:not(:placeholder-shown) { border-color: #c1121f; background: #fff0f0; }
+            main input:placeholder-shown { font-style: italic; }
+            main ::placeholder { color: #8a94a3; }
+
+            main button {
+                padding: .6rem 1.4rem;
+                border: none;
+                border-radius: 4px;
+                background: #1d3557;
+                color: #fff;
+                font: inherit;
+                cursor: pointer;
+                transition: background .3s;
+            }
+            main button:enabled:hover { background: #b5651d; }
+            main button:active { transform: translateY(1px); }
+
+            main details {
+                margin-top: 1rem;
+                padding: .5rem 1rem;
+                background: rgba(255, 255, 255, .7);
+                border: 1px solid #b9c6d6;
+                border-radius: 6px;
+            }
+            main summary { cursor: pointer; font-weight: bold; color: #1d3557; }
+            main summary:hover { color: #b5651d; }
+            main details[open] summary { margin-bottom: .6rem; border-bottom: 1px solid #cfd8e3; }
+            main details input[type="email"] { margin: .3rem 0 .6rem; }
+        </style>
     </head>
     <body>
         <header>

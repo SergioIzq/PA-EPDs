@@ -171,3 +171,34 @@ main article > p:first-of-type::first-letter {            /* Pone la primera let
     body::before, body > nav, body > aside, body > footer { display: none; }
     body > main { float: none; width: 100%; box-shadow: none; }
 }
+
+
+
+
+
+
+
+
+/* ---------- Elementos que faltaban por personalizar ---------- */
+main form { margin: 1rem 0; }
+main h4 { margin-bottom: .3rem; color: #3d5a80; font-size: 1.05rem; }
+main abbr { text-decoration: underline dotted #1d3557; cursor: help; }
+main time { color: #1d3557; font-weight: bold; }
+main cite { color: #3d5a80; font-style: italic; }
+main i { color: #3d5a80; }
+main dfn { font-weight: bold; font-style: italic; }
+main small { color: #555; font-size: .8em; }
+main sub, main sup { color: #b5651d; font-size: .75em; line-height: 0; }
+main rt { color: #b5651d; font-size: .6em; }
+main var { color: #6a4c93; font-family: Consolas, "Courier New", monospace; }
+main bdi, main data { color: #1d3557; font-weight: bold; }
+main math { font-size: 1.15em; }
+main output { padding: 0 .4rem; background: #fff6d6; border-radius: 3px; color: #1d3557; font-weight: bold; }
+main optgroup { color: #1d3557; font-weight: bold; font-style: normal; }
+main select option { background: #fff; color: #222; }
+main menu { margin: 0 0 1rem; padding: 0; list-style: none; }
+main menu li { display: inline-block; margin: 0 .5rem .5rem 0; }
+main menu a { display: inline-block; padding: .2rem .8rem; background: #dde6f0; border-radius: 1rem; }
+main menu a:link { text-decoration: none; }
+main menu a:hover { background: #e9c46a; }
+ 

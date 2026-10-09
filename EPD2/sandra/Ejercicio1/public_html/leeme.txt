@@ -1,172 +1,254 @@
 UniForo 2026 - Jornadas de Ponencias y Foro de Empleo
-EPD1 - Programación Avanzada
+EPD2 - Programación Avanzada: hojas de estilo CSS
 Universidad Pablo de Olavide - Escuela Politécnica Superior (EPS)
-=====================================================
+=====================================================================
 
-Sitio web en HTML5 puro (sin CSS ni JavaScript). Todas las páginas se han
-validado sin errores ni avisos en el validador Nu (https://whatwg.org/validator/) y
-en el validador HTML integrado en NetBeans.
-
-ESTRUCTURA
-----------
-  index.html, login.html, programa.html, actividades.html, ponentes.html,
-  asociaciones.html, multimedia.html, inscripcion.html, contacto.html,
-  noticias.html
-  actividades/  talleres.html, deportes.html, cultura.html
-  ponentes/     ponente1.html, ponente2.html
-  noticias/     noticia1.html, noticia2.html
-  img/          imágenes a resolución completa (Wikimedia Commons, licencias libres)
-  img/min/      miniaturas de las imágenes (enlazan a la imagen completa)
-  img/plano.svg plano del campus (se muestra con <embed>)
-  media/subtitulos.vtt  subtítulos del vídeo (<track>)
-
-NAVEGACIÓN
-----------
-Cada página tiene un menú (<nav>) con los enlaces dentro de una lista
-(<nav><ul><li>), que es la estructura semántica recomendada para un menú, y
-que cumple las reglas del enunciado:
-  - Las páginas principales enlazan con todas las demás páginas principales
-    (mismo nivel) y, si tienen páginas hijas, con ellas en una segunda línea
-    del menú (padre -> hija).
-  - Las páginas hijas enlazan solo con su página padre y con sus hermanas.
-    Por ejemplo, desde ponente1.html se puede ir a ponentes.html y a
-    ponente2.html, pero no a contacto.html.
-Los enlaces dentro del contenido también respetan estas reglas. La página
-actual aparece resaltada con <strong> y aria-current="page".
-
-El audio y el vídeo se cargan desde fuentes externas (Wikimedia Commons y
-MDN), por lo que no se incluye ningún archivo de audio ni de vídeo.
-
-Los artículos de noticia1.html (W3C) y noticia2.html (Tim Berners-Lee) se han
-extraído de Wikipedia en español (licencia CC BY-SA 4.0) y se han maquetado a
-mano en HTML5 con secciones, subsecciones, enlaces, tablas y figuras.
+Esta entrega le pone estilo al sitio web de la EPD1. El contenido es el
+mismo, con unos pocos cambios en el HTML que se explican más abajo. Todas
+las columnas se han maquetado con la técnica clásica que pide el enunciado
+(float, clear y box-sizing: border-box). No se ha usado flexbox ni grid en
+ningún archivo.
 
 
-ETIQUETAS HTML5 UTILIZADAS
---------------------------
+RESUMEN
+-------
+  Reglas CSS escritas ...................... 261 (180 selectores distintos)
+      css/estilos.css ...................... 128
+      CSS incrustado en index.html ......... 77
+      CSS incrustado en login.html ......... 56
+  Propiedades CSS distintas ................ 64
+  Pseudoclases distintas ................... 22
+  Pseudoelementos distintos ................ 6
 
-Estructura y semántica
-  <header>      Todas las páginas: cabecera con el nombre del evento. También
-                dentro de <article> (noticias.html, ponente1/2.html, noticia1/2.html)
-                para agrupar el título y la fecha de publicación.
-  <nav>         Todas las páginas: menú principal del sitio. En noticia1.html y
-                noticia2.html, además, índice interno del artículo.
-  <main>        Todas las páginas: contenido principal, distinto del menú,
-                la cabecera y el pie.
-  <footer>      Todas las páginas: pie con el copyright. En noticia1/2.html,
-                también pie del artículo con la fuente y la licencia.
-  <section>     Todas las páginas: bloques temáticos con su encabezado. En las
-                noticias hay secciones anidadas para crear subsecciones.
-  <article>     index.html (bloques de "Qué encontrarás"), ponentes.html,
-                asociaciones.html, cultura.html, noticias.html (cada noticia),
-                ponente1/2.html y noticia1/2.html: contenidos independientes.
-  <aside>       index.html (cifras y última hora), deportes.html (material),
-                noticias.html (fuente de los artículos): contenido secundario.
-  <hgroup>      index.html: agrupa el encabezado principal del sitio (<h1>).
-  <figure> y <figcaption>
-                En casi todas las páginas: cada imagen (y el vídeo, el audio y
-                el plano) va dentro de una figura con su pie, que incluye autor
-                y licencia.
-
-Semántica a nivel de texto
-  <time>        index, programa (horas de la tabla, con datetime="09:00"...),
-                talleres, deportes, cultura, ponentes, ponente1, noticias,
-                noticia1/2, contacto, inscripcion...: fechas y horas legibles
-                por máquinas mediante el atributo datetime.
-  <mark>        index.html ("Ampliado"), programa.html (ponencias con reserva),
-                noticias.html (términos destacados): texto resaltado por su
-                relevancia.
-  <data>        programa.html (tarifas) y talleres.html (precio): asocia el
-                texto visible ("Gratuito", "10 €") a un valor numérico.
-  <meter>       index.html (plazas reservadas) y asociaciones.html (socios de
-                cada asociación): medida dentro de un rango conocido.
-  <progress>    inscripcion.html (plazas ocupadas) y deportes.html (dorsales
-                asignados): grado de avance de una tarea.
-  <ruby>, <rt>, <rp>
-                ponente2.html: nombre japonés de la ponente con su lectura
-                (furigana). <rp> muestra paréntesis en navegadores sin soporte.
-  <bdi>         ponentes.html (nombre en árabe de una participante) y
-                asociaciones.html (nombre en árabe de una asociación): aísla
-                texto que se escribe de derecha a izquierda.
-  <wbr>         contacto.html: puntos de corte opcionales en una URL muy larga.
-
-Contenido incrustado
-  <picture>     index.html: imagen del aula magna con <source> que carga la
-                versión grande en pantallas anchas y la miniatura en el resto.
-  <video>       multimedia.html: vídeo promocional (fuente externa).
-  <audio>       multimedia.html: audio de Tim Berners-Lee (fuente externa).
-  <source>      multimedia.html (varios formatos de vídeo y audio: webm/mp4,
-                mp3/ogg) e index.html (dentro de <picture>).
-  <track>       multimedia.html: subtítulos en español del vídeo (media/subtitulos.vtt).
-  <embed>       contacto.html: muestra el plano SVG del campus.
-
-Formularios (inscripcion.html, contacto.html, login.html, noticias.html)
-  <datalist>    inscripcion.html: sugerencias de titulaciones para el campo de
-                texto y marcas del control de nivel de inglés (range).
-  <output>      inscripcion.html: resultado del formulario (precio orientativo)
-                relacionado con los campos que lo determinan mediante "for".
-                Al no usar JavaScript muestra un valor fijo.
-  Nuevos tipos de <input>: email, tel, url, number, range, date, time,
-                datetime-local, month, week, color y search.
-  Nuevos atributos: required, placeholder, pattern, min, max, step, minlength,
-                maxlength, autofocus, autocomplete, list, multiple, accept,
-                inputmode, spellcheck, dirname, form (casilla fuera del
-                formulario que pertenece a él), formnovalidate, formaction y
-                formmethod (botón "Guardar borrador"), readonly y disabled.
-  También <fieldset>/<legend>, <select> con <optgroup> y selección múltiple,
-                <textarea> con maxlength y minlength, y validación nativa sin
-                JavaScript.
-
-Elementos interactivos
-  <details> y <summary>
-                contacto.html (preguntas frecuentes) y login.html (recuperar
-                contraseña): contenido desplegable sin JavaScript.
-  <menu>        multimedia.html: lista de accesos rápidos a las secciones de la página.
-  <dialog>      index.html: aviso destacado sobre el aforo del aula magna. Se usa
-                con el atributo "open", de modo que el cuadro se muestra sin
-                necesidad de JavaScript.
-
-Contenido vectorial y matemático
-  <svg>         index.html: logotipo del evento dibujado en línea (círculo, trazo
-                y texto), con <title> para que sea accesible.
-  <math>        programa.html: fórmula MathML del porcentaje de asistencia
-                necesario para obtener el certificado.
-
-Marcado de cambios y de texto técnico
-  <del> e <ins> programa.html (la ponencia de ciberseguridad pasa de las 16:00 a
-                las 16:30) y actividades/talleres.html (cambio de hora del taller
-                de HTML5). Llevan los atributos datetime y cite.
-  <sub> y <sup> programa.html: CO2 y "2.ª edición".
-  <q> y <blockquote>
-                programa.html: cita de la dirección de la EPS, con el atributo cite.
-  <dl>, <dt> y <dd>
-                programa.html: glosario de modalidades (ponencia, taller, mesa
-                redonda, ECTS) como lista de definición.
-  <kbd>, <samp> y <var>
-                actividades/talleres.html: atajo de teclado (Ctrl+U), salida literal
-                del validador y nombre de una variable del ejemplo.
+La base común (fondo, cabecera, menú, pie y enlaces) está escrita dos veces,
+una en index.html y otra en login.html, porque su CSS va incrustado y no se
+puede compartir. Por eso hay 261 reglas escritas pero solo 180 selectores
+distintos.
 
 
-ETIQUETAS NO UTILIZADAS
------------------------
-  <canvas>, <template> y <slot> necesitan JavaScript para funcionar.
-  Salvo estas, se emplean todas las etiquetas nuevas de HTML5 de la lista de
-  https://www.w3.org/wiki/HTML/New_HTML5_Elements.
-  <keygen>, <command> y <menuitem> se han eliminado de la especificación
-  actual y harían que la página no validase.
+ARCHIVOS Y DISEÑO
+-----------------
+  css/estilos.css   Hoja única compartida por las 15 páginas restantes. Se
+                    enlaza con <link rel="stylesheet"> (css/estilos.css en
+                    las páginas padre y ../css/estilos.css en las hijas).
+  index.html        CSS incrustado en <style>, dentro de <head>. Sin
+  login.html        archivo CSS propio.
+
+  Páginas padre     Dos columnas: menú lateral (22%) y contenido (78%).
+                    Diseño fluido, con un ancho máximo de 1100px y centrado.
+  Páginas hijas     Tres columnas: menú (20%), contenido (55%) y una columna
+                    derecha (25%) con tres enlaces a las noticias y un texto
+                    extra. Se activa con la clase "tres-columnas" en <body>.
+  index.html        Diseño fijo de 960px. Menú superior horizontal (los <li>
+                    flotan a la izquierda y "Acceso" a la derecha), contenido
+                    en dos columnas de 610px y 270px, y un pie con tres
+                    columnas (copyright, enlaces y dirección).
+  login.html        Diseño fijo de 960px con la tarjeta del formulario de
+                    440px centrada. El pie queda siempre abajo del todo sin
+                    usar flex: el <body> reserva 80px y el pie se coloca con
+                    position: absolute y esa misma altura.
+
+  Fondo de todas las páginas: una foto de biblioteca desenfocada. El
+  desenfoque se aplica a body::before (position: fixed y z-index: -1), porque
+  poner filter: blur en el body desenfocaría también el texto.
 
 
-CRÉDITOS DE LAS IMÁGENES (Wikimedia Commons)
---------------------------------------------
-  aula.jpg        Ohio University Lecture Hall - Garden Sprite (CC0)
-  hackathon.jpg   Hackathon 2016 (501) - Ariel Elinson (CC BY-SA 4.0)
-  futbol.jpg      Football match USTB 2017 - 纳瓦拉的亨利 (CC BY-SA 4.0)
-  danza.jpg       Dancers performing on stage - Virtual-Pano (CC BY-SA 4.0)
-  feria.jpg       MOX Job Fair 2018 - Savannah River Site (dominio público)
-  robot.jpg       Humanoid Robot - Wikideas1 (CC0)
-  datacenter.jpg  BalticServers data center - BalticServers.com (CC BY-SA 3.0)
-  biblioteca.jpg  Graz University Library reading room - Dr. Marcus Gossler (CC BY-SA 3.0)
-  auditorio.jpg   Max M Fisher Music Center - Andrew Jameson (CC BY-SA 3.0)
-  tbl.jpg         Sir Tim Berners-Lee (cropped) - Paul Clarke (CC BY-SA 4.0)
-  w3c.png         W3C Icon - World Wide Web Consortium (dominio público)
-  cern.jpg        First Web Server - Coolcaesar (CC BY-SA 3.0)
+CAMBIOS EN EL HTML
+------------------
+  - Todas las páginas menos index y login: <link> a la hoja de estilos.
+  - Las 7 páginas hijas: <aside> justo después de </main> con los enlaces a
+    noticias.html, noticia1.html y noticia2.html, y class="tres-columnas"
+    en <body>.
+  - index.html: <nav> con cinco enlaces dentro del <footer>.
+  - login.html: atributo placeholder en la contraseña y en el correo de
+    recuperación (lo necesita la pseudoclase :placeholder-shown).
+
+
+ELEMENTOS HTML CON ESTILO Y PARA QUÉ SIRVE CADA UNO
+---------------------------------------------------
+Se usa body > header, body > nav y body > footer (hijo directo) para no
+afectar a los header, nav y footer que hay dentro de los <article>.
+
+Estructura
+  html          Color de respaldo mientras carga el fondo; con :root se fija
+                el tamaño de letra base y el scroll suave.
+  body          Ancho máximo o fijo, centrado, tipografía Georgia e
+                interlineado de 1.6.
+  header        Banda azul con borde inferior degradado. El h1 lleva sombra.
+  nav           Menú lateral con enlaces en bloque que se resaltan al pasar
+                el ratón (en index y login es una barra horizontal). Dentro
+                de <main> es el índice de las noticias, con borde a la
+                izquierda.
+  main          Columna de contenido con fondo semitransparente, sombra y una
+                animación suave de entrada.
+  aside         Tercera columna en las hijas. Dentro de <main> (deportes y
+                noticias) es una nota destacada. En index es la columna
+                "En cifras".
+  footer        Banda azul con clear: both para que quede bajo las columnas.
+  section       Con :target se resalta al llegar desde un enlace interno.
+  article       Cabecera y pie propios separados por una línea. En index son
+                las tres tarjetas de "Qué encontrarás".
+  div, hgroup, svg   Solo en index: columna principal, título y logotipo.
+
+Texto
+  h1, h2, h3, h4   Colores y tamaños propios; los h2 llevan subrayado dorado.
+  p                El primer párrafo de cada artículo lleva capitular.
+  strong, mark, ins, del   Negrita, resaltado amarillo, texto añadido (verde)
+                           y texto tachado (rojo).
+  q, blockquote, cite      Citas en cursiva; la cita larga con borde dorado.
+  code, samp, kbd, var     Tipografía monoespaciada con fondo; kbd con borde
+                           de tecla y var en morado.
+  abbr, dfn, time, small, i, bdi, data
+                   Abreviaturas con subrayado punteado, definiciones,
+                   fechas en negrita y detalles menores de color y tamaño.
+  sub, sup, ruby/rt, math   Subíndices, superíndices, anotación ruby y
+                            fórmulas, con color o tamaño propio.
+  address          Sin cursiva y con borde a la izquierda.
+
+Listas
+  ul, ol, li       Las viñetas son doradas (::marker) y los elementos de
+                   lista se separan con :not(:last-child).
+  dl, dt, dd       Lista de definiciones en dos columnas (columns).
+  menu             Lista de enlaces convertida en botones redondeados.
+
+Enlaces
+  a                Color propio y negrita en el contenido. Cada estado
+                   (:link, :visited, :hover, :focus, :active) tiene su color.
+                   Los externos llevan una flecha y los mailto un sobre. Los
+                   que envuelven una foto .jpg le ponen un marco dorado al
+                   pasar el ratón.
+
+Imágenes y multimedia
+  img              Nunca se sale de su columna (max-width: 100%).
+  figure, figcaption   Marco blanco con sombra y pie en cursiva. En index las
+                       fotos van ligeramente giradas y se enderezan en hover.
+  video, audio, embed  No superan el ancho de la columna.
+  meter, progress  Ancho limitado y color propio (accent-color).
+
+Tablas
+  table, caption, thead, tbody, tfoot, tr, th, td
+                   Bordes colapsados, cabecera azul, filas alternas con
+                   :nth-child(even), resaltado de fila en hover y borde
+                   grueso en la última fila.
+
+Formularios
+  form, fieldset, legend   Cada grupo de campos va en un recuadro con borde
+                           redondeado que se oscurece con :focus-within.
+  label, input, select, textarea, option, optgroup
+                   Campos con borde, esquinas redondeadas y fuente heredada.
+                   Los obligatorios llevan una marca dorada a la izquierda
+                   y cambian de color según sean válidos o no. El textarea
+                   solo se puede estirar en vertical (resize).
+  button, input[type="submit"], input[type="reset"]
+                   Botones azules que cambian en hover y se hunden 1px en
+                   :active.
+  output           Resultado de los formularios con fondo amarillo claro.
+  details, summary Desplegables con borde y cursor de mano.
+  dialog           Solo en index: el aviso del aforo es una banda dorada con
+                   un icono. Se le pone position: relative porque, por
+                   defecto, el navegador lo coloca flotando sobre la página.
+
+
+PSEUDOCLASES (22)
+-----------------
+  :link, :visited, :hover, :focus, :active
+        Estados de los enlaces del contenido. :hover y :focus también se
+        usan en menús, botones, filas de tabla, tarjetas, <summary> y fotos.
+  :first-child     Quita el margen superior del primer elemento de <main> y
+                   el relleno superior del primer enlace de la lista del pie
+                   de index.
+  :last-child      Quita el margen del último elemento, marca la última fila
+                   de las tablas y coloca "Acceso" a la derecha del menú.
+  :nth-child       Filas pares de las tablas, color de la segunda tarjeta de
+                   index y reparto de cifras en dos columnas.
+  :first-of-type   Capitular del primer párrafo de un artículo y de la
+                   bienvenida de index.
+  :last-of-type    Giro de la segunda foto de la bienvenida en index.
+  :not             Separación entre elementos de lista (li:not(:last-child))
+                   y, en login, evita el aviso de error con el campo vacío
+                   (:not(:placeholder-shown)).
+  :lang            Cursiva en los términos en inglés (lang="en").
+  :root            Tamaño de letra base y scroll suave.
+  :target          Resalta la sección a la que se llega desde un enlace #id.
+  :checked         Etiqueta en negrita de los radio y casillas marcados.
+  :enabled         Botón de login que solo cambia de color si está activo.
+  :disabled        Campos deshabilitados, en gris y con cursor prohibido.
+  :focus-within    El recuadro (fieldset) se resalta mientras se escribe
+                   dentro de él.
+  :required        Marca dorada en los campos obligatorios.
+  :valid           Borde verde cuando el campo obligatorio es correcto.
+  :invalid         Borde y fondo rojos mientras se escribe algo incorrecto.
+  :placeholder-shown   Cursiva mientras se ve el texto de ayuda; también
+                       evita que el error salga con el campo vacío.
+
+
+PSEUDOELEMENTOS (6)
+-------------------
+  ::before   Fondo desenfocado de la página, icono "!" del aviso y sobre en
+             los enlaces de correo.
+  ::after    Flecha en los enlaces externos y "clearfix" de los contenedores
+             con float.
+  ::first-letter   Capitular del primer párrafo.
+  ::marker         Viñetas doradas de las listas.
+  ::placeholder    Color del texto de ayuda de los campos.
+  ::selection      Color del texto seleccionado con el ratón.
+
+
+SELECTORES UTILIZADOS
+---------------------
+  De etiqueta     main, nav, table, input... (la mayoría de las reglas).
+  De clase        .tres-columnas (solo una: distingue 2 y 3 columnas).
+  De id           #bienvenida y #que-encontraras (solo en index).
+  De atributo     [href^="http"], [href^="mailto:"], [href$=".jpg"],
+                  [aria-current="page"], [type="..."] y [open].
+  Combinadores    hijo (>), descendiente (espacio), hermano adyacente (+),
+                  hermano general (~) y agrupación con comas.
+  Universal       * junto con *::before y *::after para box-sizing.
+
+
+PROPIEDADES CSS DISTINTAS (64)
+------------------------------
+Maquetación (18)
+  float, clear, width, max-width, height, min-height, display, position, top,
+  right, bottom, left, inset, z-index, overflow, box-sizing, columns,
+  column-gap. Colocan, dimensionan y reparten en columnas.
+
+Espaciado (9)
+  margin, margin-top, margin-bottom, margin-left, margin-right, padding,
+  padding-top, padding-bottom, padding-left. Separan elementos entre sí y
+  su contenido de los bordes.
+
+Bordes (11)
+  border, border-top, border-bottom, border-left, border-right,
+  border-color, border-top-color, border-bottom-color, border-radius,
+  border-image, border-collapse. Líneas, colores, esquinas redondeadas,
+  borde degradado y unión de bordes en las tablas.
+
+Fondo, color y efectos (6)
+  background, color, opacity, accent-color, box-shadow, filter. Fondos,
+  colores, transparencia, sombras y el desenfoque de la imagen.
+
+Texto (13)
+  font, font-family, font-size, font-style, font-weight, line-height,
+  text-align, text-decoration, text-shadow, text-overflow, white-space,
+  list-style, content. Tipografía, subrayados, sombra, puntos suspensivos si
+  el texto no cabe, tipo de viñeta y texto generado con ::before y ::after.
+
+Interacción y movimiento (7)
+  cursor, outline, resize, transition, transform, animation,
+  scroll-behavior. Puntero, contorno de foco, redimensionado, transiciones
+  suaves, giros y desplazamientos, animación de entrada y scroll suave.
+
+
+OTRAS CARACTERÍSTICAS DE CSS3
+-----------------------------
+  - Esquinas redondeadas (border-radius), sombras (box-shadow y text-shadow),
+    bordes con degradado (border-image con linear-gradient) y colores con
+    transparencia (rgba).
+  - Animación con @keyframes ("aparecer", en la columna de contenido) y
+    transiciones en menús, botones y fotos.
+  - Texto en varias columnas (columns) y puntos suspensivos (text-overflow).
+  - @media print: al imprimir solo sale el contenido, sin menú ni pie.
+  - @media (prefers-reduced-motion: reduce): en index y login quita las
+    transiciones a quien tiene activada esa opción en su sistema. Es el único
+    sitio donde se usa !important.
