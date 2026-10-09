@@ -7,3 +7,168 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Author     : Usuario
 */
 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;                 /* la página ocupa todo el ancho */
+}
+
+body {
+    background: #ffffff;
+    color: #222222;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+/* CLEARFIX */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header {
+    padding: 20px 30px;
+    background: #1d3557;
+    color: #ffffff;
+}
+header h1,
+header p {
+    margin: 0;
+}
+
+#menu-lateral {
+    float: left;
+    width: 20%;
+    padding: 20px 0;
+    background: #457b9d;
+
+    position: sticky;            /* se queda pegado al hacer scroll */
+    top: 0;                      /* ...al borde superior de la ventana */
+    height: 100vh;               /* ocupa todo el alto de la pantalla */
+    overflow-y: auto;            /* si los submenús lo hacen más largo, tiene su propio scroll */
+}
+
+main {
+    float: left;
+    width: 75%;
+    padding: 20px 30px;
+}
+
+
+footer {
+    clear: both;                 /* debajo de las tres columnas */
+    padding: 15px 30px;
+    background: #1d3557;
+    color: #ffffff;
+}
+footer p {
+    margin: 0;
+}
+
+/* MENÚ LATERAL */
+#menu-lateral ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu-lateral a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#menu-lateral a:hover {
+    background: #1d3557;
+    color: #e9c46a;
+}
+
+/* Submenú de secciones hijas */
+#menu-lateral .submenu {
+    background: #36657f;
+}
+#menu-lateral .submenu a {
+    padding-left: 40px;
+    font-size: 0.78rem;
+    text-transform: none;
+}
+
+/* Submenú oculto por defecto */
+#menu-lateral .submenu {
+    display: none;
+    background: #36657f;
+}
+
+/* Se muestra al pasar el ratón por el li padre */
+#menu-lateral li:hover > .submenu {
+    display: block;
+}
+
+/* Mantiene resaltado el padre mientras el submenú está abierto */
+#menu-lateral li:hover > a {
+    background: #1d3557;
+    color: #e9c46a;
+}
+
+#menu-lateral .submenu a {
+    padding-left: 40px;
+    font-size: 0.78rem;
+    text-transform: none;
+}
+/* CONTENIDO */
+h2 {
+    margin: 0 0 12px;
+    border-bottom: 3px solid #e9c46a;
+    color: #1d3557;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+h3 {
+    margin: 16px 0 6px;
+    color: #457b9d;
+}
+section {
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+th, td {
+    padding: 6px;
+    border: 1px solid #b8c4d2;
+    text-align: left;
+}
+th {
+    background: #e6ecf3;
+}
+caption {
+    padding: 6px;
+    font-weight: bold;
+}
+
+figure {
+    margin: 0 0 14px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+mark {
+    background: #fff3a8;
+}

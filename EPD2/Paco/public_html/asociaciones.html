@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UniForo 2026 &ndash; Asociaciones</title>
+        <link rel="stylesheet" href="css/estilos.css"> 
+
     </head>
     <body>
         <header>
@@ -12,15 +14,31 @@
         </header>
 
         <!-- NAV -->
-        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+        <nav id="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="programa.html">Programa</a></li>
-                <li><a href="actividades.html">Actividades</a></li>
-                <li><a href="ponentes.html">Ponentes</a></li>
-                <li><a href="asociaciones.html" aria-current="page"><strong>Asociaciones</strong></a></li>
+                <li><a href="programa.html" aria-current="page"><strong>Programa</strong></a></li>
+                <li><a href="actividades.html">Actividades</a>
+                    <ul class="submenu">
+                        <li><a href="actividades/cultura.html">Cultura</a></li>
+                        <li><a href="actividades/deportes.html">Deporte</a></li>
+                        <li><a href="actividades/talleres.html">Talleres</a></li>
+                    </ul>
+                </li>
+                <li><a href="ponentes.html">Ponentes</a>
+                    <ul class="submenu">
+                        <li><a href="ponentes/ponente1.html">Ponente1</a></li>
+                        <li><a href="ponentes/ponente2.html">Ponente2</a></li>
+                    </ul>
+                </li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
                 <li><a href="multimedia.html">Multimedia</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="noticias.html">Noticias</a>
+                    <ul class="submenu">
+                        <li><a href="noticias/noticia1.html">Noticia1</a></li>
+                        <li><a href="noticias/noticia2.html">Noticia2</a></li>
+                    </ul>
+                <li>
                 <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="login.html">Acceso</a></li>
