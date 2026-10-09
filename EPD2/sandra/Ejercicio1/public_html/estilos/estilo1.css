@@ -8,3 +8,166 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Hoja de estilos para todas las paginas menos para login e index
 */
 
+*, *::before, *::after { box-sizing: border-box; }   /* lo pide el enunciado */
+
+/* ---------- Fondo ---------- */
+html { background: #1d3557; }   /* color de respaldo mientras carga la imagen */
+
+body {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    color: #222;
+    /* sin background: lo taparia el fondo desenfocado */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -20px; left: -20px; right: -20px; bottom: -20px;   /* margen extra para que el desenfoque no deje bordes */
+    z-index: -1;
+    background:
+      /*  linear-gradient(rgba(244, 241, 234, .55), rgba(244, 241, 234, .55)),*/  /* velo claro para que no distraiga */
+        url("../img/min/biblioteca.jpg") center / cover no-repeat;
+    filter: blur(8px);
+}
+
+/* ---------- Enlaces del contenido ---------- */
+main a            { color: #5d8fa3; font-weight: bold; }  /* otro color podria ser #1d3557 (mas oscuro) */
+main a:link       { text-decoration: underline; }
+main a:visited    { color: #6a4c93; }
+main a:hover      { color: #b5651d; text-decoration: none; }
+main a:focus      { outline: 2px solid #e9c46a; }
+main a:active     { color: #c1121f; }
+
+/* ---------- Cabecera y pie ---------- */
+body > header {
+    background: rgba(29, 53, 87, .95);
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+body > header h1 { margin: 0; color: #e9c46a; }
+body > header p  { margin: .25rem 0 0; }
+
+body > footer {
+    clear: both;   /* para que el footer se quede abajo y no suba */
+    background: rgba(29, 53, 87, .95);
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+
+/* ---------- 2 columnas ---------- */
+body > nav {
+    float: left;
+    width: 22%;
+    padding: 1rem;
+    background: rgba(221, 230, 240, .88);
+}
+body > main {
+    float: left;
+    width: 78%;
+    padding: 1.5rem;
+    background: rgba(244, 241, 234, .92);   /* color de fondo para el contenido central*/
+}
+
+/* ---------- Menú lateral ---------- */
+body > nav ul { list-style: none; margin: 0 0 1rem; padding: 0; }
+body > nav a {
+    display: block;
+    padding: .4rem .6rem;
+    color: #1d3557;
+    text-decoration: none;
+}
+body > nav a:hover { background: #e9c46a; }
+body > nav a[aria-current="page"] { background: #1d3557; color: #fff; }
+
+/* ---------- 3 columnas ---------- */
+.tres-columnas > nav  { width: 20%; }
+.tres-columnas > main { width: 55%; }
+.tres-columnas > aside {   /* > para no afectar al aside de dentro de main */
+    float: right;
+    width: 25%;
+    padding: 1rem;
+    background: rgba(253, 246, 227, .88);
+}
+
+/* ---------- Detalles dentro del contenido ---------- */
+main nav {   /* indice interno de noticia1 y noticia2 */
+    background: #dae5f2;/* otro color posible pero no mg tanto #eef2f7;*/
+    border-left: 4px solid #1d3557;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+}
+main img { max-width: 100%; height: auto; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= EXTRAS CSS3 ================= */
+
+/* ---------- Cabecera: sombra de texto y borde con degradado ---------- */
+body > header {
+    border-bottom: 6px solid;
+    border-image: linear-gradient(to right, #e9c46a, #1d3557) 1;   /* borde degradado */
+}
+body > header h1 { text-shadow: 2px 2px 4px rgba(0, 0, 0, .5); }
+
+/* ---------- Menú: puntos suspensivos y transición ---------- */
+body > nav a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;                  /* si el texto no cabe, pone "..." */
+    transition: background .3s, padding-left .3s;
+}
+body > nav a:hover { padding-left: 1rem; }    /* el enlace "se desplaza" al pasar el ratón */
+
+/* ---------- Contenido: sombra y animación de entrada ---------- */
+body > main {
+    box-shadow: 0 0 12px rgba(0, 0, 0, .25);
+    animation: aparecer .6s ease-out;
+}
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Multicolumna (listas de definición) ---------- */
+main dl { columns: 2 14rem; column-gap: 2rem; }
+
+/* ---------- Formularios ---------- */
+main textarea { resize: vertical; min-height: 6rem; }   /* solo se puede estirar en vertical */
+
+/* ---------- Selectores de atributo y pseudoelementos ---------- */
+main a[href^="http"]::after   { content: " \2197"; font-size: .8em; }   /* flecha en enlaces externos */
+main a[href^="mailto:"]::before { content: "\2709  "; }                  /* sobre en enlaces de correo */
+main a[href$=".jpg"] img      { border: 5px solid transparent; transition: border-color .3s; }
+main a[href$=".jpg"]:hover img { border-color: #e9c46a; }
+
+/* ---------- Combinadores ---------- */
+main h2 + p { font-size: 1.05rem; }                       
+main h2 ~ ol { padding-left: 2rem; }                 
+main article > p:first-of-type::first-letter {            /* Pone la primera letra en grande */
+    font-size: 2em;
+    font-weight: bold;
+    color: #1d3557;
+}
+
+/* ---------- Impresión ---------- */
+@media print {
+    body::before, body > nav, body > aside, body > footer { display: none; }
+    body > main { float: none; width: 100%; box-shadow: none; }
+}
