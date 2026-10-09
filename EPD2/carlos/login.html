@@ -4,6 +4,164 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UniForo 2026 &ndash; Acceso</title>
+        
+        <style>
+            :root {
+                --azul: #1d3557;
+                --claro: #457b9d;
+                --oro: #e9c46a;
+                --rojo: #c1121f;
+                --verde: #2a9d8f;
+                --fondo: #f3ecd8;
+                --grisclaro: #b8c4d2;
+                --grisoscuro: #5b6470;
+            }
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: var(--fondo);
+                font-family: Arial, sans-serif;
+                color: var(--grisoscuro);
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+            }
+            
+            #titulo {
+                color: var(--azul)
+            }
+            
+            header {
+                background-color: var(--azul);
+                padding: 10px 30px;
+            }
+            
+            header p {
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            
+            header h1 {
+                color: var(--oro);
+            }
+            
+            nav {
+                background-color: var(--claro);
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                list-style-type: none;
+                padding: 10px 30px;
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav li {
+                display: inline-block;
+                margin: 0 20px;
+            }
+            
+            nav a{
+                font-weight: bold;
+                text-decoration: none;
+                color: var(--fondo);
+            }
+            
+            nav a:hover,
+            nav a[aria-current="page"] {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+            
+            main {
+                max-width: 480px;
+                margin: 0 auto;
+                padding: 30px 20px 40px;
+            }
+            
+            legend {
+                background-color: var(--azul);
+                color: var(--oro);
+                font-weight: bold;
+                padding: 4px 14px;
+            }
+            
+            fieldset {
+                background-color: white;
+                border: 2px solid var(--azul);
+                margin-top: 22px;
+                padding: 20px;
+            }
+            
+            label {
+                color: var(--azul);
+                display: block;
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+            
+            input[type="email"],
+            input[type="password"] {
+                background-color: var(--fondo);
+                border: 1px solid var(--grisclaro);
+                color: var(--grisoscuro);
+                font: inherit;
+                padding: 9px 10px;
+                width: 100%;
+            }
+
+            input[type="email"]:hover,
+            input[type="password"]:hover {
+                border-color: var(--claro);
+            }
+
+            input[type="checkbox"] {
+                accent-color: var(--verde);
+                margin-right: 8px;
+            }
+
+            input[type="checkbox"] + label {
+                display: inline;
+                font-weight: normal;
+            }
+
+            button {
+                background-color: var(--oro);
+                border: 2px solid var(--azul);
+                color: var(--azul);
+                cursor: pointer;
+                font: inherit;
+                font-weight: bold;
+                padding: 10px 26px;
+                width: 100%;
+            }
+
+            button:hover {
+                background-color: var(--azul);
+                color: var(--oro);
+            }
+            
+            details input{
+                margin-bottom: 10px;
+            }
+            
+            footer {
+                background-color: var(--azul);
+                color: var(--grisclaro);
+                margin-top: 20px;
+                padding: 15px 30px;
+            }
+            
+            footer a {
+                color: var(--oro);
+            }
+            
+        </style>
     </head>
     <body>
         <header>
@@ -30,7 +188,7 @@
 
         <main>
             <section>
-                <h2>Iniciar sesi&oacute;n</h2>
+                <h2 id="titulo">Iniciar sesi&oacute;n</h2>
                 <p>Accede para descargar tu credencial, consultar tus talleres y ver tus citas con empresas.</p>
                 <form action="login.html" method="post">
                     <fieldset>
