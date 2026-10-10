@@ -17,45 +17,52 @@
                 --grisclaro: #b8c4d2;
                 --grisoscuro: #5b6470;
             }
+
             * {
                 box-sizing: border-box;
             }
-            html{
+
+            /* CLEARFIX */
+            header::after,
+            .menu-superior ul::after,
+            main::after,
+            fieldset::after,
+            footer::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            html {
                 min-height: 100%;
                 background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1cXRj9x6qxZTWCk4cRJEE29MTyhXDX5-YHTAjq8yYHw&s=10");
-                background-size: cover;          /* escala la imagen para cubrir todo el área */
-                background-position: center;     /* la centra */
-                background-repeat: no-repeat;    /* evita que se repita */
-                background-attachment: fixed;    /* opcional: no se mueve al hacer scroll */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
             }
+
             body {
-                display: flex;
-                flex-direction: column;
                 width: 960px;
-                margin: 20px auto; /*hace que el navegador calcule 
-                                   y distribuya automáticamente el espacio disponible alrededor de un elemento*/
+                margin: 20px auto;
                 background: var(--fondo);
                 color: #222222;
                 font-family: Georgia, "Times New Roman", serif;
                 line-height: 1.55;
-                box-shadow: 0 0 18px rgba(0, 0, 0, 0.3); /*sombrita negra en el borde de los elementos cogido de w3*/
+                box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
             }
-            /*le damos algo de rollete al header así probando al tuntún*/
+
+            /* HEADER */
             header {
                 padding: 18px 30px;
                 background: var(--azul);
                 border-bottom: 6px solid var(--oro);
                 color: var(--blanco);
-                display: flex;
-                align-items: center;
-                gap: 20px;
             }
-            header p{
-                margin: 0;
-                color: var(--fondo);
-                font-style: italic;
-            }
+
             header h1 {
+                float: left;
+                width: 40%;
                 margin: 0;
                 color: var(--oro);
                 font-family: Arial, Helvetica, sans-serif;
@@ -64,56 +71,63 @@
                 text-transform: uppercase;
             }
 
+            header p {
+                float: right;
+                width: 58%;
+                margin: 0;
+                padding-top: 14px;
+                color: var(--fondo);
+                font-style: italic;
+                text-align: right;
+            }
+
+            /* MENÚ SUPERIOR: 10 elementos x 10% */
             .menu-superior {
                 background: var(--claro);
                 border-bottom: 3px solid var(--azul);
             }
-            /*quitamos el formato por defecto, sin margen ni relleno
-            además, quitamos los puntos negros feuchos*/
+
             .menu-superior ul {
                 margin: 0;
                 padding: 0;
                 list-style: none;
-                display: flex;
-                /*con display flex 'ul' se convierte en un flex container,
-                que ofrece alineación automática, un cálculo automático de la altura
-                y una distribución inteligente'*/
             }
 
-
-            /*floten a uno al lado del otro mis pequeños*/
             .menu-superior li {
+                float: left;
+                width: 10%;
                 margin: 0;
+                text-align: center;
             }
-            /*aplicamos este estilo rechulon al último, que es el de Login*/
+
             .menu-superior > ul > li:last-child {
-                margin-left: auto;
                 background: var(--oro);
             }
 
             .menu-superior a {
                 display: block;
-                padding: 12px 10px;
+                padding: 12px 0;
                 color: #ffffff;
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 0.83rem;
+                font-size: 0.8rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
-            /*al pasar por encima de un elemento del menú*/
+
             .menu-superior a:hover {
                 background: var(--azul);
                 color: var(--oro);
             }
-            /*cuando se pulse se pone negro*/
+
             .menu-superior a:active {
                 background: var(--negro);
             }
-            /*cuando se pulsa se pone dorado el borde*/
+
             .menu-superior a:focus {
                 outline: 3px solid var(--oro);
                 outline-offset: -3px;
             }
+
             h2 {
                 margin: 0 0 12px;
                 padding-bottom: 4px;
@@ -122,33 +136,29 @@
                 font-family: Arial, Helvetica, sans-serif;
                 font-size: 1.45rem;
             }
+
             main {
-                flex: 1;
-                display: flex;
-                align-items: flex-start;
-                gap: 24px;
                 padding: 24px;
             }
-            /*todos los elementos hijos de main*/
-            main > * {
-                flex: 1;
-                min-width: 0;
-            }
+
+            /* FORMULARIO: campos a la izquierda (78%), imagen a la derecha (20%) */
             fieldset {
-                display: grid;
-                /* columna fija para los campos, el resto para la imagen */
-                grid-template-columns: 4fr 1fr;
-                column-gap: 24px;
-                align-items: start;
                 padding: 16px;
             }
-            /* Todo lo que no sea la imagen va en la columna izquierda */
+
             fieldset > p {
-                grid-column: 1;
+                float: left;
+                clear: left;
+                width: 60%;
                 margin: 0 0 14px;
             }
 
-            /* Labels encima de los campos */
+            fieldset > img {
+                float: right;
+                width: 35%;
+                height: auto;
+            }
+
             fieldset label {
                 display: block;
                 margin-bottom: 4px;
@@ -158,13 +168,11 @@
                 color: var(--azul);
             }
 
-            /* Excepción: el label del checkbox se queda en línea */
             fieldset input[type="checkbox"] + label {
                 display: inline;
                 font-weight: normal;
             }
 
-            /* Campos de tamaño fijo (el de la columna) */
             #usuario,
             #clave {
                 display: block;
@@ -174,7 +182,7 @@
                 border-radius: 4px;
                 font-size: 1rem;
             }
-            /* Botón con el mismo ancho que los campos */
+
             fieldset button {
                 width: 100%;
                 padding: 10px;
@@ -186,31 +194,20 @@
                 font-size: 1rem;
                 cursor: pointer;
             }
+
             fieldset button:hover {
                 background: var(--azul);
             }
 
-            /* Imagen a la derecha, ocupando todo el alto de los campos */
-            fieldset > img {
-                grid-column: 3;
-                grid-row: 1 / span 4;     /* abarca los 4 <p> del formulario */
-                width: auto;
-                height: 0;                /* este height + min-height evita que la imagen estire el grid */
-                min-height: 100%;         /*Además, como la imagen es más alta que ancha, conseguimos que se muestre entera*/
-            }
-
-
+            /* FOOTER */
             footer {
+                padding: 12px 30px;
                 background: var(--azul);
                 border-top: 6px solid var(--oro);
                 color: #cfd9e6;
                 font-size: 0.88rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 20px;
-                padding: 12px 30px;
             }
+
             footer p {
                 margin: 0;
             }
@@ -246,6 +243,7 @@
                 <form action="login.html" method="post">
                     <fieldset>
                         <legend>Credenciales</legend>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTE1d2vzfxgjRQXUK1sTt6j_ljOBfNVsTiKclePd9GruhHki6Wne4gtt4&s=10" alt="Joven orgulloso de haber ido a la edición de 2025"/>
                         <p>
                             <label for="usuario">Correo electr&oacute;nico</label>
                             <input type="email" id="usuario" name="usuario" required autofocus autocomplete="email" placeholder="usuario@dominio.es">
@@ -263,7 +261,6 @@
                         <p>
                             <button type="submit">Entrar</button>
                         </p>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTE1d2vzfxgjRQXUK1sTt6j_ljOBfNVsTiKclePd9GruhHki6Wne4gtt4&s=10" alt="Joven orgulloso de haber ido a la edición de 2025"/>
                     </fieldset>
                 </form>
                 <p>&iquest;A&uacute;n no tienes cuenta? Se crea autom&aacute;ticamente al completar la <a href="inscripcion.html">inscripci&oacute;n</a>.</p>

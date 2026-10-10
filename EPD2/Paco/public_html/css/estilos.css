@@ -11,6 +11,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     box-sizing: border-box;
 }
 
+:root{
+    --oro: #e9c46a;
+}
+
 html,
 body {
     margin: 0;
@@ -29,6 +33,11 @@ body {
 .clearfix::after {
     content: "";
     display: block;
+    clear: both;
+}
+#imagenes::after{
+    content: "";
+    display: table;
     clear: both;
 }
 
@@ -128,6 +137,9 @@ footer p {
     display: block;
     color: #e9c46a;
 }
+#menu-lateral > ul > li:first-child{
+    background: var(--oro);
+}
 /* CONTENIDO */
 h2 {
     margin: 0 0 12px;
@@ -192,22 +204,18 @@ mark {
 /* Cada figure ocupa una parte del ancho, una al lado de otra */
 #imagenes figure {
     float: left;
-    width: 33.33%;               /* 3 figuras por fila */
-    margin: 0;
-    padding: 0 8px;              /* hueco entre figuras; border-box evita desbordes */
+    width: 31%;               /* 3 figuras por fila */
+    height:auto;
+    margin: 0 3.5% 8px 0;
+    border-width: 1px;
 }
 
-/* La imagen llena el ancho de su figure */
-#imagenes img {
-    display: block;
-    width: 100%;
-    height: auto;
+/* la 3ª, 6ª, 9ª... sin margen derecho y la siguiente empieza fila nueva */
+#imagenes figure:nth-of-type(3n) {
+    margin-right: 0;
 }
 
-#imagenes figcaption {
-    font-size: 0.8rem;
-    font-style: italic;
+#imagenes figure:nth-of-type(3n+1) {
+clear: left;
 }
-#imagenes figure:nth-child(3n) {
-    clear: left;
-}
+
