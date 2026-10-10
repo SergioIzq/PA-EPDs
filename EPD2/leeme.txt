@@ -1,0 +1,277 @@
+UniForo 2026 - Jornadas de Ponencias y Foro de Empleo
+EPD1 - Programación Avanzada
+Universidad Pablo de Olavide - Escuela Politécnica Superior (EPS)
+=====================================================
+
+Sitio web en HTML5 (EPD1) al que la EPD2 añade hojas de estilo CSS (sin JavaScript).
+El apartado "EPD2 - HOJAS DE ESTILO CSS" al final de este fichero describe el CSS.
+Las páginas se validaron sin errores ni avisos en el validador Nu
+(https://whatwg.org/validator/) y en el validador HTML integrado en NetBeans (EPD1).
+
+ESTRUCTURA
+----------
+  index.html, login.html, programa.html, actividades.html, ponentes.html,
+  asociaciones.html, multimedia.html, inscripcion.html, contacto.html,
+  noticias.html
+  actividades/  talleres.html, deportes.html, cultura.html
+  ponentes/     ponente1.html, ponente2.html
+  noticias/     noticia1.html, noticia2.html
+  img/          imágenes a resolución completa (Wikimedia Commons, licencias libres)
+  img/min/      miniaturas de las imágenes (enlazan a la imagen completa)
+  img/plano.svg plano del campus (se muestra con <embed>)
+  media/subtitulos.vtt  subtítulos del vídeo (<track>)
+
+NAVEGACIÓN
+----------
+Cada página tiene un menú (<nav>) con los enlaces dentro de una lista
+(<nav><ul><li>), que es la estructura semántica recomendada para un menú, y
+que cumple las reglas del enunciado:
+  - Las páginas principales enlazan con todas las demás páginas principales
+    (mismo nivel) y, si tienen páginas hijas, con ellas en una segunda línea
+    del menú (padre -> hija).
+  - Las páginas hijas enlazan solo con su página padre y con sus hermanas.
+    Por ejemplo, desde ponente1.html se puede ir a ponentes.html y a
+    ponente2.html, pero no a contacto.html.
+Los enlaces dentro del contenido también respetan estas reglas. La página
+actual aparece resaltada con <strong> y aria-current="page".
+
+El audio y el vídeo se cargan desde fuentes externas (Wikimedia Commons y
+MDN), por lo que no se incluye ningún archivo de audio ni de vídeo.
+
+Los artículos de noticia1.html (W3C) y noticia2.html (Tim Berners-Lee) se han
+extraído de Wikipedia en español (licencia CC BY-SA 4.0) y se han maquetado a
+mano en HTML5 con secciones, subsecciones, enlaces, tablas y figuras.
+
+
+ETIQUETAS HTML5 UTILIZADAS
+--------------------------
+
+Estructura y semántica
+  <header>      Todas las páginas: cabecera con el nombre del evento. También
+                dentro de <article> (noticias.html, ponente1/2.html, noticia1/2.html)
+                para agrupar el título y la fecha de publicación.
+  <nav>         Todas las páginas: menú principal del sitio. En noticia1.html y
+                noticia2.html, además, índice interno del artículo.
+  <main>        Todas las páginas: contenido principal, distinto del menú,
+                la cabecera y el pie.
+  <footer>      Todas las páginas: pie con el copyright. En noticia1/2.html,
+                también pie del artículo con la fuente y la licencia.
+  <section>     Todas las páginas: bloques temáticos con su encabezado. En las
+                noticias hay secciones anidadas para crear subsecciones.
+  <article>     index.html (bloques de "Qué encontrarás"), ponentes.html,
+                asociaciones.html, cultura.html, noticias.html (cada noticia),
+                ponente1/2.html y noticia1/2.html: contenidos independientes.
+  <aside>       index.html (cifras y última hora), deportes.html (material),
+                noticias.html (fuente de los artículos): contenido secundario.
+  <hgroup>      index.html: agrupa el encabezado principal del sitio (<h1>).
+  <figure> y <figcaption>
+                En casi todas las páginas: cada imagen (y el vídeo, el audio y
+                el plano) va dentro de una figura con su pie, que incluye autor
+                y licencia.
+
+Semántica a nivel de texto
+  <time>        index, programa (horas de la tabla, con datetime="09:00"...),
+                talleres, deportes, cultura, ponentes, ponente1, noticias,
+                noticia1/2, contacto, inscripcion...: fechas y horas legibles
+                por máquinas mediante el atributo datetime.
+  <mark>        index.html ("Ampliado"), programa.html (ponencias con reserva),
+                noticias.html (términos destacados): texto resaltado por su
+                relevancia.
+  <data>        programa.html (tarifas) y talleres.html (precio): asocia el
+                texto visible ("Gratuito", "10 €") a un valor numérico.
+  <meter>       index.html (plazas reservadas) y asociaciones.html (socios de
+                cada asociación): medida dentro de un rango conocido.
+  <progress>    inscripcion.html (plazas ocupadas) y deportes.html (dorsales
+                asignados): grado de avance de una tarea.
+  <ruby>, <rt>, <rp>
+                ponente2.html: nombre japonés de la ponente con su lectura
+                (furigana). <rp> muestra paréntesis en navegadores sin soporte.
+  <bdi>         ponentes.html (nombre en árabe de una participante) y
+                asociaciones.html (nombre en árabe de una asociación): aísla
+                texto que se escribe de derecha a izquierda.
+  <wbr>         contacto.html: puntos de corte opcionales en una URL muy larga.
+
+Contenido incrustado
+  <picture>     index.html: imagen del aula magna con <source> que carga la
+                versión grande en pantallas anchas y la miniatura en el resto.
+  <video>       multimedia.html: vídeo promocional (fuente externa).
+  <audio>       multimedia.html: audio de Tim Berners-Lee (fuente externa).
+  <source>      multimedia.html (varios formatos de vídeo y audio: webm/mp4,
+                mp3/ogg) e index.html (dentro de <picture>).
+  <track>       multimedia.html: subtítulos en español del vídeo (media/subtitulos.vtt).
+  <embed>       contacto.html: muestra el plano SVG del campus.
+
+Formularios (inscripcion.html, contacto.html, login.html, noticias.html)
+  <datalist>    inscripcion.html: sugerencias de titulaciones para el campo de
+                texto y marcas del control de nivel de inglés (range).
+  <output>      inscripcion.html: resultado del formulario (precio orientativo)
+                relacionado con los campos que lo determinan mediante "for".
+                Al no usar JavaScript muestra un valor fijo.
+  Nuevos tipos de <input>: email, tel, url, number, range, date, time,
+                datetime-local, month, week, color y search.
+  Nuevos atributos: required, placeholder, pattern, min, max, step, minlength,
+                maxlength, autofocus, autocomplete, list, multiple, accept,
+                inputmode, spellcheck, dirname, form (casilla fuera del
+                formulario que pertenece a él), formnovalidate, formaction y
+                formmethod (botón "Guardar borrador"), readonly y disabled.
+  También <fieldset>/<legend>, <select> con <optgroup> y selección múltiple,
+                <textarea> con maxlength y minlength, y validación nativa sin
+                JavaScript.
+
+Elementos interactivos
+  <details> y <summary>
+                contacto.html (preguntas frecuentes) y login.html (recuperar
+                contraseña): contenido desplegable sin JavaScript.
+  <menu>        multimedia.html: lista de accesos rápidos a las secciones de la página.
+  <dialog>      index.html: aviso destacado sobre el aforo del aula magna. Se usa
+                con el atributo "open", de modo que el cuadro se muestra sin
+                necesidad de JavaScript.
+
+Contenido vectorial y matemático
+  <svg>         index.html: logotipo del evento dibujado en línea (círculo, trazo
+                y texto), con <title> para que sea accesible.
+  <math>        programa.html: fórmula MathML del porcentaje de asistencia
+                necesario para obtener el certificado.
+
+Marcado de cambios y de texto técnico
+  <del> e <ins> programa.html (la ponencia de ciberseguridad pasa de las 16:00 a
+                las 16:30) y actividades/talleres.html (cambio de hora del taller
+                de HTML5). Llevan los atributos datetime y cite.
+  <sub> y <sup> programa.html: CO2 y "2.ª edición".
+  <q> y <blockquote>
+                programa.html: cita de la dirección de la EPS, con el atributo cite.
+  <dl>, <dt> y <dd>
+                programa.html: glosario de modalidades (ponencia, taller, mesa
+                redonda, ECTS) como lista de definición.
+  <kbd>, <samp> y <var>
+                actividades/talleres.html: atajo de teclado (Ctrl+U), salida literal
+                del validador y nombre de una variable del ejemplo.
+
+
+ETIQUETAS NO UTILIZADAS
+-----------------------
+  <canvas>, <template> y <slot> necesitan JavaScript para funcionar.
+  Salvo estas, se emplean todas las etiquetas nuevas de HTML5 de la lista de
+  https://www.w3.org/wiki/HTML/New_HTML5_Elements.
+  <keygen>, <command> y <menuitem> se han eliminado de la especificación
+  actual y harían que la página no validase.
+
+
+CRÉDITOS DE LAS IMÁGENES (Wikimedia Commons)
+--------------------------------------------
+  aula.jpg        Ohio University Lecture Hall - Garden Sprite (CC0)
+  hackathon.jpg   Hackathon 2016 (501) - Ariel Elinson (CC BY-SA 4.0)
+  futbol.jpg      Football match USTB 2017 - 纳瓦拉的亨利 (CC BY-SA 4.0)
+  danza.jpg       Dancers performing on stage - Virtual-Pano (CC BY-SA 4.0)
+  feria.jpg       MOX Job Fair 2018 - Savannah River Site (dominio público)
+  robot.jpg       Humanoid Robot - Wikideas1 (CC0)
+  datacenter.jpg  BalticServers data center - BalticServers.com (CC BY-SA 3.0)
+  biblioteca.jpg  Graz University Library reading room - Dr. Marcus Gossler (CC BY-SA 3.0)
+  auditorio.jpg   Max M Fisher Music Center - Andrew Jameson (CC BY-SA 3.0)
+  tbl.jpg         Sir Tim Berners-Lee (cropped) - Paul Clarke (CC BY-SA 4.0)
+  w3c.png         W3C Icon - World Wide Web Consortium (dominio público)
+  cern.jpg        First Web Server - Coolcaesar (CC BY-SA 3.0)
+
+
+EPD2 - HOJAS DE ESTILO CSS
+==========================
+
+ESTRUCTURA DE ENTREGA
+---------------------
+  ej1/styles.css        Único archivo CSS compartido por todas las páginas padre
+                        (2 columnas) y por todas las páginas hijas (3 columnas).
+  ej1/index.html        Diseño fijo (960 px). CSS incrustado en la propia página.
+  ej1/login.html        Diseño fijo (960 px). CSS incrustado en la propia página.
+
+Paleta de colores (variables CSS en :root): --azul, --claro, --oro, --rojo,
+--verde, --fondo, --blanco y --negro.
+
+METODOLOGÍA DE MAQUETACIÓN
+--------------------------
+  - Columnas con float (left/right), anchos en % (diseño fluido) y
+    box-sizing: border-box en todos los elementos (selector universal).
+  - Limpieza de floats con clear: both (footer) y con clearfix mediante
+    ::after { content: ""; display: table/block; clear: both; }.
+  - Columnas de igual altura mediante la técnica clásica de "faux columns"
+    (linear-gradient en el fondo del body, bajo las columnas).
+  - Páginas padre (programa, actividades, ponentes, asociaciones, multimedia,
+    inscripcion, contacto, noticias): 2 columnas (24 % menú lateral / 76 %
+    contenido). El menú lateral enlaza con todas las secciones padre y, en la
+    sección en la que se está, muestra además sus secciones hijas.
+  - Páginas hijas (talleres, deportes, cultura, ponente1, ponente2, noticia1,
+    noticia2): 3 columnas (20 % menú / 56 % contenido / 24 % información extra).
+    La tercera columna incluye los enlaces a noticias.html, noticia1.html y
+    noticia2.html más datos del evento.
+  - index.html: menú superior horizontal (fijo al desplazarse) con submenús
+    desplegables para Actividades, Ponentes y Noticias, y footer con menú
+    inferior en tres columnas, copyright, dirección y enlace "Volver arriba".
+  - login.html: mismo menú superior y formulario centrado en una tarjeta.
+  - Para pantallas de menos de 800 px las páginas fluidas (@media) apilan las
+    columnas. Las páginas de diseño fijo (index y login) no cambian.
+  - Todos los elementos HTML visibles tienen un estilo propio (cabeceras,
+    menús, listas, tablas, figuras, formularios, vídeo/audio, <details>,
+    <dialog>, <meter>, <progress>, <output>, <mark>, <data>, <time>, <ruby>,
+    <math>, etc.).
+
+NÚMERO DE ESTILOS (REGLAS CSS)
+------------------------------
+  Una regla es un bloque "selector(es) { propiedades }"; las reglas dentro de
+  @media también se cuentan.
+    ej1/styles.css ............... 167 reglas (201 selectores, 464 declaraciones)
+    ej1/index.html (incrustado) ... 94 reglas (100 selectores, 252 declaraciones)
+    ej1/login.html (incrustado) ... 74 reglas (103 selectores, 201 declaraciones)
+    TOTAL escrito en la práctica .. 335 reglas
+    (de ellas 209 son distintas: index.html y login.html repiten algunas reglas
+     de estilos.css porque no pueden enlazar el archivo compartido).
+  Mínimo exigido: 50 reglas.
+
+NÚMERO DE PSEUDOCLASES DISTINTAS: 15
+--------------------------------
+    :active          enlaces, menús y botones al pulsarse
+    :checked         casillas y botones de opción marcados (input:checked +
+                     label) y option:checked
+    :disabled        campos y botones deshabilitados
+    :first-child     primer elemento anidado de una lista (li li:first-child) y
+                     primer h3 de un article
+    :focus           enlaces, botones y campos de formulario con el foco del
+                     teclado
+    :focus-within    despliegue del submenú superior de index.html con el
+                     teclado
+    :hover           enlaces, menús, filas de tabla, botones, campos, figuras,
+                     resumen de <details>
+    :last-child      último elemento de los menús (sin línea inferior)
+    :last-of-type    última sección de cada página (sin margen inferior)
+    :link            enlaces aún no visitados
+    :nth-child()     filas pares de las tablas (tbody tr:nth-child(even))
+    :required        campos obligatorios (borde izquierdo rojo)
+    :root            variables de color de la paleta (:root)
+    :target          sección a la que se salta con un ancla (main
+                     section:target)
+    :visited         enlaces ya visitados (colores distintos a los no visitados)
+  Mínimo exigido: 12 (sin contar :root se emplean 14). Además se usan
+  pseudoelementos (::before, ::after, ::marker, ::placeholder).
+
+NÚMERO DE ATRIBUTOS (PROPIEDADES CSS) DISTINTOS: 65
+----------------------------------------------
+  Más 8 propiedades personalizadas (variables) declaradas en :root:
+    --azul, --blanco, --claro, --fondo, --negro, --oro, --rojo, --verde
+
+  Propiedades estándar empleadas:
+    accent-color, background, border, border-bottom, border-bottom-color,
+    border-bottom-width, border-collapse, border-color, border-left,
+    border-left-color, border-left-width, border-radius, border-style,
+    border-top, box-shadow, box-sizing, clear, color, content, cursor,
+    display, float, font, font-family, font-size, font-style,
+    font-variant-numeric, font-weight, height, left, letter-spacing,
+    line-height, list-style, margin, margin-bottom, margin-left, margin-right,
+    margin-top, max-width, opacity, outline, outline-offset, overflow,
+    padding, padding-bottom, padding-left, padding-top, position, quotes,
+    resize, ruby-position, scroll-behavior, text-align, text-decoration,
+    text-decoration-thickness, text-shadow, text-transform,
+    text-underline-offset, top, transform, transition, unicode-bidi,
+    vertical-align, width, z-index
+
+  Propiedades de CSS3 empleadas: border-radius, box-shadow, text-shadow,
+  box-sizing, resize, background (linear-gradient), transition, transform,
+  accent-color, scroll-behavior, text-underline-offset, quotes y otras.
+
