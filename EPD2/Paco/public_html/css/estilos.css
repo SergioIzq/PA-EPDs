@@ -56,16 +56,17 @@ header p {
 
 main {
     float: left;
-    width: 75%;
+    width: 80%;
     padding: 20px 30px;
 }
 
 
 footer {
-    clear: both;                 /* debajo de las tres columnas */
+    clear: both;                 /* lo obliga a situarse debajo de los floats*/
     padding: 15px 30px;
     background: #1d3557;
     color: #ffffff;
+    z-index: 10;
 }
 footer p {
     margin: 0;
@@ -92,7 +93,7 @@ footer p {
 }
 
 /* Submenú de secciones hijas */
-#menu-lateral .submenu {
+#menu-lateral .submenu{
     background: #36657f;
 }
 #menu-lateral .submenu a {
@@ -123,6 +124,10 @@ footer p {
     font-size: 0.78rem;
     text-transform: none;
 }
+#menu-lateral .dedicado{
+    display: block;
+    color: #e9c46a;
+}
 /* CONTENIDO */
 h2 {
     margin: 0 0 12px;
@@ -133,7 +138,11 @@ h2 {
 }
 h3 {
     margin: 16px 0 6px;
-    color: #457b9d;
+    color: #CACC37;
+}
+
+h3 > a:visited{
+    color: #A4A62B;
 }
 section {
     margin-bottom: 30px;
@@ -171,4 +180,34 @@ figcaption {
 
 mark {
     background: #fff3a8;
+}
+
+/* Contenedor de las imágenes: clearfix para contener los float */
+#imagenes::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Cada figure ocupa una parte del ancho, una al lado de otra */
+#imagenes figure {
+    float: left;
+    width: 33.33%;               /* 3 figuras por fila */
+    margin: 0;
+    padding: 0 8px;              /* hueco entre figuras; border-box evita desbordes */
+}
+
+/* La imagen llena el ancho de su figure */
+#imagenes img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#imagenes figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+#imagenes figure:nth-child(3n) {
+    clear: left;
 }

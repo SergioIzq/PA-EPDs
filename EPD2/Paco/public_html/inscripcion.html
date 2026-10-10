@@ -13,232 +13,232 @@
             <p>Formulario de inscripci&oacute;n</p>
         </header>
 
-        <!-- NAV -->
-        <nav id="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="programa.html" aria-current="page"><strong>Programa</strong></a></li>
-                <li><a href="actividades.html">Actividades</a>
-                    <ul class="submenu">
-                        <li><a href="actividades/cultura.html">Cultura</a></li>
-                        <li><a href="actividades/deportes.html">Deporte</a></li>
-                        <li><a href="actividades/talleres.html">Talleres</a></li>
-                    </ul>
-                </li>
-                <li><a href="ponentes.html">Ponentes</a>
-                    <ul class="submenu">
-                        <li><a href="ponentes/ponente1.html">Ponente1</a></li>
-                        <li><a href="ponentes/ponente2.html">Ponente2</a></li>
-                    </ul>
-                </li>
-                <li><a href="asociaciones.html">Asociaciones</a></li>
-                <li><a href="multimedia.html">Multimedia</a></li>
-                <li><a href="noticias.html">Noticias</a>
-                    <ul class="submenu">
-                        <li><a href="noticias/noticia1.html">Noticia1</a></li>
-                        <li><a href="noticias/noticia2.html">Noticia2</a></li>
-                    </ul>
-                <li>
-                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Acceso</a></li>
-            </ul>
-        </nav>
-        <!-- /NAV -->
+        <div class="clearfix">
+            <nav id="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="programa.html" aria-current="page"><strong>Programa</strong></a></li>
+                    <li><a href="actividades.html">Actividades</a>
+                        <ul class="submenu">
+                            <li><a href="actividades/cultura.html">Cultura</a></li>
+                            <li><a href="actividades/deportes.html">Deporte</a></li>
+                            <li><a href="actividades/talleres.html">Talleres</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ponentes.html">Ponentes</a>
+                        <ul class="submenu">
+                            <li><a href="ponentes/ponente1.html">Ponente1</a></li>
+                            <li><a href="ponentes/ponente2.html">Ponente2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="asociaciones.html">Asociaciones</a></li>
+                    <li><a href="multimedia.html">Multimedia</a></li>
+                    <li><a href="noticias.html">Noticias</a>
+                        <ul class="submenu">
+                            <li><a href="noticias/noticia1.html">Noticia1</a></li>
+                            <li><a href="noticias/noticia2.html">Noticia2</a></li>
+                        </ul>
+                    <li>
+                    <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="login.html">Acceso</a></li>
+                </ul>
+            </nav>
 
-        <main>
-            <section>
-                <h2>Inscr&iacute;bete en UniForo</h2>
-                <p>Plazas ocupadas: <progress max="600" value="412">412 de 600</progress> 412 de 600.</p>
-                <p>El plazo termina el <time datetime="2026-11-10T23:59">10 de noviembre a las 23:59</time>.
-                    Los campos marcados con * son obligatorios.</p>
+            <main>
+                <section>
+                    <h2>Inscr&iacute;bete en UniForo</h2>
+                    <p>Plazas ocupadas: <progress max="600" value="412">412 de 600</progress> 412 de 600.</p>
+                    <p>El plazo termina el <time datetime="2026-11-10T23:59">10 de noviembre a las 23:59</time>.
+                        Los campos marcados con * son obligatorios.</p>
 
-                <form id="inscripcion" action="inscripcion.html" method="post" enctype="multipart/form-data" autocomplete="on">
-                    <fieldset>
-                        <legend>Datos personales</legend>
-                        <p>
-                            <label for="nombre">Nombre y apellidos *</label>
-                            <input type="text" id="nombre" name="nombre" required autofocus minlength="3" maxlength="80"
-                                   autocomplete="name" placeholder="Ej.: Ana Garc&iacute;a L&oacute;pez" dirname="nombre.dir">
-                        </p>
-                        <p>
-                            <label for="dni">DNI/NIE *</label>
-                            <input type="text" id="dni" name="dni" required pattern="[0-9XYZxyz][0-9]{7}[A-Za-z]"
-                                   title="8 caracteres y una letra, p. ej. 12345678Z" placeholder="12345678Z"
-                                   spellcheck="false" autocomplete="off">
-                        </p>
-                        <p>
-                            <label for="email">Correo electr&oacute;nico *</label>
-                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="usuario@dominio.es">
-                        </p>
-                        <p>
-                            <label for="telefono">Tel&eacute;fono</label>
-                            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" inputmode="numeric"
-                                   autocomplete="tel" placeholder="600123456">
-                        </p>
-                        <p>
-                            <label for="nacimiento">Fecha de nacimiento</label>
-                            <input type="date" id="nacimiento" name="nacimiento" min="1940-01-01" max="2010-12-31">
-                        </p>
-                        <p>
-                            <label for="web">Web personal, GitHub o LinkedIn</label>
-                            <input type="url" id="web" name="web" placeholder="https://github.com/usuario">
-                        </p>
-                    </fieldset>
+                    <form id="inscripcion" action="inscripcion.html" method="post" enctype="multipart/form-data" autocomplete="on">
+                        <fieldset>
+                            <legend>Datos personales</legend>
+                            <p>
+                                <label for="nombre">Nombre y apellidos *</label>
+                                <input type="text" id="nombre" name="nombre" required autofocus minlength="3" maxlength="80"
+                                       autocomplete="name" placeholder="Ej.: Ana Garc&iacute;a L&oacute;pez" dirname="nombre.dir">
+                            </p>
+                            <p>
+                                <label for="dni">DNI/NIE *</label>
+                                <input type="text" id="dni" name="dni" required pattern="[0-9XYZxyz][0-9]{7}[A-Za-z]"
+                                       title="8 caracteres y una letra, p. ej. 12345678Z" placeholder="12345678Z"
+                                       spellcheck="false" autocomplete="off">
+                            </p>
+                            <p>
+                                <label for="email">Correo electr&oacute;nico *</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="usuario@dominio.es">
+                            </p>
+                            <p>
+                                <label for="telefono">Tel&eacute;fono</label>
+                                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" inputmode="numeric"
+                                       autocomplete="tel" placeholder="600123456">
+                            </p>
+                            <p>
+                                <label for="nacimiento">Fecha de nacimiento</label>
+                                <input type="date" id="nacimiento" name="nacimiento" min="1940-01-01" max="2010-12-31">
+                            </p>
+                            <p>
+                                <label for="web">Web personal, GitHub o LinkedIn</label>
+                                <input type="url" id="web" name="web" placeholder="https://github.com/usuario">
+                            </p>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Perfil acad&eacute;mico</legend>
-                        <p>Tipo de asistente *</p>
-                        <p>
-                            <input type="radio" id="tipo-estudiante" name="tipo" value="estudiante" required checked>
-                            <label for="tipo-estudiante">Estudiante</label>
-                            <input type="radio" id="tipo-personal" name="tipo" value="personal">
-                            <label for="tipo-personal">Personal universitario</label>
-                            <input type="radio" id="tipo-publico" name="tipo" value="publico">
-                            <label for="tipo-publico">P&uacute;blico general</label>
-                        </p>
-                        <p>
-                            <label for="titulacion">Titulaci&oacute;n</label>
-                            <input type="text" id="titulacion" name="titulacion" list="titulaciones" placeholder="Empieza a escribir...">
-                            <datalist id="titulaciones">
-                                <option value="Grado en Ingenier&iacute;a Inform&aacute;tica en Sistemas de Informaci&oacute;n">
-                                <option value="Grado en Ingenier&iacute;a Inform&aacute;tica">
-                                <option value="Grado en Matem&aacute;ticas">
-                                <option value="Grado en Biotecnolog&iacute;a">
-                                <option value="M&aacute;ster en Ciencia de Datos">
-                            </datalist>
-                        </p>
-                        <p>
-                            <label for="curso">Curso</label>
-                            <input type="number" id="curso" name="curso" min="1" max="6" step="1" value="3">
-                        </p>
-                        <p>
-                            <label for="nivel-ingles">Nivel de ingl&eacute;s (0 = ninguno, 6 = C2)</label>
-                            <input type="range" id="nivel-ingles" name="nivel-ingles" min="0" max="6" step="1" value="3" list="marcas-ingles">
-                            <datalist id="marcas-ingles">
-                                <option value="0" label="Ninguno"></option>
-                                <option value="2" label="A2"></option>
-                                <option value="4" label="B2"></option>
-                                <option value="6" label="C2"></option>
-                            </datalist>
-                        </p>
-                        <p>
-                            <label for="graduacion">Mes previsto de finalizaci&oacute;n de estudios</label>
-                            <input type="month" id="graduacion" name="graduacion" min="2026-06">
-                        </p>
-                        <p>
-                            <label for="cv">Curr&iacute;culum y carta de presentaci&oacute;n (PDF, varios archivos)</label>
-                            <input type="file" id="cv" name="cv" accept=".pdf,application/pdf" multiple>
-                        </p>
-                    </fieldset>
+                        <fieldset>
+                            <legend>Perfil acad&eacute;mico</legend>
+                            <p>Tipo de asistente *</p>
+                            <p>
+                                <input type="radio" id="tipo-estudiante" name="tipo" value="estudiante" required checked>
+                                <label for="tipo-estudiante">Estudiante</label>
+                                <input type="radio" id="tipo-personal" name="tipo" value="personal">
+                                <label for="tipo-personal">Personal universitario</label>
+                                <input type="radio" id="tipo-publico" name="tipo" value="publico">
+                                <label for="tipo-publico">P&uacute;blico general</label>
+                            </p>
+                            <p>
+                                <label for="titulacion">Titulaci&oacute;n</label>
+                                <input type="text" id="titulacion" name="titulacion" list="titulaciones" placeholder="Empieza a escribir...">
+                                <datalist id="titulaciones">
+                                    <option value="Grado en Ingenier&iacute;a Inform&aacute;tica en Sistemas de Informaci&oacute;n">
+                                    <option value="Grado en Ingenier&iacute;a Inform&aacute;tica">
+                                    <option value="Grado en Matem&aacute;ticas">
+                                    <option value="Grado en Biotecnolog&iacute;a">
+                                    <option value="M&aacute;ster en Ciencia de Datos">
+                                </datalist>
+                            </p>
+                            <p>
+                                <label for="curso">Curso</label>
+                                <input type="number" id="curso" name="curso" min="1" max="6" step="1" value="3">
+                            </p>
+                            <p>
+                                <label for="nivel-ingles">Nivel de ingl&eacute;s (0 = ninguno, 6 = C2)</label>
+                                <input type="range" id="nivel-ingles" name="nivel-ingles" min="0" max="6" step="1" value="3" list="marcas-ingles">
+                                <datalist id="marcas-ingles">
+                                    <option value="0" label="Ninguno"></option>
+                                    <option value="2" label="A2"></option>
+                                    <option value="4" label="B2"></option>
+                                    <option value="6" label="C2"></option>
+                                </datalist>
+                            </p>
+                            <p>
+                                <label for="graduacion">Mes previsto de finalizaci&oacute;n de estudios</label>
+                                <input type="month" id="graduacion" name="graduacion" min="2026-06">
+                            </p>
+                            <p>
+                                <label for="cv">Curr&iacute;culum y carta de presentaci&oacute;n (PDF, varios archivos)</label>
+                                <input type="file" id="cv" name="cv" accept=".pdf,application/pdf" multiple>
+                            </p>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Asistencia</legend>
-                        <p>D&iacute;as a los que asistir&aacute;s *</p>
-                        <p>
-                            <input type="checkbox" id="dia18" name="dias" value="2026-11-18" checked>
-                            <label for="dia18">Mi&eacute;rcoles 18</label>
-                            <input type="checkbox" id="dia19" name="dias" value="2026-11-19">
-                            <label for="dia19">Jueves 19</label>
-                            <input type="checkbox" id="dia20" name="dias" value="2026-11-20">
-                            <label for="dia20">Viernes 20</label>
-                        </p>
-                        <p>
-                            <label for="talleres">Talleres (mant&eacute;n pulsado Ctrl para elegir varios)</label>
-                            <select id="talleres" name="talleres" multiple size="5">
-                                <optgroup label="Tecnolog&iacute;a">
-                                    <option value="docker">Contenedores con Docker</option>
-                                    <option value="ia">IA generativa aplicada</option>
-                                    <option value="html5" selected>HTML5 y CSS3 desde cero</option>
-                                </optgroup>
-                                <optgroup label="Empleabilidad">
-                                    <option value="cv">C&oacute;mo preparar un CV t&eacute;cnico</option>
-                                    <option value="entrevista">Simulacro de entrevista</option>
-                                </optgroup>
-                            </select>
-                        </p>
-                        <p>
-                            <label for="entrevista">Semana preferida para entrevistas de seguimiento con empresas</label>
-                            <input type="week" id="entrevista" name="entrevista" min="2026-W47" max="2026-W52">
-                        </p>
-                        <p>
-                            <label for="hora-llegada">Hora aproximada de llegada el primer d&iacute;a</label>
-                            <input type="time" id="hora-llegada" name="hora-llegada" min="08:30" max="18:00" step="900" value="09:00">
-                        </p>
-                        <p>
-                            <label for="cita-cv">Cita para la revisi&oacute;n del CV</label>
-                            <input type="datetime-local" id="cita-cv" name="cita-cv" min="2026-11-18T09:00" max="2026-11-20T14:00">
-                        </p>
-                        <p>
-                            <label for="talla">Talla de camiseta</label>
-                            <select id="talla" name="talla" required>
-                                <option value="">&mdash; Elige una talla &mdash;</option>
-                                <option>XS</option>
-                                <option>S</option>
-                                <option selected>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
-                        </p>
-                        <p>
-                            <label for="color">Color favorito para tu credencial</label>
-                            <input type="color" id="color" name="color" value="#1d3557">
-                        </p>
-                    </fieldset>
+                        <fieldset>
+                            <legend>Asistencia</legend>
+                            <p>D&iacute;as a los que asistir&aacute;s *</p>
+                            <p>
+                                <input type="checkbox" id="dia18" name="dias" value="2026-11-18" checked>
+                                <label for="dia18">Mi&eacute;rcoles 18</label>
+                                <input type="checkbox" id="dia19" name="dias" value="2026-11-19">
+                                <label for="dia19">Jueves 19</label>
+                                <input type="checkbox" id="dia20" name="dias" value="2026-11-20">
+                                <label for="dia20">Viernes 20</label>
+                            </p>
+                            <p>
+                                <label for="talleres">Talleres (mant&eacute;n pulsado Ctrl para elegir varios)</label>
+                                <select id="talleres" name="talleres" multiple size="5">
+                                    <optgroup label="Tecnolog&iacute;a">
+                                        <option value="docker">Contenedores con Docker</option>
+                                        <option value="ia">IA generativa aplicada</option>
+                                        <option value="html5" selected>HTML5 y CSS3 desde cero</option>
+                                    </optgroup>
+                                    <optgroup label="Empleabilidad">
+                                        <option value="cv">C&oacute;mo preparar un CV t&eacute;cnico</option>
+                                        <option value="entrevista">Simulacro de entrevista</option>
+                                    </optgroup>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="entrevista">Semana preferida para entrevistas de seguimiento con empresas</label>
+                                <input type="week" id="entrevista" name="entrevista" min="2026-W47" max="2026-W52">
+                            </p>
+                            <p>
+                                <label for="hora-llegada">Hora aproximada de llegada el primer d&iacute;a</label>
+                                <input type="time" id="hora-llegada" name="hora-llegada" min="08:30" max="18:00" step="900" value="09:00">
+                            </p>
+                            <p>
+                                <label for="cita-cv">Cita para la revisi&oacute;n del CV</label>
+                                <input type="datetime-local" id="cita-cv" name="cita-cv" min="2026-11-18T09:00" max="2026-11-20T14:00">
+                            </p>
+                            <p>
+                                <label for="talla">Talla de camiseta</label>
+                                <select id="talla" name="talla" required>
+                                    <option value="">&mdash; Elige una talla &mdash;</option>
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option selected>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="color">Color favorito para tu credencial</label>
+                                <input type="color" id="color" name="color" value="#1d3557">
+                            </p>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Otros datos</legend>
+                        <fieldset>
+                            <legend>Otros datos</legend>
+                            <p>
+                                <label for="intereses">Temas de inter&eacute;s (b&uacute;squeda de palabras clave)</label>
+                                <input type="search" id="intereses" name="intereses" placeholder="IA, seguridad, web...">
+                            </p>
+                            <p>
+                                <label for="comentarios">Comentarios o necesidades de accesibilidad</label>
+                                <textarea id="comentarios" name="comentarios" rows="4" cols="50" maxlength="500"
+                                          placeholder="M&aacute;ximo 500 caracteres" wrap="soft"></textarea>
+                            </p>
+                            <p>
+                                <label for="codigo-evento">C&oacute;digo del evento</label>
+                                <input type="text" id="codigo-evento" name="codigo-evento" value="UF-2026" readonly>
+                            </p>
+                            <p>
+                                <label for="descuento">C&oacute;digo de descuento (no disponible este a&ntilde;o)</label>
+                                <input type="text" id="descuento" name="descuento" disabled>
+                            </p>
+                            <input type="hidden" name="origen" value="web">
+                            <p>
+                                Precio orientativo:
+                                <output name="precio" for="tipo-estudiante tipo-personal tipo-publico dia18 dia19 dia20">0&nbsp;&euro; (estudiantes)</output>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="acepto" name="acepto" required>
+                                <label for="acepto">He le&iacute;do y acepto la pol&iacute;tica de privacidad *</label>
+                            </p>
+                        </fieldset>
+
                         <p>
-                            <label for="intereses">Temas de inter&eacute;s (b&uacute;squeda de palabras clave)</label>
-                            <input type="search" id="intereses" name="intereses" placeholder="IA, seguridad, web...">
+                            <button type="submit">Enviar inscripci&oacute;n</button>
+                            <button type="submit" formnovalidate formaction="inscripcion.html" formmethod="post" name="borrador" value="1">Guardar borrador (sin validar)</button>
+                            <input type="reset" value="Borrar formulario">
                         </p>
-                        <p>
-                            <label for="comentarios">Comentarios o necesidades de accesibilidad</label>
-                            <textarea id="comentarios" name="comentarios" rows="4" cols="50" maxlength="500"
-                                      placeholder="M&aacute;ximo 500 caracteres" wrap="soft"></textarea>
-                        </p>
-                        <p>
-                            <label for="codigo-evento">C&oacute;digo del evento</label>
-                            <input type="text" id="codigo-evento" name="codigo-evento" value="UF-2026" readonly>
-                        </p>
-                        <p>
-                            <label for="descuento">C&oacute;digo de descuento (no disponible este a&ntilde;o)</label>
-                            <input type="text" id="descuento" name="descuento" disabled>
-                        </p>
-                        <input type="hidden" name="origen" value="web">
-                        <p>
-                            Precio orientativo:
-                            <output name="precio" for="tipo-estudiante tipo-personal tipo-publico dia18 dia19 dia20">0&nbsp;&euro; (estudiantes)</output>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="acepto" name="acepto" required>
-                            <label for="acepto">He le&iacute;do y acepto la pol&iacute;tica de privacidad *</label>
-                        </p>
-                    </fieldset>
+                    </form>
 
                     <p>
-                        <button type="submit">Enviar inscripci&oacute;n</button>
-                        <button type="submit" formnovalidate formaction="inscripcion.html" formmethod="post" name="borrador" value="1">Guardar borrador (sin validar)</button>
-                        <input type="reset" value="Borrar formulario">
+                        <label for="boletin">&iquest;Quieres recibir el bolet&iacute;n? (este campo est&aacute; fuera del formulario pero pertenece a &eacute;l mediante el atributo <code>form</code>)</label>
+                        <input type="checkbox" id="boletin" name="boletin" form="inscripcion" value="si">
                     </p>
-                </form>
+                </section>
 
-                <p>
-                    <label for="boletin">&iquest;Quieres recibir el bolet&iacute;n? (este campo est&aacute; fuera del formulario pero pertenece a &eacute;l mediante el atributo <code>form</code>)</label>
-                    <input type="checkbox" id="boletin" name="boletin" form="inscripcion" value="si">
-                </p>
-            </section>
-
-            <section>
-                <h2>Pasos tras la inscripci&oacute;n</h2>
-                <ol>
-                    <li>Recibir&aacute;s un correo de confirmaci&oacute;n.</li>
-                    <li>Si eres p&uacute;blico general, deber&aacute;s abonar la entrada en un plazo de 72 horas.</li>
-                    <li>Descarga tu credencial desde la zona de <a href="login.html">acceso</a>.</li>
-                </ol>
-            </section>
-        </main>
-
+                <section>
+                    <h2>Pasos tras la inscripci&oacute;n</h2>
+                    <ol>
+                        <li>Recibir&aacute;s un correo de confirmaci&oacute;n.</li>
+                        <li>Si eres p&uacute;blico general, deber&aacute;s abonar la entrada en un plazo de 72 horas.</li>
+                        <li>Descarga tu credencial desde la zona de <a href="login.html">acceso</a>.</li>
+                    </ol>
+                </section>
+            </main>
+        </div>
+        
         <footer>
             <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
         </footer>
