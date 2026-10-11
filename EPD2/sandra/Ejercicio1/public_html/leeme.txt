@@ -1,41 +1,48 @@
 UniForo 2026 - Jornadas de Ponencias y Foro de Empleo
 EPD2 - Programación Avanzada: hojas de estilo CSS
 Universidad Pablo de Olavide - Escuela Politécnica Superior (EPS)
+Autora: Sandra
 =====================================================================
 
-Esta entrega le pone estilo al sitio web de la EPD1. El contenido es el
-mismo, con unos pocos cambios en el HTML que se explican más abajo. Todas
-las columnas se han maquetado con la técnica clásica que pide el enunciado
-(float, clear y box-sizing: border-box). No se ha usado flexbox ni grid en
-ningún archivo.
+Estilo CSS3 para el sitio web de la EPD1. El contenido es el mismo, con unos
+pocos cambios en el HTML que se explican más abajo. Todas las columnas se han
+maquetado con la técnica clásica que pide el enunciado (float, clear y
+box-sizing: border-box). No hay flexbox ni grid en ningún archivo del
+Ejercicio 1.
 
 
-RESUMEN
--------
-  Reglas CSS escritas ...................... 261 (180 selectores distintos)
-      css/estilos.css ...................... 128
-      CSS incrustado en index.html ......... 77
-      CSS incrustado en login.html ......... 56
+NÚMEROS (contados sobre los archivos entregados)
+------------------------------------------------
+  Reglas CSS escritas ...................... 259 (179 selectores distintos)
+      estilos/estilo1.css .................. 129
+      CSS incrustado en index.html ......... 75
+      CSS incrustado en login.html ......... 55
   Propiedades CSS distintas ................ 64
   Pseudoclases distintas ................... 22
   Pseudoelementos distintos ................ 6
 
 La base común (fondo, cabecera, menú, pie y enlaces) está escrita dos veces,
 una en index.html y otra en login.html, porque su CSS va incrustado y no se
-puede compartir. Por eso hay 261 reglas escritas pero solo 180 selectores
+puede compartir. Por eso hay 259 reglas escritas pero solo 179 selectores
 distintos.
 
 
-ARCHIVOS Y DISEÑO
------------------
-  css/estilos.css   Hoja única compartida por las 15 páginas restantes. Se
-                    enlaza con <link rel="stylesheet"> (css/estilos.css en
-                    las páginas padre y ../css/estilos.css en las hijas).
+ESTRUCTURA
+----------
+  estilos/estilo1.css   Hoja única compartida por las 15 páginas restantes. Se
+                    enlaza con <link rel="stylesheet"> (estilos/estilo1.css
+                    en las páginas padre y ../estilos/estilo1.css en las
+                    hijas).
   index.html        CSS incrustado en <style>, dentro de <head>. Sin
   login.html        archivo CSS propio.
+  img/min/biblioteca.jpg   Foto de fondo de todas las páginas.
 
+DISEÑO
+------
   Páginas padre     Dos columnas: menú lateral (22%) y contenido (78%).
                     Diseño fluido, con un ancho máximo de 1100px y centrado.
+                    Al estar en una sección padre, el menú lateral muestra
+                    también sus secciones hijas.
   Páginas hijas     Tres columnas: menú (20%), contenido (55%) y una columna
                     derecha (25%) con tres enlaces a las noticias y un texto
                     extra. Se activa con la clase "tres-columnas" en <body>.
@@ -48,10 +55,9 @@ ARCHIVOS Y DISEÑO
                     usar flex: el <body> reserva 80px y el pie se coloca con
                     position: absolute y esa misma altura.
 
-  Fondo de todas las páginas: una foto de biblioteca desenfocada. El
-  desenfoque se aplica a body::before (position: fixed y z-index: -1), porque
-  poner filter: blur en el body desenfocaría también el texto.
-
+  El fondo es una foto de biblioteca desenfocada. El desenfoque se aplica a
+  body::before (position: fixed y z-index: -1), porque poner filter: blur en
+  el body desenfocaría también el texto.
 
 CAMBIOS EN EL HTML
 ------------------
@@ -60,17 +66,17 @@ CAMBIOS EN EL HTML
     noticias.html, noticia1.html y noticia2.html, y class="tres-columnas"
     en <body>.
   - index.html: <nav> con cinco enlaces dentro del <footer>.
-  - login.html: atributo placeholder en la contraseña y en el correo de
-    recuperación (lo necesita la pseudoclase :placeholder-shown).
+  - login.html: atributo placeholder en el correo, en la contraseña y en el
+    correo de recuperación (lo necesita la pseudoclase :placeholder-shown).
 
 
-ELEMENTOS HTML CON ESTILO Y PARA QUÉ SIRVE CADA UNO
----------------------------------------------------
-Se usa body > header, body > nav y body > footer (hijo directo) para no
+ETIQUETAS HTML CON ESTILO
+-------------------------
+Se escribe body > header, body > nav y body > footer (hijo directo) para no
 afectar a los header, nav y footer que hay dentro de los <article>.
 
-Estructura
-  html          Color de respaldo mientras carga el fondo; con :root se fija
+Estructura y semántica
+  html          Color de respaldo mientras carga el fondo. Con :root se fija
                 el tamaño de letra base y el scroll suave.
   body          Ancho máximo o fijo, centrado, tipografía Georgia e
                 interlineado de 1.6.
@@ -92,152 +98,248 @@ Estructura
 
 Texto
   h1, h2, h3, h4   Colores y tamaños propios; los h2 llevan subrayado dorado.
-  p                El primer párrafo de cada artículo lleva capitular.
-  strong, mark, ins, del   Negrita, resaltado amarillo, texto añadido (verde)
-                           y texto tachado (rojo).
-  q, blockquote, cite      Citas en cursiva; la cita larga con borde dorado.
-  code, samp, kbd, var     Tipografía monoespaciada con fondo; kbd con borde
-                           de tecla y var en morado.
+  p             El primer párrafo de cada artículo lleva capitular.
+  strong, mark, ins, del
+                Negrita, resaltado amarillo, texto añadido (verde) y texto
+                tachado (rojo).
+  q, blockquote, cite
+                Citas en cursiva; la cita larga con borde dorado.
+  code, samp, kbd, var
+                Tipografía monoespaciada con fondo; kbd con borde de tecla y
+                var en morado.
   abbr, dfn, time, small, i, bdi, data
-                   Abreviaturas con subrayado punteado, definiciones,
-                   fechas en negrita y detalles menores de color y tamaño.
-  sub, sup, ruby/rt, math   Subíndices, superíndices, anotación ruby y
-                            fórmulas, con color o tamaño propio.
-  address          Sin cursiva y con borde a la izquierda.
+                Abreviaturas con subrayado punteado, definiciones, fechas en
+                negrita y detalles menores de color y tamaño.
+  sub, sup, rt, math
+                Subíndices, superíndices, anotación ruby y fórmulas, con
+                color o tamaño propio.
+  address       Sin cursiva y con borde a la izquierda.
 
 Listas
-  ul, ol, li       Las viñetas son doradas (::marker) y los elementos de
-                   lista se separan con :not(:last-child).
-  dl, dt, dd       Lista de definiciones en dos columnas (columns).
-  menu             Lista de enlaces convertida en botones redondeados.
+  ul, ol, li    Viñetas doradas (::marker) y elementos separados con
+                :not(:last-child).
+  dl, dt, dd    Lista de definiciones en dos columnas (columns).
+  menu          Lista de enlaces convertida en botones redondeados.
 
 Enlaces
-  a                Color propio y negrita en el contenido. Cada estado
-                   (:link, :visited, :hover, :focus, :active) tiene su color.
-                   Los externos llevan una flecha y los mailto un sobre. Los
-                   que envuelven una foto .jpg le ponen un marco dorado al
-                   pasar el ratón.
+  a             Color propio y negrita en el contenido, con un color para
+                cada estado (:link, :visited, :hover, :focus, :active). Los
+                externos llevan una flecha y los mailto un sobre. Los que
+                envuelven una foto .jpg le ponen un marco dorado al pasar el
+                ratón.
 
 Imágenes y multimedia
-  img              Nunca se sale de su columna (max-width: 100%).
-  figure, figcaption   Marco blanco con sombra y pie en cursiva. En index las
-                       fotos van ligeramente giradas y se enderezan en hover.
-  video, audio, embed  No superan el ancho de la columna.
-  meter, progress  Ancho limitado y color propio (accent-color).
+  img           Nunca se sale de su columna (max-width: 100%).
+  figure, figcaption
+                Marco blanco con sombra y pie en cursiva. En index las fotos
+                van ligeramente giradas y se enderezan en hover.
+  video, audio, embed   No superan el ancho de la columna.
+  meter, progress       Ancho limitado y color propio (accent-color).
 
 Tablas
   table, caption, thead, tbody, tfoot, tr, th, td
-                   Bordes colapsados, cabecera azul, filas alternas con
-                   :nth-child(even), resaltado de fila en hover y borde
-                   grueso en la última fila.
+                Bordes colapsados, cabecera azul, filas alternas con
+                :nth-child(even), resaltado de fila en hover y borde grueso
+                en la última fila.
 
 Formularios
-  form, fieldset, legend   Cada grupo de campos va en un recuadro con borde
-                           redondeado que se oscurece con :focus-within.
+  form, fieldset, legend
+                Cada grupo de campos va en un recuadro con borde redondeado
+                que se oscurece con :focus-within.
   label, input, select, textarea, option, optgroup
-                   Campos con borde, esquinas redondeadas y fuente heredada.
-                   Los obligatorios llevan una marca dorada a la izquierda
-                   y cambian de color según sean válidos o no. El textarea
-                   solo se puede estirar en vertical (resize).
+                Campos con borde, esquinas redondeadas y fuente heredada. Los
+                obligatorios llevan una marca dorada a la izquierda y cambian
+                de color según sean válidos o no. El textarea solo se puede
+                estirar en vertical (resize).
   button, input[type="submit"], input[type="reset"]
-                   Botones azules que cambian en hover y se hunden 1px en
-                   :active.
-  output           Resultado de los formularios con fondo amarillo claro.
-  details, summary Desplegables con borde y cursor de mano.
-  dialog           Solo en index: el aviso del aforo es una banda dorada con
-                   un icono. Se le pone position: relative porque, por
-                   defecto, el navegador lo coloca flotando sobre la página.
-
-
-PSEUDOCLASES (22)
------------------
-  :link, :visited, :hover, :focus, :active
-        Estados de los enlaces del contenido. :hover y :focus también se
-        usan en menús, botones, filas de tabla, tarjetas, <summary> y fotos.
-  :first-child     Quita el margen superior del primer elemento de <main> y
-                   el relleno superior del primer enlace de la lista del pie
-                   de index.
-  :last-child      Quita el margen del último elemento, marca la última fila
-                   de las tablas y coloca "Acceso" a la derecha del menú.
-  :nth-child       Filas pares de las tablas, color de la segunda tarjeta de
-                   index y reparto de cifras en dos columnas.
-  :first-of-type   Capitular del primer párrafo de un artículo y de la
-                   bienvenida de index.
-  :last-of-type    Giro de la segunda foto de la bienvenida en index.
-  :not             Separación entre elementos de lista (li:not(:last-child))
-                   y, en login, evita el aviso de error con el campo vacío
-                   (:not(:placeholder-shown)).
-  :lang            Cursiva en los términos en inglés (lang="en").
-  :root            Tamaño de letra base y scroll suave.
-  :target          Resalta la sección a la que se llega desde un enlace #id.
-  :checked         Etiqueta en negrita de los radio y casillas marcados.
-  :enabled         Botón de login que solo cambia de color si está activo.
-  :disabled        Campos deshabilitados, en gris y con cursor prohibido.
-  :focus-within    El recuadro (fieldset) se resalta mientras se escribe
-                   dentro de él.
-  :required        Marca dorada en los campos obligatorios.
-  :valid           Borde verde cuando el campo obligatorio es correcto.
-  :invalid         Borde y fondo rojos mientras se escribe algo incorrecto.
-  :placeholder-shown   Cursiva mientras se ve el texto de ayuda; también
-                       evita que el error salga con el campo vacío.
-
-
-PSEUDOELEMENTOS (6)
--------------------
-  ::before   Fondo desenfocado de la página, icono "!" del aviso y sobre en
-             los enlaces de correo.
-  ::after    Flecha en los enlaces externos y "clearfix" de los contenedores
-             con float.
-  ::first-letter   Capitular del primer párrafo.
-  ::marker         Viñetas doradas de las listas.
-  ::placeholder    Color del texto de ayuda de los campos.
-  ::selection      Color del texto seleccionado con el ratón.
+                Botones azules que cambian en hover y se hunden 1px en
+                :active.
+  output        Resultado del formulario con fondo amarillo claro.
+  details, summary
+                Desplegables con borde y cursor de mano.
+  dialog        Solo en index: el aviso del aforo es una banda dorada con un
+                icono. Lleva position: relative porque, por defecto, el
+                navegador lo coloca flotando sobre la página.
 
 
 SELECTORES UTILIZADOS
 ---------------------
-  De etiqueta     main, nav, table, input... (la mayoría de las reglas).
-  De clase        .tres-columnas (solo una: distingue 2 y 3 columnas).
-  De id           #bienvenida y #que-encontraras (solo en index).
-  De atributo     [href^="http"], [href^="mailto:"], [href$=".jpg"],
-                  [aria-current="page"], [type="..."] y [open].
-  Combinadores    hijo (>), descendiente (espacio), hermano adyacente (+),
-                  hermano general (~) y agrupación con comas.
-  Universal       * junto con *::before y *::after para box-sizing.
+  De etiqueta   main, nav, table, input... (la mayoría de las reglas).
+  De clase      .tres-columnas (solo una: distingue 2 y 3 columnas).
+  De id         #bienvenida y #que-encontraras (solo en index).
+  De atributo   [href^="http"] (enlaces externos), [href^="mailto:"] (correo),
+                [href$=".jpg"] (enlaces a fotos), [aria-current="page"]
+                (página actual en el menú), [type="..."] (tipos de input) y
+                [open] (desplegable abierto).
+  Combinadores  hijo (>), descendiente (espacio), hermano adyacente (+, por
+                ejemplo input + label), hermano general (~, h2 ~ ol) y
+                agrupación con comas.
+  Universal     * junto con *::before y *::after, para box-sizing.
 
 
-PROPIEDADES CSS DISTINTAS (64)
+PSEUDOCLASES UTILIZADAS (22)
+----------------------------
+  :link         Enlaces del contenido sin visitar: subrayados.
+  :visited      Enlaces ya visitados: color morado (en el aviso de index se
+                mantiene el azul para que se lea sobre el fondo dorado).
+  :hover        Enlaces, menús, botones, filas de tabla, tarjetas de index,
+                <summary> y fotos: cambian de color o de fondo.
+  :focus        Enlaces y campos de formulario: contorno dorado o azul para
+                que se vea dónde está el teclado.
+  :active       Enlaces (rojo) y botones (se hunden 1px) mientras se pulsan.
+  :first-child  estilo1.css: quita el margen superior del primer elemento de
+                <main>. index: quita el relleno superior del primer elemento
+                de la lista de enlaces del pie.
+  :last-child   estilo1.css: quita el margen del último elemento de <main> y
+                marca la última fila de las tablas. index y login: coloca
+                "Acceso" a la derecha del menú. index: quita el margen de la
+                última tarjeta y de la última foto.
+  :nth-child    estilo1.css: filas pares de las tablas (even). index: color
+                de la segunda tarjeta y reparto de las cifras en dos
+                columnas (odd y even).
+  :first-of-type   Capitular del primer párrafo de un artículo (estilo1.css)
+                y de la bienvenida (index). También gira la primera foto.
+  :last-of-type    index: gira la segunda foto de la bienvenida.
+  :not          estilo1.css: separación entre elementos de lista
+                (li:not(:last-child)). login: evita el aviso de error con el
+                campo vacío (:not(:placeholder-shown)).
+  :lang         estilo1.css: cursiva en los términos en inglés (lang="en").
+  :root         estilo1.css: tamaño de letra base y scroll suave.
+  :target       estilo1.css: resalta la sección a la que se llega desde un
+                enlace interno (#id), como los de multimedia.html.
+  :checked      estilo1.css y login: la etiqueta de una casilla o radio
+                marcado pasa a negrita y azul.
+  :enabled      login: el botón "Entrar" solo cambia de color en hover si
+                está activo.
+  :disabled     estilo1.css: campos deshabilitados, en gris y con cursor de
+                prohibido.
+  :focus-within estilo1.css y login: el recuadro (fieldset) se resalta
+                mientras se escribe dentro de él.
+  :required     estilo1.css y login: marca dorada a la izquierda de los
+                campos obligatorios.
+  :valid        estilo1.css y login: borde verde cuando el campo obligatorio
+                es correcto.
+  :invalid      estilo1.css y login: borde y fondo rojos mientras se escribe
+                algo incorrecto.
+  :placeholder-shown
+                login: cursiva mientras se ve el texto de ayuda del campo.
+
+
+PSEUDOELEMENTOS UTILIZADOS (6)
 ------------------------------
+  ::before      Fondo desenfocado de la página (todas), icono "!" del aviso
+                (index) y sobre en los enlaces de correo (estilo1.css).
+  ::after       Flecha en los enlaces externos (estilo1.css) y "clearfix" de
+                los contenedores con float (index y login).
+  ::first-letter   Capitular del primer párrafo (estilo1.css e index).
+  ::marker      Viñetas doradas de las listas (estilo1.css).
+  ::placeholder Color del texto de ayuda de los campos (estilo1.css y login).
+  ::selection   Color del texto seleccionado con el ratón (estilo1.css).
+
+
+PROPIEDADES CSS UTILIZADAS (64)
+-------------------------------
+En cada una se indica dónde se usa: "estilo1" es estilos/estilo1.css; "index" y
+"login" son los estilos incrustados en esas páginas.
+
 Maquetación (18)
-  float, clear, width, max-width, height, min-height, display, position, top,
-  right, bottom, left, inset, z-index, overflow, box-sizing, columns,
-  column-gap. Colocan, dimensionan y reparten en columnas.
+  float         estilo1: menú, contenido y columna derecha. index: menú
+                superior, columnas, tarjetas, fotos, cifras y pie. login: menú
+                superior.
+  clear         Todas: el pie queda debajo de las columnas. index y login lo
+                usan también en los clearfix (::after) de cabecera, menú y
+                contenedores.
+  width         Anchos de columna: en % en estilo1 (22/78 y 20/55/25) y en px
+                en index (960, 610, 270, 295, 190) y login (960 y 440).
+  max-width     Ancho máximo del body (1100px) y de imágenes, vídeo, audio y
+                embed (100%) en estilo1.
+  height        Altura de imágenes (auto), de meter y progress, del icono del
+                aviso (index) y del pie y del html en login.
+  min-height    Altura mínima del textarea (estilo1) y del body (login, para
+                que el pie quede abajo).
+  display       block en los enlaces del menú y los campos, inline-block en
+                el menú de multimedia y none para ocultar en @media print.
+  position      fixed para el fondo, absolute para el icono del aviso (index)
+                y el pie (login), y relative en el aviso y el body de login.
+  top, right, bottom, left
+                Extienden el fondo 20px fuera de la ventana (todas), colocan
+                el icono del aviso (index) y el pie (login).
+  inset         index: anula el posicionamiento por defecto del <dialog>.
+  z-index       -1 en el fondo desenfocado, para dejarlo detrás de todo.
+  overflow      hidden en los enlaces del menú lateral (estilo1).
+  box-sizing    border-box en todos los elementos (todas).
+  columns       dl en dos columnas (estilo1).
+  column-gap    Separación entre esas dos columnas (estilo1).
 
 Espaciado (9)
-  margin, margin-top, margin-bottom, margin-left, margin-right, padding,
-  padding-top, padding-bottom, padding-left. Separan elementos entre sí y
-  su contenido de los bordes.
+  margin        Centrado del body (0 auto), título de la cabecera, listas,
+                figuras, tarjeta de login y desplegables.
+  margin-top, margin-bottom, margin-left, margin-right
+                Ajustes finos: primer y último elemento de <main>, separación
+                entre fotos y tarjetas de index, sangría de <dd>.
+  padding       Relleno de cabecera, pie, menús, columnas, campos y botones.
+  padding-top, padding-bottom, padding-left
+                Subrayado de h2, sangría de listas y de <address>, segunda
+                columna de cifras (index) y relleno del pie de login.
 
 Bordes (11)
-  border, border-top, border-bottom, border-left, border-right,
-  border-color, border-top-color, border-bottom-color, border-radius,
-  border-image, border-collapse. Líneas, colores, esquinas redondeadas,
-  borde degradado y unión de bordes en las tablas.
+  border        Marco de fieldset, campos, botones, figuras y celdas.
+  border-top, border-bottom, border-left, border-right
+                Línea dorada sobre las tarjetas y el aside (index), subrayado
+                de los h2, borde a la izquierda de citas y del índice de las
+                noticias, separador de cifras.
+  border-color, border-top-color, border-bottom-color
+                Cambios de color en :focus, :hover y en la página actual del
+                menú.
+  border-radius
+                Esquinas redondeadas en figuras, código, desplegables, campos,
+                botones y la tarjeta de login.
+  border-image  Borde inferior de la cabecera con degradado (todas).
+  border-collapse   Une los bordes de las celdas de las tablas (estilo1).
 
 Fondo, color y efectos (6)
-  background, color, opacity, accent-color, box-shadow, filter. Fondos,
-  colores, transparencia, sombras y el desenfoque de la imagen.
+  background    Fondos semitransparentes de columnas y cabecera, fondo
+                azul del pie, imagen desenfocada, filas alternas de tabla.
+  color         Colores de texto, enlaces y títulos de todo el sitio.
+  opacity       Foto un poco transparente al pasar el ratón (estilo1).
+  accent-color  Color de las barras meter y progress (estilo1).
+  box-shadow    Sombra en <main> (estilo1), aviso, fotos y tarjetas (index) y
+                tarjeta de login.
+  filter        blur(8px) en el fondo desenfocado (todas).
 
 Texto (13)
-  font, font-family, font-size, font-style, font-weight, line-height,
-  text-align, text-decoration, text-shadow, text-overflow, white-space,
-  list-style, content. Tipografía, subrayados, sombra, puntos suspensivos si
-  el texto no cabe, tipo de viñeta y texto generado con ::before y ::after.
+  font          Hace que campos y botones usen la fuente de la página; fuente
+                del icono del aviso (index).
+  font-family   Georgia en el body; fuente monoespaciada en code, samp, kbd
+                y var (estilo1).
+  font-size     Títulos, pies de foto, letra pequeña, capitular, menú.
+  font-style    Cursiva en pies de foto, citas, placeholder y términos en
+                inglés; sin cursiva en address.
+  font-weight   Negrita en enlaces, títulos de formulario, términos y la
+                capitular.
+  line-height   Interlineado de 1.6 en el body y ajustes en el título, la
+                capitular, sub y sup.
+  text-align    Alineación de celdas y del icono del aviso (index).
+  text-decoration   Enlaces subrayados o no según el estado, y abbr con
+                subrayado punteado.
+  text-shadow   Sombra del título (h1) de la cabecera (todas).
+  text-overflow
+                Puntos suspensivos si un enlace del menú no cabe (estilo1).
+  white-space   nowrap en el menú lateral, para que el texto no se parta.
+  list-style    Quita las viñetas del menú, del pie y de la lista de cifras.
+  content       Texto generado con ::before y ::after: fondo, flecha, sobre,
+                icono "!" y clearfix.
 
 Interacción y movimiento (7)
-  cursor, outline, resize, transition, transform, animation,
-  scroll-behavior. Puntero, contorno de foco, redimensionado, transiciones
-  suaves, giros y desplazamientos, animación de entrada y scroll suave.
+  cursor        Mano en <summary> y botones; "prohibido" en campos
+                deshabilitados; ayuda en abbr.
+  outline       Contorno de los enlaces y campos con el foco.
+  resize        El textarea solo se puede estirar en vertical (estilo1).
+  transition    Cambios suaves en el menú, las fotos y los botones.
+  transform     Giro de las fotos (index), botón que se hunde en :active y
+                desplazamiento de la animación de entrada.
+  animation     Aparición suave de la columna de contenido (estilo1).
+  scroll-behavior   Desplazamiento suave al seguir enlaces internos.
 
 
 OTRAS CARACTERÍSTICAS DE CSS3
@@ -250,5 +352,19 @@ OTRAS CARACTERÍSTICAS DE CSS3
   - Texto en varias columnas (columns) y puntos suspensivos (text-overflow).
   - @media print: al imprimir solo sale el contenido, sin menú ni pie.
   - @media (prefers-reduced-motion: reduce): en index y login quita las
-    transiciones a quien tiene activada esa opción en su sistema. Es el único
-    sitio donde se usa !important.
+    transiciones a quien tiene activada esa opción en su sistema. Es el
+    único sitio donde se usa !important.
+
+
+NO UTILIZADO
+------------
+  display: flex, display: grid y sus propiedades (flex-*, grid-*, gap,
+  justify-*, align-*) no se usan en ningún archivo del Ejercicio 1: el
+  enunciado pide maquetar con float. Tampoco hay atributos style="" en el
+  HTML, preprocesadores (Sass o Less), frameworks ni JavaScript.
+
+
+CRÉDITOS DE LA IMAGEN DE FONDO (Wikimedia Commons)
+--------------------------------------------------
+  biblioteca.jpg  Graz University Library reading room - Dr. Marcus Gossler
+                  (CC BY-SA 3.0)
