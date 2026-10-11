@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UniForo 2026 &ndash; Deportes</title>
+        <link rel="stylesheet" href="../styles.css">
     </head>
     <body>
         <header>
@@ -11,80 +12,103 @@
             <p>Actividades &rsaquo; Deportes</p>
         </header>
 
-        <!-- NAV -->
-        <nav aria-label="Men&uacute; de navegaci&oacute;n">
-            <ul>
-                <li><a href="../actividades.html">&larr; Actividades</a></li>
-                <li><a href="talleres.html">Talleres</a></li>
-                <li><a href="deportes.html" aria-current="page"><strong>Deportes</strong></a></li>
-                <li><a href="cultura.html">Cultura</a></li>
-            </ul>
-        </nav>
-        <!-- /NAV -->
+        <div class="fila pagina-hija">
+            <!-- NAV -->
+            <nav class="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../programa.html">Programa</a></li>
+                    <li><a href="../actividades.html"><strong>Actividades</strong></a></li>
+                    <li><a href="../ponentes.html">Ponentes</a></li>
+                    <li><a href="../asociaciones.html">Asociaciones</a></li>
+                    <li><a href="../multimedia.html">Multimedia</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../inscripcion.html">Inscripci&oacute;n</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../login.html">Acceso</a></li>
+                </ul>
+                <p>Actividades:</p>
+                <ul>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="deportes.html" aria-current="page"><strong>Deportes</strong></a></li>
+                    <li><a href="cultura.html">Cultura</a></li>
+                </ul>
+            </nav>
+            <!-- /NAV -->
 
-        <main>
-            <div>
-                <section>
-                    <h2>Competiciones deportivas</h2>
-                    <figure>
-                        <a href="../img/futbol.jpg"><img src="../img/min/futbol.jpg" width="320" height="181" alt="Partido de f&uacute;tbol en un campo universitario"></a>
-                        <figcaption>Torneo de f&uacute;tbol entre facultades. Foto: &#32435;&#29926;&#25289;&#30340;&#20136;&#21033; (CC BY-SA 4.0).</figcaption>
-                    </figure>
-                    <p>
-                        El deporte tambi&eacute;n tiene su espacio en UniForo. Forma equipo con tus compa&ntilde;eros
-                        de clase o ap&uacute;ntate de forma individual y te asignaremos uno.
-                    </p>
-                    <ul>
-                        <li>F&uacute;tbol sala
-                            <ul>
-                                <li>Equipos de 5 jugadores + 3 suplentes</li>
-                                <li>Partidos de 2 &times; 15 minutos</li>
-                            </ul>
-                        </li>
-                        <li>Carrera solidaria de 5&nbsp;km
-                            <ul>
-                                <li>Salida: <time datetime="2026-11-19T17:30">jueves 19 a las 17:30</time></li>
-                                <li>Lo recaudado se destina al banco de alimentos</li>
-                            </ul>
-                        </li>
-                        <li>Ajedrez r&aacute;pido (partidas de 5 minutos)</li>
-                    </ul>
-                </section>
+            <main class="contenido">
+                <div>
+                    <section>
+                        <h2>Competiciones deportivas</h2>
+                        <figure>
+                            <a href="../img/futbol.jpg"><img src="../img/min/futbol.jpg" width="320" height="181" alt="Partido de f&uacute;tbol en un campo universitario"></a>
+                            <figcaption>Torneo de f&uacute;tbol entre facultades. Foto: &#32435;&#29926;&#25289;&#30340;&#20136;&#21033; (CC BY-SA 4.0).</figcaption>
+                        </figure>
+                        <p>
+                            El deporte tambi&eacute;n tiene su espacio en UniForo. Forma equipo con tus compa&ntilde;eros
+                            de clase o ap&uacute;ntate de forma individual y te asignaremos uno.
+                        </p>
+                        <ul>
+                            <li>F&uacute;tbol sala
+                                <ul>
+                                    <li>Equipos de 5 jugadores + 3 suplentes</li>
+                                    <li>Partidos de 2 &times; 15 minutos</li>
+                                </ul>
+                            </li>
+                            <li>Carrera solidaria de 5&nbsp;km
+                                <ul>
+                                    <li>Salida: <time datetime="2026-11-19T17:30">jueves 19 a las 17:30</time></li>
+                                    <li>Lo recaudado se destina al banco de alimentos</li>
+                                </ul>
+                            </li>
+                            <li>Ajedrez r&aacute;pido (partidas de 5 minutos)</li>
+                        </ul>
+                    </section>
 
-                <section>
-                    <h2>Clasificaci&oacute;n de la edici&oacute;n anterior</h2>
-                    <table>
-                        <caption>F&uacute;tbol sala &ndash; UniForo 2025</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2">Posici&oacute;n</th>
-                                <th scope="col" rowspan="2">Equipo</th>
-                                <th scope="colgroup" colspan="3">Partidos</th>
-                                <th scope="col" rowspan="2">Puntos</th>
-                            </tr>
-                            <tr>
-                                <th scope="col">G</th>
-                                <th scope="col">E</th>
-                                <th scope="col">P</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><th scope="row">1.&ordm;</th><td>Inform&aacute;ticos F.C.</td><td>4</td><td>1</td><td>0</td><td>13</td></tr>
-                            <tr><th scope="row">2.&ordm;</th><td>Los Compiladores</td><td>3</td><td>1</td><td>1</td><td>10</td></tr>
-                            <tr><th scope="row">3.&ordm;</th><td>Real Telecos</td><td>2</td><td>2</td><td>1</td><td>8</td></tr>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
+                    <section>
+                        <h2>Clasificaci&oacute;n de la edici&oacute;n anterior</h2>
+                        <table>
+                            <caption>F&uacute;tbol sala &ndash; UniForo 2025</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2">Posici&oacute;n</th>
+                                    <th scope="col" rowspan="2">Equipo</th>
+                                    <th scope="colgroup" colspan="3">Partidos</th>
+                                    <th scope="col" rowspan="2">Puntos</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">G</th>
+                                    <th scope="col">E</th>
+                                    <th scope="col">P</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">1.&ordm;</th><td>Inform&aacute;ticos F.C.</td><td>4</td><td>1</td><td>0</td><td>13</td></tr>
+                                <tr><th scope="row">2.&ordm;</th><td>Los Compiladores</td><td>3</td><td>1</td><td>1</td><td>10</td></tr>
+                                <tr><th scope="row">3.&ordm;</th><td>Real Telecos</td><td>2</td><td>2</td><td>1</td><td>8</td></tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
 
-            <aside>
-                <h2>Material</h2>
-                <p>El evento proporciona petos, balones y relojes de ajedrez. Trae tu propia ropa deportiva.</p>
-                <p>Plazas en la carrera:</p>
-                <progress max="300" value="180">180 de 300</progress>
-                <p>180 de 300 dorsales asignados.</p>
+                <aside>
+                    <h2>Material</h2>
+                    <p>El evento proporciona petos, balones y relojes de ajedrez. Trae tu propia ropa deportiva.</p>
+                    <p>Plazas en la carrera:</p>
+                    <progress max="300" value="180">180 de 300</progress>
+                    <p>180 de 300 dorsales asignados.</p>
+                </aside>
+            </main>
+            <aside class="info-extra">
+                <h2>Informaci&oacute;n extra</h2>
+                <p>Fuera del campus, la carrera solidaria forma parte de la actividad solidaria que se recoge en la secci&oacute;n de noticias de UniForo 2026.</p>
+                <ul>
+                    <li><a href="../noticias.html">P&aacute;gina principal de noticias</a></li>
+                    <li><a href="../noticias/noticia1.html">Noticia: el Consorcio W3C</a></li>
+                    <li><a href="../noticias/noticia2.html">Noticia: Tim Berners-Lee</a></li>
+                </ul>
             </aside>
-        </main>
+        </div>
 
         <footer>
             <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
