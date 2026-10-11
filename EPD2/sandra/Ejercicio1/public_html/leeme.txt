@@ -1,20 +1,18 @@
-UniForo 2026 - Jornadas de Ponencias y Foro de Empleo
 EPD2 - Programación Avanzada: hojas de estilo CSS
-Universidad Pablo de Olavide - Escuela Politécnica Superior (EPS)
-Autora: Sandra
-=====================================================================
+Autora: Sandra - Universidad Pablo de Olavide (EPS)
+----------------------------------------------------------------------------
 
 Estilo CSS3 para el sitio web de la EPD1. El contenido es el mismo, con unos
 pocos cambios en el HTML que se explican más abajo. Todas las columnas se han
-maquetado con la técnica clásica que pide el enunciado (float, clear y
+maquetado con la técnica clásica con CSS que pide el enunciado (float, clear y
 box-sizing: border-box). No hay flexbox ni grid en ningún archivo del
 Ejercicio 1.
 
 
 NÚMEROS (contados sobre los archivos entregados)
 ------------------------------------------------
-  Reglas CSS escritas ...................... 259 (179 selectores distintos)
-      estilos/estilo1.css .................. 129
+  Reglas CSS escritas ...................... 254 (180 selectores distintos)
+      estilos/estilo1.css .................. 124
       CSS incrustado en index.html ......... 75
       CSS incrustado en login.html ......... 55
   Propiedades CSS distintas ................ 64
@@ -23,7 +21,7 @@ NÚMEROS (contados sobre los archivos entregados)
 
 La base común (fondo, cabecera, menú, pie y enlaces) está escrita dos veces,
 una en index.html y otra en login.html, porque su CSS va incrustado y no se
-puede compartir. Por eso hay 259 reglas escritas pero solo 179 selectores
+puede compartir. Por eso hay 254 reglas escritas pero solo 180 selectores
 distintos.
 
 
@@ -66,8 +64,8 @@ CAMBIOS EN EL HTML
     noticias.html, noticia1.html y noticia2.html, y class="tres-columnas"
     en <body>.
   - index.html: <nav> con cinco enlaces dentro del <footer>.
-  - login.html: atributo placeholder en el correo, en la contraseña y en el
-    correo de recuperación (lo necesita la pseudoclase :placeholder-shown).
+  - login.html: atributo placeholder en el correo (lo necesita la
+    pseudoclase :placeholder-shown).
 
 
 ETIQUETAS HTML CON ESTILO
