@@ -1,1 +1,21 @@
-/EPD1/sergio/nbproject/private/
+# NetBeans (proyectos HTML5/CSS/JavaScript)
+# Configuración privada de cada usuario (rutas locales, navegador, etc.)
+**/nbproject/private/
+# Salidas de compilación/empaquetado
+build/
+dist/
+nbbuild/
+nbdist/
+nbactions.xml
+# Se mantienen versionados: nbproject/project.xml y nbproject/project.properties
+
+# Dependencias y registros de JavaScript
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+*.swp
+*~
