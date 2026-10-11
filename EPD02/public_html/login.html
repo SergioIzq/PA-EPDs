@@ -5,40 +5,155 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UniForo 2026 &ndash; Acceso</title>
         <style>
-            * { box-sizing: border-box; }
-            body { width: 960px; margin: 0 auto; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #222; background: #f1f4f8; }
-            a { color: #1d3557; }
-            a:hover { color: #c1121f; }
-            a:focus { outline: 3px solid #e9c46a; }
-            img { max-width: 100%; height: auto; }
-            header { background: #1d3557; color: #fff; padding: 16px 24px; border-bottom: 5px solid #e9c46a; overflow: hidden; }
-            header h1 { margin: 0; font-size: 2em; }
-            header p { margin: 4px 0 0; color: #e9c46a; }
-            nav { background: #264b7a; }
-            nav ul { list-style: none; margin: 0; padding: 0; overflow: hidden; }
-            nav li { float: left; }
-            nav li a { display: block; padding: 12px 11px; color: #fff; text-decoration: none; border-bottom: 4px solid transparent; }
-            nav li a:hover { background: #1d3557; color: #e9c46a; border-bottom-color: #e9c46a; }
-            nav a[aria-current] { background: #1d3557; border-bottom-color: #e9c46a; }
-            main { background: #fff; padding: 16px 24px; overflow: hidden; }
-            h2 { color: #1d3557; border-bottom: 2px solid #e9c46a; padding-bottom: 4px; }
-            h3 { color: #264b7a; }
-            figure { margin: 16px 0; padding: 8px; background: #f1f4f8; border: 1px solid #ccd3dd; }
-            figcaption { font-size: 0.85em; color: #555; }
-            fieldset { border: 1px solid #ccd3dd; padding: 8px 16px; }
-            legend { color: #1d3557; font-weight: bold; }
-            label { display: block; margin-top: 6px; }
-            input[type="email"], input[type="password"] { width: 100%; padding: 6px; border: 1px solid #99a3b3; border-radius: 3px; }
-            input:focus { border-color: #1d3557; background: #fffbea; }
-            button { background: #1d3557; color: #fff; border: 0; padding: 8px 16px; border-radius: 3px; cursor: pointer; }
-            button:hover { background: #c1121f; }
-            footer { background: #1d3557; color: #fff; padding: 12px 24px; font-size: 0.85em; clear: both; }
-            footer a { color: #e9c46a; }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                width: 960px;
+                margin: 0 auto;
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 1.5;
+                color: #222;
+                background: #f1f4f8;
+            }
+            a {
+                color: #1d3557;
+            }
+            a:hover {
+                color: #c1121f;
+            }
+            a:focus {
+                outline: 3px solid #e9c46a;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            header {
+                background: #1d3557;
+                color: #fff;
+                padding: 16px 24px;
+                border-bottom: 5px solid #e9c46a;
+                overflow: hidden;
+            }
+            header h1 {
+                margin: 0;
+                font-size: 2em;
+            }
+            header p {
+                margin: 4px 0 0;
+                color: #e9c46a;
+            }
+            nav {
+                background: #264b7a;
+            }
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            nav li {
+                float: left;
+            }
+            nav li a {
+                display: block;
+                padding: 12px 11px;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 4px solid transparent;
+            }
+            nav li a:hover {
+                background: #1d3557;
+                color: #e9c46a;
+                border-bottom-color: #e9c46a;
+            }
+            nav a[aria-current] {
+                background: #1d3557;
+                border-bottom-color: #e9c46a;
+            }
+            main {
+                background: #fff;
+                padding: 16px 24px;
+                overflow: hidden;
+            }
+            h2 {
+                color: #1d3557;
+                border-bottom: 2px solid #e9c46a;
+                padding-bottom: 4px;
+            }
+            h3 {
+                color: #264b7a;
+            }
+            figure {
+                margin: 16px 0;
+                padding: 8px;
+                background: #f1f4f8;
+                border: 1px solid #ccd3dd;
+            }
+            figcaption {
+                font-size: 0.85em;
+                color: #555;
+            }
+            fieldset {
+                border: 1px solid #ccd3dd;
+                padding: 8px 16px;
+            }
+            legend {
+                color: #1d3557;
+                font-weight: bold;
+            }
+            label {
+                display: block;
+                margin-top: 6px;
+            }
+            input[type="email"], input[type="password"] {
+                width: 100%;
+                padding: 6px;
+                border: 1px solid #99a3b3;
+                border-radius: 3px;
+            }
+            input:focus {
+                border-color: #1d3557;
+                background: #fffbea;
+            }
+            button {
+                background: #1d3557;
+                color: #fff;
+                border: 0;
+                padding: 8px 16px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+            button:hover {
+                background: #c1121f;
+            }
+            footer {
+                background: #1d3557;
+                color: #fff;
+                padding: 12px 24px;
+                font-size: 0.85em;
+                clear: both;
+            }
+            footer a {
+                color: #e9c46a;
+            }
 
-            main { min-height: 400px; }
-            main > section { width: 420px; margin: 0 auto; }
-            details { width: 420px; margin: 16px auto; }
-            summary { cursor: pointer; font-weight: bold; }
+            main {
+                min-height: 400px;
+            }
+            main > section {
+                width: 420px;
+                margin: 0 auto;
+            }
+            details {
+                width: 420px;
+                margin: 16px auto;
+            }
+            summary {
+                cursor: pointer;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
