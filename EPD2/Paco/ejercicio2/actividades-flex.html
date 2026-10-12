@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Actividades</title>
+        <link rel="stylesheet" href="css/estilos-flex.css"> 
+
+    </head>
+    <body>
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Actividades paralelas</p>
+        </header>
+
+        <div class="clearfix">
+            <nav id="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
+                <ul>
+                    <li><a href="login.html" id="login">Acceso</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="programa.html" aria-current="page">Programa</a></li>
+                    <li><a href="actividades.html"><strong>Actividades</strong></a>
+                        <ul class="submenu dedicado">
+                            <li><a href="actividades/talleres.html">Talleres</a></li>
+                            <li><a href="actividades/deportes.html">Deportes</a></li>
+                            <li><a href="actividades/cultura.html">Cultura</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ponentes.html">Ponentes</a>
+                        <ul class="submenu">
+                            <li><a href="ponentes/ponente1.html">Ponente1</a></li>
+                            <li><a href="ponentes/ponente2.html">Ponente2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="asociaciones.html">Asociaciones</a></li>
+                    <li><a href="multimedia.html">Multimedia</a></li>
+                    <li><a href="noticias.html">Noticias</a>
+                        <ul class="submenu">
+                            <li><a href="noticias/noticia1.html">Noticia1</a></li>
+                            <li><a href="noticias/noticia2.html">Noticia2</a></li>
+                        </ul>
+                    <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <ul id="saltos">
+                    <li><a href="#actividades">Talleres</a></li>
+                    <li><a href="#actividades">Deportes</a></li>
+                    <li><a href="#actividades">Cultura</a></li>
+                </ul>
+
+                <section id="actividades">
+                    <h2>Más allá de las ponencias</h2>
+
+                    <p>
+                        UniForo no es solo escuchar: durante los tres días podrás aprender haciendo, competir
+                        y disfrutar de la programación cultural del campus. Estas son las actividades organizadas
+                        por categorías:
+                    </p>
+
+                    <div class="tabla-actividades-container">
+                        <table class="tabla-actividades">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;">Categoría</th>
+                                    <th style="width: 35%;">Ámbito / Subcategoría</th>
+                                    <th style="width: 40%;">Actividades Disponibles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="categoria-cell" rowspan="2">Talleres</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #dbeafe; color: #1e40af;">Tecnología</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Contenedores con Docker</li>
+                                            <li>IA generativa aplicada</li>
+                                            <li>Desarrollo web con HTML5 y CSS3</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #fef3c7; color: #92400e;">Empleabilidad</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Cómo preparar un CV técnico</li>
+                                            <li>Simulacro de entrevista</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="categoria-cell">Deportes</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #dcfce7; color: #166534;">Competición</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Torneo de fútbol sala</li>
+                                            <li>Carrera solidaria de 5 km</li>
+                                            <li>Ajedrez rápido</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="categoria-cell">Cultura</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #fae8ff; color: #86198f;">Campus</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Concierto de clausura</li>
+                                            <li>Muestra de danza</li>
+                                            <li>Exposición «Historia de la informática»</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="participar">
+                    <h2>Cómo participar</h2>
+                    <ul>
+                        <li>Formaliza tu inscripción en el evento.</li>
+                        <li>Elige las actividades que te interesen en el formulario.</li>
+                        <li>Recibirás una confirmación por correo electrónico.</li>
+                        <li>Presenta tu credencial en la entrada de cada actividad.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Galer&iacute;a</h2>
+                    <div id="imagenes">
+                        <figure>
+                            <a href="img/hackathon.jpg"><img src="img/min/hackathon.jpg" width="320" height="214" alt="Participantes programando en port&aacute;tiles"></a>
+                            <figcaption>Talleres pr&aacute;cticos. Foto: Ariel Elinson (CC BY-SA 4.0).</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="img/futbol.jpg"><img src="img/min/futbol.jpg" width="320" height="181" alt="Partido de f&uacute;tbol universitario"></a>
+                            <figcaption>Torneos deportivos. Foto: &#32435;&#29926;&#25289;&#30340;&#20136;&#21033; (CC BY-SA 4.0).</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="img/danza.jpg"><img src="img/min/danza.jpg" width="320" height="213" alt="Bailarines actuando en un escenario"></a>
+                            <figcaption>Programaci&oacute;n cultural. Foto: Virtual-Pano (CC BY-SA 4.0).</figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+        </footer>
+    </body>
+</html>

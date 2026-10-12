@@ -11,20 +11,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --oro: #e9c46a;
+    --azul-oscuro: #1d3557;
+    --azul-medio: #457b9d;
+    --azul-claro: #a8dadc;
+    --fondo-claro: #f1faee;
+    --texto-principal: #222222;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
-    width: 100%;                 /* la página ocupa todo el ancho */
+    width: 100%;
 }
 
 body {
     background: #ffffff;
-    color: #222222;
+    color: var(--texto-principal);
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.5;
 }
@@ -35,19 +39,14 @@ body {
     display: block;
     clear: both;
 }
-#imagenes::after{
-    content: "";
-    display: table;
-    clear: both;
-}
 
 header {
     padding: 20px 30px;
-    background: #1d3557;
+    background: var(--azul-oscuro);
     color: #ffffff;
 }
-header h1,
-header p {
+
+header h1, header p {
     margin: 0;
 }
 
@@ -55,12 +54,11 @@ header p {
     float: left;
     width: 20%;
     padding: 20px 0;
-    background: #457b9d;
-
-    position: sticky;            /* se queda pegado al hacer scroll */
-    top: 0;                      /* ...al borde superior de la ventana */
-    height: 100vh;               /* ocupa todo el alto de la pantalla */
-    overflow-y: auto;            /* si los submenús lo hacen más largo, tiene su propio scroll */
+    background: var(--azul-medio);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 main {
@@ -69,7 +67,7 @@ main {
     padding: 20px 30px;
 }
 
-#saltos{
+#saltos {
     margin: 0 0 24px;
     padding: 12px 0;
     list-style: none;
@@ -77,26 +75,26 @@ main {
     border-bottom: 1px solid #b8c4d2;
 }
 
-#saltos::after{
+#saltos::after {
     content: "";
     display: block;
     clear: both;
 }
 
-#saltos li{
+#saltos li {
     float: left;
     margin-right: 3%;
     width: 31%;
 }
 
-#saltos li:last-child{
+#saltos li:last-child {
     margin-right: 0;
 }
 
-#saltos a{
+#saltos a {
     display: block;
     padding: 8px 20px;
-    background: #1d3557;
+    background: var(--azul-oscuro);
     border-bottom: 3px solid var(--oro);
     border-radius: 20px;
     color: #ffffff;
@@ -108,24 +106,25 @@ main {
     text-align: center;
 }
 
-#saltos a:hover, a:focus{
+#saltos a:hover, #saltos a:focus {
     background: var(--oro);
-    color: #1d3557;
+    color: var(--azul-oscuro);
     outline: none;
 }
 
-#saltos a:active{
-    background: #457b9d;
+#saltos a:active {
+    background: var(--azul-medio);
     color: #ffffff;
 }
 
 footer {
-    clear: both;                 /* lo obliga a situarse debajo de los floats*/
+    clear: both;
     padding: 15px 30px;
-    background: #1d3557;
+    background: var(--azul-oscuro);
     color: #ffffff;
     z-index: 10;
 }
+
 footer p {
     margin: 0;
 }
@@ -136,6 +135,7 @@ footer p {
     padding: 0;
     list-style: none;
 }
+
 #menu-lateral a {
     display: block;
     padding: 10px 20px;
@@ -145,35 +145,23 @@ footer p {
     text-decoration: none;
     text-transform: uppercase;
 }
+
 #menu-lateral a:hover {
-    background: #1d3557;
+    background: var(--azul-oscuro);
     color: #e9c46a;
 }
 
-/* Submenú de secciones hijas */
-#menu-lateral .submenu{
-    background: #36657f;
-}
-#menu-lateral .submenu a {
-    padding-left: 40px;
-    font-size: 0.78rem;
-    text-transform: none;
-}
-
-/* Submenú oculto por defecto */
 #menu-lateral .submenu {
     display: none;
     background: #36657f;
 }
 
-/* Se muestra al pasar el ratón por el li padre */
 #menu-lateral li:hover > .submenu {
     display: block;
 }
 
-/* Mantiene resaltado el padre mientras el submenú está abierto */
 #menu-lateral li:hover > a {
-    background: #1d3557;
+    background: var(--azul-oscuro);
     color: #e9c46a;
 }
 
@@ -182,58 +170,131 @@ footer p {
     font-size: 0.78rem;
     text-transform: none;
 }
-#menu-lateral .dedicado{
+
+#menu-lateral .dedicado {
     display: block;
     color: #e9c46a;
 }
-#menu-lateral > ul > li:first-child{
+
+#menu-lateral > ul > li:first-child {
     background: var(--oro);
 }
-/* CONTENIDO */
+
 h2 {
     margin: 0 0 12px;
     border-bottom: 3px solid #e9c46a;
-    color: #1d3557;
+    color: var(--azul-oscuro);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
-}
-h3 {
-    margin: 16px 0 6px;
-    color: #CACC37;
+    padding-bottom: 4px;
 }
 
-h3 > a:visited{
-    color: #A4A62B;
+h3 {
+    margin: 16px 0 6px;
+    color: #457b9d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
 }
+
 section {
     margin-bottom: 30px;
 }
 
-table {
+.tabla-actividades-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.tabla-actividades {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.8rem;
-}
-th, td {
-    padding: 6px;
-    border: 1px solid #b8c4d2;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
     text-align: left;
 }
-th {
-    background: #e6ecf3;
+
+.tabla-actividades th {
+    background: var(--azul-oscuro);
+    color: #ffffff;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
 }
-caption {
-    padding: 6px;
+
+.tabla-actividades th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.tabla-actividades th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.tabla-actividades td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    font-size: 0.88rem;
+}
+
+.tabla-actividades tr:hover td {
+    background-color: #f8fafc;
+}
+
+.tabla-actividades tr:last-child td {
+    border-bottom: none;
+}
+
+.categoria-cell {
     font-weight: bold;
+    color: var(--azul-oscuro);
+    background-color: #f1f5f9;
+    width: 20%;
+    border-right: 2px solid #e2e8f0;
+}
+
+.subcategoria-item {
+    margin-bottom: 8px;
+}
+
+.subcategoria-item:last-child {
+    margin-bottom: 0;
+}
+
+.badge-subcat {
+    display: inline-block;
+    background: #e2e8f0;
+    color: #334155;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 6px;
+    text-transform: uppercase;
+}
+
+ul.actividad-lista {
+    margin: 0;
+    padding-left: 18px;
+}
+
+ul.actividad-lista li {
+    margin-bottom: 4px;
+    color: #334155;
 }
 
 figure {
     margin: 0 0 14px;
 }
+
 img {
     max-width: 100%;
     height: auto;
 }
+
 figcaption {
     font-size: 0.8rem;
     font-style: italic;
@@ -243,23 +304,20 @@ mark {
     background: #fff3a8;
 }
 
-/* Contenedor de las imágenes: clearfix para contener los float */
 #imagenes::after {
     content: "";
     display: block;
     clear: both;
 }
 
-/* Cada figure ocupa una parte del ancho, una al lado de otra */
 #imagenes figure {
     float: left;
-    width: 31%;               /* 3 figuras por fila */
-    height:auto;
+    width: 31%;
+    height: auto;
     margin: 0 3.5% 8px 0;
     border-width: 1px;
 }
 
-/* la 3ª, 6ª, 9ª... sin margen derecho y la siguiente empieza fila nueva */
 #imagenes figure:nth-of-type(3n) {
     margin-right: 0;
 }
@@ -267,4 +325,3 @@ mark {
 #imagenes figure:nth-of-type(3n+1) {
     clear: left;
 }
-

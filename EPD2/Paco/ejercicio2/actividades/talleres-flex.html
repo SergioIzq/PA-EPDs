@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Talleres</title>
+        <link rel="stylesheet" href="../css/estilosHijas-flex.css">
+    </head>
+    <body>
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Actividades &rsaquo; Talleres</p>
+        </header>
+
+        <div id="contenedor" class="clearfix">
+            <nav id="menu-lateral" aria-label="Men&uacute; de navegaci&oacute;n">
+                <ul>
+                    <li><a href="../login.html" id="login">Acceso</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../programa.html" aria-current="page">Programa</a></li>
+                    <li><a href="../actividades.html">Actividades</a>
+                        <ul class="submenu dedicado">
+                            <li><a href="cultura.html">Cultura</a></li>
+                            <li><a href="deportes.html">Deporte</a></li>
+                            <li><a href="talleres.html"><strong>Talleres</strong></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../ponentes.html">Ponentes</a>
+                        <ul class="submenu">
+                            <li><a href="../ponentes/ponente1.html">Ponente1</a></li>
+                            <li><a href="../ponentes/ponente2.html">Ponente2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../asociaciones.html">Asociaciones</a></li>
+                    <li><a href="../multimedia.html">Multimedia</a></li>
+                    <li><a href="../noticias.html">Noticias</a>
+                        <ul class="submenu">
+                            <li><a href="../noticias/noticia1.html">Noticia1</a></li>
+                            <li><a href="../noticias/noticia2.html">Noticia2</a></li>
+                        </ul>
+                    <li><a href="../inscripcion.html">Inscripci&oacute;n</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <section>
+                    <h2>Talleres pr&aacute;cticos</h2>
+                    <figure>
+                        <a href="../img/hackathon.jpg"><img src="../img/min/hackathon.jpg" width="320" height="214" alt="Grupo de personas programando con port&aacute;tiles"></a>
+                        <figcaption>Los talleres se imparten en grupos reducidos de 20 personas. Foto: Ariel Elinson (CC BY-SA 4.0).</figcaption>
+                    </figure>
+                    <p>
+                        Cada taller dura dos horas y est&aacute; pensado para que salgas con algo funcionando. Solo necesitas
+                        traer tu port&aacute;til con el software indicado instalado. Coste: <data value="5">5&nbsp;&euro;</data> por taller.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Cat&aacute;logo de talleres</h2>
+                    <table>
+                        <caption>Talleres disponibles</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Taller</th>
+                                <th scope="col">D&iacute;a</th>
+                                <th scope="col">Nivel</th>
+                                <th scope="col">Requisitos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Contenedores con Docker</th>
+                                <td><time datetime="2026-11-19T09:00">19 nov, 09:00</time></td>
+                                <td>Intermedio</td>
+                                <td>Docker Desktop instalado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">IA generativa aplicada</th>
+                                <td><time datetime="2026-11-20T09:00">20 nov, 09:00</time></td>
+                                <td>B&aacute;sico</td>
+                                <td>Python&nbsp;3.12 o superior</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HTML5 y CSS3 desde cero</th>
+                                <td><del datetime="2026-10-01">18 nov, 10:00</del>
+                                    <ins datetime="2026-10-01"><time datetime="2026-11-18T16:00">18 nov, 16:00</time></ins></td>
+                                <td>B&aacute;sico</td>
+                                <td>Un editor de texto y un navegador</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>Contenido del taller de HTML5</h2>
+                    <table>
+                        <caption>Temario y directrices prácticas</caption>
+                        <thead>
+                            <tr>
+                                <th>Módulo / Tema</th>
+                                <th>Detalles y Contenidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Estructura de un documento</strong></td>
+                                <td>
+                                    • El &lt;!DOCTYPE html&gt;<br>
+                                    • Las etiquetas &lt;head&gt; y &lt;body&gt;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Etiquetas semánticas</strong></td>
+                                <td>
+                                    • &lt;header&gt;, &lt;nav&gt; y &lt;footer&gt;<br>
+                                    • &lt;section&gt; y &lt;article&gt;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multimedia y Formularios</strong></td>
+                                <td>
+                                    • Formularios con validación nativa<br>
+                                    • Audio y vídeo sin plugins
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Validación del documento</strong></td>
+                                <td>
+                                    • Atajo para ver el código fuente: <code>Ctrl+U</code><br>
+                                    • Salida esperada del validador: <em>Document checking completed. No errors or warnings to show.</em><br>
+                                    • En los ejemplos, <em>ruta</em> representa la carpeta del proyecto.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+            <aside id="info-extra" aria-label="Información adicional">
+                <section>
+                    <h3>Sab&iacute;as que…</h3>
+                    <p>El W3C tiene oficina espa&ntilde;ola en Gij&oacute;n, albergada por la Fundaci&oacute;n CTIC.</p>
+                </section>
+                <section>
+                    <h3>Navegaci&oacute;n</h3>
+                    <ul>
+                        <li><a href="../actividades.html">Actividades</a></li>
+                        <li><a href="actividad1.html">Cultura</a></li>
+                        <li><a href="actividad2.html">Deporte</a></li>
+                        <li><a href="actividad3.html">Talleres</a></li>
+                    </ul>
+                </section>
+            </aside>
+
+            <footer>
+                <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+            </footer>
+    </body>
+</html>

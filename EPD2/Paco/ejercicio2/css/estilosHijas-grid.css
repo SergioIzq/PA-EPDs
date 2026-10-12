@@ -1,0 +1,288 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 11 oct 2026, 10:16:10
+    Author     : Usuario
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --oro: #e9c46a;
+    --azul-oscuro: #1d3557;
+    --azul-medio: #457b9d;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    background: #ffffff;
+    color: #222222;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+/* CABECERA Y PIE */
+header {
+    padding: 20px 30px;
+    background: var(--azul-oscuro);
+    color: #ffffff;
+}
+header h1,
+header p {
+    margin: 0;
+}
+
+footer {
+    padding: 15px 30px;
+    background: var(--azul-oscuro);
+    color: #ffffff;
+}
+footer p {
+    margin: 0;
+}
+
+/* ===== LAYOUT A 3 COLUMNAS (20% + 55% + 25% = 100%) ===== */
+#contenedor {
+    display: grid;
+    grid-template-columns: 20% 55% 25%;
+    align-items: start;          /* necesario para que los sticky funcionen */
+}
+#contenedor > footer {
+    grid-column: 1 / -1;         /* el footer ocupa las 3 columnas */
+}
+
+/* Izquierda: menú */
+#menu-lateral {
+    padding: 20px 0;
+    background: var(--azul-medio);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Centro: contenido */
+main {
+    min-width: 0;
+    padding: 20px 30px;
+}
+
+/* Derecha: información extra */
+#info-extra {
+    padding: 20px;
+    background: #f1f5f9;
+    border-left: 3px solid var(--oro);
+}
+
+/* MENÚ LATERAL */
+#menu-lateral ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu-lateral a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#menu-lateral a:hover {
+    background: var(--azul-oscuro);
+    color: var(--oro);
+}
+#menu-lateral li:hover > a {
+    background: var(--azul-oscuro);
+    color: var(--oro);
+}
+#menu-lateral > ul > li:first-child {
+    background: var(--oro);
+}
+#menu-lateral > ul > li:first-child > a {
+    color: var(--azul-oscuro);
+}
+#menu-lateral .dedicado {
+    display: block;
+    color: var(--oro);
+    font-weight: bold;
+}
+
+/* Submenú desplegable */
+#menu-lateral .submenu {
+    display: none;
+    background: #36657f;
+}
+#menu-lateral li:hover > .submenu {
+    display: block;
+}
+#menu-lateral .submenu a {
+    padding-left: 40px;
+    font-size: 0.78rem;
+    text-transform: none;
+}
+#menu-lateral .dedicado{
+    display: block;
+    color: #e9c46a;
+}
+
+/* CONTENIDO CENTRAL */
+h2 {
+    margin: 0 0 12px;
+    border-bottom: 3px solid var(--oro);
+    color: var(--azul-oscuro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+h3 {
+    margin: 16px 0 6px;
+    color: #CACC37;
+}
+h4 {
+    margin: 12px 0 4px;
+    color: var(--azul-oscuro);
+    font-family: Arial, Helvetica, sans-serif;
+}
+section {
+    margin-bottom: 30px;
+}
+
+main a {
+    color: var(--azul-medio);
+}
+main a:hover {
+    color: var(--azul-oscuro);
+}
+main a:visited {
+    color: #6d597a;
+}
+
+/* Índice del artículo (nav dentro de main) */
+main nav {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background: #e6ecf3;
+    border-left: 4px solid var(--oro);
+}
+main nav h3 {
+    margin-top: 0;
+}
+main nav ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin: 12px 0;
+}
+th, td {
+    padding: 6px;
+    border: 1px solid #b8c4d2;
+    text-align: left;
+}
+th {
+    background: #e6ecf3;
+}
+tbody tr:nth-child(even) {
+    background: #f7f9fb;
+}
+tbody tr:hover {
+    background: #fff3a8;
+}
+caption {
+    padding: 6px;
+    font-weight: bold;
+}
+
+/* Imágenes */
+figure {
+    margin: 0 0 14px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+blockquote {
+    margin: 12px 0;
+    padding: 8px 16px;
+    border-left: 4px solid var(--oro);
+    background: #fffbea;
+    font-style: italic;
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+mark {
+    background: #fff3a8;
+}
+
+/* COLUMNA DERECHA */
+#info-extra{
+    position: sticky;
+    top: 0;
+}
+#info-extra h3 {
+    margin-top: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--oro);
+    color: var(--azul-oscuro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+#info-extra section {
+    margin-bottom: 24px;
+}
+#info-extra p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+#info-extra ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#info-extra li {
+    margin-bottom: 6px;
+}
+#info-extra a {
+    display: block;
+    padding: 6px 10px;
+    background: #ffffff;
+    border: 1px solid #b8c4d2;
+    color: var(--azul-oscuro);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+#info-extra a:hover {
+    background: var(--azul-oscuro);
+    color: var(--oro);
+}
+#info-extra a:focus {
+    outline: 2px solid var(--oro);
+}
+#info-extra li:first-child a {
+    border-left: 4px solid var(--oro);
+}

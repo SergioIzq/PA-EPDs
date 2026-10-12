@@ -45,56 +45,94 @@
             </nav>
 
             <main>
-                <section>
-                    <h2>M&aacute;s all&aacute; de las ponencias</h2>
+                <ul id="saltos">
+                    <li><a href="#actividades">Talleres</a></li>
+                    <li><a href="#actividades">Deportes</a></li>
+                    <li><a href="#actividades">Cultura</a></li>
+                </ul>
+
+                <section id="actividades">
+                    <h2>Más allá de las ponencias</h2>
+
                     <p>
-                        UniForo no es solo escuchar: durante los tres d&iacute;as podr&aacute;s aprender haciendo, competir
-                        y disfrutar de la programaci&oacute;n cultural del campus. Estas son las actividades organizadas
-                        por categor&iacute;as:
+                        UniForo no es solo escuchar: durante los tres días podrás aprender haciendo, competir
+                        y disfrutar de la programación cultural del campus. Estas son las actividades organizadas
+                        por categorías:
                     </p>
-                    <ul>
-                        <li><a href="actividades/talleres.html">Talleres</a>
-                            <ul>
-                                <li>Tecnolog&iacute;a
-                                    <ul>
-                                        <li>Contenedores con Docker</li>
-                                        <li>IA generativa aplicada</li>
-                                        <li>Desarrollo web con HTML5 y CSS3</li>
-                                    </ul>
-                                </li>
-                                <li>Empleabilidad
-                                    <ul>
-                                        <li>C&oacute;mo preparar un CV t&eacute;cnico</li>
-                                        <li>Simulacro de entrevista</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="actividades/deportes.html">Deportes</a>
-                            <ul>
-                                <li>Torneo de f&uacute;tbol sala</li>
-                                <li>Carrera solidaria de 5&nbsp;km</li>
-                                <li>Ajedrez r&aacute;pido</li>
-                            </ul>
-                        </li>
-                        <li><a href="actividades/cultura.html">Cultura</a>
-                            <ul>
-                                <li>Concierto de clausura</li>
-                                <li>Muestra de danza</li>
-                                <li>Exposici&oacute;n &laquo;Historia de la inform&aacute;tica&raquo;</li>
-                            </ul>
-                        </li>
-                    </ul>
+
+                    <div class="tabla-actividades-container">
+                        <table class="tabla-actividades">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;">Categoría</th>
+                                    <th style="width: 35%;">Ámbito / Subcategoría</th>
+                                    <th style="width: 40%;">Actividades Disponibles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="categoria-cell" rowspan="2">Talleres</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #dbeafe; color: #1e40af;">Tecnología</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Contenedores con Docker</li>
+                                            <li>IA generativa aplicada</li>
+                                            <li>Desarrollo web con HTML5 y CSS3</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #fef3c7; color: #92400e;">Empleabilidad</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Cómo preparar un CV técnico</li>
+                                            <li>Simulacro de entrevista</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="categoria-cell">Deportes</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #dcfce7; color: #166534;">Competición</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Torneo de fútbol sala</li>
+                                            <li>Carrera solidaria de 5 km</li>
+                                            <li>Ajedrez rápido</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="categoria-cell">Cultura</td>
+                                    <td>
+                                        <span class="badge-subcat" style="background: #fae8ff; color: #86198f;">Campus</span>
+                                    </td>
+                                    <td>
+                                        <ul class="actividad-lista">
+                                            <li>Concierto de clausura</li>
+                                            <li>Muestra de danza</li>
+                                            <li>Exposición «Historia de la informática»</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
-                <section>
-                    <h2>C&oacute;mo participar</h2>
-                    <ol>
-                        <li>Formaliza tu <a href="inscripcion.html">inscripci&oacute;n</a> en el evento.</li>
+                <section id="participar">
+                    <h2>Cómo participar</h2>
+                    <ul>
+                        <li>Formaliza tu inscripción en el evento.</li>
                         <li>Elige las actividades que te interesen en el formulario.</li>
-                        <li>Recibir&aacute;s una confirmaci&oacute;n por correo electr&oacute;nico.</li>
+                        <li>Recibirás una confirmación por correo electrónico.</li>
                         <li>Presenta tu credencial en la entrada de cada actividad.</li>
-                    </ol>
+                    </ul>
                 </section>
 
                 <section>
