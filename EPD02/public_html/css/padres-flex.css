@@ -1,50 +1,211 @@
 /* Hoja de estilos del Ej2 (variante de la hoja base) */
 /* Estilos comunes de contenido */
-* { box-sizing: border-box; }
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #222; background: #f1f4f8; }
-a { color: #1d3557; }
-a:hover { color: #c1121f; }
-a:focus { outline: 3px solid #e9c46a; }
-img, video, embed { max-width: 100%; height: auto; }
-header { background: #1d3557; color: #fff; padding: 16px 24px; border-bottom: 5px solid #e9c46a; }
-header h1 { margin: 0; font-size: 2em; }
-header p { margin: 4px 0 0; color: #e9c46a; }
-nav { background: #fff; padding: 16px; border-right: 1px solid #ccd3dd; }
-nav p { margin: 16px 0 4px; font-weight: bold; color: #1d3557; }
-nav ul { list-style: none; margin: 0; padding: 0; }
-nav li a { display: block; padding: 6px 10px; text-decoration: none; border-left: 4px solid transparent; }
-nav li a:hover { background: #e9eef5; border-left-color: #e9c46a; }
-nav a[aria-current] { background: #1d3557; color: #fff; border-left-color: #e9c46a; }
-nav a[aria-current]:hover { color: #fff; }
-main { padding: 16px 24px; background: #fff; }
-main section { margin-bottom: 24px; }
-h2 { color: #1d3557; border-bottom: 2px solid #e9c46a; padding-bottom: 4px; }
-h3 { color: #264b7a; }
-figure { margin: 16px 0; padding: 8px; background: #f1f4f8; border: 1px solid #ccd3dd; display: inline-block; max-width: 100%; }
-figcaption { font-size: 0.85em; color: #555; }
-table { border-collapse: collapse; width: 100%; margin: 12px 0; }
-caption { font-weight: bold; text-align: left; padding: 4px 0; }
-th, td { border: 1px solid #ccd3dd; padding: 6px 10px; text-align: left; }
-thead th { background: #1d3557; color: #fff; }
-tbody tr:nth-child(even) { background: #f1f4f8; }
-fieldset { border: 1px solid #ccd3dd; margin: 12px 0; padding: 8px 16px; }
-legend { color: #1d3557; font-weight: bold; }
-label { display: inline-block; margin-top: 6px; }
-input, select, textarea { padding: 4px; border: 1px solid #99a3b3; border-radius: 3px; max-width: 100%; }
-input:focus, select:focus, textarea:focus { border-color: #1d3557; background: #fffbea; }
-input:invalid:not(:placeholder-shown) { border-color: #c1121f; }
-button { background: #1d3557; color: #fff; border: 0; padding: 8px 16px; border-radius: 3px; cursor: pointer; }
-button:hover { background: #c1121f; }
-mark { background: #e9c46a; padding: 0 3px; }
-blockquote { margin: 12px 0; padding: 4px 16px; border-left: 4px solid #e9c46a; background: #f1f4f8; }
-details { margin: 12px 0; }
-summary { cursor: pointer; font-weight: bold; }
-code, kbd, samp { background: #e9eef5; padding: 0 3px; font-family: monospace; }
-main aside { background: #f1f4f8; border: 1px solid #ccd3dd; padding: 8px 16px; margin: 16px 0; }
-footer { clear: both; background: #1d3557; color: #fff; padding: 12px 24px; font-size: 0.85em; }
-footer a { color: #e9c46a; }
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    background: #f1f4f8;
+}
+a {
+    color: #1d3557;
+}
+a:hover {
+    color: #c1121f;
+}
+a:focus {
+    outline: 3px solid #e9c46a;
+}
+img, video, embed {
+    max-width: 100%;
+    height: auto;
+}
+header {
+    background: #1d3557;
+    color: #fff;
+    padding: 16px 24px;
+    border-bottom: 5px solid #e9c46a;
+}
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+header p {
+    margin: 4px 0 0;
+    color: #e9c46a;
+}
+nav {
+    background: #fff;
+    padding: 16px;
+    border-right: 1px solid #ccd3dd;
+}
+nav p {
+    margin: 16px 0 4px;
+    font-weight: bold;
+    color: #1d3557;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li a {
+    display: block;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+}
+nav li a:hover {
+    background: #e9eef5;
+    border-left-color: #e9c46a;
+}
+nav a[aria-current] {
+    background: #1d3557;
+    color: #fff;
+    border-left-color: #e9c46a;
+}
+nav a[aria-current]:hover {
+    color: #fff;
+}
+main {
+    padding: 16px 24px;
+    background: #fff;
+}
+main section {
+    margin-bottom: 24px;
+}
+h2 {
+    color: #1d3557;
+    border-bottom: 2px solid #e9c46a;
+    padding-bottom: 4px;
+}
+h3 {
+    color: #264b7a;
+}
+figure {
+    margin: 16px 0;
+    padding: 8px;
+    background: #f1f4f8;
+    border: 1px solid #ccd3dd;
+    display: inline-block;
+    max-width: 100%;
+}
+figcaption {
+    font-size: 0.85em;
+    color: #555;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+}
+caption {
+    font-weight: bold;
+    text-align: left;
+    padding: 4px 0;
+}
+th, td {
+    border: 1px solid #ccd3dd;
+    padding: 6px 10px;
+    text-align: left;
+}
+thead th {
+    background: #1d3557;
+    color: #fff;
+}
+tbody tr:nth-child(even) {
+    background: #f1f4f8;
+}
+fieldset {
+    border: 1px solid #ccd3dd;
+    margin: 12px 0;
+    padding: 8px 16px;
+}
+legend {
+    color: #1d3557;
+    font-weight: bold;
+}
+label {
+    display: inline-block;
+    margin-top: 6px;
+}
+input, select, textarea {
+    padding: 4px;
+    border: 1px solid #99a3b3;
+    border-radius: 3px;
+    max-width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #1d3557;
+    background: #fffbea;
+}
+input:invalid:not(:placeholder-shown) {
+    border-color: #c1121f;
+}
+button {
+    background: #1d3557;
+    color: #fff;
+    border: 0;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover {
+    background: #c1121f;
+}
+mark {
+    background: #e9c46a;
+    padding: 0 3px;
+}
+blockquote {
+    margin: 12px 0;
+    padding: 4px 16px;
+    border-left: 4px solid #e9c46a;
+    background: #f1f4f8;
+}
+details {
+    margin: 12px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+code, kbd, samp {
+    background: #e9eef5;
+    padding: 0 3px;
+    font-family: monospace;
+}
+main aside {
+    background: #f1f4f8;
+    border: 1px solid #ccd3dd;
+    padding: 8px 16px;
+    margin: 16px 0;
+}
+footer {
+    clear: both;
+    background: #1d3557;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 0.85em;
+}
+footer a {
+    color: #e9c46a;
+}
 /* Ej2: 2 columnas con flexbox */
-body { display: flex; flex-wrap: wrap; }
-header, footer { flex: 0 0 100%; }
-nav { flex: 0 0 22%; }
-main { flex: 1 1 0; min-width: 0; }
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+header, footer {
+    flex: 0 0 100%;
+}
+nav {
+    flex: 0 0 22%;
+}
+main {
+    flex: 1 1 0;
+    min-width: 0;
+}
