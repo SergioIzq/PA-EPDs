@@ -4,7 +4,6 @@
     EPD3 - Ej1: informe estadístico de calificaciones.
     Las notas se piden con prompt() y el informe se muestra en la página.
 */
-
 const NOTA_MIN = 0;
 const NOTA_MAX = 10;
 const NIVELES = ["Sobresaliente", "Notable", "Aprobado", "Suspenso"];
@@ -12,9 +11,6 @@ const NIVELES = ["Sobresaliente", "Notable", "Aprobado", "Suspenso"];
 // Elementos de la página (el script está al final del body, ya existen)
 const salida = document.getElementById("salida");
 const estado = document.getElementById("estado");
-
-
-// ================= ENTRADA =================
 
 /*
     Pide un número hasta que sea válido (acepta coma o punto decimal).
@@ -60,7 +56,7 @@ function describirCantidad(cantidad) {
     return `${cantidad} estudiante${cantidad === 1 ? "" : "s"}`;
 }
 
-// Devuelve las líneas del resumen final (no toca la página)
+// Devuelve las líneas del resumen final
 function generarInforme(notas) {
     const total = notas.length;
     const media = redondear(notas.reduce((suma, nota) => suma + nota, 0) / total);
