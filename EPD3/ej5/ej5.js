@@ -14,7 +14,7 @@ const actividades = [
     { nombre: "Pilates",        instructor: "Miguel Moya",    plazas: 10 },
     { nombre: "Zumba",          instructor: "Laura Martín",   plazas: 20 },
     { nombre: "CrossFit",       instructor: "David García",   plazas: 8 },
-    { nombre: "Aqua Aeróbicos", instructor: "Elena Sánchez",  plazas: 18 },
+    { nombre: "Aerobic", instructor: "Elena Sánchez",  plazas: 18 },
     { nombre: "BodyCombat",     instructor: "Carlos Vega",    plazas: 16 },
     { nombre: "TRX",            instructor: "María González", plazas: 6 },
     { nombre: "Body Pump",      instructor: "Pablo Ortega",   plazas: 14 },
@@ -40,7 +40,7 @@ const botonIniciar = document.getElementById("iniciar");
 
 // ================= UTILIDADES =================
 
-// Quita tildes, espacios sobrantes y mayúsculas: "  aqua AEROBICOS " == "Aqua Aeróbicos"
+// Quita tildes, espacios sobrantes y mayúsculas: "  AEROBIC " == "Aerobic"
 function normalizar(texto) {
     return texto
         .normalize("NFD")
