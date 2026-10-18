@@ -1,5 +1,4 @@
 "use strict";
-
 /*
     EPD3 - Ej1: informe estadístico de calificaciones.
     Las notas se piden con prompt() y el informe se muestra en la página.
