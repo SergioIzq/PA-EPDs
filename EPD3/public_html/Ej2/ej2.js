@@ -1,6 +1,6 @@
 //  Constantes 
-const TARIFAS = { LOCAL: 2.5, NACIONAL: 4.0, INTERNACIONAL: 8.5 }; // €/kg facturable
-const SUPLEMENTO_INTERNACIONAL = 12.0;                               // €
+const TARIFAS = { LOCAL: 2.5, NACIONAL: 4.0, INTERNACIONAL: 8.5 }; 
+const SUPLEMENTO_INTERNACIONAL = 12.0;                              
 const DIVISOR_VOLUMETRICO = 5000;
 const UMBRAL_RECARGO_KG = 20;
 const PORCENTAJE_RECARGO = 0.15;
