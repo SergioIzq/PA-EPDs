@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Misión Praena II</title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Misión Praena II</h1>
+            <p>Estado actual de la nave: <strong id="estado-nave">En espera</strong></p>
+        </header>
+
+        <main>
+            <section id="temporizador">
+                <h2>Cuenta atrás</h2>
+                <p>Tiempo restante hasta el despegue: <time id="contador">--</time></p>
+            </section>
+
+            <section id="panel-sistemas">
+                <h2>Sistemas principales de la nave</h2>
+                <div class="elementos">
+                    <div class="sistema" id="energia" data-sistema="energia">
+                        <h3>Energía</h3>
+                        <p>Estado: <span class="estado">Desactivado</span></p>
+                        <button type="button" class="btn-activar">Activar</button>
+                    </div>
+                    <div class="sistema" id="comunicaciones" data-sistema="comunicaciones">
+                        <h3>Comunicaciones</h3>
+                        <p>Estado: <span class="estado">Desactivado</span></p>
+                        <button type="button" class="btn-activar">Activar</button>
+                    </div>
+                    <div class="sistema" id="navegacion" data-sistema="navegacion">
+                        <h3>Navegación</h3>
+                        <p>Estado: <span class="estado">Desactivado</span></p>
+                        <button type="button" class="btn-activar">Activar</button>
+                    </div>
+                    <div class="sistema" id="soporte-vital" data-sistema="soporte-vital">
+                        <h3>Soporte vital</h3>
+                        <p>Estado: <span class="estado">Desactivado</span></p>
+                        <button type="button" class="btn-activar">Activar</button>
+                    </div>
+                    <div class="sistema" id="propulsion" data-sistema="propulsion">
+                        <h3>Propulsión</h3>
+                        <p>Estado: <span class="estado">Desactivado</span></p>
+                        <button type="button" class="btn-activar">Activar</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside id="consola">
+                <h2>Consola de mensajes</h2>
+                <div id="registro" role="log" aria-live="polite"></div>
+            </aside>
+
+            <aside id="info-sistema">
+                <h2>Información del sistema</h2>
+                <p id="descripcion-sistema">Selecciona un sistema para ver su descripción operativa.</p>
+            </aside>
+
+            <div id="controles">
+                <button type="button" id="btn-iniciar">Iniciar misión</button>
+                <button type="button" id="btn-lanzar" disabled>Lanzar nave</button>
+                <button type="button" id="btn-abandonar">Abandonar misión</button>
+            </div>
+        </main>
+    </body>
+</html>
