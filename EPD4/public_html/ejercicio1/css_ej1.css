@@ -1,0 +1,387 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 22 oct 2026, 11:07:40
+    Author     : Usuario
+*/
+
+/* Ajustes generales */
+:root {
+    --fondo: #0b1020;
+    --superficie: #141b34;
+    --superficie-2: #1b2547;
+    --borde: #2c3a6b;
+    --texto: #e6ecff;
+    --texto-suave: #9aa8d6;
+    --acento: #4cc9f0;
+    --ok: #3ddc84;
+    --aviso: #ffb703;
+    --peligro: #ff4d6d;
+    --radio: 12px;
+    --sombra: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --fondoheader: #141b34b3;
+    --fondopagina: #F5F5F5;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: var(--fondopagina);
+}
+
+/* ===== Cabecera ===== */
+header {
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--borde);
+    background: var(--fondoheader);
+}
+
+/*titulo del header*/
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+/*parrafo del header*/
+header p {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+/*la idea es que se muestre resaltado*/
+#estado-nave {
+    display: inline-block;
+    padding: 0.15rem 0.8rem;
+    border-radius: 999px;
+    background: var(--superficie-2);
+    border: 1px solid var(--borde);
+    color: var(--texto);
+}
+
+/* Estados de la nave (JS añade una de estas clases) */
+#estado-nave.preparando {
+    color: var(--aviso);
+    border-color: var(--aviso);
+}
+#estado-nave.listo      {
+    color: var(--ok);
+    border-color: var(--ok);
+}
+#estado-nave.lanzada    {
+    color: var(--acento);
+    border-color: var(--acento);
+}
+#estado-nave.fallo,
+#estado-nave.abortada   {
+    color: var(--peligro);
+    border-color: var(--peligro);
+}
+
+/* ===== Layout principal ===== */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        "temporizador temporizador temporizador"
+        "consola      sistemas     info"
+        "controles    controles    controles";
+}
+
+/*con esto defino las celdas del grid más visualmente y lo asocio a nombres fáciles*/
+#temporizador   {
+    grid-area: temporizador;
+}
+#panel-sistemas {
+    grid-area: sistemas;
+}
+#consola        {
+    grid-area: consola;
+}
+#info-sistema   {
+    grid-area: info;
+}
+#controles      {
+    grid-area: controles;
+}
+
+/* Paneles comunes */
+#temporizador,
+#panel-sistemas,
+#consola,
+#info-sistema {
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 1rem 1.25rem;
+    box-shadow: var(--sombra);
+}
+
+main h2 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--acento);
+    border-bottom: 1px solid var(--borde);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+/* ===== Temporizador ===== */
+#temporizador {
+    text-align: center;
+}
+
+#temporizador p {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+#contador {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: "Courier New", monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--texto);
+    text-shadow: 0 0 12px rgba(76, 201, 240, 0.5);
+}
+
+/* cuando queden pocos segundos se mostrará en rojo con ayuda de JS  */
+#contador.urgente {
+    color: var(--peligro);
+    text-shadow: 0 0 14px rgba(255, 77, 109, 0.7);
+    animation-name: parpadeo;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+}
+
+/* ===== Tarjetas de sistemas ===== */
+.elementos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    color: var(--texto);
+}
+
+.sistema {
+    background: var(--superficie-2);
+    border: 2px solid var(--borde);
+    border-left: 6px solid var(--peligro);
+    border-radius: var(--radio);
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.sistema:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+
+.sistema h3 {
+    font-size: 1.1rem;
+}
+
+.sistema p {
+    margin: 0 0 0.8rem;
+    color: var(--texto-suave);
+}
+
+.sistema .estado {
+    font-weight: bold;
+    color: var(--peligro);
+}
+
+/* Sistema operativo (JS añade .operativo) */
+.sistema.operativo {
+    border-left-color: var(--ok);
+}
+
+.sistema.operativo .estado {
+    color: var(--ok);
+}
+
+/* Sistema seleccionado (JS añade .seleccionado) */
+.sistema.seleccionado {
+    border-color: var(--acento);
+    box-shadow: 0 0 14px rgba(76, 201, 240, 0.45);
+}
+
+/* Error de secuencia (JS añade .error unos instantes) */
+.sistema.error {
+    animation-name: temblor;
+    animation-duration: 0.35s;
+    border-color: var(--peligro);
+}
+
+/* ===== Botones ===== */
+button {
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.55rem 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--acento);
+    color: #04121f;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.15);
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--aviso);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    background: #3a4466;
+    color: #7b86ad;
+    cursor: not-allowed;
+}
+
+.btn-activar {
+    width: 100%;
+}
+
+/* ===== Controles principales ===== */
+#controles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#controles button {
+    min-width: 180px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#btn-iniciar  {
+    background: var(--ok);
+}
+#btn-lanzar   {
+    background: var(--aviso);
+}
+#btn-abandonar {
+    background: var(--peligro);
+    color: #fff;
+}
+
+/* ===== Consola de mensajes ===== */
+#registro {
+    height: 320px;
+    overflow-y: auto;
+    padding: 0.6rem;
+    background: #070b18;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    color: var(--ok);
+}
+
+#registro p,
+#registro div {
+    margin: 0 0 0.35rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px dashed rgba(44, 58, 107, 0.6);
+}
+
+/* Tipos de mensaje (JS añade la clase) */
+#registro .aviso {
+    color: var(--aviso);
+}
+#registro .error {
+    color: var(--peligro);
+}
+#registro .info  {
+    color: var(--acento);
+}
+
+/* ===== Panel lateral de información ===== */
+#descripcion-sistema {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "temporizador temporizador"
+            "sistemas     sistemas"
+            "consola      info"
+            "controles    controles";
+    }
+}
+
+@media (max-width: 650px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "temporizador"
+            "sistemas"
+            "info"
+            "consola"
+            "controles";
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    #contador {
+        font-size: 2.6rem;
+    }
+
+    #controles button {
+        width: 100%;
+    }
+}
+
+/*con keyframes podemos controlar los pasos intermedios de una secuencia de animación
+*/
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes temblor {
+    0%, 100% { transform: translateX(0); }
+    25%      { transform: translateX(-6px); }
+    75%      { transform: translateX(6px); }
+}
