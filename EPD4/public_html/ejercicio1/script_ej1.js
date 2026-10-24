@@ -264,7 +264,7 @@ function tick() {
 
 function programasQueFaltan() {
     let stringProgramas = "";
-    for (var i = activados, max = (SISTEMAS.length - 1); i < max; i++) {
+    for (var i = (activados - 1), max = (SISTEMAS.length - 1); i < max; i++) {
         stringProgramas += `${SISTEMAS[i + 1].nombre} \n\ `;
     }
     return stringProgramas;
@@ -302,7 +302,7 @@ function finalizar(nuevoEstado, mensaje, tipo) {
         elementos.contador.textContent = "¡Despegue!";
         elementos.contador.classList.remove("urgente");
     } else if (nuevoEstado === "fallo") {
-        cambiarEstadoNave("fallo", "Misión fallida");
+        cambiarEstadoNave("fallo", "MISIÓN CANCELADA: Protocolo incompleto");
         elementos.contador.textContent = "00:00";
     } else {
         cambiarEstadoNave("abortada", "Misión abortada por el usuario");
@@ -311,6 +311,7 @@ function finalizar(nuevoEstado, mensaje, tipo) {
     }
 
     registrar(mensaje, tipo);
+    cerrarPopUp();
     actualizarBotones();
 }
 
@@ -323,7 +324,7 @@ function iniciarMision() {
 
     cambiarEstadoNave("preparando", "Preparación en curso");
     mostrarContador();
-    registrar(`Misión iniciada. Dispones de ${TIEMPO_INICIAL} segundos. Activa los sistemas en orden.`, "info");
+    registrar(`Protocolo de preparación iniciado`, "info");
 
     clearInterval(temporizador);
     temporizador = setInterval(tick, 1000);
@@ -331,7 +332,30 @@ function iniciarMision() {
 }
 
 function reiniciarMision() {
-    location.reload();
+    clearInterval(temporizador);
+    temporizador = null;
+    cerrarPopUp();
+    
+    estado = "espera";
+    tiempo = TIEMPO_INICIAL;
+    segundosDespegue = null;
+    seleccionado = null;
+    
+    reiniciarTarjetas();
+    tarjetas.forEach(tarjeta => {
+       tarjeta.classList.remove("seleccionado", "resaltada") 
+    });
+    mostrarDescripcion(null);
+    elementos.registro.replaceChildren();
+    elementos.resumen.replaceChildren();
+    elementos.contador.classList.remove("urgente");
+    document.title = TITULO_INICIAL;
+    
+    cambiarEstadoNave("", "En espera");
+    elementos.contador.textContent = formatearTiempo(TIEMPO_INICIAL);
+    actualizarBotones();
+    registrar("Panel de control listo. Pulsa «Iniciar misión» para comenzar.", "info");
+    
 }
 
 
@@ -365,6 +389,7 @@ function abandonarMision() {
 }
 
 function mostrarPopUp(texto) {
+    clearInterval(temporizadorPopUp);
     elementos.popUpTexto.textContent = texto;
     elementos.popUp.style.display = "flex";   //flex para que se centre
     elementos.btnAceptarPopUp.focus();        //Enter lo cierra
@@ -396,27 +421,30 @@ elementos.popUp.addEventListener("click", function (e) {
         cerrarPopUp();   //clic en el fondo oscuro
 });
 tarjetas.forEach(function (tarjeta) {
-    // Clic en la tarjeta: la selecciona; si el clic fue en el botón, además la activa
-    tarjeta.addEventListener("click", function (e) {
-        seleccionarSistema(tarjeta.id);
-        if (e.target.closest(".btn-activar")) {
-            activarSistema(tarjeta.id);
-        }
+    const btn = tarjeta.querySelector(".btn-activar");
+    
+    btn.addEventListener("click", function(evento){
+        evento.stopPropagation();
+        activarSistema(tarjeta.id);
     });
-
-    // Pasar el ratón muestra su descripción temporalmente
-    tarjeta.addEventListener("mouseenter", function () {
-        mostrarDescripcion(tarjeta.id);
+    btn.addEventListener("dblclick", evento => evento.stopPropagation());
+    
+    tarjeta.addEventListener("click", () => seleccionarSistema(tarjeta.id));
+    tarjeta.addEventListener("dblclick", function(){
+        const sist = buscarSistema(tarjeta.id);
+        window.alert(`Especificaciones de ${sist.nombre.toUpperCase()} : ${sist.descripcion}` );
     });
-    tarjeta.addEventListener("mouseleave", function () {
-        mostrarDescripcion(seleccionado);
-    });
+    tarjeta.addEventListener("mouseover", () => tarjeta.classList.add("resaltada"));
+    tarjeta.addEventListener("mouseout", () => tarjeta.classList.remove("resaltada"));
 });
+
+
 
 
 document.addEventListener("keydown", function (k) {
     if (k.ctrlKey || k.altKey || k.metaKey)
         return;
+    if(k.repeat) return;
 
     const tecla = k.key.toLowerCase();
 

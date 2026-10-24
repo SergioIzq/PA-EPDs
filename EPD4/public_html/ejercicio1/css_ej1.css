@@ -72,7 +72,7 @@ header p {
     color: var(--aviso);
     border-color: var(--aviso);
 }
-#estado-nave.listo      {
+#estado-nave.lista     {
     color: var(--ok);
     border-color: var(--ok);
 }
@@ -266,7 +266,7 @@ main h2 {
     transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
 }
 
-.sistema:hover {
+.sistema.resaltada {
     transform: translateY(-3px);
     box-shadow: var(--sombra);
 }
