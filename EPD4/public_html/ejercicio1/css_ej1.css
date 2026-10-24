@@ -159,7 +159,7 @@ main h2 {
     text-shadow: 0 0 12px rgba(76, 201, 240, 0.5);
 }
 
-/* cuando queden pocos segundos se mostrará en rojo con ayuda de JS  */
+/*cuando queden pocos segundos se mostrará en rojo con ayuda de JS*/
 #contador.urgente {
     color: var(--peligro);
     text-shadow: 0 0 14px rgba(255, 77, 109, 0.7);
@@ -167,8 +167,88 @@ main h2 {
     animation-duration: 0.8s;
     animation-iteration-count: infinite;
 }
+/*popup error en secuencia*/
+#popUp {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(5, 8, 20, 0.75);
+    backdrop-filter: blur(3px);
+}
 
-/* ===== Tarjetas de sistemas ===== */
+#popUp .popup-contenido {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2rem 2rem;
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--peligro);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 77, 109, 0.35);
+    animation: aparecer-popup 0.25s ease-out;
+}
+
+@keyframes aparecer-popup {
+    0%   {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#popUp .popup-cerrar {
+    width: 30px;
+    padding: 0;
+    margin-bottom: 0.25rem;
+    align-self: flex-end;
+    font-size: 20px;
+    color: var(--texto-suave);
+    background: transparent;
+    border: none;
+}
+
+#popUp .popup-cerrar:hover {
+    color: var(--texto);
+}
+
+#popUp .popup-icono {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#popUp h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+    color: var(--peligro);
+}
+
+#popUp p {
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+}
+
+#popUp .popup-aceptar {
+    width: 200px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #fff;
+    background: var(--peligro);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px -5px rgba(255, 77, 109, 1);
+}
+
+/* tarjetas de los sistemas */
 .elementos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -305,6 +385,7 @@ button:disabled {
 
 #registro p,
 #registro div {
+    white-space: pre-line;
     margin: 0 0 0.35rem;
     padding-bottom: 0.25rem;
     border-bottom: 1px dashed rgba(44, 58, 107, 0.6);
@@ -327,7 +408,7 @@ button:disabled {
     color: var(--texto-suave);
 }
 
-/* ===== Responsive ===== */
+/* para que la pagina sea responsive */
 @media (max-width: 1000px) {
     main {
         grid-template-columns: 1fr 1fr;
@@ -381,7 +462,13 @@ button:disabled {
 
 
 @keyframes temblor {
-    0%, 100% { transform: translateX(0); }
-    25%      { transform: translateX(-6px); }
-    75%      { transform: translateX(6px); }
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%      {
+        transform: translateX(-6px);
+    }
+    75%      {
+        transform: translateX(6px);
+    }
 }
