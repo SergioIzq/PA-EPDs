@@ -163,9 +163,11 @@ function seleccionarSistema(id) {
 function actualizarBotones() {
     //enCurso es true cuando se ha iniciado la misión
     const enCurso = estado === "preparando";
+    const terminada = estado === "abortada" || estado === "fallo" || estado === "lanzada";
 
-    //solo mostramos disponible el botón de iniciar misión
-    elementos.btnIniciar.disabled = enCurso;
+    elementos.btnIniciar.textContent = terminada ? "Reiniciar misión" : "Iniciar misión";
+    elementos.btnIniciar.disabled = !(estado === "espera" || terminada);
+
     //una vez que iniciamos, desactivamos iniciar misión y activamos el de abandonar
     elementos.btnAbandonar.disabled = !enCurso;
     //si la misión está en curso y todos los sistemas están activados, se puede despegar
@@ -227,7 +229,7 @@ function activarSistema(id) {
     registrar(`${sistema.nombre} operativo (${activados}/${SISTEMAS.length}).`, "info");
 
     if (activados === SISTEMAS.length) {
-        cambiarEstadoNave("listo", "Nave preparada para el lanzamiento");
+        cambiarEstadoNave("lista", "Nave preparada para el lanzamiento");
         registrar("Todos los sistemas están operativos. Autoriza el despegue con «Lanzar nave».", "aviso");
     } else {
         cambiarEstadoNave("preparando", `Preparando (${activados}/${SISTEMAS.length} sistemas)`);
@@ -253,7 +255,7 @@ function tick() {
     if (tiempo <= 0) {
         finalizar("fallo", "MISIÓN CANCELADA: Protocolo incompleto", "error");
         registrar(`MISIÓN CANCELADA\n\ 
-                  Sistemas operativos: [${activados}] ] de ${SISTEMAS.length}\n\ 
+                  Sistemas operativos: [${activados}] de ${SISTEMAS.length}\n\ 
                   Sistemas pendientes: ${programasQueFaltan()}\n\ 
                   Estado: Protocolo incompleto\n\ 
                   Resumen: Lanzamiento no completo\n\ `);
@@ -328,6 +330,11 @@ function iniciarMision() {
     actualizarBotones();
 }
 
+function reiniciarMision() {
+    location.reload();
+}
+
+
 function lanzarNave() {
     if (estado !== "preparando") {
         registrar("No hay ninguna misión en curso.", "error");
@@ -374,7 +381,12 @@ function popUpAbierto() {
 }
 
 /*eventos de ratón*/
-elementos.btnIniciar.addEventListener("click", iniciarMision);
+elementos.btnIniciar.addEventListener("click", () => {
+    if (estado === "espera")
+        iniciarMision();
+    else if (estado === "abortada" || estado === "fallo" || estado === "lanzada")
+        reiniciarMision();
+});
 elementos.btnLanzar.addEventListener("click", lanzarNave);
 elementos.btnAbandonar.addEventListener("click", abandonarMision);
 elementos.btnCerrarPopUp.addEventListener("click", cerrarPopUp);
@@ -412,7 +424,7 @@ document.addEventListener("keydown", function (k) {
         activarSistema(SISTEMAS[Number(tecla) - 1].id);
     } else if (tecla === "i") {
         if (!elementos.btnIniciar.disabled)
-            iniciarMision();
+            elementos.btnIniciar.click();
     } else if (tecla === "l") {
         lanzarNave();
     } else if (tecla === "escape") {
