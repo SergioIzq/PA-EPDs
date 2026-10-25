@@ -6,4 +6,115 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 24 oct 2026, 21:13:52
     Author     : Usuario
 */
+/* Reseteo universal de cajas y márgenes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+/* Configuración básica del documento */
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.5;
+    color: #222222;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Imágenes y elementos multimedia responsivos */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Enlaces y tipografías heredadas */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--borde);
+    background: var(--fondoheader);
+}
+header p {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1.25rem;
+    /*así el tablero mide lo que mida y las columnas laterales se reparten el espacio*/
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+        "elementos elementos elementos"
+        "info      tablero   mensajes"
+        "botones   botones   botones";
+}
+
+/*asociamos los nombres con las areas definidas*/
+#elementos { grid-area: elementos; }
+#info      { grid-area: info; }
+#tablero   { grid-area: tablero; }
+#mensajes  { grid-area: mensajes; }
+#botones   { grid-area: botones; }
+
+#elementos, #botones {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#info, #mensajes {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 20vmin;
+    height: 20vmin;
+    border: 1px solid #555;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10vmin;
+}
+
+@media (max-width: 650px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "elementos"
+            "tablero"
+            "info"
+            "mensajes"
+            "botones";
+    }
+}

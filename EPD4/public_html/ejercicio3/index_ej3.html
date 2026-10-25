@@ -9,14 +9,16 @@
 
     </head>
     <body>
-        <h1>Cuadrado mágico tete</h1>
-        <div id="elementos">
-            <p>Tiempo:<time class="elemento" id="crono">--</time></p>
-            <span class="elemento" id="celdasRestantes"></span>
-            <span class="elemento" id="sumaObjetivo"></span>
-            <span class="elemento" id="intentos"></span>
-        </div>
+        <header>
+            <h1>Cuadrado mágico tete</h1>
+            <p>Tiempo: <time class="elemento" id="crono">--</time></p>
+        </header>
         <main>
+            <div id="elementos">
+                <span class="elemento" id="celdasRestantes">Celdas restantes:</span>
+                <span class="elemento" id="sumaObjetivo">Suma objetivo: 12</span>
+                <span class="elemento" id="intentos">Intentos restantes: 3</span>
+            </div>
             <div id="tablero">
                 <table id="tabla">
                     <tr>
@@ -36,15 +38,16 @@
                     </tr>
                 </table>
             </div>
-        </main>
-        <aside id="lateral-derecha">
             <div id="mensajes">
-
+                <h2>Mensajes</h2>
             </div>
-        </aside>
-        <div id="botones">
-            <button type="button" id="nuevaPartida">Nueva partida</button>
-            <button type="button" id="resolver">Resolver</button>
-        </div>
+            <div id="info">
+                <h2>Instrucciones</h2>
+            </div>
+            <div id="botones">
+                <button type="button" id="nuevaPartida">Nueva partida</button>
+                <button type="button" id="resolver">Resolver</button>
+            </div>
+        </main>
     </body>
 </html>
