@@ -19,6 +19,11 @@ const elementos = {
 const celdas = document.querySelectorAll(".celda");
 let ultimaCelda = null;
 
+window.onload = function () {
+    ultimaCelda = "1-1";
+    document.getElementById(ultimaCelda).classList.add("seleccionada");
+};
+
 //cuando se seleccione una celda
 celdas.forEach(function (celda) {
     celda.addEventListener("click", function (evento) {
@@ -33,8 +38,14 @@ function seleccionarCelda(evento, idCelda) {
     evento.stopPropagation();
 
 // Cambiar color de celda activa
-    document.getElementById(idCelda).classList.add("seleccionada");
-    ultimaCelda = idCelda;
+    if (ultimaCelda === idCelda) {
+        document.getElementById(ultimaCelda).classList.remove("seleccionada");
+        ultimaCelda = null;
+    } else {
+        document.getElementById(idCelda).classList.add("seleccionada");
+        ultimaCelda = idCelda;
+    }
+
 // Actualizar variable de celda seleccionada
 
 }
