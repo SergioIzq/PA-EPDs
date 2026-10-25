@@ -3,11 +3,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
  */
 
+"use strict";
+const TIEMPO_INICIAL = 180; //tiempo límite (3 mins)
+const elementos = {
+    crono: document.getElementById("crono"),
+    numeroObjetivo: document.getElementById("numeroObjetivo"),
+    tablero: document.getElementById("tablero"),
+    mensajes: document.getElementById("mensajes"),
+    restantes: document.getElementById("celdasRestantes"),
+    info: document.getElementById("info"),
+    btnIiniciar: document.getElementById("nuevaPartida"),
+    btnResolver: document.getElementById("resolver")
+};
 
-function seleccionarCelda(event) {
+const celdas = document.querySelectorAll(".celda");
+let ultimaCelda = null;
+
+//cuando se seleccione una celda
+celdas.forEach(function (celda) {
+    celda.addEventListener("click", function (evento) {
+        if (ultimaCelda !== null) {
+            document.getElementById(ultimaCelda).classList.remove("seleccionada");
+        }
+        seleccionarCelda(evento, celda.id);
+    });
+});
+
+function seleccionarCelda(evento, idCelda) {
+    evento.stopPropagation();
 
 // Cambiar color de celda activa
-
+    document.getElementById(idCelda).classList.add("seleccionada");
+    ultimaCelda = idCelda;
 // Actualizar variable de celda seleccionada
 
 }

@@ -94,6 +94,10 @@ main {
     border-radius: 8px;
 }
 
+.celda.seleccionada{
+    background-color: red;
+}
+
 table {
     border-collapse: collapse;
 }
