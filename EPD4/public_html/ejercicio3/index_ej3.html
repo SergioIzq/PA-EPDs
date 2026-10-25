@@ -1,15 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>Cuadrado Mágico</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_ej3.css"/>
         <script src="script_ej3.js"></script>
-        <link rel="stylesheet" href="css_ej3.cs"/>
+
     </head>
     <body>
         <h1>Cuadrado mágico tete</h1>
-        <div id="tablero">
-            <input class="celda" type="number">
+        <div id="elementos">
+            <p>Tiempo:<time class="elemento" id="crono">--</time></p>
+            <span class="elemento" id="celdasRestantes"></span>
+            <span class="elemento" id="sumaObjetivo"></span>
+            <span class="elemento" id="intentos"></span>
+        </div>
+        <main>
+            <div id="tablero">
+                <table id="tabla">
+                    <tr>
+                        <td id="celda-0-0"></td>
+                        <td id="celda-0-1"></td>
+                        <td id="celda-0-2"></td>
+                    </tr>
+                    <tr>
+                        <td id="celda-1-0"></td>
+                        <td id="celda-1-1"></td>
+                        <td id="celda-1-2"></td>
+                    </tr>
+                    <tr>
+                        <td id="celda-2-0"></td>
+                        <td id="celda-2-1"></td>
+                        <td id="celda-2-2"></td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <aside id="lateral-derecha">
+            <div id="mensajes">
+
+            </div>
+        </aside>
+        <div id="botones">
+            <button type="button" id="nuevaPartida">Nueva partida</button>
+            <button type="button" id="resolver">Resolver</button>
         </div>
     </body>
 </html>
