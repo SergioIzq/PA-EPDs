@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Ecosistema</title><link rel="stylesheet" href="estilos.css"></head><body>
+<div id="ecosistema-container">
+<div id="panel-control"><h1>Control del Ecosistema</h1>
+<button data-tipo="herbivoro">Añadir Herbívoro</button> <button data-tipo="carnivoro">Añadir Carnívoro</button>
+<button data-tipo="planta">Añadir Planta</button> <button data-tipo="omnivoro">Añadir Omnívoro</button> <button id="btnPausa">Pausar</button></div>
+<div id="estadisticas"><span>Herbívoros: <b id="count-herbivoro">0</b></span> <span>Carnívoros: <b id="count-carnivoro">0</b></span>
+<span>Plantas: <b id="count-planta">0</b></span> <span>Omnívoros: <b id="count-omnivoro">0</b></span> <span>Generación: <b id="generacion">1</b></span> <span>Estado: <b id="estado">-</b></span></div>
+<div id="ecosistema"></div><div id="tooltip" hidden></div>
+<div id="log-eventos"><h3>Registro de Eventos:</h3><div id="eventos-lista"></div></div></div><script src="app.js"></script></body></html>

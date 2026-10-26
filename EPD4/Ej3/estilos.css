@@ -1,0 +1,5 @@
+body{font-family:sans-serif;text-align:center}table{margin:auto;border-collapse:collapse}
+td{width:70px;height:70px;font-size:2em;border:2px dotted red;background:#fff;cursor:pointer}
+td.llena{background:#ddd;border:2px solid #888}td.vacia-roja{background:#f5a9a9}
+td.sel{background:#add8e6}td.oro{background:gold;border:2px solid #b8860b}
+#mensaje{white-space:pre-line;font-weight:bold;min-height:4em}

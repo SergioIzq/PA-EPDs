@@ -1,0 +1,6 @@
+body{font-family:sans-serif;max-width:800px;margin:auto;padding:10px}
+#barra{background:#ddd;height:14px}#progreso{background:#27ae60;height:100%;width:0;transition:width .4s}
+.op{display:block;width:100%;margin:5px 0;padding:10px;text-align:left}
+.hover{background:#d6eaf8}.ok{background:#82e0aa}.mal{background:#f1948a}
+.critico{color:#d00;font-weight:bold;animation:p 1s infinite}@keyframes p{50%{opacity:.2}}
+.tarjeta{border:1px solid #999;padding:6px;margin:5px 0;white-space:pre-line}#informe,#feedback{white-space:pre-line;font-family:monospace}
