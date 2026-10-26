@@ -5,6 +5,13 @@ const NUM_CELDAS = NUM_FILAS * NUM_FILAS;
 const SUMA = (NUM_FILAS * (NUM_CELDAS + 1)) / 2;
 const NUM_INTENTOS = 3;
 
+//esto me lo ha dado la IA la verdad
+const SOLUCIONES = [
+    "276951438", "294753618", "438951276", "492357816",
+    "618753294", "672159834", "816357492", "834159672"
+];
+
+
 const elementos = {
     crono: document.getElementById("crono"),
     sumaObjetivo: document.getElementById("sumaObjetivo"),
@@ -21,9 +28,12 @@ const elementos = {
 const celdas = document.querySelectorAll(".celda");
 let ultimaCelda = null;
 let numerosUsados = new Array();
-let intentosRestantes = NUM_INTENTOS;
+let intentos = 0;
+let fallos = 0;
 let segundos = 0;
 let intervalo = null;
+let juegoActivo = true;
+let numeroColocado = false;
 
 window.onload = inicio;
 
@@ -32,10 +42,11 @@ function inicio() {
     document.getElementById(ultimaCelda).classList.add("seleccionada");
     elementos.sumaObjetivo.textContent = `Suma objetivo: ${SUMA}`;
     elementos.restantes.textContent = `Celdas restantes: ${NUM_CELDAS}`;
-    elementos.intentos.textContent = `Intentos restantes: ${intentosRestantes}`;
+    actualizarIntentos();
     mostrarMensaje("¡A jugar!", "Rellena el cuadrado con los números del 1 al 9");
     iniciarCrono();
 }
+
 function iniciarCrono() {
     clearInterval(intervalo); // por si ya había uno en marcha
     segundos = 0;
@@ -63,9 +74,20 @@ function mostrarMensaje(titulo, texto) {
     elementos.mensajeTexto.innerHTML = texto;
 }
 
+function actualizarIntentos() {
+    elementos.intentos.textContent = `Intentos: ${intentos}`;
+}
+
+function actualizarRestantes() {
+    elementos.restantes.textContent = `Celdas restantes: ${NUM_CELDAS - numerosUsados.length}`;
+}
+
 //cuando se seleccione una celda
 celdas.forEach(function (celda) {
     celda.addEventListener("click", function (evento) {
+        if (!juegoActivo)
+            return;
+
         if (ultimaCelda !== null) {
             document.getElementById(ultimaCelda).classList.remove("seleccionada");
         }
@@ -74,10 +96,18 @@ celdas.forEach(function (celda) {
 });
 
 document.addEventListener("keydown", function (k) {
-    if (k.repeat)
+    if (k.repeat || !juegoActivo)
         return;
+
     if (ultimaCelda !== null) {
         validarTecla(k);
+    }
+});
+
+document.addEventListener("keyup", function () {
+    if (numeroColocado) {
+        numeroColocado = false;
+        verificarCuadradoMagico();
     }
 });
 
@@ -104,6 +134,17 @@ function validarTecla(event) {
         return;
     }
 
+    if (event.key === "Backspace" || event.key === "Delete") {
+        const contenido = document.getElementById(ultimaCelda).textContent;
+        if (contenido !== "") {
+            numerosUsados.splice(numerosUsados.indexOf(contenido), 1);
+            document.getElementById(ultimaCelda).textContent = "";
+            actualizarRestantes();
+            numeroColocado = true;
+        }
+        return;
+    }
+
     // 2. Teclas especiales (F1-F12, flechas, Tab, Enter, Esc, Shift, Bloq Mayús...):
     //    su nombre tiene más de un carácter. También ignoramos el espacio, porque si
     //    un botón tiene el foco, el espacio lo pulsa y no queremos mensaje de error
@@ -117,9 +158,8 @@ function validarTecla(event) {
     if (event.key >= "1" && event.key <= "9") {
 
         // Si pulsa el mismo número que ya hay en la celda, no hacemos nada
-        if (event.key === document.getElementById(ultimaCelda).textContent) {
+        if (event.key === document.getElementById(ultimaCelda).textContent)
             return;
-        }
 
         // Si el número ya está en otra celda, avisamos
         if (numerosUsados.includes(event.key)) {
@@ -136,6 +176,7 @@ function validarTecla(event) {
         document.getElementById(ultimaCelda).textContent = event.key;
         numerosUsados.push(event.key);
         actualizarRestantes();
+        numeroColocado = true;
 
     } else {
         // Letra, símbolo o el 0
@@ -145,66 +186,79 @@ function validarTecla(event) {
 
 elementos.btnResolver.addEventListener("click", verificarCuadradoMagico);
 
+function esMagico() {
+    let magico = true;
+    let sumaDiagPrincipal = 0;
+    let sumaDiagSecundaria = 0;
+
+    for (var i = 0; i < NUM_FILAS; i++) {
+        let sumaFila = 0;
+        let sumaCol = 0;
+        for (var j = 0; j < NUM_FILAS; j++) {
+            let idFila = `${i}-${j}`;
+            let idCol = `${j}-${i}`;
+            sumaFila += Number(document.getElementById(idFila).textContent);
+            sumaCol += Number(document.getElementById(idCol).textContent);
+        }
+        if (sumaCol !== SUMA || sumaFila !== SUMA) {
+            esMagico = false;
+        }
+        sumaDiagPrincipal += Number(document.getElementById(`${i}-${i}`).textContent);
+        sumaDiagSecundaria += Number(document.getElementById(`${i}-${NUM_FILAS - 1 - i}`).textContent);
+    }
+    return magico && sumaDiagPrincipal === SUMA && sumaDiagSecundaria === SUMA;
+}
+
 function verificarCuadradoMagico() {
     let llenas = 0;
 // Comprobar si está completo
     celdas.forEach(function (celda) {
         if (celda.textContent !== "") {
             llenas += 1;
+            celda.classList.remove("vacia");
+            celda.classList.add("completada");
         } else {
+            celda.classList.remove("completada");
             celda.classList.add("vacia");
         }
     });
+
     if (llenas !== NUM_CELDAS) {
-        mostrarMensaje("Faltan celdas", `Todavía te faltan ${NUM_CELDAS - llenas} celdas por rellenar`);
-        restarIntento();
+        mostrarMensaje("Faltan celdas", `Todavía te falta(n) ${NUM_CELDAS - llenas} celda(s) por rellenar`);
+        return;
+    }
+    intentos += 1;
+    actualizarIntentos();
+    if (esMagico()){
+        ganar();
     } else {
-        //verificamos la suma de las filas y columnas
-        let esMagico = true;
-        let sumaDiagPrincipal = 0;
-        let sumaDiagSecundaria = 0;
-
-        for (var i = 0; i < NUM_FILAS; i++) {
-            let sumaFila = 0;
-            let sumaCol = 0;
-            for (var j = 0; j < NUM_FILAS; j++) {
-                let idFila = `${i}-${j}`;
-                let idCol = `${j}-${i}`;
-                sumaFila += Number(document.getElementById(idFila).textContent);
-                sumaCol += Number(document.getElementById(idCol).textContent);
-            }
-            if (sumaCol !== SUMA || sumaFila !== SUMA) {
-                esMagico = false;
-            }
-        }
-
-        for (var i = 0; i < NUM_FILAS; i++) {
-            let idFila = `${i}-${i}`;
-            let idFilaInv = `${i}-${NUM_FILAS - 1 - i}`;
-            sumaDiagPrincipal += Number(document.getElementById(idFila).textContent);
-            sumaDiagSecundaria += Number(document.getElementById(idFilaInv).textContent);
-        }
-
-        if (esMagico && sumaDiagPrincipal === SUMA && sumaDiagSecundaria === SUMA) {
-            pararCrono();
-            mostrarMensaje("¡FELICIDADES!",
-                    `Has resuelto el cuadrado mágico en ${segundos} segundos<br>Suma mágica: ${SUMA}<br>¿Quieres intentar otro?`);
-            celdas.forEach(function (celda) {
-                celda.classList.add("victoria");
-            });
-            restarIntento();
-        } else {
-            mostrarMensaje("Este no es un cuadrado mágico",
-                    "Las sumas no coinciden. ¡Sigue intentando!");
-            restarIntento();
+        fallos += 1;
+        mostrarMensaje("Este cuadrado no es mágico", "Las sumas no coinciden. ¡Sigue intentando!");
+        if(fallos >= NUM_INTENTOS){
+            fallos = 0;
+            darPista();
         }
     }
-    elementos.restantes.textContent = `Celdas restantes: ${NUM_CELDAS - llenas}`;
 }
 
-function restarIntento() {
-    intentosRestantes -= 1;
-    elementos.intentos.textContent = `Intentos restantes: ${intentosRestantes}`;
+function ganar(){
+    pararCrono();
+    juegoActivo = false;
+    ultimaCelda = null;
+    mostrarMensaje("¡FELICIDADES!",
+            `Has resuelto el cuadrado mágico en ${segundos} segundos<br>Suma mágica: ${SUMA}<br>¿Quieres intentar otro?`);
+    celdas.forEach(function (celda) {
+        celda.classList.remove("seleccionada", "completada");
+        celda.classList.add("victoria");
+    });
+}
+
+function darPista(){
+
+}
+
+function resolver(){
+    
 }
 
 elementos.btnIniciar.addEventListener("click", reiniciarJuego);
@@ -218,7 +272,10 @@ function reiniciarJuego() {
         celda.classList.remove("vacia");
         celda.classList.remove("victoria");
     });
-    intentosRestantes = NUM_INTENTOS;
+    intentosRestantes = 0;
+    fallos = 0;
+    juegoActivo = true;
+    numeroColocado = false;
     numerosUsados = new Array();
     inicio();
 }

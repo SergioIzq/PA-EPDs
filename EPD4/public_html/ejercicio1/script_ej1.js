@@ -9,6 +9,7 @@
 const TIEMPO_INICIAL = 90;   // segundos de cuenta atrás
 const UMBRAL_URGENTE = 15;   // a partir de aquí el contador parpadea
 const TIEMPO_DESPEGUE = 5;
+const TITULO_INICIAL = document.title;
 
 // El orden del array es la secuencia estricta de activación
 // las descripciones me las ha hecho la IA la verdad
@@ -127,6 +128,7 @@ function cambiarEstadoNave(clase, texto) {
         elementos.estadoNave.classList.add(clase);
     }
     elementos.estadoNave.textContent = texto;
+    document.title = clase ? `${texto} - ${TITULO_INICIAL}` : TITULO_INICIAL;
 }
 
 /* funciones del panel de informacion */
@@ -301,6 +303,8 @@ function finalizar(nuevoEstado, mensaje, tipo) {
         cambiarEstadoNave("lanzada", "Nave lanzada");
         elementos.contador.textContent = "¡Despegue!";
         elementos.contador.classList.remove("urgente");
+        document.title = "¡Misión en Vuelo! - Lanzamiento Exitoso";
+
     } else if (nuevoEstado === "fallo") {
         cambiarEstadoNave("fallo", "MISIÓN CANCELADA: Protocolo incompleto");
         elementos.contador.textContent = "00:00";
@@ -335,27 +339,26 @@ function reiniciarMision() {
     clearInterval(temporizador);
     temporizador = null;
     cerrarPopUp();
-    
+
     estado = "espera";
     tiempo = TIEMPO_INICIAL;
     segundosDespegue = null;
     seleccionado = null;
-    
+
     reiniciarTarjetas();
     tarjetas.forEach(tarjeta => {
-       tarjeta.classList.remove("seleccionado", "resaltada") 
+        tarjeta.classList.remove("seleccionado", "resaltada")
     });
     mostrarDescripcion(null);
     elementos.registro.replaceChildren();
-    elementos.resumen.replaceChildren();
     elementos.contador.classList.remove("urgente");
     document.title = TITULO_INICIAL;
-    
+
     cambiarEstadoNave("", "En espera");
     elementos.contador.textContent = formatearTiempo(TIEMPO_INICIAL);
     actualizarBotones();
     registrar("Panel de control listo. Pulsa «Iniciar misión» para comenzar.", "info");
-    
+    registrar("Atajos: 1-5 -> activar sistema (respectivamente), I -> Iniciar misión, L -> Lanzar nave, Esc -> Abandonar misión.", "aviso");
 }
 
 
@@ -422,17 +425,17 @@ elementos.popUp.addEventListener("click", function (e) {
 });
 tarjetas.forEach(function (tarjeta) {
     const btn = tarjeta.querySelector(".btn-activar");
-    
-    btn.addEventListener("click", function(evento){
+
+    btn.addEventListener("click", function (evento) {
         evento.stopPropagation();
         activarSistema(tarjeta.id);
     });
     btn.addEventListener("dblclick", evento => evento.stopPropagation());
-    
+
     tarjeta.addEventListener("click", () => seleccionarSistema(tarjeta.id));
-    tarjeta.addEventListener("dblclick", function(){
+    tarjeta.addEventListener("dblclick", function () {
         const sist = buscarSistema(tarjeta.id);
-        window.alert(`Especificaciones de ${sist.nombre.toUpperCase()} : ${sist.descripcion}` );
+        window.alert(`Especificaciones de ${sist.nombre.toUpperCase()} : ${sist.descripcion}`);
     });
     tarjeta.addEventListener("mouseover", () => tarjeta.classList.add("resaltada"));
     tarjeta.addEventListener("mouseout", () => tarjeta.classList.remove("resaltada"));
@@ -444,7 +447,8 @@ tarjetas.forEach(function (tarjeta) {
 document.addEventListener("keydown", function (k) {
     if (k.ctrlKey || k.altKey || k.metaKey)
         return;
-    if(k.repeat) return;
+    if (k.repeat)
+        return;
 
     const tecla = k.key.toLowerCase();
 
