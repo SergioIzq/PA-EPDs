@@ -8,27 +8,33 @@ const TIEMPO_INICIAL = 180; //tiempo límite (3 mins)
 const NUM_FILAS = 3;
 const NUM_CELDAS = NUM_FILAS * NUM_FILAS;
 const SUMA = (NUM_FILAS * (NUM_CELDAS + 1)) / 2;
+const NUM_INTENTOS = 3;
+
 const elementos = {
     crono: document.getElementById("crono"),
     sumaObjetivo: document.getElementById("sumaObjetivo"),
-    tablero: document.getElementById("tablero"),
+    intentos: document.getElementById("intentos"),
     mensajes: document.getElementById("mensajes"),
     restantes: document.getElementById("celdasRestantes"),
     info: document.getElementById("info"),
-    btnIiniciar: document.getElementById("nuevaPartida"),
+    btnIniciar: document.getElementById("nuevaPartida"),
     btnResolver: document.getElementById("resolver")
 };
 
 const celdas = document.querySelectorAll(".celda");
 let ultimaCelda = null;
 let numerosUsados = new Array();
+let intentosRestantes = NUM_INTENTOS;
 
-window.onload = function () {
+window.onload = inicio;
+
+function inicio() {
     ultimaCelda = "1-1";
     document.getElementById(ultimaCelda).classList.add("seleccionada");
-    elementos.sumaObjetivo.textContent = `Suma objetivo: ${SUMA} `;
-};
-
+    elementos.sumaObjetivo.textContent = `Suma objetivo: ${SUMA}`;
+    elementos.restantes.textContent = `Celdas restantes: ${NUM_CELDAS}`;
+    elementos.intentos.textContent = `Intentos restantes: ${intentosRestantes}`;
+}
 //cuando se seleccione una celda
 celdas.forEach(function (celda) {
     celda.addEventListener("click", function (evento) {
@@ -54,6 +60,9 @@ function seleccionarCelda(evento, idCelda) {
         document.getElementById(ultimaCelda).classList.remove("seleccionada");
         ultimaCelda = null;
     } else {
+        if (document.getElementById(idCelda).classList.contains("vacia")) {
+            document.getElementById(idCelda).classList.remove("vacia");
+        }
         document.getElementById(idCelda).classList.add("seleccionada");
         ultimaCelda = idCelda;
     }
@@ -64,7 +73,11 @@ function validarTecla(event) {
     // Verificar si es número (0-9)
     if (event.key >= "1" && event.key <= "9" && !numerosUsados.includes(event.key)) {
         if (document.getElementById(ultimaCelda).textContent !== "") {
-            numerosUsados.pop(document.getElementById(ultimaCelda).textContent);
+            const anterior = document.getElementById(ultimaCelda).textContent;
+            if (anterior !== "") {
+                const pos = numerosUsados.indexOf(anterior);
+                numerosUsados.splice(pos, 1);
+            }
         }
         document.getElementById(ultimaCelda).textContent = event.key;
         numerosUsados.push(event.key);
@@ -82,9 +95,11 @@ function verificarCuadradoMagico() {
         if (document.getElementById(celda.id).textContent !== "") {
             llenas += 1;
         }
+        document.getElementById(celda.id).classList.add("vacia");
     });
     if (llenas !== NUM_CELDAS) {
         window.alert("hueles a nabo");
+        restarIntento();
     } else {
         //verificamos la suma de las filas y columnas
         let esMagico = true;
@@ -114,18 +129,33 @@ function verificarCuadradoMagico() {
 
         if (esMagico && sumaDiagPrincipal === SUMA && sumaDiagSecundaria === SUMA) {
             window.alert("ta joya");
+            celdas.forEach(function (celda) {
+                document.getElementById(celda.id).classList.add("victoria");
+            });
+            restarIntento();
         } else {
             window.alert("no ta joya");
+            restarIntento();
         }
+        elementos.restantes.textContent = `Restantes: ${NUM_CELDAS - llenas}`;
     }
-}
 
-function reiniciarJuego() {
+    function restarIntento() {
+        intentosRestantes -= 1;
+        elementos.intentos.textContent = `Intentos restantes: ${intentosRestantes}`;
+    }
+
+    elementos.btnIniciar.addEventListener("click", reiniciarJuego);
+
+    function reiniciarJuego() {
 
 // Limpiar todas las celdas
-
-// Restablecer colores
-
-// Seleccionar celda central
-
+        celdas.forEach(function (celda) {
+            document.getElementById(celda.id).textContent = "";
+            document.getElementById(celda.id).classList.remove("seleccionada");
+        });
+        intentosRestantes = NUM_INTENTOS;
+        numerosUsados = new Array();
+        inicio();
+    }
 }

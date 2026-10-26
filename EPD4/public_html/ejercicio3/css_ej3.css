@@ -95,7 +95,13 @@ main {
 }
 
 .celda.seleccionada{
-    background-color: red;
+    background-color: red ;
+}
+.celda.vacia{
+    background-color: lightblue;
+}
+.celda.victoria{
+    background-color: goldenrod;
 }
 
 table {
