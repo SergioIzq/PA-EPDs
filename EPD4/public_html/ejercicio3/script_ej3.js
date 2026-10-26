@@ -34,10 +34,17 @@ celdas.forEach(function (celda) {
     });
 });
 
+document.addEventListener("keydown", function (k) {
+    if (k.repeat)
+        return;
+    if (ultimaCelda !== null) {
+        validarTecla(k);
+    }
+});
+
 function seleccionarCelda(evento, idCelda) {
     evento.stopPropagation();
 
-// Cambiar color de celda activa
     if (ultimaCelda === idCelda) {
         document.getElementById(ultimaCelda).classList.remove("seleccionada");
         ultimaCelda = null;
@@ -45,30 +52,25 @@ function seleccionarCelda(evento, idCelda) {
         document.getElementById(idCelda).classList.add("seleccionada");
         ultimaCelda = idCelda;
     }
-
-// Actualizar variable de celda seleccionada
-
 }
 
 function validarTecla(event) {
 
-// Verificar si es número (0-9)
-
-// Mostrar aviso si no es válido
-
-// Colocar número en celda activa
-
+    // Verificar si es número (0-9)
+    if (event.key >= "1" && event.key <= "9") {
+        document.getElementById(ultimaCelda).textContent = event.key;
+    } else if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
+        window.alert("el valor introducido no es válido (1-9)");
+    }
 }
+
+elementos.btnResolver.addEventListener("click", function(e){
+    
+});
 
 function verificarCuadradoMagico() {
 
-// Comprobar si está completo
 
-// Calcular sumas de filas, columnas y diagonales
-
-// Verificar si todas las sumas son iguales
-
-// Mostrar resultado (victoria o continuar)
 }
 
 function reiniciarJuego() {
