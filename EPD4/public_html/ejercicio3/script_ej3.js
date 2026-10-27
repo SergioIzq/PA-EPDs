@@ -184,7 +184,7 @@ function validarTecla(event) {
     }
 }
 
-elementos.btnResolver.addEventListener("click", verificarCuadradoMagico);
+elementos.btnResolver.addEventListener("click", resolver);
 
 function esMagico() {
     let magico = true;
@@ -201,7 +201,7 @@ function esMagico() {
             sumaCol += Number(document.getElementById(idCol).textContent);
         }
         if (sumaCol !== SUMA || sumaFila !== SUMA) {
-            esMagico = false;
+            magico = false;
         }
         sumaDiagPrincipal += Number(document.getElementById(`${i}-${i}`).textContent);
         sumaDiagSecundaria += Number(document.getElementById(`${i}-${NUM_FILAS - 1 - i}`).textContent);
@@ -229,36 +229,106 @@ function verificarCuadradoMagico() {
     }
     intentos += 1;
     actualizarIntentos();
-    if (esMagico()){
+    if (esMagico()) {
         ganar();
     } else {
         fallos += 1;
         mostrarMensaje("Este cuadrado no es mágico", "Las sumas no coinciden. ¡Sigue intentando!");
-        if(fallos >= NUM_INTENTOS){
+        if (fallos >= NUM_INTENTOS) {
             fallos = 0;
             darPista();
         }
     }
 }
 
-function ganar(){
+function ganar() {
     pararCrono();
     juegoActivo = false;
     ultimaCelda = null;
     mostrarMensaje("¡FELICIDADES!",
-            `Has resuelto el cuadrado mágico en ${segundos} segundos<br>Suma mágica: ${SUMA}<br>¿Quieres intentar otro?`);
+            `Has resuelto el cuadrado mágico en ${segundos} segundos\n
+            Suma mágica: ${SUMA}\n
+            ¿Quieres intentar otro?`);
     celdas.forEach(function (celda) {
         celda.classList.remove("seleccionada", "completada");
         celda.classList.add("victoria");
     });
 }
 
-function darPista(){
+function darPista() {
+    const solucion = mejorSolucion();
+    let pistaDada = false;
 
+    for (var i = 0; i < NUM_FILAS && !pistaDada; i++) {
+        for (var j = 0; j < NUM_FILAS && !pistaDada; j++) {
+            const celda = document.getElementById(`${i}-${j}`);
+            const correcto = solucion[i * NUM_FILAS + j];
+
+            if (celda.textContent !== correcto) {
+                for (var k = 0; k < NUM_FILAS; k++) {
+                    for (var l = 0; l < NUM_FILAS; l++) {
+                        const otra = document.getElementById(`${k}-${l}`);
+                        if (otra.textContent === correcto) {
+                            otra.textContent = celda.textContent;
+                        }
+                    }
+                }
+                celda.textContent = correcto;
+                elementos.mensajeTexto.textContent += `\nPista: hemos colocado un ${correcto} en la fila ${i + 1}, columna ${j + 1}`;
+                pistaDada = true;
+            }
+        }
+    }
+    if (esMagico()) {
+        ganar();
+    }
 }
 
-function resolver(){
-    
+function resolver() {
+    if (!juegoActivo)
+        return;
+    const solucion = mejorSolucion();
+    numerosUsados = new Array();
+
+    for (var i = 0; i < NUM_FILAS; i++) {
+        for (var j = 0; j < NUM_FILAS; j++) {
+            const celda = document.getElementById(`${i}-${j}`);
+            const numero = solucion[i * NUM_FILAS + j];
+
+            celda.textContent = numero;
+            celda.classList.remove("seleccionada", "vacia");
+            celda.classList.add("completada");
+            numerosUsados.push(numero);
+        }
+    }
+    ganar();
+    ultimaCelda = null;
+    actualizarRestantes();
+    pararCrono();
+    juegoActivo = false;
+    mostrarMensaje("Solución", `Esta es una solución válida (suma mágica: ${SUMA})\n
+                    Pulsa «Nueva partida» para intentar otro`);
+}
+
+
+function mejorSolucion() {
+    let mejor = SOLUCIONES[0];
+    let maxCoincidencias = -1;
+    SOLUCIONES.forEach(function (sol) {
+        let coincidencias = 0;
+        for (let i = 0; i < NUM_FILAS; i++) {
+            for (let j = 0; j < NUM_FILAS; j++) {
+                if (document.getElementById(`${i}-${j}`).textContent === sol[i * NUM_FILAS + j]) {
+                    coincidencias += 1;
+                }
+            }
+        }
+        if (coincidencias > maxCoincidencias) {
+            maxCoincidencias = coincidencias;
+            mejor = sol;
+        }
+    });
+    return mejor;
 }
 
 elementos.btnIniciar.addEventListener("click", reiniciarJuego);
@@ -272,7 +342,7 @@ function reiniciarJuego() {
         celda.classList.remove("vacia");
         celda.classList.remove("victoria");
     });
-    intentosRestantes = 0;
+    intentos = 0;
     fallos = 0;
     juegoActivo = true;
     numeroColocado = false;
