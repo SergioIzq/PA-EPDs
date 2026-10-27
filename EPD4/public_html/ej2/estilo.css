@@ -1,0 +1,142 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 26 oct 2026, 20:39:44
+    Author     : Sandra
+*/
+/*
+:root {
+    --fondo:#eef2f1;
+    --tinta:#14262b;
+    --acento:#0f766e;
+    --ok:#2e8b57;
+    --ko:#c0392b;
+    --borde:#b9c7c4;
+}*/
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: system-ui, sans-serif;
+    background: #eef2f1;
+    color: #14262b;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1rem;
+    line-height: 1.5;
+}
+h1 {
+    margin-bottom: .25rem;
+}
+#progreso {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+.barra {
+    flex: 1 1 200px;
+    height: 14px;
+    background: #fff;
+    border: 1px solid #b9c7c4;
+    border-radius: 7px;
+    overflow: hidden; /*para que?*/
+}
+#avance {
+    height: 100%;
+    width: 0;
+    background: #0f766e;
+    transition: width .4s;
+}
+button {
+    font: inherit;
+    cursor: pointer;
+    padding: .6rem 1rem;
+    border: 1px solid #0f766e;
+    background: #fff; /*para que*/
+    color: #14262b;
+    border-radius: 6px;
+    text-align: left;
+}
+#iniciar, #btn-nuevo {
+    background: #0f766e;
+    color: white;
+    text-align: center;
+}
+.opcion {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+}
+.opcion.resaltada {
+    background: #d6ece9;
+}
+.opcion.correcta {
+    background: #2e8b57;
+    color: #070606;
+    border-color: #2e8b57;
+}
+.opcion.incorrecta {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+}
+.opcion:disabled {
+    cursor: not-allowed;
+}
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gravedad-Alta {
+    color: #c0392b;
+    font-weight: 600;
+}
+#reloj {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+#reloj.urgente {
+    color: #c0392b;
+    animation: parpadeo .6s infinite;
+}
+@keyframes parpadeo {
+    50% {
+        opacity: .25;
+    }
+}
+#aviso {
+    color: #c0392b;
+    font-weight: 600;
+    min-height: 1.5rem;
+}
+#feedback {
+    background: #fff;
+    border-left: 5px solid #0f766e;
+    padding: .75rem 1rem;
+    margin-top: 1rem;
+}
+#feedback.ko {
+    border-color: #c0392b;
+}
+#feedback h3 {
+    margin: 0 0 .5rem;
+}
+.tarjeta {
+    background: #fff;
+    border: 1px solid #b9c7c4;
+    border-radius: 6px;
+    padding: .6rem 1rem;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+}
+pre#informe {
+    background: #fff;
+    padding: 1rem;
+    white-space: pre-wrap;
+    border: 1px solid #b9c7c4;
+}
