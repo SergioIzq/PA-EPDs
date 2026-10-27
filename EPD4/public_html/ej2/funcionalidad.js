@@ -204,6 +204,12 @@ function registrarResultado(indiceIncidencia, decision, resultado, tiempo, varia
   const signo = variacion > 0 ? "+" : "";
   const t = document.createElement("div");
   t.className = "tarjeta";
+  
+   // Añade una clase según el resultado para que salga rojo o verde el fondo del historial
+  if (resultado === "Correcta") t.classList.add("correcta");
+  else if (resultado === "Incorrecta") t.classList.add("incorrecta");
+  else t.classList.add("agotada");
+
   [`Incidencia ${indiceIncidencia + 1} | Categoría: ${categoria} | Gravedad: ${gravedad}`,
    `Respuesta: ${decision}`, `Resultado: ${resultado}`,
    `Tiempo empleado: ${tiempo} segundos`, `Puntuación: ${signo}${variacion}`]
@@ -222,26 +228,45 @@ function finalizarTurno() {
   limpiarTemporizadores();
   estado.bloqueado = true;
   const media = (estado.tiempos.reduce((a, b) => a + b, 0) / total).toFixed(1);
-  const linea = "-·".repeat(52);
-  const informe = [linea, "INFORME TÉCNICO DE LA GUARDIA ", linea,
-    `Incidencias analizadas: ${total}`, `Decisiones correctas: ${estado.aciertos}`,
-    `Decisiones incorrectas: ${estado.fallos}`, `Incidencias sin respuesta: ${estado.omisiones}`,
-    `Puntuación final obtenida: ${estado.puntos}`, `Tiempo medio de respuesta: ${media} segundos`,
-    `Nivel de desempeño asignado: ${clasificar(estado.puntos)}`, linea].join("\n");
+
+  const filas = [
+    ["Incidencias analizadas", total],
+    ["Decisiones correctas", estado.aciertos],
+    ["Decisiones incorrectas", estado.fallos],
+    ["Incidencias sin respuesta", estado.omisiones],
+    ["Puntuación final obtenida", estado.puntos],
+    ["Tiempo medio de respuesta", `${media} segundos`],
+    ["Nivel de desempeño asignado", clasificar(estado.puntos)]
+  ];
 
   const zona = $("principal");
   zona.innerHTML = "";
-  const pre = document.createElement("pre");
-  pre.id = "informe";
-  pre.textContent = informe;
+
+  const informe = document.createElement("div");
+  informe.id = "informe";
+  const titulo = document.createElement("h2");
+  titulo.textContent = "INFORME TÉCNICO DE GUARDIA";
+  informe.appendChild(titulo);
+
+  filas.forEach(([etiqueta, valor]) => {
+    const fila = document.createElement("div");
+    fila.className = "fila";
+    const e = document.createElement("span");
+    e.textContent = `${etiqueta}:`;
+    const v = document.createElement("strong");
+    v.textContent = valor;
+    fila.append(e, v);
+    informe.appendChild(fila);
+  });
+
   const btn = document.createElement("button");
   btn.id = "btn-nuevo";
   btn.textContent = "Iniciar nuevo turno";
   btn.addEventListener("click", () => { reiniciarTurno(); iniciarTurno(); });
-  zona.append(pre, btn);
+  zona.append(informe, btn);
 
-  location.hash = "informe-final";                 
-  document.title = `SOC - Turno: finalizado (${estado.puntos} pts)`;  
+  location.hash = "informe-final";
+  document.title = `SOC - Turno: finalizado (${estado.puntos} pts)`;
 }
 
 function reiniciarTurno() {
