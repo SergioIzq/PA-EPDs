@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1 id="nombre-mision"></h1>
+        <p>Panel de control de la nave espacial</p>
+    </header>
+
+    <main>
+
+        <!-- Estado general de la misión -->
+        <section id="estado-mision">
+            <h2>Estado de la misión</h2>
+
+            <p>
+                Estado de la nave:
+                <span id="estado-nave">En espera</span>
+            </p>
+
+            <p>
+                Tiempo restante:
+                <span id="contador">90</span> segundos
+            </p>
+
+            <p>
+                Sistemas operativos:
+                <span id="sistemas-operativos">0</span> de 5
+            </p>
+        </section>
+
+        <!-- Panel de sistemas -->
+        <section id="panel-sistemas">
+
+            <h2>Sistemas principales</h2>
+
+            <div id="contenedor-sistemas">
+
+                <div class="tarjeta-sistema" id="energia">
+                    <h3>Energía</h3>
+                    <p>Estado: <span>Desactivado</span></p>
+                    <button disabled>Activar</button>
+                </div>
+
+                <div class="tarjeta-sistema" id="comunicaciones">
+                    <h3>Comunicaciones</h3>
+                    <p>Estado: <span>Desactivado</span></p>
+                    <button disabled>Activar</button>
+                </div>
+
+                <div class="tarjeta-sistema" id="navegacion">
+                    <h3>Navegación</h3>
+                    <p>Estado: <span>Desactivado</span></p>
+                    <button disabled>Activar</button>
+                </div>
+
+                <div class="tarjeta-sistema" id="soporte-vital">
+                    <h3>Soporte vital</h3>
+                    <p>Estado: <span>Desactivado</span></p>
+                    <button disabled>Activar</button>
+                </div>
+
+                <div class="tarjeta-sistema" id="propulsion">
+                    <h3>Propulsión</h3>
+                    <p>Estado: <span>Desactivado</span></p>
+                    <button disabled>Activar</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Panel lateral de información -->
+        <aside id="panel-informacion">
+            <h2>Información del sistema</h2>
+
+            <p id="descripcion-sistema">
+                Selecciona un sistema para consultar su descripción.
+            </p>
+        </aside>
+
+        <!-- Consola de mensajes -->
+        <section id="consola">
+            <h2>Consola de mensajes</h2>
+
+            <div id="registro-mensajes">
+                <p>Sistema preparado. Esperando instrucciones.</p>
+            </div>
+        </section>
+
+        <!-- Controles de la misión -->
+        <section id="controles-mision">
+            <h2>Controles de la misión</h2>
+
+            <button id="btn-iniciar">
+                Iniciar misión
+            </button>
+
+            <button id="btn-lanzar" disabled>
+                Lanzar nave
+            </button>
+
+            <button id="btn-abandonar" disabled>
+                Abandonar misión
+            </button>
+
+            <button id="btn-reiniciar" disabled>
+                Reiniciar misión
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Sistema de control de vuelo | Misión Apolo</p>
+    </footer>
+
+</body>
+</html>

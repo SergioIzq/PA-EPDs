@@ -1,0 +1,11 @@
+.alerta-tiempo {
+    color: red;
+    font-weight: bold;
+    animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+    50% {
+        opacity: 0.3;
+    }
+}
