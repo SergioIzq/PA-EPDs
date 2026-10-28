@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simulador de Ecosistema</title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="ecosistema-container">
+            <div id="panel-control">
+                <h1>Control del Ecosistema</h1>
+                <button type="button" data-especie="herbivoro">Añadir Herbívoro 🐰</button>
+                <button type="button" data-especie="carnivoro">Añadir Carnívoro 🦊</button>
+                <button type="button" data-especie="planta">Añadir Planta 🌿</button>
+                <button type="button" data-especie="omnivoro">Añadir Omnívoro 🐻</button>
+                <button type="button" id="btn-pausa">Pausar simulación</button>
+            </div>
+
+            <div id="estadisticas">
+                <div>Herbívoros: <span id="count-herbivoro">0</span></div>
+                <div>Carnívoros: <span id="count-carnivoro">0</span></div>
+                <div>Plantas: <span id="count-planta">0</span></div>
+                <div>Omnívoros: <span id="count-omnivoro">0</span></div>
+                <div>Generación: <span id="generacion">1</span></div>
+                <div>Estado: <span id="estado-ecosistema">Equilibrado</span></div>
+            </div>
+
+            <div id="ecosistema">
+                <!-- Aquí aparecerán dinámicamente los organismos -->
+            </div>
+
+            <div id="log-eventos">
+                <p>Registro de Eventos:</p>
+                <div id="eventos-lista"></div>
+            </div>
+        </div>
+
+        <div id="tooltip" hidden></div>
+    </body>
+</html>

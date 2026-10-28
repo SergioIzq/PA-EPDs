@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Centro de Operaciones de Ciberseguridad</title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Centro de Operaciones de Ciberseguridad</h1>
+            <p>
+                Analista de guardia del SOC universitario. Su objetivo es diagnosticar y resolver cinco
+                incidencias que amenazan la infraestructura informática antes de que se agote el tiempo
+                de respuesta (25 segundos por incidencia). Puede responder con el ratón o con las teclas 1-4.
+            </p>
+        </header>
+
+        <section id="marcadores">
+            <div>Puntuación: <span id="puntuacion">0</span></div>
+            <div>Incidencias resueltas: <span id="resueltas">0</span>/5</div>
+            <div id="barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div id="barra-relleno">0%</div>
+            </div>
+        </section>
+
+        <div id="contenido">
+            <main id="principal">
+                <button id="btn-iniciar" type="button">Iniciar turno</button>
+
+                <article id="incidencia" hidden>
+                    <div class="cabecera-incidencia">
+                        <h2 id="titulo-incidencia"></h2>
+                        <span id="contador">25</span>
+                    </div>
+                    <p id="aviso" hidden>Atención: poco tiempo de respuesta</p>
+                    <p><strong>Categoría:</strong> <span id="categoria"></span> |
+                        <strong>Gravedad:</strong> <span id="gravedad"></span></p>
+                    <p id="descripcion"></p>
+                    <div id="opciones"></div>
+                    <div id="retroalimentacion" hidden></div>
+                </article>
+
+                <section id="informe" hidden>
+                    <pre id="texto-informe"></pre>
+                    <button id="btn-nuevo" type="button">Iniciar nuevo turno</button>
+                </section>
+            </main>
+
+            <aside id="historial">
+                <h2>Historial de actividad</h2>
+                <ol id="lista-historial"></ol>
+            </aside>
+        </div>
+    </body>
+</html>

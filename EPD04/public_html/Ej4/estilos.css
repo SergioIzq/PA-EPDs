@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef3ea;
+    color: #23301f;
+}
+
+#ecosistema-container {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    grid-template-areas:
+        "control control"
+        "ecosistema estadisticas"
+        "ecosistema log";
+    grid-template-rows: auto auto 1fr;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    #ecosistema-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "control" "estadisticas" "ecosistema" "log";
+    }
+}
+
+#panel-control {
+    grid-area: control;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#panel-control h1 {
+    width: 100%;
+    margin: 0 0 0.3rem;
+}
+
+#panel-control button {
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #5b7f4a;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+#panel-control button:hover {
+    background: #dcebd2;
+}
+
+#btn-pausa {
+    margin-left: auto;
+    background: #5b7f4a !important;
+    color: #fff;
+}
+
+#btn-pausa.pausado {
+    background: #b5651d !important;
+}
+
+#estadisticas, #log-eventos {
+    padding: 0.8rem;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#estadisticas {
+    grid-area: estadisticas;
+    line-height: 1.7;
+}
+
+#estadisticas span {
+    font-weight: bold;
+}
+
+#log-eventos {
+    grid-area: log;
+    font-size: 0.8rem;
+}
+
+#log-eventos > p {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+#eventos-lista p {
+    margin: 0.2rem 0;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+/* Zona de simulación */
+#ecosistema {
+    grid-area: ecosistema;
+    position: relative;
+    height: 560px;
+    border: 2px solid #5b7f4a;
+    border-radius: 8px;
+    background: radial-gradient(circle at 30% 30%, #b9dca2, #8fbf72);
+    overflow: hidden;
+}
+
+#ecosistema.pausado {
+    filter: grayscale(0.6);
+}
+
+.organismo {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    user-select: none;
+    transition: left 1.5s ease-in-out, top 1.5s ease-in-out, transform 0.3s, opacity 0.3s;
+}
+
+.organismo:hover, .organismo.seleccionado {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 4px #fff);
+}
+
+.organismo.arrastrando {
+    opacity: 0.4;
+}
+
+.organismo.naciendo {
+    animation: nacer 0.5s ease-out;
+}
+
+@keyframes nacer {
+    from {
+        transform: scale(0);
+    }
+}
+
+.organismo.muriendo {
+    pointer-events: none;
+    animation: morir 0.5s forwards;
+}
+
+@keyframes morir {
+    to {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+#tooltip {
+    position: fixed;
+    z-index: 10;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    background: rgba(25, 35, 20, 0.92);
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    pointer-events: none;
+    white-space: pre;
+}
