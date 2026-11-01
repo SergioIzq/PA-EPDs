@@ -38,6 +38,10 @@ let numeroColocado = false;
 window.onload = inicio;
 
 function inicio() {
+    celdas.forEach(function (celda) {
+        celda.classList.remove("seleccionada", "completada", "incompleta", "victoria");
+        celda.classList.add("vacia");
+    });
     ultimaCelda = "1-1";
     document.getElementById(ultimaCelda).classList.add("seleccionada");
     elementos.sumaObjetivo.textContent = `Suma objetivo: ${SUMA}`;
@@ -71,7 +75,7 @@ function pararCrono() {
 // Escribe un mensaje en el panel de mensajes
 function mostrarMensaje(titulo, texto) {
     elementos.mensajeTitulo.textContent = titulo;
-    elementos.mensajeTexto.innerHTML = texto;
+    elementos.mensajeTexto.textContent = texto;
 }
 
 function actualizarIntentos() {
@@ -101,6 +105,8 @@ document.addEventListener("keydown", function (k) {
 
     if (ultimaCelda !== null) {
         validarTecla(k);
+    } else if (k.key.length === 1 && k.key !== " " && !k.ctrlKey && !k.altKey && !k.metaKey) {
+        mostrarMensaje("Ninguna celda seleccionada", "Haz clic en una celda antes de escribir un número");
     }
 });
 
@@ -118,9 +124,6 @@ function seleccionarCelda(evento, idCelda) {
         document.getElementById(ultimaCelda).classList.remove("seleccionada");
         ultimaCelda = null;
     } else {
-        if (document.getElementById(idCelda).classList.contains("vacia")) {
-            document.getElementById(idCelda).classList.remove("vacia");
-        }
         document.getElementById(idCelda).classList.add("seleccionada");
         ultimaCelda = idCelda;
     }
@@ -215,11 +218,11 @@ function verificarCuadradoMagico() {
     celdas.forEach(function (celda) {
         if (celda.textContent !== "") {
             llenas += 1;
-            celda.classList.remove("vacia");
+            celda.classList.remove("vacia", "incompleta");
             celda.classList.add("completada");
         } else {
             celda.classList.remove("completada");
-            celda.classList.add("vacia");
+            celda.classList.add("vacia", "incompleta");
         }
     });
 

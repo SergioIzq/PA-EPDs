@@ -149,20 +149,25 @@ main {
     user-select: none;
 }
 
-.celda.seleccionada {
-    background-color: red;
+.celda.vacia {
+    background-color: #ffffff;
+    border: 2px dotted red;
 }
 
-.celda.vacia {
+.celda.incompleta {
+    background-color: #ff9a9a;
+}
+
+.celda.completada {
+    background-color: #e5e7eb;
+}
+
+.celda.seleccionada {
     background-color: lightblue;
 }
 
 .celda.victoria {
     background-color: goldenrod;
-}
-
-.celda.completada {
-    background-color: #ffffff;
 }
 
 table {
