@@ -25,7 +25,7 @@ function seleccionarCelda(event) {
         return;
     }
     for (let i = 0; i < celdas.length; i++) {
-        if (celdas[i] == event.target) { // event.target es la celda en la que se ha hecho clic
+        if (celdas[i] === event.target) { // event.target es la celda en la que se ha hecho clic
             celdaActiva = i;
         }
     }
@@ -38,12 +38,12 @@ function validarTecla(event) {
         return;
     }
     const tecla = event.key;
-    if (tecla == "Backspace" || tecla == "Delete") {
+    if (tecla === "Backspace" || tecla === "Delete") {
         celdas[celdaActiva].innerText = "";
         mostrarMensaje("");
-    } else if (tecla.length != 1 || !tecla.match(/[0-9]/)) { // la tecla no es una cifra
+    } else if (tecla.length !== 1 || !tecla.match(/[0-9]/)) { // la tecla no es una cifra
         mostrarMensaje("Tecla no válida\nSolo se aceptan números");
-    } else if (tecla == "0") {
+    } else if (tecla === "0") {
         mostrarMensaje("El 0 no está permitido\nSolo se aceptan números del 1 al 9");
     } else if (estaRepetido(tecla)) {
         mostrarMensaje("No puedes repetir números\nCada cifra del 1 al 9 debe aparecer solo una vez");
@@ -58,7 +58,7 @@ function validarTecla(event) {
 // devuelve true si el número ya está escrito en otra celda
 function estaRepetido(numero) {
     for (let i = 0; i < celdas.length; i++) {
-        if (i != celdaActiva && celdas[i].innerText == numero) {
+        if (i !== celdaActiva && celdas[i].innerText === numero) {
             return true;
         }
     }
@@ -91,7 +91,7 @@ function verificarCuadradoMagico() {
     const sumas = calcularSumas();
     let esMagico = true;
     for (let i = 1; i < sumas.length; i++) {
-        if (sumas[i] != sumas[0]) {
+        if (sumas[i] !== sumas[0]) {
             esMagico = false;
         }
     }
@@ -102,7 +102,7 @@ function verificarCuadradoMagico() {
         fallidos++;
         document.getElementById("fallidos").innerText = fallidos;
         let texto = "Este no es un cuadrado mágico\nLas sumas no coinciden. ¡Sigue intentando!";
-        if (fallidos % 3 == 0) { // cada 3 intentos fallidos se da una pista
+        if (fallidos % 3 === 0) { // cada 3 intentos fallidos se da una pista
             texto = texto + "\n" + darPista();
             actualizarDatos();
         }
@@ -115,7 +115,7 @@ function verificarCuadradoMagico() {
 function calcularSumas() {
     const n = [];
     for (let i = 0; i < celdas.length; i++) {
-        if (celdas[i].innerText == "") {
+        if (celdas[i].innerText === "") {
             n[i] = 0;
         } else {
             n[i] = parseInt(celdas[i].innerText);
@@ -130,7 +130,7 @@ function calcularSumas() {
 function actualizarDatos() {
     let restantes = 0;
     for (let i = 0; i < celdas.length; i++) {
-        if (celdas[i].innerText == "") {
+        if (celdas[i].innerText === "") {
             restantes++;
         }
     }
@@ -144,10 +144,10 @@ function actualizarDatos() {
 // pone en su sitio un número de la solución y devuelve el texto de la pista
 function darPista() {
     for (let i = 0; i < celdas.length; i++) {
-        if (celdas[i].innerText != solucion[i]) {
+        if (celdas[i].innerText !== String(solucion[i])) {
             // se borra ese número de la celda donde estaba para que no se repita
             for (let j = 0; j < celdas.length; j++) {
-                if (celdas[j].innerText == solucion[i]) {
+                if (celdas[j].innerText === String(solucion[i])) {
                     celdas[j].innerText = "";
                 }
             }
@@ -220,10 +220,10 @@ function reiniciarJuego() {
 // pinta cada celda según su estado
 function pintarCeldas() {
     for (let i = 0; i < celdas.length; i++) {
-        if (i == celdaActiva) {
+        if (i === celdaActiva) {
             celdas[i].style.backgroundColor = "lightblue";
             celdas[i].style.border = "2px solid blue";
-        } else if (celdas[i].innerText != "") {
+        } else if (celdas[i].innerText !== "") {
             celdas[i].style.backgroundColor = "lightgray";
             celdas[i].style.border = "2px solid gray";
         } else if (marcarVacias) {
