@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    margin: 3px;
+    padding: 6px 10px;
+}
+
+#estadisticas div {
+    display: inline-block;
+    margin: 10px 15px 0 0;
+    font-weight: bold;
+}
+
+#ecosistema {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin-top: 10px;
+    border: 2px solid green;
+    background-color: #e3f2d0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.organismo {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: left 1.5s, top 1.5s, opacity 0.6s, transform 0.6s;
+}
+
+#log-eventos {
+    width: 790px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+#log-eventos h3 {
+    margin: 5px;
+}
+
+#eventos-lista p {
+    margin: 3px 5px;
+}
+
+#tooltip {
+    position: absolute;
+    display: none;
+    padding: 5px;
+    font-size: 13px;
+    background-color: lightyellow;
+    border: 1px solid black;
+}

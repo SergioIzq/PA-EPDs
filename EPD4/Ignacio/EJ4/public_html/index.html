@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecosistema virtual</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="ecosistema-container">
+        <div id="panel-control">
+            <h1>Control del Ecosistema</h1>
+            <button onclick="añadirEspecie('herbivoro')">Añadir Herbívoro</button>
+            <button onclick="añadirEspecie('carnivoro')">Añadir Carnívoro</button>
+            <button onclick="añadirEspecie('planta')">Añadir Planta</button>
+            <button onclick="añadirEspecie('omnivoro')">Añadir Omnívoro</button>
+            <button id="boton-pausa" onclick="pausarReanudar()">Pausar</button>
+        </div>
+
+        <div id="estadisticas">
+            <div>Herbívoros: <span id="count-herbivoro">0</span></div>
+            <div>Carnívoros: <span id="count-carnivoro">0</span></div>
+            <div>Plantas: <span id="count-planta">0</span></div>
+            <div>Omnívoros: <span id="count-omnivoro">0</span></div>
+            <div>Generación: <span id="generacion">1</span></div>
+            <div>Estado: <span id="estado">Equilibrado</span></div>
+        </div>
+
+        <div id="ecosistema"></div>
+
+        <div id="log-eventos">
+            <h3>Registro de Eventos:</h3>
+            <div id="eventos-lista"></div>
+        </div>
+    </div>
+
+    <div id="tooltip"></div>
+</body>
+</html>
