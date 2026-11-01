@@ -43,6 +43,10 @@ const SISTEMAS = [
 
 /* referencias al DOM */
 const elementos = {
+    nombreMision: document.getElementById("nombre-mision"),
+    contadorSistemas: document.getElementById("contador-sistemas"),
+    resumen: document.getElementById("resumen"),
+    panel: document.getElementById("panel-sistemas"),
     estadoNave: document.getElementById("estado-nave"),
     contador: document.getElementById("contador"),
     registro: document.getElementById("registro"),
@@ -169,6 +173,7 @@ function actualizarBotones() {
 
     elementos.btnIniciar.textContent = terminada ? "Reiniciar misión" : "Iniciar misión";
     elementos.btnIniciar.disabled = !(estado === "espera" || terminada);
+    elementos.btnIniciar.style.display = (estado === "espera" || terminada) ? "" : "none";
 
     //una vez que iniciamos, desactivamos iniciar misión y activamos el de abandonar
     elementos.btnAbandonar.disabled = !enCurso;
@@ -181,6 +186,7 @@ function actualizarBotones() {
         //el botón de cada tarjeta se mostrará desactivado cuando la misión no esté en curso o cuando ya esté operativo el sistema que activa
         boton.disabled = !enCurso || operativo;
     });
+    elementos.contadorSistemas.textContent = `Sistemas operativos: ${activados} de ${SISTEMAS.length}`;
 }
 
 /* funciones de tarjetas */
@@ -202,10 +208,9 @@ function errorSecuencia(tarjeta) {
     }, {once: true});
 }
 
-function activarSistema(id) {
+function activarSistema(id, metodo) {
     const sistema = buscarSistema(id);
     const tarjeta = buscarTarjeta(id);
-    const parrafo = elementos.popUp.querySelector("p");
 
     if (estado !== "preparando") {
         registrar("Inicia la misión antes de activar sistemas.", "error");
@@ -216,9 +221,8 @@ function activarSistema(id) {
         return;
     }
 
-    // Secuencia estricta: solo puede activarse el que ocupa la posición "activados"
     if (SISTEMAS[activados].id !== id) {
-        mostrarPopUp(`Acción bloqueada: debe activar primero ${SISTEMAS[activados].nombre}.`);
+        mostrarPopUp("Acción bloqueada: debe activar primero el sistema anterior");
         registrar("Secuencia incorrecta", "error");
         errorSecuencia(tarjeta);
         return;
@@ -228,13 +232,11 @@ function activarSistema(id) {
     tarjeta.querySelector(".estado").textContent = "Operativo";
     tarjeta.querySelector(".btn-activar").textContent = "Activado";
     activados++;
-    registrar(`${sistema.nombre} operativo (${activados}/${SISTEMAS.length}).`, "info");
+    registrar(`${sistema.nombre} activado mediante ${metodo}`, "info");
 
     if (activados === SISTEMAS.length) {
         cambiarEstadoNave("lista", "Nave preparada para el lanzamiento");
         registrar("Todos los sistemas están operativos. Autoriza el despegue con «Lanzar nave».", "aviso");
-    } else {
-        cambiarEstadoNave("preparando", `Preparando (${activados}/${SISTEMAS.length} sistemas)`);
     }
     actualizarBotones();
 }
@@ -249,27 +251,35 @@ function tick() {
     tiempo--;
     mostrarContador();
 
-    if (tiempo === 30) {
-        registrar("Quedan 30 segundos para cerrar la ventana de lanzamiento.", "aviso");
-    } else if (tiempo === UMBRAL_URGENTE) {
-        registrar("ADVERTENCIA: Tiempo de preparación próximo a finalizar.", "aviso");
+    if (tiempo === UMBRAL_URGENTE) {
+        registrar("ADVERTENCIA: Tiempo de preparación próximo a finalizar", "aviso");
     }
     if (tiempo <= 0) {
         finalizar("fallo", "MISIÓN CANCELADA: Protocolo incompleto", "error");
-        registrar(`MISIÓN CANCELADA\n\ 
-                  Sistemas operativos: [${activados}] de ${SISTEMAS.length}\n\ 
-                  Sistemas pendientes: ${programasQueFaltan()}\n\ 
-                  Estado: Protocolo incompleto\n\ 
-                  Resumen: Lanzamiento no completo\n\ `);
+        const lineas = [
+            "MISIÓN CANCELADA",
+            `Sistemas operativos: ${activados} de ${SISTEMAS.length}`,
+            `Sistemas pendientes: ${programasQueFaltan()}`,
+            "Estado: Protocolo incompleto",
+            "Resultado: Lanzamiento no autorizado"
+        ];
+        elementos.resumen.className = "fallo";
+        elementos.resumen.replaceChildren();
+        for (let i = 0; i < lineas.length; i++) {
+            elementos.resumen.appendChild(crear("p", lineas[i]));
+        }
     }
 }
 
 function programasQueFaltan() {
-    let stringProgramas = "";
-    for (var i = (activados - 1), max = (SISTEMAS.length - 1); i < max; i++) {
-        stringProgramas += `${SISTEMAS[i + 1].nombre} \n\ `;
+    let lista = "";
+    for (let i = activados; i < SISTEMAS.length; i++) {
+        if (i > activados) {
+            lista += ", ";
+        }
+        lista += SISTEMAS[i].nombre;
     }
-    return stringProgramas;
+    return lista;
 }
 
 function cuentaAtras() {
@@ -288,8 +298,20 @@ function printSeg() {
         elementos.contador.textContent = `T-${segundosDespegue}`;
         registrar(`T-${segundosDespegue}`, "aviso");
     } else {
-        clearInterval(temporizador);                   // ahora sí, con el id correcto
-        finalizar("lanzada", "¡Despegue! Misión Praena II en órbita.", "info");
+        finalizar("lanzada", "¡Despegue!", "info");
+        const lineas = [
+            "¡LANZAMIENTO COMPLETADO!",
+            `Misión: ${elementos.nombreMision.textContent}`,
+            `Sistemas operativos: ${activados} de ${SISTEMAS.length}`,
+            `Tiempo restante: ${tiempo} segundos`,
+            "Estado: Nave en vuelo",
+            "Resultado: Protocolo ejecutado correctamente"
+        ];
+        elementos.resumen.className = "exito";
+        elementos.resumen.replaceChildren();
+        for (let i = 0; i < lineas.length; i++) {
+            elementos.resumen.appendChild(crear("p", lineas[i]));
+        }
     }
 }
 
@@ -300,7 +322,7 @@ function finalizar(nuevoEstado, mensaje, tipo) {
     estado = nuevoEstado;
 
     if (nuevoEstado === "lanzada") {
-        cambiarEstadoNave("lanzada", "Nave lanzada");
+        cambiarEstadoNave("lanzada", "Nave en vuelo");
         elementos.contador.textContent = "¡Despegue!";
         elementos.contador.classList.remove("urgente");
         document.title = "¡Misión en Vuelo! - Lanzamiento Exitoso";
@@ -344,6 +366,8 @@ function reiniciarMision() {
     tiempo = TIEMPO_INICIAL;
     segundosDespegue = null;
     seleccionado = null;
+    elementos.resumen.className = "";
+    elementos.resumen.replaceChildren();
 
     reiniciarTarjetas();
     tarjetas.forEach(tarjeta => {
@@ -423,6 +447,12 @@ elementos.popUp.addEventListener("click", function (e) {
     if (e.target === elementos.popUp)
         cerrarPopUp();   //clic en el fondo oscuro
 });
+elementos.panel.addEventListener("click", function (evento) {
+    if (evento.target.closest(".sistema") === null) {
+        registrar("Panel de sistemas seleccionado", "info");
+    }
+});
+
 tarjetas.forEach(function (tarjeta) {
     const btn = tarjeta.querySelector(".btn-activar");
 
@@ -453,9 +483,10 @@ document.addEventListener("keydown", function (k) {
     const tecla = k.key.toLowerCase();
 
     if (tecla >= "1" && tecla <= String(SISTEMAS.length)) {
-        activarSistema(SISTEMAS[Number(tecla) - 1].id);
+        if (estado === "preparando")
+            activarSistema(SISTEMAS[Number(tecla) - 1].id, "teclado");
     } else if (tecla === "i") {
-        if (!elementos.btnIniciar.disabled)
+        if (estado === "espera")
             elementos.btnIniciar.click();
     } else if (tecla === "l") {
         lanzarNave();

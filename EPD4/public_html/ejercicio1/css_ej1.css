@@ -1,7 +1,3 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
 /* 
     Created on : 22 oct 2026, 11:07:40
     Author     : Usuario
@@ -471,4 +467,69 @@ button:disabled {
     75%      {
         transform: translateX(6px);
     }
+}
+
+#contador-sistemas {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: var(--superficie-2);
+    border: 1px solid var(--acento);
+    color: var(--acento);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Resumen final ===== */
+#resumen {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--superficie-2);
+    border: 2px solid var(--borde);
+    border-left: 6px solid var(--acento);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    animation: aparecer-popup 0.3s ease-out;
+}
+
+#resumen:empty {
+    display: none;
+}
+
+#resumen p {
+    margin: 0 0 0.4rem;
+    color: var(--texto);
+}
+
+#resumen p:first-child {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--borde);
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    color: var(--acento);
+}
+
+#resumen p:last-child {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+/* Variantes según el resultado */
+#resumen.fallo {
+    border-left-color: var(--peligro);
+}
+#resumen.fallo p:first-child,
+#resumen.fallo p:last-child {
+    color: var(--peligro);
+}
+
+#resumen.exito {
+    border-left-color: var(--ok);
+}
+#resumen.exito p:first-child,
+#resumen.exito p:last-child {
+    color: var(--ok);
 }

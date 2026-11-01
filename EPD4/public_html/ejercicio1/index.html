@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <h1>Misión Praena II</h1>
+            <h1 id="nombre-mision">Misión Praena II</h1>
             <p>Estado actual de la nave: <strong id="estado-nave">En espera</strong></p>
         </header>
 
@@ -21,6 +21,7 @@
 
             <section id="panel-sistemas">
                 <h2>Sistemas principales de la nave</h2>
+                <p id="contador-sistemas"></p>  
                 <div class="elementos">
                     <div class="sistema" id="energia" data-sistema="energia">
                         <h3>Energía</h3>
@@ -48,8 +49,9 @@
                         <button type="button" class="btn-activar">Activar</button>
                     </div>
                 </div>
+                <div id="resumen"></div>
             </section>
-            
+
             <!-- inspiracion: https://freefrontend.com/css-modal-windows/ -->
             <div id="popUp" role="alertdialog" aria-modal="true" aria-labelledby="popUp-titulo" aria-describedby="popUp-texto">
                 <div class="popup-contenido">
