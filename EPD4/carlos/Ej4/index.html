@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistema</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="ecosistema-container">
+
+        <div id="panel-control">
+
+            <h1>Control del Ecosistema</h1>
+
+            <button id="btn-herbivoro" onclick="añadirEspecie('herbivoro')">Añadir Herbívoro</button>
+
+            <button id="btn-carnivoro" onclick="añadirEspecie('carnivoro')">Añadir Carnívoro</button>
+
+            <button id="btn-planta" onclick="añadirEspecie('planta')">Añadir Planta </button>
+
+            <button id ="btn-omnivoro" onclick="añadirEspecie('omnivoro')">Añadir Omnívoro</button>
+
+        </div>
+
+        <div id="estadisticas">
+
+            <div>Herbívoros: <span id="count-herbivoro">0</span></div>
+
+            <div>Carnívoros: <span id="count-carnivoro">0</span></div>
+
+            <div>Plantas: <span id="count-planta">0</span></div>
+
+            <div>Omnívoros: <span id="count-omnivoro">0</span></div>
+
+            <div>Generación: <span id="generacion">1</span></div>
+
+        </div>
+
+        <div id="ecosistema">
+
+            <!-- Aquí aparecerán dinámicamente los organismos -->
+
+        </div>
+
+        <div id="log-eventos">
+
+            <h2>Registro de Eventos:</h2>
+
+        <div id="eventos-lista"></div>
+
+        </div>
+
+    </div>
+</body>
+</html>

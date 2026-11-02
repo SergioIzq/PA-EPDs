@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    display: block;;
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover { background: #2980b9; }
+button#btn-pausa { background: #e67e22; margin-top: 10px; }
+
+
+#ecosistema {
+    background-color: rgb(134, 134, 134);
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
