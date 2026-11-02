@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuadrado mágico</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
+</head>
+<body onload="iniciarJuego()" onkeydown="validarTecla(event)" onkeyup="verificarCuadradoMagico()">
+    <h1>Cuadrado mágico</h1>
+    <p>Rellena la tabla con los números del 1 al 9 sin repetir para que todas las filas, columnas y diagonales sumen lo mismo.</p>
+    <p>Haz clic en una celda y pulsa un número. Con la tecla de borrar puedes vaciar la celda seleccionada.</p>
+
+    <table>
+        <tr>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+        </tr>
+        <tr>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+        </tr>
+        <tr>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+            <td onclick="seleccionarCelda(event)"></td>
+        </tr>
+    </table>
+
+    <p>Tiempo: <span id="tiempo">0</span> segundos</p>
+    <p>Celdas restantes: <span id="restantes">9</span></p>
+    <p>Suma objetivo: <span id="objetivo">15</span></p>
+    <p id="sumas"></p>
+    <p>Intentos: <span id="intentos">0</span> | Intentos fallidos: <span id="fallidos">0</span></p>
+    <p id="mensaje"></p>
+
+    <button onclick="reiniciarJuego()">Nueva partida</button>
+    <button onclick="resolver()">Resolver</button>
+</body>
+</html>
