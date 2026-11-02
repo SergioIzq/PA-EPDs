@@ -24,7 +24,6 @@ html::before {
     transform: scale(1.05);
     z-index: -1;
 }
-
 body {
     font-family: system-ui, sans-serif;
     background: rgba(238, 242, 241, .94);
@@ -47,7 +46,6 @@ h1 {
     align-items: center;
     margin: 1rem 0;
 }
-
 .barra {
     flex: 1 1 200px;
     height: 14px;
@@ -100,7 +98,6 @@ button {
     color: #070606;
     border-color: #2e8b57;
 }
-
 .opcion.incorrecta {
     background: #c0392b;
     color: #fff;
@@ -116,28 +113,23 @@ button {
     justify-content: space-between;
     align-items: center;
 }
-
 .gravedad-Alta {
     color: #c0392b;
     font-weight: 600;
 }
-
 #reloj {
     font-size: 1.6rem;
     font-weight: 700;
 }
-
 #reloj.urgente {
     color: #c0392b;
     animation: parpadeo .6s infinite;
 }
-
 @keyframes parpadeo {
     50% {
         opacity: .25;
     }
 }
-
 #aviso {
     color: #c0392b;
     font-weight: 600;
@@ -197,7 +189,6 @@ button {
     margin-top: 0;
     font-size: 1.2rem;
 }
-
 #informe .fila {
     display: flex;
     justify-content: space-between;
@@ -205,7 +196,6 @@ button {
     padding: .4rem 0;
     border-bottom: 1px solid #e3e9e8;
 }
-
 #informe .fila:last-child {
     border-bottom: none;
     font-size: 1.1rem;
