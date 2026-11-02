@@ -1,0 +1,212 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 26 oct 2026, 20:39:44
+    Author     : Sandra
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* Capa fija con la imagen de fondo para que no se mueva al cambiar la altura de la página */
+html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("img/fondo2.jpg") center / cover no-repeat;
+    filter: blur(4px);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: rgba(238, 242, 241, .94);
+    border-radius: 10px;
+    color: #14262b;
+    max-width: 820px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    line-height: 1.5;
+}
+
+h1 {
+    margin-bottom: .25rem;
+}
+
+#marcadores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.barra {
+    flex: 1 1 200px;
+    height: 14px;
+    background: #fff;
+    border: 1px solid #b9c7c4;
+    border-radius: 7px;
+    overflow: hidden;/* recorta la barra interior para respetar las esquinas redondeadas */
+}
+
+#avance {
+    height: 100%;
+    width: 0;
+    background: #0f766e;
+    transition: width .4s;
+}
+
+#principal {
+    min-height: 520px;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    padding: .6rem 1rem;
+    border: 1px solid #0f766e;
+    background: #fff;
+    color: #14262b;
+    border-radius: 6px;
+    text-align: left;
+}
+
+#iniciar, #btn-nuevo {
+    background: #0f766e;
+    color: #fff;
+    text-align: center;
+}
+
+.opcion {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.opcion.resaltada {
+    background: #d6ece9;
+}
+
+.opcion.correcta {
+    background: #2e8b57;
+    color: #070606;
+    border-color: #2e8b57;
+}
+
+.opcion.incorrecta {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+}
+
+.opcion:disabled {
+    cursor: not-allowed;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gravedad-Alta {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+#reloj {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+#reloj.urgente {
+    color: #c0392b;
+    animation: parpadeo .6s infinite;
+}
+
+@keyframes parpadeo {
+    50% {
+        opacity: .25;
+    }
+}
+
+#aviso {
+    color: #c0392b;
+    font-weight: 600;
+    min-height: 1.5rem;
+}
+
+#explicacion {
+    background: #fff;
+    border-left: 5px solid #0f766e;
+    padding: .75rem 1rem;
+    margin-top: 1rem;
+}
+
+#explicacion.fallo {
+    border-color: #c0392b;
+}
+
+#explicacion h3 {
+    margin: 0 0 .5rem;
+}
+
+/* Historial */
+.tarjeta {
+    background: #fff;
+    border: 1px solid #b9c7c4;
+    border-radius: 6px;
+    padding: .6rem 1rem;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+}
+
+.tarjeta.correcta {
+    background: #e3f4ea;
+    border-left: 5px solid #2e8b57;
+}
+
+.tarjeta.incorrecta {
+    background: #fbe4e1;
+    border-left: 5px solid #c0392b;
+}
+
+.tarjeta.agotada {
+    background: #fff3d6;
+    border-left: 5px solid #d89b1d;
+}
+
+/* Informe final */
+#informe {
+    background: #fff;
+    border-top: 6px solid #0f766e;
+    border-bottom: 6px solid #0f766e;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#informe h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+#informe .fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .4rem 0;
+    border-bottom: 1px solid #e3e9e8;
+}
+
+#informe .fila:last-child {
+    border-bottom: none;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Operaciones de Ciberseguridad</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Centro de Operaciones de Ciberseguridad</h1>
+        <p>Eres analista de guardia del SOC. Tienes que resolver 5 incidencias, cada una en menos de 25 segundos. Los fallos penalizan y obtienes bonus por respuestas rápidas.</p>
+    </header>
+
+    <section id="marcadores">
+        <div>Puntuación: <strong id="puntos">0</strong></div>
+        <div>Incidencias resueltas: <strong id="resueltas">0/5</strong></div>
+        <div class="barra">
+            <div id="avance"></div>
+        </div>
+        <p id="porcentaje">0%</p>
+    </section>
+
+    <main id="principal">
+        <button id="iniciar">Iniciar turno</button>
+    </main>
+
+    <section>
+        <h2>Historial de actividad</h2>
+        <div id="historial"></div>
+    </section>
+
+    <script src="funcionalidad.js"></script>
+</body>
+</html>

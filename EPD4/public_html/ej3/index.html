@@ -1,0 +1,41 @@
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuadrado mágico</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>Cuadrado mágico</h1>
+  <p>Coloca los números del 1 al 9 sin repetir. Haz clic en una celda y pulsa una cifra (Retroceso borra).</p>
+
+  <div id="datos">
+    <span>Suma objetivo: <strong id="objetivo">15</strong></span>
+    <span>Celdas restantes: <strong id="restantes">9</strong></span>
+    <span>Intentos: <strong id="intentos">0</strong></span>
+    <span>Tiempo: <strong id="tiempo">0</strong> s</span>
+  </div>
+
+  <table id="tablero">
+    <tr><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td></tr>
+  </table>
+
+  <div id="aviso"></div>
+  <div id="pista"></div>
+  <div id="mensaje" hidden></div>
+
+  <div id="botones">
+    <button id="btn-nueva">Nueva partida</button>
+    <button id="btn-resolver">Resolver</button>
+  </div>
+
+  <script src="funcionalidad.js"></script>
+</body>
+</html>

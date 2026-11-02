@@ -1,0 +1,101 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 26 oct 2026, 22:14:23
+    Author     : Sandra
+*/
+
+html {
+    min-height: 100%;
+    background: radial-gradient(circle at 50% 20%, #2b4c7e 0%, #14213d 70%);
+    background-attachment: fixed;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    max-width: 440px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #f4f7fb;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    color: #1d2733;
+    text-align: center;
+}
+
+h1 { margin: 0 0 .25rem; font-size: 2rem; letter-spacing: 1px; }
+p  { margin: 0 0 1rem; font-size: .9rem; color: #4a5a6a; }
+
+#datos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+#datos span {
+    background: #14213d;
+    color: #fff;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    font-size: .85rem;
+}
+#datos strong { color: #ffd54a; }
+
+table {
+    border-collapse: separate;
+    border-spacing: 8px;
+    margin: 0 auto;
+    padding: 8px;
+    background: #14213d;
+    border-radius: 14px;
+}
+td {
+    width: 80px;
+    height: 80px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background: #fff;                 
+    border: 2px dotted #d33;          
+    border-radius: 10px;
+    transition: transform .12s, background .2s;
+}
+td:hover { transform: scale(1.06); }
+td.completa     { background: #e3e3e3; border: 2px solid #999; }
+td.seleccionada { background: #add8f7; border: 2px solid #2a78c2; }
+td.incompleta   { background: #ff9c9c; }
+td.dorada       { background: gold; border: 2px solid #b8860b; box-shadow: 0 0 14px gold; }
+
+#aviso  { color: #b3261e; font-weight: 600; min-height: 1.5rem; margin-top: .75rem; white-space: pre-line; }
+#pista  { color: #555; min-height: 1.5rem; font-size: .9rem; }
+#mensaje {
+    background: #fff8d6;
+    border: 2px solid #b8860b;
+    border-radius: 10px;
+    padding: .75rem;
+    margin: .75rem 0;
+    font-weight: 600;
+    white-space: pre-line;
+}
+
+#botones { display: flex; justify-content: center; gap: .75rem; margin-top: 1rem; }
+button {
+    font: inherit;
+    font-weight: 600;
+    padding: .6rem 1.2rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    color: #fff;
+    background: #2a78c2;
+    box-shadow: 0 3px 0 #1b4f82;
+    transition: transform .1s, box-shadow .1s;
+}
+button:hover  { transform: translateY(-1px); }
+button:active { transform: translateY(3px); box-shadow: none; }
+#btn-resolver { background: #e08a1e; box-shadow: 0 3px 0 #a05f10; }
