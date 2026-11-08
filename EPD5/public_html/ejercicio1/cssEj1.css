@@ -1,9 +1,48 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : 8 nov 2026, 13:33:04
-    Author     : Usuario
-*/
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #eceff1;
+}
 
+/*carcasa del semáforo que me ha hecho el claudio*/
+.carcasa {
+  display: inline-flex;
+  flex-direction: column; /*luces apiladas en vertical*/
+  gap: 15px; /*espacio entre las luces*/
+  padding: 20px;
+  background: #212121;
+  border-radius: 20px;
+}
+
+.luz {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/*con esto cambiamos el tamaño de las luces sin desplazar las demás. transform no afecta al flujo del documento*/
+.luz.zoom {
+  transform: scale(1.15);
+}
+
+.rojo { background: #e53935; }
+.amarillo { background: #fdd835; }
+.verde { background: #43a047; }
+
+#panel {
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  cursor: pointer;
+}
+
+#mensaje {
+  font-size: 1.5em;
+  font-weight: bold;
+}
