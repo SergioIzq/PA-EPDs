@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Simulador de semáforo</h1>
+    </header>
+
+    <main>
+        <section id="zona-semaforo">
+            <h2>Semáforo</h2>
+            <div id="semaforo">
+                <div id="luz-roja" class="luz roja"></div>
+                <div id="luz-amarilla" class="luz amarilla"></div>
+                <div id="luz-verde" class="luz verde"></div>
+            </div>
+        </section>
+
+        <section id="zona-control">
+            <h2>Panel de control</h2>
+            <div id="panel-control">
+                <button type="button" class="boton-rojo" data-luz="roja">Rojo</button>
+                <button type="button" class="boton-amarillo" data-luz="amarilla">Amarillo</button>
+                <button type="button" class="boton-verde" data-luz="verde">Verde</button>
+            </div>
+
+            <h2>Estado del tráfico</h2>
+            <p id="mensaje"></p>
+        </section>
+    </main>
+</body>
+</html>

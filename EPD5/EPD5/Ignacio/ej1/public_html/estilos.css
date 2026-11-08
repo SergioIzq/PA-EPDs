@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #eef1f5;
+    margin: 0;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding: 20px;
+}
+
+/* Carcasa del semáforo */
+#semaforo {
+    width: 130px;
+    padding: 15px 0;
+    background-color: #333;
+    border-radius: 25px;
+}
+
+.luz {
+    width: 90px;
+    height: 90px;
+    margin: 15px auto;
+    border-radius: 50%;
+    /* Solo se anima el tamaño, la opacidad la cambia jQuery */
+    transition: transform 0.3s;
+}
+
+.roja {
+    background-color: red;
+}
+
+.amarilla {
+    background-color: gold;
+}
+
+.verde {
+    background-color: limegreen;
+}
+
+/* Clase que pone jQuery al pasar el ratón por una luz */
+.zoom {
+    transform: scale(1.15);
+}
+
+#zona-control {
+    min-width: 280px;
+}
+
+#panel-control button {
+    padding: 10px 18px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-rojo {
+    background-color: red;
+    color: white;
+}
+
+.boton-amarillo {
+    background-color: gold;
+    color: black;
+}
+
+.boton-verde {
+    background-color: limegreen;
+    color: black;
+}
+
+#mensaje {
+    font-size: 22px;
+    font-weight: bold;
+}
