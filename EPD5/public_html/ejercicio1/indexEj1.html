@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Semáforo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Semáforo de tráfico</h1>
+
+    <section id="semaforo" aria-label="Semáforo">
+      <div class="carcasa">
+        <div id="luz-rojo" class="luz rojo"></div>
+        <div id="luz-amarillo" class="luz amarillo"></div>
+        <div id="luz-verde" class="luz verde"></div>
+      </div>
+    </section>
+
+    <section id="panel" aria-label="Panel de control">
+      <button type="button" class="btn rojo" data-color="rojo">Rojo</button>
+      <button type="button" class="btn amarillo" data-color="amarillo">Amarillo</button>
+      <button type="button" class="btn verde" data-color="verde">Verde</button>
+    </section>
+
+    <p id="mensaje" role="status"></p>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
