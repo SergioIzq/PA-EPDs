@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="UniForo 2026: jornadas de ponencias tecnol&oacute;gicas y foro de empleo de la Escuela Polit&eacute;cnica Superior (EPS) de la Universidad Pablo de Olavide.">
+        <title>UniForo 2026 &ndash; Inicio</title>
+        <style>
+            :root {
+                --azul: #1d3557;
+                --claro: #457b9d;
+                --oro: #e9c46a;
+                --rojo: #c1121f;
+                --verde: #2a9d8f;
+                --fondo: #f3ecd8;
+                --blanco: #ffffff;
+                --negro: #000000;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            html {
+                background: var(--fondo);
+                scroll-behavior: smooth;
+            }
+
+            body {
+                width: 960px;
+                margin: 20px auto;
+                font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--negro);
+                background: var(--blanco);
+                box-shadow: 0 0 25px rgba(0, 0, 0, .35);
+            }
+
+            body > header {
+                padding: 26px 30px;
+                background: var(--azul);
+                color: var(--blanco);
+                border-bottom: 6px solid var(--oro);
+            }
+
+            body > header h1 {
+                margin: 0;
+                font-size: 2.6rem;
+                line-height: 1.2;
+                letter-spacing: 2px;
+                color: var(--oro);
+                text-shadow: 2px 2px 0 var(--negro);
+            }
+
+            body > header p {
+                margin: 4px 0 0;
+                font-size: 1.1rem;
+                font-style: italic;
+                color: var(--blanco);
+            }
+
+            body > nav {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background: var(--azul);
+                border-bottom: 4px solid var(--oro);
+            }
+
+            body > nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            body > nav > ul::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            body > nav li {
+                position: relative;
+                float: left;
+            }
+
+            body > nav a {
+                display: block;
+                padding: 13px 12px;
+                font-size: .95rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            body > nav a:link,
+            body > nav a:visited {
+                color: var(--blanco);
+            }
+
+            body > nav a:hover,
+            body > nav a:focus {
+                background: var(--claro);
+                color: var(--blanco);
+                outline: none;
+            }
+
+            body > nav a:active {
+                background: var(--rojo);
+            }
+
+            body > nav a[aria-current="page"] {
+                background: var(--oro);
+                color: var(--azul);
+            }
+
+            body > nav strong {
+                color: inherit;
+            }
+
+            body > nav li ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 190px;
+                background: var(--azul);
+                border: 2px solid var(--oro);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, .4);
+            }
+
+            body > nav li li {
+                float: none;
+            }
+
+            body > nav li li a {
+                font-weight: normal;
+                border-bottom: 1px solid var(--claro);
+            }
+
+            body > nav li li:last-child a {
+                border-bottom: 0;
+            }
+
+            body > nav li:hover > ul,
+            body > nav li:focus-within > ul {
+                display: block;
+            }
+
+            h2 {
+                margin: 0 0 14px;
+                padding-bottom: 6px;
+                font-size: 1.7rem;
+                line-height: 1.25;
+                color: var(--azul);
+                border-bottom: 3px solid var(--oro);
+            }
+
+            h3 {
+                margin: 22px 0 8px;
+                font-size: 1.35rem;
+                color: var(--claro);
+            }
+
+            p {
+                margin: 0 0 12px;
+            }
+
+            a {
+                font-weight: 600;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+
+            a:link {
+                color: var(--claro);
+            }
+
+            a:visited {
+                color: var(--azul);
+            }
+
+            a:hover {
+                color: var(--rojo);
+                text-decoration-thickness: 2px;
+            }
+
+            a:focus {
+                outline: 3px solid var(--oro);
+                outline-offset: 2px;
+            }
+
+            a:active {
+                color: var(--verde);
+            }
+
+            a[href^="http"]::after {
+                content: " \2197";
+                font-size: .8em;
+            }
+
+            h3 a {
+                text-decoration: none;
+            }
+
+            strong {
+                color: var(--azul);
+            }
+
+            mark {
+                padding: 0 4px;
+                background: var(--oro);
+                color: var(--negro);
+                border-radius: 3px;
+            }
+
+            time {
+                border-bottom: 1px dotted var(--claro);
+                font-variant-numeric: tabular-nums;
+            }
+
+            abbr[title] {
+                text-decoration: underline dotted var(--claro);
+                cursor: help;
+            }
+
+            ul {
+                padding-left: 26px;
+                list-style: square;
+            }
+
+            li {
+                margin: 4px 0;
+            }
+
+            li::marker {
+                font-weight: bold;
+                color: var(--rojo);
+            }
+
+            li li:first-child {
+                margin-top: 6px;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            picture {
+                display: block;
+            }
+
+            figure {
+                margin: 18px 0;
+                padding: 10px;
+                background: var(--fondo);
+                border: 1px solid var(--claro);
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+            }
+
+            figure img {
+                border: 4px solid var(--blanco);
+                border-radius: 6px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+                vertical-align: middle;
+            }
+
+            figure a:hover img,
+            figure a:focus img {
+                border-color: var(--oro);
+            }
+
+            figcaption {
+                margin-top: 8px;
+                font-size: .85rem;
+                font-style: italic;
+                color: var(--azul);
+            }
+
+            main {
+                padding: 26px 32px 14px;
+            }
+
+            main section {
+                margin-bottom: 30px;
+            }
+
+            main section:last-of-type {
+                margin-bottom: 0;
+            }
+
+            main section:target {
+                background: var(--fondo);
+                outline: 3px solid var(--oro);
+            }
+
+            main article {
+                margin: 18px 0;
+                padding: 14px 20px;
+                background: var(--fondo);
+                border: 1px solid var(--claro);
+                border-left: 6px solid var(--verde);
+                border-radius: 8px;
+                box-shadow: 3px 3px 0 rgba(29, 53, 87, .25);
+            }
+
+            main article > h3:first-child {
+                margin-top: 0;
+            }
+
+            article > header {
+                margin-bottom: 12px;
+                border-bottom: 1px dashed var(--claro);
+            }
+
+            article > header h2,
+            article > header h3 {
+                margin: 0 0 4px;
+                border-bottom: 0;
+            }
+
+            article > header p {
+                font-size: .9rem;
+                color: var(--claro);
+            }
+
+            article nav {
+                margin: 16px 0;
+                padding: 10px 20px;
+                background: var(--blanco);
+                border: 2px solid var(--claro);
+                border-radius: 8px;
+            }
+
+            article nav h3 {
+                margin-top: 0;
+            }
+
+            article footer {
+                margin-top: 16px;
+                padding-top: 10px;
+                border-top: 2px solid var(--claro);
+                font-size: .85rem;
+                color: var(--azul);
+            }
+
+            main aside {
+                margin: 20px 0;
+                padding: 14px 18px;
+                background: var(--fondo);
+                border: 2px dashed var(--claro);
+                border-radius: 8px;
+            }
+
+            main aside h2 {
+                font-size: 1.25rem;
+            }
+
+            progress,
+            meter {
+                width: 100%;
+                max-width: 320px;
+                height: 22px;
+                vertical-align: middle;
+                accent-color: var(--verde);
+            }
+
+            dialog {
+                position: static;
+                display: block;
+                width: auto;
+                margin: 0 0 22px;
+                padding: 14px 20px;
+                background: var(--fondo);
+                color: var(--negro);
+                border: 3px solid var(--oro);
+                border-left-width: 10px;
+                border-radius: 8px;
+            }
+
+            dialog h2 {
+                font-size: 1.3rem;
+                color: var(--rojo);
+            }
+
+            body > footer {
+                clear: both;
+                padding: 20px 30px;
+                font-size: .9rem;
+                text-align: center;
+                background: var(--azul);
+                color: var(--blanco);
+                border-top: 6px solid var(--oro);
+            }
+
+            body > footer p {
+                margin: 0 0 6px;
+            }
+
+            body > footer address {
+                font-style: normal;
+            }
+
+            body > footer a:link,
+            body > footer a:visited {
+                color: var(--oro);
+            }
+
+            body > footer a:hover {
+                color: var(--blanco);
+            }
+
+            body > footer abbr {
+                color: var(--oro);
+            }
+
+            body > header {
+                overflow: hidden;
+            }
+
+            body > header svg {
+                float: left;
+                margin-right: 20px;
+            }
+
+            body > header p {
+                overflow: hidden;
+            }
+
+            hgroup {
+                margin: 0;
+            }
+
+            main {
+                padding: 24px 30px;
+            }
+
+            main::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            main > div {
+                float: left;
+                width: 640px;
+            }
+
+            main > aside {
+                float: right;
+                width: 240px;
+                margin: 0;
+                padding: 18px;
+                background: var(--azul);
+                color: var(--blanco);
+                border: 0;
+                border-radius: 10px;
+            }
+
+            main > aside h2 {
+                font-size: 1.3rem;
+                color: var(--oro);
+                border-bottom-color: var(--claro);
+            }
+
+            main > aside ul {
+                padding: 0;
+                list-style: none;
+            }
+
+            main > aside li {
+                margin: 0;
+                padding: 6px 0;
+                border-bottom: 1px solid var(--claro);
+            }
+
+            main > aside li:last-child {
+                border-bottom: 0;
+            }
+
+            main > aside li strong {
+                font-size: 1.6rem;
+                color: var(--oro);
+            }
+
+            #bienvenida::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            #bienvenida figure {
+                float: left;
+                width: 48%;
+                margin: 12px 1%;
+            }
+
+            #que-encontraras article:hover {
+                border-left-color: var(--rojo);
+                box-shadow: 5px 5px 0 rgba(29, 53, 87, .35);
+            }
+
+            body > footer {
+                padding: 24px 0 16px;
+            }
+
+            body > footer nav::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            body > footer nav section {
+                float: left;
+                width: 33.33%;
+                margin: 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            body > footer nav h2 {
+                font-size: 1.1rem;
+                color: var(--oro);
+                border-bottom: 2px solid var(--claro);
+            }
+
+            body > footer nav ul {
+                padding: 0;
+                list-style: none;
+            }
+
+            body > footer nav li::marker {
+                color: var(--oro);
+            }
+
+            body > footer nav ~ p,
+            body > footer nav ~ address {
+                clear: both;
+                margin: 0;
+                padding: 12px 30px 0;
+            }
+
+            body > footer nav ~ p:last-child {
+                padding-bottom: 6px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <svg width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="titulo-logo">
+                <title id="titulo-logo">Logotipo de UniForo 2026</title>
+                <circle cx="32" cy="32" r="29" fill="#1d3557" stroke="#e9c46a" stroke-width="4"/>
+                <path d="M18 24h28M32 24v20" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <text x="32" y="56" font-size="9" text-anchor="middle" fill="#e9c46a">UNIFORO</text>
+            </svg>
+            <hgroup>
+                <h1>UniForo 2026</h1>
+            </hgroup>
+            <p>Jornadas de Ponencias y Foro de Empleo de la Escuela Polit&eacute;cnica Superior (EPS) de la Universidad Pablo de Olavide</p>
+        </header>
+
+        <!-- NAV -->
+        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+            <ul>
+                <li><a href="index.html" aria-current="page"><strong>Inicio</strong></a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="actividades.html">Actividades</a>
+                    <ul>
+                        <li><a href="actividades/talleres.html">Talleres</a></li>
+                        <li><a href="actividades/deportes.html">Deportes</a></li>
+                        <li><a href="actividades/cultura.html">Cultura</a></li>
+                    </ul>
+                </li>
+                <li><a href="ponentes.html">Ponentes</a>
+                    <ul>
+                        <li><a href="ponentes/ponente1.html">Dra. Luc&iacute;a Robles</a></li>
+                        <li><a href="ponentes/ponente2.html">Dra. Yuki Tanaka</a></li>
+                    </ul>
+                </li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="noticias.html">Noticias</a>
+                    <ul>
+                        <li><a href="noticias/noticia1.html">El Consorcio W3C</a></li>
+                        <li><a href="noticias/noticia2.html">Tim Berners-Lee</a></li>
+                    </ul>
+                </li>
+                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Acceso</a></li>
+            </ul>
+        </nav>
+        <!-- /NAV -->
+
+        <main>
+            <dialog open aria-labelledby="titulo-aviso">
+                <h2 id="titulo-aviso">Aviso importante</h2>
+                <p>
+                    El aforo del aula magna es limitado. Las ponencias marcadas con reserva previa en el
+                    <a href="programa.html">programa</a> exigen confirmar la plaza al rellenar el
+                    <a href="inscripcion.html">formulario de inscripci&oacute;n</a>.
+                </p>
+            </dialog>
+
+            <div>
+                <section id="bienvenida">
+                    <h2>Bienvenida</h2>
+                    <p>
+                        Del <time datetime="2026-11-18">18</time> al <time datetime="2026-11-20">20 de noviembre de 2026</time>
+                        la Escuela Polit&eacute;cnica Superior de la Universidad Pablo de Olavide abre sus puertas a <strong>UniForo</strong>, un encuentro en el que estudiantes,
+                        investigadores y empresas comparten tres d&iacute;as de conferencias, talleres pr&aacute;cticos y
+                        oportunidades reales de empleo.
+                    </p>
+                    <figure>
+                        <a href="img/aula.jpg">
+                            <picture>
+                                <source media="(min-width: 1200px)" srcset="img/aula.jpg">
+                                <img src="img/min/aula.jpg" width="320" height="240" alt="Aula magna vac&iacute;a con filas de butacas">
+                            </picture>
+                        </a>
+                        <figcaption>El aula magna acoger&aacute; las ponencias principales. Pulse para ampliar.
+                            Foto: Garden Sprite (CC0), Wikimedia Commons.</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="img/feria.jpg"><img src="img/min/feria.jpg" width="320" height="214" alt="Estudiantes conversando con empresas en una feria de empleo"></a>
+                        <figcaption>La zona de empleo reunir&aacute; a m&aacute;s de 40 empresas. Foto: Savannah River Site (dominio p&uacute;blico).</figcaption>
+                    </figure>
+                </section>
+
+                <section id="que-encontraras">
+                    <h2>&iquest;Qu&eacute; encontrar&aacute;s en UniForo?</h2>
+                    <article>
+                        <h3>Ponencias</h3>
+                        <p>Expertos en inteligencia artificial, ciberseguridad y desarrollo web presentar&aacute;n las
+                            tendencias que marcar&aacute;n la pr&oacute;xima d&eacute;cada. Consulta la lista de
+                            <a href="ponentes.html">ponentes</a>.</p>
+                    </article>
+                    <article>
+                        <h3>Foro de empleo</h3>
+                        <p>Entrevistas r&aacute;pidas, revisi&oacute;n de CV y un espacio de networking con empresas
+                            tecnol&oacute;gicas de la regi&oacute;n. Las plazas son limitadas: <a href="inscripcion.html">inscr&iacute;bete</a>.</p>
+                    </article>
+                    <article>
+                        <h3>Actividades paralelas</h3>
+                        <p>Talleres, torneos deportivos y una programaci&oacute;n cultural para que el evento sea tambi&eacute;n
+                            un punto de encuentro. M&aacute;s informaci&oacute;n en <a href="actividades.html">actividades</a>.</p>
+                    </article>
+                </section>
+            </div>
+
+            <aside>
+                <h2>En cifras</h2>
+                <ul>
+                    <li><strong>3</strong> d&iacute;as de evento</li>
+                    <li><strong>24</strong> ponencias</li>
+                    <li><strong>12</strong> talleres</li>
+                    <li><strong>40+</strong> empresas</li>
+                </ul>
+                <p>Plazas ocupadas:</p>
+                <meter min="0" max="600" low="300" high="500" optimum="200" value="412">412 de 600</meter>
+                <p>412 de 600 plazas reservadas.</p>
+                <h2>&Uacute;ltima hora</h2>
+                <p><mark>Ampliado</mark> el plazo de inscripci&oacute;n hasta el
+                    <time datetime="2026-11-10">10 de noviembre</time>.</p>
+            </aside>
+        </main>
+
+        <footer>
+            <nav aria-label="Men&uacute; inferior">
+                <section>
+                    <h2>El evento</h2>
+                    <ul>
+                        <li><a href="programa.html">Programa</a></li>
+                        <li><a href="ponentes.html">Ponentes</a></li>
+                        <li><a href="actividades.html">Actividades</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Participa</h2>
+                    <ul>
+                        <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                        <li><a href="asociaciones.html">Asociaciones</a></li>
+                        <li><a href="login.html">Acceso</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Informaci&oacute;n</h2>
+                    <ul>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="multimedia.html">Multimedia</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </section>
+            </nav>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+            <address>Universidad Pablo de Olavide, Ctra. de Utrera, km&nbsp;1, 41013 Sevilla &middot; <a href="mailto:info@uniforo.example.org">info@uniforo.example.org</a></address>
+            <p><a href="#">&uarr; Volver arriba</a></p>
+        </footer>
+    </body>
+</html>

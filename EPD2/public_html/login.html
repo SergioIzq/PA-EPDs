@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Acceso</title>
+        <style>
+            :root {
+                --azul: #1d3557;
+                --claro: #457b9d;
+                --oro: #e9c46a;
+                --rojo: #c1121f;
+                --verde: #2a9d8f;
+                --fondo: #f3ecd8;
+                --blanco: #ffffff;
+                --negro: #000000;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            html {
+                background: var(--fondo);
+                scroll-behavior: smooth;
+            }
+
+            body {
+                width: 960px;
+                margin: 20px auto;
+                font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--negro);
+                background: var(--blanco);
+                box-shadow: 0 0 25px rgba(0, 0, 0, .35);
+            }
+
+            body > header {
+                padding: 26px 30px;
+                background: var(--azul);
+                color: var(--blanco);
+                border-bottom: 6px solid var(--oro);
+            }
+
+            body > header h1 {
+                margin: 0;
+                font-size: 2.6rem;
+                line-height: 1.2;
+                letter-spacing: 2px;
+                color: var(--oro);
+                text-shadow: 2px 2px 0 var(--negro);
+            }
+
+            body > header p {
+                margin: 4px 0 0;
+                font-size: 1.1rem;
+                font-style: italic;
+                color: var(--blanco);
+            }
+
+            body > nav {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background: var(--azul);
+                border-bottom: 4px solid var(--oro);
+            }
+
+            body > nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            body > nav > ul::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            body > nav li {
+                position: relative;
+                float: left;
+            }
+
+            body > nav a {
+                display: block;
+                padding: 13px 12px;
+                font-size: .95rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            body > nav a:link,
+            body > nav a:visited {
+                color: var(--blanco);
+            }
+
+            body > nav a:hover,
+            body > nav a:focus {
+                background: var(--claro);
+                color: var(--blanco);
+                outline: none;
+            }
+
+            body > nav a:active {
+                background: var(--rojo);
+            }
+
+            body > nav a[aria-current="page"] {
+                background: var(--oro);
+                color: var(--azul);
+            }
+
+            body > nav strong {
+                color: inherit;
+            }
+
+            h2 {
+                margin: 0 0 14px;
+                padding-bottom: 6px;
+                font-size: 1.7rem;
+                line-height: 1.25;
+                color: var(--azul);
+                border-bottom: 3px solid var(--oro);
+            }
+
+            p {
+                margin: 0 0 12px;
+            }
+
+            a {
+                font-weight: 600;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+
+            a:link {
+                color: var(--claro);
+            }
+
+            a:visited {
+                color: var(--azul);
+            }
+
+            a:hover {
+                color: var(--rojo);
+                text-decoration-thickness: 2px;
+            }
+
+            a:focus {
+                outline: 3px solid var(--oro);
+                outline-offset: 2px;
+            }
+
+            a:active {
+                color: var(--verde);
+            }
+
+            a[href^="http"]::after {
+                content: " \2197";
+                font-size: .8em;
+            }
+
+            strong {
+                color: var(--azul);
+            }
+
+            abbr[title] {
+                text-decoration: underline dotted var(--claro);
+                cursor: help;
+            }
+
+            main {
+                padding: 26px 32px 14px;
+            }
+
+            main section {
+                margin-bottom: 30px;
+            }
+
+            main section:last-of-type {
+                margin-bottom: 0;
+            }
+
+            main section:target {
+                background: var(--fondo);
+                outline: 3px solid var(--oro);
+            }
+
+            form {
+                margin: 16px 0;
+            }
+
+            form p {
+                margin: 0 0 14px;
+            }
+
+            fieldset {
+                margin: 18px 0;
+                padding: 14px 18px;
+                background: var(--fondo);
+                border: 2px solid var(--claro);
+                border-radius: 10px;
+            }
+
+            legend {
+                padding: 4px 14px;
+                font-weight: bold;
+                background: var(--azul);
+                color: var(--oro);
+                border-radius: 14px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 4px;
+                font-weight: bold;
+                color: var(--azul);
+            }
+
+            input[type="checkbox"] + label,
+            input[type="radio"] + label {
+                display: inline;
+                margin-right: 14px;
+                font-weight: normal;
+            }
+
+            input:checked + label {
+                font-weight: bold;
+                color: var(--rojo);
+            }
+
+            input,
+            select,
+            textarea {
+                max-width: 100%;
+                padding: 8px 10px;
+                font: inherit;
+                color: var(--negro);
+                background: var(--blanco);
+                border: 2px solid var(--claro);
+                border-radius: 6px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="search"],
+            input[type="number"],
+            select,
+            textarea {
+                width: 100%;
+                max-width: 440px;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                margin-right: 6px;
+                padding: 0;
+                vertical-align: middle;
+                accent-color: var(--azul);
+            }
+
+            input[type="range"] {
+                padding: 0;
+                border: 0;
+                accent-color: var(--verde);
+            }
+
+            input[type="color"] {
+                width: 70px;
+                height: 40px;
+                padding: 2px;
+            }
+
+            input[type="file"] {
+                border-style: dashed;
+            }
+
+            input[readonly] {
+                background: var(--fondo);
+                border-style: dotted;
+            }
+
+            input:required,
+            select:required,
+            textarea:required {
+                border-left: 6px solid var(--rojo);
+            }
+
+            input:hover,
+            select:hover,
+            textarea:hover {
+                border-color: var(--azul);
+            }
+
+            input:focus,
+            select:focus,
+            textarea:focus {
+                outline: none;
+                background: var(--fondo);
+                border-color: var(--oro);
+                box-shadow: 0 0 0 3px var(--claro);
+            }
+
+            input:disabled,
+            select:disabled,
+            textarea:disabled {
+                opacity: .55;
+                border-style: dashed;
+                cursor: not-allowed;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                font-style: italic;
+                color: var(--claro);
+            }
+
+            button,
+            input[type="submit"],
+            input[type="reset"] {
+                padding: 10px 24px;
+                font: inherit;
+                font-weight: bold;
+                color: var(--blanco);
+                background: var(--azul);
+                border: 2px solid var(--azul);
+                border-radius: 24px;
+                cursor: pointer;
+                transition: background .2s, transform .1s;
+            }
+
+            button:hover,
+            input[type="submit"]:hover,
+            input[type="reset"]:hover {
+                background: var(--claro);
+                border-color: var(--claro);
+            }
+
+            button:focus,
+            input[type="submit"]:focus,
+            input[type="reset"]:focus {
+                outline: 3px solid var(--oro);
+                outline-offset: 2px;
+            }
+
+            button:active,
+            input[type="submit"]:active,
+            input[type="reset"]:active {
+                background: var(--rojo);
+                border-color: var(--rojo);
+                transform: translateY(2px);
+            }
+
+            button:disabled {
+                opacity: .5;
+                cursor: not-allowed;
+            }
+
+            button[type="reset"],
+            input[type="reset"] {
+                background: var(--rojo);
+                border-color: var(--rojo);
+            }
+
+            button[formnovalidate] {
+                background: var(--verde);
+                border-color: var(--verde);
+                color: var(--negro);
+            }
+
+            details {
+                margin: 16px 0;
+                padding: 10px 16px;
+                background: var(--fondo);
+                border: 2px solid var(--claro);
+                border-radius: 8px;
+            }
+
+            details[open] {
+                border-color: var(--verde);
+            }
+
+            summary {
+                font-weight: bold;
+                color: var(--azul);
+                cursor: pointer;
+            }
+
+            summary:hover {
+                color: var(--rojo);
+            }
+
+            details[open] > summary {
+                margin-bottom: 10px;
+                border-bottom: 1px solid var(--claro);
+            }
+
+            body > footer {
+                clear: both;
+                padding: 20px 30px;
+                font-size: .9rem;
+                text-align: center;
+                background: var(--azul);
+                color: var(--blanco);
+                border-top: 6px solid var(--oro);
+            }
+
+            body > footer p {
+                margin: 0 0 6px;
+            }
+
+            body > footer a:link,
+            body > footer a:visited {
+                color: var(--oro);
+            }
+
+            body > footer a:hover {
+                color: var(--blanco);
+            }
+
+            body > footer abbr {
+                color: var(--oro);
+            }
+
+            main {
+                width: 480px;
+                margin: 0 auto;
+                padding: 36px 0;
+            }
+
+            main section {
+                padding: 24px 28px;
+                background: var(--fondo);
+                border: 2px solid var(--claro);
+                border-top: 6px solid var(--oro);
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+            }
+
+            main section h2 {
+                text-align: center;
+            }
+
+            main section fieldset {
+                background: var(--blanco);
+            }
+
+            main section p:last-child {
+                margin-bottom: 0;
+            }
+
+            body > footer p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Zona privada de participantes</p>
+        </header>
+
+        <!-- NAV -->
+        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="ponentes.html">Ponentes</a></li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html">Multimedia</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html" aria-current="page"><strong>Acceso</strong></a></li>
+            </ul>
+        </nav>
+        <!-- /NAV -->
+
+        <main>
+            <section>
+                <h2>Iniciar sesi&oacute;n</h2>
+                <p>Accede para descargar tu credencial, consultar tus talleres y ver tus citas con empresas.</p>
+                <form action="login.html" method="post">
+                    <fieldset>
+                        <legend>Credenciales</legend>
+                        <p>
+                            <label for="usuario">Correo electr&oacute;nico</label>
+                            <input type="email" id="usuario" name="usuario" required autofocus autocomplete="email" placeholder="usuario@dominio.es">
+                        </p>
+                        <p>
+                            <label for="clave">Contrase&ntilde;a</label>
+                            <input type="password" id="clave" name="clave" required minlength="8" autocomplete="current-password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   title="Al menos 8 caracteres, con may&uacute;sculas, min&uacute;sculas y n&uacute;meros">
+                        </p>
+                        <p>
+                            <input type="checkbox" id="recordar" name="recordar">
+                            <label for="recordar">Recordarme en este equipo</label>
+                        </p>
+                        <p>
+                            <button type="submit">Entrar</button>
+                        </p>
+                    </fieldset>
+                </form>
+                <p>&iquest;A&uacute;n no tienes cuenta? Se crea autom&aacute;ticamente al completar la <a href="inscripcion.html">inscripci&oacute;n</a>.</p>
+            </section>
+
+            <details>
+                <summary>&iquest;Has olvidado tu contrase&ntilde;a?</summary>
+                <form action="login.html" method="post">
+                    <p>
+                        <label for="recuperar">Introduce tu correo y te enviaremos un enlace</label>
+                        <input type="email" id="recuperar" name="recuperar" required>
+                        <button type="submit">Enviar enlace</button>
+                    </p>
+                </form>
+            </details>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+        </footer>
+    </body>
+</html>

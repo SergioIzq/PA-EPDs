@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UniForo 2026 &ndash; Multimedia</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class="dos-columnas">
+        <header>
+            <h1>UniForo 2026</h1>
+            <p>Galer&iacute;a multimedia</p>
+        </header>
+
+        <!-- NAV -->
+        <nav aria-label="Men&uacute; de navegaci&oacute;n">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="ponentes.html">Ponentes</a></li>
+                <li><a href="asociaciones.html">Asociaciones</a></li>
+                <li><a href="multimedia.html" aria-current="page"><strong>Multimedia</strong></a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="inscripcion.html">Inscripci&oacute;n</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Acceso</a></li>
+            </ul>
+        </nav>
+        <!-- /NAV -->
+
+        <main>
+            <p>Saltar a:</p>
+            <menu>
+                <li><a href="#video">V&iacute;deo</a></li>
+                <li><a href="#audio">Audio</a></li>
+                <li><a href="#fotos">Fotograf&iacute;as</a></li>
+            </menu>
+
+            <section id="video">
+                <h2>V&iacute;deo promocional</h2>
+                <figure>
+                    <video controls width="640" height="360" preload="metadata">
+                        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+                        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                        <track kind="subtitles" src="media/subtitulos.vtt" srclang="es" label="Espa&ntilde;ol" default>
+                        Tu navegador no soporta la etiqueta <code>video</code>.
+                        <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">Descarga el v&iacute;deo</a>.
+                    </video>
+                    <figcaption>V&iacute;deo de muestra (CC0, MDN Web Docs) con subt&iacute;tulos en espa&ntilde;ol.</figcaption>
+                </figure>
+            </section>
+
+            <section id="audio">
+                <h2>Audio: la voz del creador de la Web</h2>
+                <figure>
+                    <audio controls preload="none">
+                        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/29/Tim_Berners-Lee_-_The_New_Elizabethans_-_29_August_2012.flac/Tim_Berners-Lee_-_The_New_Elizabethans_-_29_August_2012.flac.mp3" type="audio/mpeg">
+                        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/29/Tim_Berners-Lee_-_The_New_Elizabethans_-_29_August_2012.flac/Tim_Berners-Lee_-_The_New_Elizabethans_-_29_August_2012.flac.ogg" type="audio/ogg">
+                        Tu navegador no soporta la etiqueta <code>audio</code>.
+                    </audio>
+                    <figcaption>Tim Berners-Lee en el programa &laquo;The New Elizabethans&raquo; de BBC Radio&nbsp;4
+                        (<time datetime="2012-08-29">29 de agosto de 2012</time>). CC BY 3.0, Wikimedia Commons.
+                        Puedes leer m&aacute;s sobre &eacute;l en la secci&oacute;n de <a href="noticias.html">noticias</a>.</figcaption>
+                </figure>
+            </section>
+
+            <section id="fotos">
+                <h2>Fotograf&iacute;as</h2>
+                <p>Pulsa sobre cualquier miniatura para verla a tama&ntilde;o completo.</p>
+                <figure>
+                    <a href="img/aula.jpg"><img src="img/min/aula.jpg" width="320" height="240" alt="Aula magna"></a>
+                    <figcaption>Aula magna. Garden Sprite (CC0).</figcaption>
+                </figure>
+                <figure>
+                    <a href="img/hackathon.jpg"><img src="img/min/hackathon.jpg" width="320" height="214" alt="Hackat&oacute;n"></a>
+                    <figcaption>Hackat&oacute;n. Ariel Elinson (CC BY-SA 4.0).</figcaption>
+                </figure>
+                <figure>
+                    <a href="img/futbol.jpg"><img src="img/min/futbol.jpg" width="320" height="181" alt="F&uacute;tbol"></a>
+                    <figcaption>Torneo deportivo. &#32435;&#29926;&#25289;&#30340;&#20136;&#21033; (CC BY-SA 4.0).</figcaption>
+                </figure>
+                <figure>
+                    <a href="img/danza.jpg"><img src="img/min/danza.jpg" width="320" height="213" alt="Danza"></a>
+                    <figcaption>Muestra de danza. Virtual-Pano (CC BY-SA 4.0).</figcaption>
+                </figure>
+                <figure>
+                    <a href="img/biblioteca.jpg"><img src="img/min/biblioteca.jpg" width="320" height="240" alt="Biblioteca"></a>
+                    <figcaption>Biblioteca. Dr. Marcus Gossler (CC BY-SA 3.0).</figcaption>
+                </figure>
+                <figure>
+                    <a href="img/auditorio.jpg"><img src="img/min/auditorio.jpg" width="320" height="200" alt="Auditorio"></a>
+                    <figcaption>Auditorio. Andrew Jameson (CC BY-SA 3.0).</figcaption>
+                </figure>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 UniForo &middot; Universidad Pablo de Olavide &ndash; Escuela Polit&eacute;cnica Superior (<abbr title="Escuela Polit&eacute;cnica Superior">EPS</abbr>).</p>
+        </footer>
+    </body>
+</html>
