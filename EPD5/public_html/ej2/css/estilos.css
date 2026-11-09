@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: 30px auto;
+    background: #7b2d9b url("../img/fondo.png") center / cover no-repeat fixed;
+}
+
+.campo {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.error {
+    display: none;
+    color: #b00020;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+#panel-resumen {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#formulario-reserva, #panel-resumen {
+    background: #fff;
+    padding: 28px;
+    margin-top: 25px;
+    border-radius: 16px;
+    border-top: 6px solid #e09a00;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .45);
+}
+
+input[type="text"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color .2s, box-shadow .2s;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #7b2d9b;
+    box-shadow: 0 0 0 4px rgba(123, 45, 155, .2);
+}
+
+input[type="checkbox"] {
+    accent-color: #7b2d9b;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(90deg, #7b2d9b, #e09a00);
+    box-shadow: 0 6px 15px rgba(123, 45, 155, .4);
+    transition: transform .2s, box-shadow .2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 22px rgba(123, 45, 155, .55);
+}
+
+/* Calendario */
+.ui-datepicker .ui-datepicker-header {
+    background: linear-gradient(90deg, #7b2d9b, #e09a00);
+    border: none;
+    color: #fff;
+}
+
+.ui-datepicker .ui-state-active {
+    background: #7b2d9b;
+    border-color: #7b2d9b;
+    color: #fff;
+}
