@@ -1,0 +1,29 @@
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #eceff1;
+}
+
+/* Cuadro con las medidas de carga (se rellena con jQuery) */
+#medidas {
+  position: fixed;          /* siempre visible al hacer scroll */
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: #212121;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* Cada foto ocupa 600x400 para que la galería sea larga y haya
+   imágenes fuera de la pantalla inicial (necesario para ver el efecto
+   de la carga perezosa). Las fotos reales son de 2000x1300:
+   dimensiones desproporcionadas para lo que se muestra */
+.foto {
+  display: block;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto 20px;
+  background: #cfd8dc;      /* color de fondo mientras no se carga */
+}
