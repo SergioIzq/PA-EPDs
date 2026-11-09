@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2 - Reserva de entradas del festival</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <p class="etiqueta">5 días · 5 escenarios</p>
+        <h1>Festival de Música</h1>
+        <p>Reserva tus entradas en menos de un minuto</p>
+    </header>
+
+    <main>
+        <section id="formulario-reserva">
+            <h2>Datos de la reserva</h2>
+            <form id="form-reserva" novalidate>
+                <div class="campo">
+                    <label for="nombre">Nombre y apellidos</label>
+                    <input type="text" id="nombre" name="nombre" autocomplete="name">
+                    <div class="error" id="error-nombre"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email">
+                    <div class="error" id="error-email"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="entradas">Número de entradas (1-5)</label>
+                    <input type="number" id="entradas" name="entradas" min="1" max="5" step="1">
+                    <div class="error" id="error-entradas"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="fecha">Fecha de asistencia (dd/mm/aaaa)</label>
+                    <input type="text" id="fecha" name="fecha" autocomplete="off" placeholder="dd/mm/aaaa">
+                    <div class="error" id="error-fecha"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="tipo">Tipo de entrada</label>
+                    <select id="tipo" name="tipo">
+                        <option value="" selected>Selecciona un tipo de entrada</option>
+                        <option value="general">General</option>
+                        <option value="premium">Premium</option>
+                        <option value="estudiante">Estudiante</option>
+                    </select>
+                    <div class="error" id="error-tipo"></div>
+                </div>
+
+                <div class="campo campo-check">
+                    <input type="checkbox" id="condiciones" name="condiciones">
+                    <label for="condiciones">Acepto las condiciones de la reserva</label>
+                    <div class="error" id="error-condiciones"></div>
+                </div>
+
+                <button type="submit" id="confirmar">Confirmar reserva</button>
+            </form>
+        </section>
+
+        <section id="panel-resumen">
+            <h2>Resumen de la reserva</h2>
+            <p class="confirmado">✔ Reserva confirmada</p>
+            <dl>
+                <dt>Titular</dt>
+                <dd id="resumen-nombre"></dd>
+                <dt>Email de contacto</dt>
+                <dd id="resumen-email"></dd>
+                <dt>Fecha de asistencia</dt>
+                <dd id="resumen-fecha"></dd>
+                <dt>Tipo de entrada</dt>
+                <dd id="resumen-tipo"></dd>
+                <dt>Número de entradas</dt>
+                <dd id="resumen-entradas"></dd>
+            </dl>
+            <button type="button" id="modificar">Modificar reserva</button>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <script src="js/reserva.js"></script>
+</body>
+</html>

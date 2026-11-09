@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugin SportValidator - Validación Deportiva</title>
+    <style>
+        /* ---------- Diseño general de la página ---------- */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 16px;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1d2733;
+            background:
+                linear-gradient(160deg, rgba(10, 61, 98, 0.92), rgba(16, 133, 108, 0.88)),
+                repeating-linear-gradient(45deg, #0a3d62 0 20px, #0c4a75 20px 40px);
+            background-attachment: fixed;
+        }
+
+        .tarjeta {
+            max-width: 560px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 18px;
+            background-color: #fff;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .cabecera {
+            padding: 28px 32px 24px;
+            color: #fff;
+            background: linear-gradient(120deg, #ff6b35, #f7931e);
+        }
+
+        .cabecera .icono {
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        h1 {
+            margin: 10px 0 6px;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .cabecera p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        form {
+            padding: 12px 32px 32px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3a4756;
+        }
+
+        .form-control {
+            font: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.2);
+        }
+
+        /* ---------- Estilos del enunciado ---------- */
+        .form-group { margin: 15px 0; }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Estilos que aplicará el plugin */
+        .sport-valid {
+            border-color: #28a745;
+            background-color: #f8fff9;
+        }
+
+        .sport-invalid {
+            border-color: #dc3545;
+            background-color: #fff8f8;
+        }
+
+        .sport-pending {
+            border-color: #ffc107;
+            background-color: #fffdf5;
+        }
+
+        .sport-message {
+            font-size: 12px;
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .sport-success {
+            color: #155724;
+            background-color: #d4edda;
+        }
+
+        .sport-error {
+            color: #721c24;
+            background-color: #f8d7da;
+        }
+
+        .sport-warning {
+            color: #856404;
+            background-color: #fff3cd;
+        }
+
+        /* ---------- Retoques visuales sobre los estilos del plugin ---------- */
+        .form-control {
+            border-radius: 10px;
+            padding: 11px 14px;
+        }
+
+        .sport-message {
+            padding: 6px 10px;
+            border-left: 4px solid currentColor;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .cabecera,
+            form {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="tarjeta">
+        <header class="cabecera">
+            <div class="icono" aria-hidden="true">🏅</div>
+            <h1>Formulario de Inscripción Deportiva</h1>
+            <p>Completa tus datos para reservar plaza en tu actividad</p>
+        </header>
+
+        <form id="inscripcionDeportiva">
+            <div class="form-group">
+                <label for="nombre">Nombre del participante:</label>
+                <input type="text" id="nombre" class="form-control" data-sport-type="nombre"
+                       placeholder="Introduce tu nombre completo">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email de contacto:</label>
+                <input type="email" id="email" class="form-control" data-sport-type="email"
+                       placeholder="ejemplo@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="edad">Edad del participante:</label>
+                <input type="number" id="edad" class="form-control" data-sport-type="edad"
+                       placeholder="Edad entre 16 y 65 años">
+            </div>
+
+            <div class="form-group">
+                <label for="actividad">Actividad deportiva:</label>
+                <select id="actividad" class="form-control" data-sport-type="actividad">
+                    <option value="">Selecciona una actividad</option>
+                    <option value="natacion">Natación</option>
+                    <option value="spinning">Spinning</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="crossfit">CrossFit</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experiencia">Experiencia previa:</label>
+                <select id="experiencia" class="form-control" data-sport-type="experiencia">
+                    <option value="">Selecciona tu nivel</option>
+                    <option value="principiante">Principiante</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="sport-validator.js"></script>
+    <script>
+        // Aplicación del plugin al formulario
+        $(document).ready(function () {
+            $("#inscripcionDeportiva").sportValidator();
+        });
+    </script>
+</body>
+</html>

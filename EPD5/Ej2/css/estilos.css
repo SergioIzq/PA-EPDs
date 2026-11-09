@@ -1,0 +1,263 @@
+/* ---------- Variables de diseño ---------- */
+:root {
+    --fondo: #120b24;
+    --tarjeta: #ffffff;
+    --texto: #1f1a2e;
+    --texto-suave: #6b6585;
+    --primario: #7b2ff7;
+    --secundario: #f107a3;
+    --borde: #ddd8ec;
+    --error: #d6336c;
+    --error-fondo: #fdeef4;
+    --ok: #2f9e6e;
+    --radio: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(241, 7, 163, 0.35), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(123, 47, 247, 0.45), transparent 45%),
+        var(--fondo);
+    background-attachment: fixed;
+}
+
+/* ---------- Cabecera ---------- */
+header {
+    padding: 48px 16px 32px;
+    text-align: center;
+    color: #fff;
+}
+
+.etiqueta {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 4px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #ffd1f0, #ffffff, #d9c2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    margin: 10px 0 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Paneles ---------- */
+main {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 16px 48px;
+}
+
+#formulario-reserva,
+#panel-resumen {
+    padding: 28px 28px 32px;
+    background-color: var(--tarjeta);
+    border-radius: var(--radio);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* El resumen está oculto inicialmente */
+#panel-resumen {
+    display: none;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 22px;
+}
+
+/* ---------- Campos ---------- */
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="number"],
+.campo select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid var(--borde);
+    border-radius: 10px;
+    font: inherit;
+    font-size: 15px;
+    color: var(--texto);
+    background-color: #faf9fe;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--primario);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(123, 47, 247, 0.15);
+}
+
+/* Campo con error (clase añadida por jQuery) */
+.campo input.invalido,
+.campo select.invalido {
+    border-color: var(--error);
+    background-color: var(--error-fondo);
+}
+
+.campo-check {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.campo-check input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--primario);
+}
+
+.campo-check label {
+    margin: 0;
+    font-weight: 500;
+}
+
+.campo-check .error {
+    flex-basis: 100%;
+}
+
+/* Mensajes de error: ocultos inicialmente */
+.error {
+    display: none;
+    margin-top: 6px;
+    padding: 7px 12px;
+    border-left: 4px solid var(--error);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--error);
+    background-color: var(--error-fondo);
+}
+
+/* ---------- Botones ---------- */
+button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, var(--primario), var(--secundario));
+    box-shadow: 0 8px 20px rgba(123, 47, 247, 0.35);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(123, 47, 247, 0.45);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ---------- Resumen ---------- */
+.confirmado {
+    margin: -4px 0 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--ok);
+    background-color: #e9f8f1;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 20px;
+    margin: 0 0 24px;
+    padding: 20px;
+    border: 2px dashed var(--borde);
+    border-radius: var(--radio);
+}
+
+dt {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+dd {
+    margin: 0;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+/* ---------- Datepicker a juego con la página ---------- */
+.ui-datepicker {
+    padding: 8px;
+    border: none !important;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    font-family: inherit;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background: linear-gradient(90deg, var(--primario), var(--secundario));
+}
+
+.ui-datepicker .ui-state-active {
+    border-color: var(--primario);
+    background: var(--primario);
+}
+
+@media (max-width: 480px) {
+    #formulario-reserva,
+    #panel-resumen {
+        padding: 22px 18px 24px;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    dd {
+        margin-bottom: 10px;
+    }
+}
