@@ -1,0 +1,12 @@
+body { font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 16px; }
+.form-group { margin: 15px 0; }
+.form-control { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+
+/* Estilos que aplica el plugin */
+.sport-valid { border-color: #28a745; background-color: #f8fff9; }
+.sport-invalid { border-color: #dc3545; background-color: #fff8f8; }
+.sport-pending { border-color: #ffc107; background-color: #fffdf5; }
+.sport-message { font-size: 12px; margin-top: 5px; padding: 5px; border-radius: 3px; }
+.sport-success { color: #155724; background-color: #d4edda; }
+.sport-error { color: #721c24; background-color: #f8d7da; }
+.sport-warning { color: #856404; background-color: #fff3cd; }

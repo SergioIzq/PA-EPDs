@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plugin SportValidator - Validación Deportiva</title>
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <h1>Formulario de Inscripción Deportiva</h1>
+
+        <form id="inscripcionDeportiva">
+            <div class="form-group">
+                <label for="nombre">Nombre del participante:</label>
+                <input id="nombre" type="text" class="form-control" data-sport-type="nombre"
+                       placeholder="Introduce tu nombre completo">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email de contacto:</label>
+                <input id="email" type="email" class="form-control" data-sport-type="email"
+                       placeholder="ejemplo@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="edad">Edad del participante:</label>
+                <input id="edad" type="number" class="form-control" data-sport-type="edad"
+                       placeholder="Edad entre 16 y 65 años">
+            </div>
+
+            <div class="form-group">
+                <label for="actividad">Actividad deportiva:</label>
+                <select id="actividad" class="form-control" data-sport-type="actividad">
+                    <option value="">Selecciona una actividad</option>
+                    <option value="natacion">Natación</option>
+                    <option value="spinning">Spinning</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="crossfit">CrossFit</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experiencia">Experiencia previa:</label>
+                <select id="experiencia" class="form-control" data-sport-type="experiencia">
+                    <option value="">Selecciona tu nivel</option>
+                    <option value="principiante">Principiante</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+            </div>
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="sport-validator.js"></script>
+        <script>
+            $(function () {
+                $("#inscripcionDeportiva").sportValidator();
+            });
+        </script>
+    </body>
+</html>
