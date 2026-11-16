@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 
         function procesarRegistrosActividades($cadenaEntrada) {
             //devuelve un array de strings, cada una siendo una substring creada a partir de separar la cadena original por el separador indicado en el primer param
-            $lineas = explode("/n", trim($cadenaEntrada)); //trim quita los espacios en blanco
+            $lineas = explode("\n", trim($cadenaEntrada)); //trim quita los espacios en blanco
             $ids = array();
             $acts = array();
             $durs = array();
@@ -17,7 +18,7 @@
 
             //procesar cadena linea por linea
             for ($i = 0; $i < count($lineas); $i++) {
-                $linea = trum($lineas[$i]); //limpiamos cada cadena de espacios en blanco
+                $linea = trim($lineas[$i]); //limpiamos cada cadena de espacios en blanco
                 if ($linea != "") {
                     $campos = explode("@@", $linea);
                     $ids[] = $campos[0];
@@ -41,13 +42,13 @@
                 if (!in_array($ids[$j], $socios)) {
                     $socios[] = $ids[$j];
                 }
-                //isset comprueba si una variable esta definidia y tiene unvaor distinto de null
+                //isset comprueba si una variable esta definidia y tiene un valor distinto de null
                 if (!isset($contActG[$acts[$j]])) {
                     $contActG[$acts[$j]] = 0;
                 }
-                $contActG[$acts[$j]]++;
-                if (!isset($contActG[$instrs[$j]])) {
-                    $contActG[$instrs[$j]] = 0;
+                $contActG[$acts[$j]]++; //
+                if (!isset($contInstG[$instrs[$j]])) {
+                    $contInstG[$instrs[$j]] = 0;
                 }
                 $contInstG[$instrs[$j]]++;
                 $totalMin += $durs[$j];
@@ -61,19 +62,117 @@
 
             //tabla por socio
             $html = "<h2>Resumen por socio</h2>";
-            $html .= "<table border='1'";
+            $html .= "<table border='1'>";
             $html .= "<tr><th>ID socio</th><th>Total minutos</th><th>Nº actividades</th>"
                     . "<th>Actividad favorita</th><th>Período de actividad</th>"
-                    . "<th>Días activo</th><th>Instructor principal</th>";
+                    . "<th>Días activo</th><th>Instructor principal</th></tr>";
             $mejorSocio = "";
             $mejorMin = 0;
 
-            //estadisticas
+            //estadisticas por socio
             for ($i = 0; $i < count($socios); $i++) {
-                
-            }
-            //calcular estadísticas por socio y globales
+                $minutos = 0;
+                $sesiones = 0;
+                $contAct = array();
+                $contInstr = array();
+                $primera = null;
+                $ultima = null;
 
+                for ($j = 0; $j < $n; $j++) {
+                    if ($ids[$j] == $socios[$i]) {
+                        $minutos += $durs[$j];
+                        $sesiones++;
+                        if (!isset($contAct[$acts[$j]])) {
+                            $contAct[$acts[$j]] = 0;
+                        }
+                        $contAct[$acts[$j]]++;
+                        if (!isset($contInstr[$instrs[$j]])) {
+                            $contInstr[$instrs[$j]] = 0;
+                        }
+                        $contInstr[$instrs[$j]]++;
+                        if ($primera === null || $fechas[$j] < $primera) {
+                            $primera = $fechas[$j];
+                        }
+                        if ($ultima === null || $fechas[$j] > $ultima) {
+                            $ultima = $fechas[$j];
+                        }
+                    }
+                }
+
+                //actividades más frecuentes, con empates
+                $maxAct = max($contAct);
+                $favoritas = array();
+                //en cada vuelta se guarda la clave de la actividad y la guarda en nombre, y el valor va a 'veces'
+                foreach ($contAct as $nombre => $veces) {
+                    if ($veces == $maxAct) { //si coincide con el maximo, se guarda en el array de favoritas
+                        $favoritas[] = $nombre;
+                    }
+                }
+
+                //instructores principales, con empates
+                $maxInstr = max($contInstr);
+                $principales = array();
+                foreach ($contInstr as $nombre => $veces) {
+                    if ($veces == $maxInstr) {
+                        $principales[] = $nombre;
+                    }
+                }
+
+                //días entre la primera y la última fecha
+                $diferencia = date_diff($primera, $ultima);
+                $dias = date_interval_format($diferencia, '%a');
+
+                if ($minutos > $mejorMin) {
+                    $mejorMin = $minutos;
+                    $mejorSocio = $socios[$i];
+                }
+
+                $html .= "<tr>";
+                $html .= "<td>" . $socios[$i] . "</td>";
+                $html .= "<td>" . $minutos . "</td>";
+                $html .= "<td>" . $sesiones . "</td>";
+                $html .= "<td>" . implode(", ", $favoritas) . "</td>";
+                $html .= "<td>" . date_format($primera, 'd/m/Y') . " - " . date_format($ultima, 'd/m/Y') . "</td>";
+                $html .= "<td>" . $dias . "</td>";
+                $html .= "<td>" . implode(", ", $principales) . "</td>";
+                $html .= "</tr>";
+            }
+            $html .= "</table>";
+
+            // 4. Estadísticas globales
+            $maxActG = max($contActG);
+            $populares = array();
+            foreach ($contActG as $nombre => $veces) {
+                if ($veces == $maxActG) {
+                    $populares[] = $nombre;
+                }
+            }
+            $maxInstrG = max($contInstG);
+            $solicitados = array();
+            foreach ($contInstG as $nombre => $veces) {
+                if ($veces == $maxInstrG) {
+                    $solicitados[] = $nombre;
+                }
+            }
+
+            $html .= "<h2>Estadísticas globales</h2>";
+            $html .= "<ul>";
+            $html .= "<li>Socio más activo: " . $mejorSocio . " (" . $mejorMin . " minutos)</li>";
+            $html .= "<li>Actividad más popular: " . implode(", ", $populares) . " (" . $maxActG . " sesiones)</li>";
+            $html .= "<li>Instructor más solicitado: " . implode(", ", $solicitados) . " (" . $maxInstrG . " sesiones)</li>";
+            $html .= "<li>Promedio por sesión: " . number_format($totalMin / $n, 1) . " minutos</li>";
+            $html .= "</ul>";
+
+            $html .= "<h2>Características del conjunto de datos</h2>";
+            $html .= "<ul>";
+            $html .= "<li>" . $n . " registros de actividades</li>";
+            $html .= "<li>" . count($socios) . " socios diferentes</li>";
+            $html .= "<li>" . count($contActG) . " actividades: " . implode(", ", array_keys($contActG)) . "</li>";
+            $html .= "<li>" . count($contInstG) . " instructores diferentes</li>";
+            $html .= "<li>Fechas desde " . date_format($fMin, 'd/m/Y') . " hasta " . date_format($fMax, 'd/m/Y') . "</li>";
+            $html .= "</ul>";
+
+            return $html;
         }
 
         $datos = <<<TXT
@@ -129,6 +228,9 @@ SOC005@@Spinning@@45@@30/01/2025@@Ana López@@Sala1
 SOC011@@Pilates@@55@@30/01/2025@@Laura Martín@@Sala3
 SOC006@@Natación@@40@@30/01/2025@@Miguel Torres@@Piscina1
 TXT;
+
+        echo "<h1>Informe de actividades</h1>";
+        echo procesarRegistrosActividades($datos);
         ?>
     </body>
 </html>
